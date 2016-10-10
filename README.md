@@ -42,7 +42,7 @@ Locally, to get egoweb to run I ...
 
 `sudo vi /opt/local/apache2/conf/httpd.conf`
 
-```
+```BASH
 LoadModule rewrite_module modules/mod_rewrite.so
 LoadModule php7_module        modules/mod_php70.so
 <FilesMatch \.php$>
@@ -58,7 +58,8 @@ AllowOverride All
 Uncommented `extension=php_pdo_mysql.dll`
 
 Added ... (not sure why pdo_mysql and not mysql or mysqli)
-```
+
+```BASH
 pdo_mysql.default_socket= "/opt/local/var/run/mariadb/mysqld.sock"
 pdo_mysql.default_host = localhost
 pdo_mysql.default_user = root 
@@ -66,7 +67,7 @@ pdo_mysql.default_user = root
 
 EgoWeb seems to NEED to be root app and not run in a subdir. 
 
-```
+```BASH
 cd /opt/local/apache2/
 sudo mv htdocs htdocs.original
 git clone https://github.com/qualintitative/egoweb
@@ -88,7 +89,7 @@ Boom.
 
 
 
-##	App Creation
+##	Creation
 
 Noted EgoWeb oddities.
 interviewId isn't always an INT.
@@ -120,3 +121,18 @@ Testing pointed them out and I editted them.
 I only wanted to browse existing, so I deleted all routes, actions, views and tests for new, create, edit, update and destroy.
 
 
+##	Installation
+
+This is a simple rails app. Seriously, nothing special.
+
+
+```BASH
+git clone https://github.com/unreno/ego_browse
+bundle install
+cp config/database.yml.example config/database.yml
+vi config/database.yml
+cp config/secrets.yml.example config/secrets.yml
+vi config/secrets.yml
+rails server -d
+open http://localhost:3000
+```
