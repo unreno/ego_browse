@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Question Options</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Active</th>
+      <th>Studyid</th>
+      <th>QuestionId</th>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Ordering</th>
+      <th>Otherspecify</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @question_options.each do |question_option| %>
+      <tr>
+        <td><%= question_option.active %></td>
+        <td><%= question_option.studyId %></td>
+        <td><%= question_option.questionId %></td>
+        <td><%= question_option.name %></td>
+        <td><%= question_option.value %></td>
+        <td><%= question_option.ordering %></td>
+        <td><%= question_option.otherSpecify %></td>
+        <td><%= link_to 'Show', question_option %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

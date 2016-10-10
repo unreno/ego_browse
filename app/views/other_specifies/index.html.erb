@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Other Specifies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Optionid</th>
+      <th>Interviewid</th>
+      <th>Value</th>
+      <th>Alterid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @other_specifies.each do |other_specify| %>
+      <tr>
+        <td><%= other_specify.optionId %></td>
+        <td><%= other_specify.interviewId %></td>
+        <td><%= other_specify.value %></td>
+        <td><%= other_specify.alterId %></td>
+        <td><%= link_to 'Show', other_specify %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

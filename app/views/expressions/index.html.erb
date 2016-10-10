@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Expressions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Active</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Operator</th>
+      <th>Value</th>
+      <th>Resultforunanswered</th>
+      <th>Studyid</th>
+      <th>Questionid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expressions.each do |expression| %>
+      <tr>
+        <td><%= expression.active %></td>
+        <td><%= expression.name %></td>
+        <td><%= expression.type %></td>
+        <td><%= expression.operator %></td>
+        <td><%= expression.value %></td>
+        <td><%= expression.resultForUnanswered %></td>
+        <td><%= expression.studyId %></td>
+        <td><%= expression.questionId %></td>
+        <td><%= link_to 'Show', expression %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

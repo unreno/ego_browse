@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Alter Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Studyid</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Ordering</th>
+      <th>Interviewerid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alter_lists.each do |alter_list| %>
+      <tr>
+        <td><%= alter_list.studyId %></td>
+        <td><%= alter_list.name %></td>
+        <td><%= alter_list.email %></td>
+        <td><%= alter_list.ordering %></td>
+        <td><%= alter_list.interviewerId %></td>
+        <td><%= link_to 'Show', alter_list %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

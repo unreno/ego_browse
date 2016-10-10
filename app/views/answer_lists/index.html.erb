@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Answer Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Active</th>
+      <th>Listname</th>
+      <th>Studyid</th>
+      <th>Listoptionnames</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @answer_lists.each do |answer_list| %>
+      <tr>
+        <td><%= answer_list.active %></td>
+        <td><%= answer_list.listName %></td>
+        <td><%= answer_list.studyId %></td>
+        <td><%= answer_list.listOptionNames %></td>
+        <td><%= link_to 'Show', answer_list %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

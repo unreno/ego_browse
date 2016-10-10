@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Studies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Active</th>
+      <th>Name</th>
+      <th>Introduction</th>
+      <th>Egoidprompt</th>
+      <th>Alterprompt</th>
+      <th>Conclusion</th>
+      <th>Minalters</th>
+      <th>Maxalters</th>
+      <th>Valuerefusal</th>
+      <th>Valuedontknow</th>
+      <th>Valuelogicalskip</th>
+      <th>Valuenotyetanswered</th>
+      <th>Modified</th>
+      <th>Multisessionegoid</th>
+      <th>Useasalters</th>
+      <th>Restrictalters</th>
+      <th>Fillalterlist</th>
+      <th>Created date</th>
+      <th>Closed date</th>
+      <th>Status</th>
+      <th>Userid</th>
+      <th>Hideegoidpage</th>
+      <th>Style</th>
+      <th>Javascript</th>
+      <th>Footer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @studies.each do |study| %>
+      <tr>
+        <td><%= study.active %></td>
+        <td><%= study.name %></td>
+        <td><%= study.introduction %></td>
+        <td><%= study.egoIdPrompt %></td>
+        <td><%= study.alterPrompt %></td>
+        <td><%= study.conclusion %></td>
+        <td><%= study.minAlters %></td>
+        <td><%= study.maxAlters %></td>
+        <td><%= study.valueRefusal %></td>
+        <td><%= study.valueDontKnow %></td>
+        <td><%= study.valueLogicalSkip %></td>
+        <td><%= study.valueNotYetAnswered %></td>
+        <td><%= study.modified %></td>
+        <td><%= study.multiSessionEgoId %></td>
+        <td><%= study.useAsAlters %></td>
+        <td><%= study.restrictAlters %></td>
+        <td><%= study.fillAlterList %></td>
+        <td><%= study.created_date %></td>
+        <td><%= study.closed_date %></td>
+        <td><%= study.status %></td>
+        <td><%= study.userId %></td>
+        <td><%= study.hideEgoIdPage %></td>
+        <td><%= study.style %></td>
+        <td><%= study.javascript %></td>
+        <td><%= study.footer %></td>
+        <td><%= link_to 'Show', study %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

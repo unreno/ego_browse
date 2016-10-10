@@ -1,0 +1,115 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Active</th>
+      <th>Title</th>
+      <th>Prompt</th>
+      <th>Preface</th>
+      <th>Citation</th>
+      <th>Subjecttype</th>
+      <th>G</th>
+      <th>Wertype</th>
+      <th>Askingstylelist</th>
+      <th>Ordering</th>
+      <th>Otherspecify</th>
+      <th>Nonebutton</th>
+      <th>Allbutton</th>
+      <th>Pageleveldontknowbutton</th>
+      <th>Pagelevelrefusebutton</th>
+      <th>Drails</th>
+      <th>Wbutton</th>
+      <th>Refusebutton</th>
+      <th>Alloptionstring</th>
+      <th>Uselfexpression</th>
+      <th>Minlimittype</th>
+      <th>Minliteral</th>
+      <th>Rails</th>
+      <th>G</th>
+      <th>Scaffoxt</th>
+      <th>Maxlimittype</th>
+      <th>Maxliteral</th>
+      <th>Maxprevques</th>
+      <th>Mincheckableboxes</th>
+      <th>Maxcheckableboxes</th>
+      <th>Withlistrange</th>
+      <th>Listrangestring</th>
+      <th>Minlistrange</th>
+      <th>G</th>
+      <th>Sistrange</th>
+      <th>Timeunits</th>
+      <th>Symmetric</th>
+      <th>Keeponsamepage</th>
+      <th>Studyid</th>
+      <th>Answerreasonexpressionid</th>
+      <th>Networkrelationshipexprid</th>
+      <th>Networkparams</th>
+      <th>Networkncolorqid</th>
+      <th>Networknsizeqid</th>
+      <th>Networkecolorqid</th>
+      <th>Networkesizeqid</th>
+      <th>Usealterlisrailld</th>
+      <th>Javascript</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.active %></td>
+        <td><%= question.title %></td>
+        <td><%= question.prompt %></td>
+        <td><%= question.preface %></td>
+        <td><%= question.citation %></td>
+        <td><%= question.subjectType %></td>
+        <td><%= question.g %></td>
+        <td><%= question.werType %></td>
+        <td><%= question.askingStyleList %></td>
+        <td><%= question.ordering %></td>
+        <td><%= question.otherSpecify %></td>
+        <td><%= question.noneButton %></td>
+        <td><%= question.allButton %></td>
+        <td><%= question.pageLevelDontKnowButton %></td>
+        <td><%= question.pageLevelRefuseButton %></td>
+        <td><%= question.drails %></td>
+        <td><%= question.wButton %></td>
+        <td><%= question.refuseButton %></td>
+        <td><%= question.allOptionString %></td>
+        <td><%= question.uselfExpression %></td>
+        <td><%= question.minLimitType %></td>
+        <td><%= question.minLiteral %></td>
+        <td><%= question.rails %></td>
+        <td><%= question.g %></td>
+        <td><%= question.scaffoxt %></td>
+        <td><%= question.maxLimitType %></td>
+        <td><%= question.maxLiteral %></td>
+        <td><%= question.maxPrevQues %></td>
+        <td><%= question.minCheckableBoxes %></td>
+        <td><%= question.maxCheckableBoxes %></td>
+        <td><%= question.withListRange %></td>
+        <td><%= question.listRangeString %></td>
+        <td><%= question.minListRange %></td>
+        <td><%= question.g %></td>
+        <td><%= question.sistRange %></td>
+        <td><%= question.timeUnits %></td>
+        <td><%= question.symmetric %></td>
+        <td><%= question.keepOnSamePage %></td>
+        <td><%= question.studyId %></td>
+        <td><%= question.answerReasonExpressionId %></td>
+        <td><%= question.networkRelationshipExprId %></td>
+        <td><%= question.networkParams %></td>
+        <td><%= question.networkNColorQId %></td>
+        <td><%= question.networkNSizeQId %></td>
+        <td><%= question.networkEColorQId %></td>
+        <td><%= question.networkESizeQId %></td>
+        <td><%= question.useAlterLisrailld %></td>
+        <td><%= question.javascript %></td>
+        <td><%= link_to 'Show', question %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

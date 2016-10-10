@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Graphs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Interviewid</th>
+      <th>Expressionid</th>
+      <th>Nodes</th>
+      <th>Params</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @graphs.each do |graph| %>
+      <tr>
+        <td><%= graph.interviewId %></td>
+        <td><%= graph.expressionId %></td>
+        <td><%= graph.nodes %></td>
+        <td><%= graph.params %></td>
+        <td><%= link_to 'Show', graph %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

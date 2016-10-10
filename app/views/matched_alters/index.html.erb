@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Matched Alters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Studyid</th>
+      <th>Alterid1</th>
+      <th>Alterid2</th>
+      <th>Matchedname</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @matched_alters.each do |matched_alter| %>
+      <tr>
+        <td><%= matched_alter.studyId %></td>
+        <td><%= matched_alter.alterId1 %></td>
+        <td><%= matched_alter.alterId2 %></td>
+        <td><%= matched_alter.matchedName %></td>
+        <td><%= link_to 'Show', matched_alter %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
