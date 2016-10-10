@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  active: 1
+  listName: MyText
+  studyId: 1
+  listOptionNames: MyText
+
+two:
+  active: 1
+  listName: MyText
+  studyId: 1
+  listOptionNames: MyText

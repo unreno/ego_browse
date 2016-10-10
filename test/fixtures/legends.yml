@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  studyId: 1
+  questionId: 1
+  shape: MyString
+  label: MyString
+  color: MyString
+  size: 1
+  ordering: 1
+
+two:
+  studyId: 1
+  questionId: 1
+  shape: MyString
+  label: MyString
+  color: MyString
+  size: 1
+  ordering: 1

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  studyId: 1
+  afterAltersEntered: 1
+  display: MyText
+
+two:
+  studyId: 1
+  afterAltersEntered: 1
+  display: MyText

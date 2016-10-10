@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  active: 1
+  questionId: 1
+  interviewId: 1
+  alterId1: 1
+  alterId2: 1
+  value: MyText
+  otherSpecifyText: MyText
+  skipReason: MyText
+  studyId: 1
+  questionType: MyText
+  answerType: MyText
+
+two:
+  active: 1
+  questionId: 1
+  interviewId: 1
+  alterId1: 1
+  alterId2: 1
+  value: MyText
+  otherSpecifyText: MyText
+  skipReason: MyText
+  studyId: 1
+  questionType: MyText
+  answerType: MyText

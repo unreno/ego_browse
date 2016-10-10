@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  active: 1
+  ordering: 1
+  name: MyText
+  interviewId: MyText
+  alterListId: 1
+
+two:
+  active: 1
+  ordering: 1
+  name: MyText
+  interviewId: MyText
+  alterListId: 1

@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  active: 1
+  name: MyText
+  introduction: MyText
+  egoIdPrompt: MyText
+  alterPrompt: MyText
+  conclusion: MyText
+  minAlters: 1
+  maxAlters: 1
+  valueRefusal: 1
+  valueDontKnow: 1
+  valueLogicalSkip: 1
+  valueNotYetAnswered: 1
+  modified: 2016-10-10 11:17:30
+  multiSessionEgoId: 1
+  useAsAlters: false
+  restrictAlters: false
+  fillAlterList: false
+  created_date: 1
+  closed_date: 1
+  status: 1
+  userId: 1
+  hideEgoIdPage: false
+  style: MyText
+  javascript: MyText
+  footer: MyText
+
+two:
+  active: 1
+  name: MyText
+  introduction: MyText
+  egoIdPrompt: MyText
+  alterPrompt: MyText
+  conclusion: MyText
+  minAlters: 1
+  maxAlters: 1
+  valueRefusal: 1
+  valueDontKnow: 1
+  valueLogicalSkip: 1
+  valueNotYetAnswered: 1
+  modified: 2016-10-10 11:17:30
+  multiSessionEgoId: 1
+  useAsAlters: false
+  restrictAlters: false
+  fillAlterList: false
+  created_date: 1
+  closed_date: 1
+  status: 1
+  userId: 1
+  hideEgoIdPage: false
+  style: MyText
+  javascript: MyText
+  footer: MyText

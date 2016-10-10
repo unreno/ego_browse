@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  studyId: 1
+  alterId1: 1
+  alterId2: 1
+  matchedName: MyString
+
+two:
+  studyId: 1
+  alterId1: 1
+  alterId2: 1
+  matchedName: MyString

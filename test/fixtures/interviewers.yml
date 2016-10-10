@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  studyId: 1
+  interviewerId: 1
+
+two:
+  studyId: 1
+  interviewerId: 1

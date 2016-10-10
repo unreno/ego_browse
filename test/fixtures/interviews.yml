@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  active: false
+  studyId: 1
+  completed: 1
+  start_date: 1
+  complete_date: 1
+
+two:
+  active: false
+  studyId: 1
+  completed: 1
+  start_date: 1
+  complete_date: 1

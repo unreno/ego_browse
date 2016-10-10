@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  active: 1
+  studyId: 1
+  questionId: 1
+  name: MyText
+  value: MyText
+  ordering: 1
+  otherSpecify: false
+
+two:
+  active: 1
+  studyId: 1
+  questionId: 1
+  name: MyText
+  value: MyText
+  ordering: 1
+  otherSpecify: false

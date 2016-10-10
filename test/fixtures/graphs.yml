@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  interviewId: 1
+  expressionId: 1
+  nodes: MyText
+  params: MyText
+
+two:
+  interviewId: 1
+  expressionId: 1
+  nodes: MyText
+  params: MyText

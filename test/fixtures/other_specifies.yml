@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  optionId: 1
+  interviewId: 1
+  value: MyString
+  alterId: 1
+
+two:
+  optionId: 1
+  interviewId: 1
+  value: MyString
+  alterId: 1

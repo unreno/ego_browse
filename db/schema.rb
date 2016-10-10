@@ -1,0 +1,222 @@
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 0) do
+
+  create_table "alterList", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "studyId",                     null: false
+    t.text    "name",          limit: 65535, null: false
+    t.text    "email",         limit: 65535, null: false
+    t.integer "ordering",                    null: false
+    t.integer "interviewerId",               null: false
+  end
+
+  create_table "alterPrompt", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "studyId",                          null: false
+    t.integer "afterAltersEntered",               null: false
+    t.text    "display",            limit: 65535, null: false
+  end
+
+  create_table "alters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "active"
+    t.integer "ordering",                  null: false
+    t.text    "name",        limit: 65535, null: false
+    t.text    "interviewId", limit: 65535, null: false
+    t.integer "alterListId"
+  end
+
+  create_table "answer", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "active"
+    t.integer "questionId"
+    t.integer "interviewId"
+    t.integer "alterId1"
+    t.integer "alterId2"
+    t.text    "value",            limit: 65535
+    t.text    "otherSpecifyText", limit: 65535
+    t.text    "skipReason",       limit: 65535
+    t.integer "studyId"
+    t.text    "questionType",     limit: 65535
+    t.text    "answerType",       limit: 65535
+    t.index ["questionId", "interviewId", "alterId1", "alterId2"], name: "answerIndex", using: :btree
+  end
+
+  create_table "answerList", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "active"
+    t.text    "listName",        limit: 65535
+    t.integer "studyId"
+    t.text    "listOptionNames", limit: 65535
+  end
+
+  create_table "expression", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "active",                            default: 1
+    t.text    "name",                limit: 65535
+    t.text    "type",                limit: 65535
+    t.text    "operator",            limit: 65535
+    t.text    "value",               limit: 65535
+    t.boolean "resultForUnanswered"
+    t.integer "studyId"
+    t.integer "questionId"
+  end
+
+  create_table "graphs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "interviewId",                null: false
+    t.integer "expressionId",               null: false
+    t.text    "nodes",        limit: 65535, null: false, collation: "utf8mb4_general_ci"
+    t.text    "params",       limit: 65535, null: false, collation: "utf8mb4_general_ci"
+  end
+
+  create_table "interview", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "active",        default: true
+    t.integer "studyId"
+    t.integer "completed"
+    t.integer "start_date"
+    t.integer "complete_date"
+  end
+
+  create_table "interviewers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "studyId",       null: false
+    t.integer "interviewerId", null: false
+  end
+
+  create_table "legend", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "studyId",    null: false
+    t.integer "questionId", null: false
+    t.string  "shape",      null: false
+    t.string  "label"
+    t.string  "color"
+    t.integer "size"
+    t.integer "ordering"
+  end
+
+  create_table "matchedAlters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "studyId"
+    t.integer "alterId1"
+    t.integer "alterId2"
+    t.string  "matchedName", null: false
+  end
+
+  create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "interviewId",                null: false
+    t.integer "expressionId",               null: false
+    t.string  "alterId",      limit: 64
+    t.text    "notes",        limit: 65535, null: false, collation: "utf32_general_ci"
+  end
+
+  create_table "otherSpecify", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "optionId"
+    t.integer "interviewId"
+    t.string  "value",       null: false
+    t.integer "alterId"
+  end
+
+  create_table "question", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "active",                                       default: 1
+    t.text    "title",                     limit: 65535
+    t.text    "prompt",                    limit: 4294967295
+    t.text    "preface",                   limit: 4294967295
+    t.text    "citation",                  limit: 4294967295
+    t.text    "subjectType",               limit: 65535
+    t.text    "answerType",                limit: 65535
+    t.boolean "askingStyleList"
+    t.integer "ordering"
+    t.boolean "otherSpecify"
+    t.text    "noneButton",                limit: 65535
+    t.text    "allButton",                 limit: 65535
+    t.text    "pageLevelDontKnowButton",   limit: 65535
+    t.text    "pageLevelRefuseButton",     limit: 65535
+    t.boolean "dontKnowButton"
+    t.boolean "refuseButton"
+    t.text    "allOptionString",           limit: 65535
+    t.text    "uselfExpression",           limit: 65535
+    t.text    "minLimitType",              limit: 65535
+    t.integer "minLiteral"
+    t.text    "minPrevQues",               limit: 65535
+    t.text    "maxLimitType",              limit: 65535
+    t.integer "maxLiteral"
+    t.text    "maxPrevQues",               limit: 65535
+    t.integer "minCheckableBoxes"
+    t.integer "maxCheckableBoxes"
+    t.integer "withListRange"
+    t.text    "listRangeString",           limit: 65535
+    t.integer "minListRange"
+    t.integer "maxListRange"
+    t.integer "timeUnits"
+    t.integer "symmetric"
+    t.integer "keepOnSamePage"
+    t.integer "studyId"
+    t.integer "answerReasonExpressionId"
+    t.integer "networkRelationshipExprId"
+    t.text    "networkParams",             limit: 65535
+    t.integer "networkNColorQId"
+    t.integer "networkNSizeQId"
+    t.integer "networkEColorQId"
+    t.integer "networkESizeQId"
+    t.text    "useAlterListField",         limit: 65535
+    t.text    "javascript",                limit: 4294967295
+  end
+
+  create_table "questionOption", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "active",                     default: 1
+    t.integer "studyId"
+    t.integer "questionId"
+    t.text    "name",         limit: 65535
+    t.text    "value",        limit: 65535
+    t.integer "ordering"
+    t.boolean "otherSpecify"
+  end
+
+  create_table "session", id: :string, limit: 32, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "expire"
+    t.binary  "data",   limit: 4294967295
+  end
+
+  create_table "study", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "active",                                 default: 1,     null: false
+    t.text     "name",                limit: 65535,                      null: false
+    t.text     "introduction",        limit: 4294967295
+    t.text     "egoIdPrompt",         limit: 4294967295
+    t.text     "alterPrompt",         limit: 4294967295
+    t.text     "conclusion",          limit: 4294967295
+    t.integer  "minAlters",                              default: 0,     null: false
+    t.integer  "maxAlters",                              default: 20,    null: false
+    t.integer  "valueRefusal",                           default: -1
+    t.integer  "valueDontKnow",                          default: -2
+    t.integer  "valueLogicalSkip",                       default: -3
+    t.integer  "valueNotYetAnswered",                    default: -4,    null: false
+    t.datetime "modified"
+    t.integer  "multiSessionEgoId",                      default: 0,     null: false
+    t.boolean  "useAsAlters",                            default: false, null: false
+    t.boolean  "restrictAlters",                         default: false, null: false
+    t.boolean  "fillAlterList",                          default: false, null: false
+    t.integer  "created_date"
+    t.integer  "closed_date"
+    t.integer  "status"
+    t.integer  "userId",                                                 null: false
+    t.boolean  "hideEgoIdPage",                                          null: false
+    t.text     "style",               limit: 65535
+    t.text     "javascript",          limit: 4294967295
+    t.text     "footer",              limit: 4294967295
+  end
+
+  create_table "tbl_migration", primary_key: "version", id: :string, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "apply_time"
+  end
+
+  create_table "user", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.text     "email",        limit: 65535,             null: false
+    t.text     "password",     limit: 65535,             null: false
+    t.text     "name",         limit: 65535,             null: false
+    t.datetime "lastActivity",                           null: false
+    t.integer  "permissions",                default: 1, null: false
+  end
+
+end
