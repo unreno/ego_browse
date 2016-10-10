@@ -6,8 +6,7 @@
   <thead>
     <tr>
       <th>Interviewid</th>
-      <th>Expressirails</th>
-      <th>Nteger</th>
+      <th>Expressionid</th>
       <th>Alterid</th>
       <th>Notes</th>
       <th colspan="3"></th>
@@ -18,8 +17,7 @@
     <% @notes.each do |note| %>
       <tr>
         <td><%= note.interviewId %></td>
-        <td><%= note.expressirails %></td>
-        <td><%= note.nteger %></td>
+        <td><%= note.expressionId %></td>
         <td><%= note.alterId %></td>
         <td><%= note.notes %></td>
         <td><%= link_to 'Show', note %></td>

@@ -6,7 +6,7 @@ active isn't always an INT.
 ```BASH
 rails g scaffold AlterList studyId:integer name:text email:text ordering:integer interviewerId:integer  --no-migration --no-assets --no-fixture --no-jbuilder
 rails g scaffold AlterPrompt studyId:integer afterAltersEntered:integer display:text --no-migration --no-assets --no-fixture --no-jbuilder
-rails g scaffold Alter studyId:integer active:integer ordering:integer name:text interviewId:text alterListId:integer --no-migration --no-assets --no-fixture --no-jbuilder
+rails g scaffold Alter active:integer ordering:integer name:text interviewId:text alterListId:integer --no-migration --no-assets --no-fixture --no-jbuilder
 rails g scaffold Answer active:integer questionId:integer interviewId:integer alterId1:integer alterId2:integer value:text otherSpecifyText:text skipReason:text studyId:integer questionType:text answerType:text --no-migration --no-assets --no-fixture --no-jbuilder
 rails g scaffold AnswerList active:integer listName:text studyId:integer listOptionNames:text --no-migration --no-assets --no-fixture --no-jbuilder
 rails g scaffold Expression active:integer name:text type:text operator:text value:text resultForUnanswered:boolean studyId:integer questionId:integer --no-migration --no-assets --no-fixture --no-jbuilder
