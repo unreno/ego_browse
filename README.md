@@ -53,17 +53,26 @@ AllowOverride All
 </Directory>
 ```
 
-`sudo vi /opt/local/etc/php70/php.ini`
 
-Uncommented `extension=php_pdo_mysql.dll`
+
+
+`sudo cp /opt/local/etc/php70/php.ini.development /opt/local/etc/php70/php.ini`
+
+`sudo vi /opt/local/etc/php70/php.ini`
+Uncommented `extension=php_pdo_mysql.dll` (actually, this is irrelevant)
 
 Added ... (not sure why pdo_mysql and not mysql or mysqli)
+Also, may need to up file size limits if importing big file of existing study data.
 
 ```BASH
 pdo_mysql.default_socket= "/opt/local/var/run/mariadb/mysqld.sock"
 pdo_mysql.default_host = localhost
 pdo_mysql.default_user = root 
+
+post_max_size = 20M
+upload_max_filesize = 20M
 ```
+
 
 EgoWeb seems to NEED to be root app and not run in a subdir. 
 
@@ -75,7 +84,7 @@ sudo ln -s egoweb/app htdocs
 mysql -u root
 CREATE DATABASE egoweb DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 USE egoweb
-SOURCE /opt/local/apache2/egoweb/sql/egoweb_db.sql
+SOURCE /opt/local/apache2/htdocs.original/egoweb/sql/egoweb_db.sql
 CREATE USER 'egowebuser'@'localhost' IDENTIFIED BY 'egowebpass';
 GRANT ALL PRIVILEGES ON egoweb.* TO 'egowebuser'@'localhost';
 quit
