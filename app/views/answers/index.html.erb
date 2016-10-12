@@ -24,14 +24,14 @@
     <% @answers.each do |answer| %>
       <tr>
         <td><%= answer.active %></td>
-        <td><%= link_to answer.questionId, question_path( answer.questionId ) %></td>
-        <td><%= link_to answer.interviewId, interview_path( answer.interviewId ) %></td>
-        <td><%= link_to answer.alterId1, alter_path( answer.alterId1 ) %></td>
-        <td><%= link_to answer.alterId2, alter_path( answer.alterId2 ) %></td>
+        <td><%= link_to answer.questionId, answer.question %></td>
+        <td><%= link_to answer.interviewId, answer.interview %></td>
+        <td><%= link_to answer.alterId1, answer.alter1 %></td>
+        <td><%= link_to answer.alterId2, answer.alter2 %></td>
         <td><%= answer.value %></td>
         <td><%= answer.otherSpecifyText %></td>
         <td><%= answer.skipReason %></td>
-        <td><%= link_to answer.studyId, study_path( answer.studyId ) %></td>
+        <td><%= link_to answer.studyId, answer.study %></td>
         <td><%= answer.questionType %></td>
         <td><%= answer.answerType %></td>
         <td><%= link_to 'Show', answer %></td>

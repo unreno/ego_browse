@@ -17,9 +17,9 @@
     <% @other_specifies.each do |other_specify| %>
       <tr>
         <td><%= other_specify.optionId %></td>
-        <td><%= link_to other_specify.interviewId, interview_path( other_specify.interviewId ) %></td>
+        <td><%= link_to other_specify.interviewId, other_specify.interview %></td>
         <td><%= other_specify.value %></td>
-        <td><%= link_to other_specify.alterId, alter_path( other_specify.alterId ) %></td>
+        <td><%= link_to other_specify.alterId, other_specify.alter %></td>
         <td><%= link_to 'Show', other_specify %></td>
       </tr>
     <% end %>

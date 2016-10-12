@@ -2,17 +2,17 @@
 
 <p>
   <strong>Interviewid:</strong>
-  <%= link_to @note.interviewId, interview_path( @note.interviewId ) %>
+  <%= link_to @note.interviewId, @note.interview %>
 </p>
 
 <p>
   <strong>Expressionid:</strong>
-  <%= link_to @note.expressionId, expression_path( @note.expressionId ) %>
+  <%= link_to @note.expressionId, @note.expression %>
 </p>
 
 <p>
   <strong>Alterid:</strong>
-  <%= link_to @note.alterId, alter_path( @note.alterId ) %>
+  <%= link_to @note.alterId, @note.alter %>
 </p>
 
 <p>

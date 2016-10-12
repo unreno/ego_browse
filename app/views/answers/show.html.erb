@@ -7,22 +7,22 @@
 
 <p>
   <strong>Questionid:</strong>
-  <%= link_to @answer.questionId, question_path( @answer.questionId ) %>
+  <%= link_to @answer.questionId, @answer.question %>
 </p>
 
 <p>
   <strong>Interviewid:</strong>
-  <%= link_to @answer.interviewId, interview_path( @answer.interviewId ) %>
+  <%= link_to @answer.interviewId, @answer.interview %>
 </p>
 
 <p>
   <strong>Alterid1:</strong>
-  <%= link_to @answer.alterId1, alter_path( @answer.alterId1 ) %>
+  <%= link_to @answer.alterId1, @answer.alter1 %>
 </p>
 
 <p>
   <strong>Alterid2:</strong>
-  <%= link_to @answer.alterId2, alter_path( @answer.alterId2 ) %>
+  <%= link_to @answer.alterId2, @answer.alter2 %>
 </p>
 
 <p>
@@ -42,7 +42,7 @@
 
 <p>
   <strong>Studyid:</strong>
-  <%= link_to @answer.studyId, study_path( @answer.studyId ) %>
+  <%= link_to @answer.studyId, @answer.study %>
 </p>
 
 <p>

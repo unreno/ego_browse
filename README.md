@@ -103,6 +103,7 @@ Boom.
 Noted EgoWeb oddities.
 interviewId isn't always an INT.
 active isn't always an INT.
+interviewers table has interviewerId
 
 ```BASH
 rails g scaffold AlterList studyId:integer name:text email:text ordering:integer interviewerId:integer  --no-migration --no-assets --no-jbuilder

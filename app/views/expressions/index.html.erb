@@ -26,8 +26,8 @@
         <td><%= expression.operator %></td>
         <td><%= expression.value %></td>
         <td><%= expression.resultForUnanswered %></td>
-        <td><%= expression.studyId %></td>
-        <td><%= expression.questionId %></td>
+        <td><%= link_to expression.studyId, expression.study %></td>
+        <td><%= link_to expression.questionId, expression.question %></td>
         <td><%= link_to 'Show', expression %></td>
       </tr>
     <% end %>

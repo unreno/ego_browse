@@ -19,8 +19,8 @@
   <tbody>
     <% @legends.each do |legend| %>
       <tr>
-        <td><%= link_to legend.studyId, study_path( legend.studyId ) %></td>
-        <td><%= link_to legend.questionId, question_path( legend.questionId ) %></td>
+        <td><%= link_to legend.studyId, legend.study %></td>
+        <td><%= link_to legend.questionId, legend.question %></td>
         <td><%= legend.shape %></td>
         <td><%= legend.label %></td>
         <td><%= legend.color %></td>

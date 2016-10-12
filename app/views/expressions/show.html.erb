@@ -32,12 +32,12 @@
 
 <p>
   <strong>Studyid:</strong>
-  <%= @expression.studyId %>
+  <%= link_to @expression.studyId, @expression.study %>
 </p>
 
 <p>
   <strong>Questionid:</strong>
-  <%= @expression.questionId %>
+  <%= link_to @expression.questionId, @expression.question %>
 </p>
 
 <%= link_to 'Back', expressions_path %>

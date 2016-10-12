@@ -16,9 +16,9 @@
   <tbody>
     <% @matched_alters.each do |matched_alter| %>
       <tr>
-        <td><%= link_to matched_alter.studyId, study_path( matched_alter.studyId ) %></td>
-        <td><%= link_to matched_alter.alterId1, alter_path( matched_alter.alterId1 ) %></td>
-        <td><%= link_to matched_alter.alterId2, alter_path( matched_alter.alterId2 ) %></td>
+        <td><%= link_to matched_alter.studyId, matched_alter.study %></td>
+        <td><%= link_to matched_alter.alterId1, matched_alter.alter1 %></td>
+        <td><%= link_to matched_alter.alterId2, matched_alter.alter2 %></td>
         <td><%= matched_alter.matchedName %></td>
         <td><%= link_to 'Show', matched_alter %></td>
       </tr>

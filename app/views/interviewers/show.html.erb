@@ -2,12 +2,12 @@
 
 <p>
   <strong>Studyid:</strong>
-  <%= link_to @interviewer.studyId, study_path( @interviewer.studyId ) %>
+  <%= link_to @interviewer.studyId, @interviewer.study %>
 </p>
 
 <p>
   <strong>Interviewerid:</strong>
-  <%= link_to @interviewer.interviewerId, interview_path( @interviewer.interviewerId ) %>
+  <%= @interviewer.interviewerId %>
 </p>
 
 <%= link_to 'Back', interviewers_path %>

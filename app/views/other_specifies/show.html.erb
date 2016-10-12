@@ -7,7 +7,7 @@
 
 <p>
   <strong>Interviewid:</strong>
-  <%= link_to @other_specify.interviewId, interview_path( @other_specify.interviewId ) %>
+  <%= link_to @other_specify.interviewId, @other_specify.interview %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>Alterid:</strong>
-  <%= link_to @other_specify.alterId, alter_path( @other_specify.alterId ) %>
+  <%= link_to @other_specify.alterId, @other_specify.alter %>
 </p>
 
 <%= link_to 'Back', other_specifies_path %>
