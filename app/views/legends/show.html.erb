@@ -2,12 +2,12 @@
 
 <p>
   <strong>Studyid:</strong>
-  <%= @legend.studyId %>
+  <%= link_to @legend.studyId, study_path( @legend.studyId ) %>
 </p>
 
 <p>
   <strong>Questionid:</strong>
-  <%= @legend.questionId %>
+  <%= link_to @legend.questionId, question_path( @legend.questionId ) %>
 </p>
 
 <p>

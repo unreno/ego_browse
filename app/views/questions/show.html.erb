@@ -167,7 +167,7 @@
 
 <p>
   <strong>Studyid:</strong>
-  <%= @question.studyId %>
+  <%= link_to @question.studyId, study_path( @question.studyId ) %>
 </p>
 
 <p>

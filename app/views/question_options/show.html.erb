@@ -7,12 +7,12 @@
 
 <p>
   <strong>Studyid:</strong>
-  <%= @question_option.studyId %>
+  <%= link_to @question_option.studyId, study_path( @question_option.studyId ) %>
 </p>
 
 <p>
   <strong>Questionid:</strong>
-  <%= @question_option.questionId %>
+  <%= link_to @question_option.questionId, question_path( @question_option.questionId ) %>
 </p>
 
 <p>

@@ -57,7 +57,7 @@
         <td><%= study.created_date %></td>
         <td><%= study.closed_date %></td>
         <td><%= study.status %></td>
-        <td><%= study.userId %></td>
+        <td><%= link_to study.userId, user_path( study.userId ) %></td>
         <td><%= study.hideEgoIdPage %></td>
         <td><%= study.style %></td>
         <td><%= study.javascript %></td>

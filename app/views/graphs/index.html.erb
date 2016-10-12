@@ -16,8 +16,8 @@
   <tbody>
     <% @graphs.each do |graph| %>
       <tr>
-        <td><%= graph.interviewId %></td>
-        <td><%= graph.expressionId %></td>
+        <td><%= link_to graph.interviewId, interview_path( graph.interviewId ) %></td>
+        <td><%= link_to graph.expressionId, expression_path( graph.expressionId ) %></td>
         <td><%= graph.nodes %></td>
         <td><%= graph.params %></td>
         <td><%= link_to 'Show', graph %></td>

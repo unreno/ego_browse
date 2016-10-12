@@ -16,9 +16,9 @@
   <tbody>
     <% @notes.each do |note| %>
       <tr>
-        <td><%= note.interviewId %></td>
-        <td><%= note.expressionId %></td>
-        <td><%= note.alterId %></td>
+        <td><%= link_to note.interviewId, interview_path( note.interviewId ) %></td>
+        <td><%= link_to note.expressionId, expression_path( note.expressionId ) %></td>
+        <td><%= link_to note.alterId, alter_path( note.alterId ) %></td>
         <td><%= note.notes %></td>
         <td><%= link_to 'Show', note %></td>
       </tr>

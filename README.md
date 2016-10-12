@@ -84,7 +84,7 @@ sudo ln -s egoweb/app htdocs
 mysql -u root
 CREATE DATABASE egoweb DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 USE egoweb
-SOURCE /opt/local/apache2/htdocs.original/egoweb/sql/egoweb_db.sql
+SOURCE /opt/local/apache2/egoweb/sql/egoweb_db.sql
 CREATE USER 'egowebuser'@'localhost' IDENTIFIED BY 'egowebpass';
 GRANT ALL PRIVILEGES ON egoweb.* TO 'egowebuser'@'localhost';
 quit

@@ -2,17 +2,17 @@
 
 <p>
   <strong>Studyid:</strong>
-  <%= @matched_alter.studyId %>
+  <%= link_to @matched_alter.studyId, study_path( @matched_alter.studyId ) %>
 </p>
 
 <p>
   <strong>Alterid1:</strong>
-  <%= @matched_alter.alterId1 %>
+  <%= link_to @matched_alter.alterId1, alter_path( @matched_alter.alterId1 ) %>
 </p>
 
 <p>
   <strong>Alterid2:</strong>
-  <%= @matched_alter.alterId2 %>
+  <%= link_to @matched_alter.alterId2, alter_path( @matched_alter.alterId2 ) %>
 </p>
 
 <p>

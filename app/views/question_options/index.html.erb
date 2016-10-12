@@ -20,8 +20,8 @@
     <% @question_options.each do |question_option| %>
       <tr>
         <td><%= question_option.active %></td>
-        <td><%= question_option.studyId %></td>
-        <td><%= question_option.questionId %></td>
+        <td><%= link_to question_option.studyId, study_path(question_option.studyId) %></td>
+        <td><%= link_to question_option.questionId, question_path(question_option.questionId) %></td>
         <td><%= question_option.name %></td>
         <td><%= question_option.value %></td>
         <td><%= question_option.ordering %></td>

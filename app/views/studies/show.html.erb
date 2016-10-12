@@ -102,7 +102,7 @@
 
 <p>
   <strong>Userid:</strong>
-  <%= @study.userId %>
+  <%= link_to @study.userId, user_path( @study.userId ) %>
 </p>
 
 <p>

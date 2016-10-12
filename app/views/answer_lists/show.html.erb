@@ -12,7 +12,7 @@
 
 <p>
   <strong>Studyid:</strong>
-  <%= @answer_list.studyId %>
+  <%= link_to @answer_list.studyId, study_path( @answer_list.studyId ) %>
 </p>
 
 <p>

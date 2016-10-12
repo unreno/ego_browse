@@ -18,7 +18,7 @@
       <tr>
         <td><%= answer_list.active %></td>
         <td><%= answer_list.listName %></td>
-        <td><%= answer_list.studyId %></td>
+        <td><%= link_to answer_list.studyId, study_path( answer_list.studyId ) %></td>
         <td><%= answer_list.listOptionNames %></td>
         <td><%= link_to 'Show', answer_list %></td>
       </tr>

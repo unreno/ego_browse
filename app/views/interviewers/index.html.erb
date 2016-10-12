@@ -14,8 +14,8 @@
   <tbody>
     <% @interviewers.each do |interviewer| %>
       <tr>
-        <td><%= interviewer.studyId %></td>
-        <td><%= interviewer.interviewerId %></td>
+        <td><%= link_to interviewer.studyId, study_path( interviewer.studyId ) %></td>
+        <td><%= link_to interviewer.interviewerId, interview_path( interviewer.interviewerId ) %></td>
         <td><%= link_to 'Show', interviewer %></td>
       </tr>
     <% end %>

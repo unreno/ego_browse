@@ -2,12 +2,12 @@
 
 <p>
   <strong>Interviewid:</strong>
-  <%= @graph.interviewId %>
+  <%= link_to @graph.interviewId, interview_path( @graph.interviewId ) %>
 </p>
 
 <p>
   <strong>Expressionid:</strong>
-  <%= @graph.expressionId %>
+  <%= link_to @graph.expressionId, expression_path( @graph.expressionId ) %>
 </p>
 
 <p>

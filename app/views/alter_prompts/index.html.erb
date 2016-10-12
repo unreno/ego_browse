@@ -15,7 +15,7 @@
   <tbody>
     <% @alter_prompts.each do |alter_prompt| %>
       <tr>
-        <td><%= alter_prompt.studyId %></td>
+        <td><%= link_to alter_prompt.studyId, study_path( alter_prompt.studyId ) %></td>
         <td><%= alter_prompt.afterAltersEntered %></td>
         <td><%= alter_prompt.display %></td>
         <td><%= link_to 'Show', alter_prompt %></td>

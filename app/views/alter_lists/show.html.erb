@@ -2,7 +2,7 @@
 
 <p>
   <strong>Studyid:</strong>
-  <%= @alter_list.studyId %>
+  <%= link_to @alter_list.studyId, study_path( @alter_list.studyId ) %>
 </p>
 
 <p>
@@ -22,7 +22,7 @@
 
 <p>
   <strong>Interviewerid:</strong>
-  <%= @alter_list.interviewerId %>
+  <%= link_to @alter_list.interviewerId, interview_path( @alter_list.interviewerId ) %>
 </p>
 
 <%= link_to 'Back', alter_lists_path %>
