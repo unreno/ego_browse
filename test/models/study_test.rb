@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class StudyTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+	# test "the truth" do
+	#	 assert true
+	# end
 
 	test "responds to alter_lists" do
 		assert_empty self.class.name.gsub(/Test$/,'').constantize.new.alter_lists
