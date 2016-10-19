@@ -3,31 +3,31 @@
 <h1>Legends</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Studyid</th>
-      <th>Questionid</th>
-      <th>Shape</th>
-      <th>Label</th>
-      <th>Color</th>
-      <th>Size</th>
-      <th>Ordering</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+	<thead>
+		<tr>
+			<th>Studyid</th>
+			<th>Questionid</th>
+			<th>Shape</th>
+			<th>Label</th>
+			<th>Color</th>
+			<th>Size</th>
+			<th>Ordering</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @legends.each do |legend| %>
-      <tr>
-        <td><%= link_to legend.studyId, legend.study %></td>
-        <td><%= link_to legend.questionId, legend.question %></td>
-        <td><%= legend.shape %></td>
-        <td><%= legend.label %></td>
-        <td><%= legend.color %></td>
-        <td><%= legend.size %></td>
-        <td><%= legend.ordering %></td>
-        <td><%= link_to 'Show', legend %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @legends.each do |legend| %>
+			<tr>
+				<td><%= link_to legend.studyId, legend.study %></td>
+				<td><%= link_to legend.questionId, legend.question %></td>
+				<td><%= legend.shape %></td>
+				<td><%= legend.label %></td>
+				<td><%= legend.color %></td>
+				<td><%= legend.size %></td>
+				<td><%= legend.ordering %></td>
+				<td><%= link_to 'Show', legend %></td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>

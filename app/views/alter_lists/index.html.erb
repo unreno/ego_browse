@@ -3,27 +3,27 @@
 <h1>Alter Lists</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Studyid</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Ordering</th>
-      <th>Interviewerid</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+	<thead>
+		<tr>
+			<th>Studyid</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Ordering</th>
+			<th>Interviewerid</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @alter_lists.each do |alter_list| %>
-      <tr>
-        <td><%= link_to alter_list.studyId, alter_list.study %></td>
-        <td><%= alter_list.name %></td>
-        <td><%= alter_list.email %></td>
-        <td><%= alter_list.ordering %></td>
-        <td><%= link_to alter_list.interviewerId, alter_list.interviewer %></td>
-        <td><%= link_to 'Show', alter_list %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @alter_lists.each do |alter_list| %>
+			<tr>
+				<td><%= link_to alter_list.studyId, alter_list.study %></td>
+				<td><%= alter_list.name %></td>
+				<td><%= alter_list.email %></td>
+				<td><%= alter_list.ordering %></td>
+				<td><%= link_to alter_list.interviewerId, alter_list.interviewer %></td>
+				<td><%= link_to 'Show', alter_list %></td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>

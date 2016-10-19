@@ -1,43 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Active:</strong>
-  <%= @expression.active %>
+	<strong>Active:</strong>
+	<%= @expression.active %>
 </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @expression.name %>
+	<strong>Name:</strong>
+	<%= @expression.name %>
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @expression.type %>
+	<strong>Type:</strong>
+	<%= @expression.type %>
 </p>
 
 <p>
-  <strong>Operator:</strong>
-  <%= @expression.operator %>
+	<strong>Operator:</strong>
+	<%= @expression.operator %>
 </p>
 
 <p>
-  <strong>Value:</strong>
-  <%= @expression.value %>
+	<strong>Value:</strong>
+	<%= @expression.value %>
 </p>
 
 <p>
-  <strong>Resultforunanswered:</strong>
-  <%= @expression.resultForUnanswered %>
+	<strong>Resultforunanswered:</strong>
+	<%= @expression.resultForUnanswered %>
 </p>
 
 <p>
-  <strong>Studyid:</strong>
-  <%= link_to @expression.studyId, @expression.study %>
+	<strong>Studyid:</strong>
+	<%= link_to @expression.studyId, @expression.study %>
 </p>
 
 <p>
-  <strong>Questionid:</strong>
-  <%= link_to @expression.questionId, @expression.question %>
+	<strong>Questionid:</strong>
+	<%= link_to @expression.questionId, @expression.question %>
 </p>
 
 <%= link_to 'Back', expressions_path %>

@@ -3,21 +3,21 @@
 <h1>Interviewers</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Studyid</th>
-      <th>Interviewerid</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+	<thead>
+		<tr>
+			<th>Studyid</th>
+			<th>Interviewerid</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @interviewers.each do |interviewer| %>
-      <tr>
-        <td><%= link_to interviewer.studyId, interviewer.study %></td>
-        <td><%= interviewer.interviewerId %></td>
-        <td><%= link_to 'Show', interviewer %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @interviewers.each do |interviewer| %>
+			<tr>
+				<td><%= link_to interviewer.studyId, interviewer.study %></td>
+				<td><%= interviewer.interviewerId %></td>
+				<td><%= link_to 'Show', interviewer %></td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>

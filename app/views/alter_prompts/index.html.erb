@@ -3,23 +3,23 @@
 <h1>Alter Prompts</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Studyid</th>
-      <th>Afteraltersentered</th>
-      <th>Display</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+	<thead>
+		<tr>
+			<th>Studyid</th>
+			<th>Afteraltersentered</th>
+			<th>Display</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @alter_prompts.each do |alter_prompt| %>
-      <tr>
-        <td><%= link_to alter_prompt.studyId, alter_prompt.study %></td>
-        <td><%= alter_prompt.afterAltersEntered %></td>
-        <td><%= alter_prompt.display %></td>
-        <td><%= link_to 'Show', alter_prompt %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @alter_prompts.each do |alter_prompt| %>
+			<tr>
+				<td><%= link_to alter_prompt.studyId, alter_prompt.study %></td>
+				<td><%= alter_prompt.afterAltersEntered %></td>
+				<td><%= alter_prompt.display %></td>
+				<td><%= link_to 'Show', alter_prompt %></td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>

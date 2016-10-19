@@ -3,27 +3,27 @@
 <h1>Alters</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Active</th>
-      <th>Ordering</th>
-      <th>Name</th>
-      <th>Interviewid</th>
-      <th>Alterlistid</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+	<thead>
+		<tr>
+			<th>Active</th>
+			<th>Ordering</th>
+			<th>Name</th>
+			<th>Interviewid</th>
+			<th>Alterlistid</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @alters.each do |alter| %>
-      <tr>
-        <td><%= alter.active %></td>
-        <td><%= alter.ordering %></td>
-        <td><%= alter.name %></td>
-        <td><%= link_to alter.interviewId, alter.interview %></td>
-        <td><%= link_to alter.alterListId, alter.alter_list %></td>
-        <td><%= link_to 'Show', alter %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @alters.each do |alter| %>
+			<tr>
+				<td><%= alter.active %></td>
+				<td><%= alter.ordering %></td>
+				<td><%= alter.name %></td>
+				<td><%= link_to alter.interviewId, alter.interview %></td>
+				<td><%= link_to alter.alterListId, alter.alter_list %></td>
+				<td><%= link_to 'Show', alter %></td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
