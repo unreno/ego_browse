@@ -18,6 +18,13 @@ Rails.application.routes.draw do
 	resources :alter_lists, :only => [:show,:index]
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+	resources :statics, :only => [:index] do
+		collection do
+			get :reports
+			#	puts app.reports_statics_path
+			#	=> /statics/reports
+		end
+	end
 	root :to => "statics#index"
 
 end
