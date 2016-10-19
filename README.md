@@ -153,16 +153,19 @@ Required the following pre-steps ...
 
 ```BASH
 sudo app install ruby ruby-dev libmysqlclient-dev libsqlite3-dev nodejs
-
 gem install bundler
 ```
 
 ```BASH
-
 ssh -L 3000:localhost:3000 rdots
-
+open http://localhost:3000
 ```
 
-
-
+Prefering to use passenger.
+Adding apache configuration.
+Need to not use port 80, which is being a problem.
+Server or router not cooperating.
+```BASH
+passenger start --port XXX
+```
 
