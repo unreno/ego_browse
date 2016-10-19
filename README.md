@@ -146,3 +146,23 @@ vi config/secrets.yml
 rails server -d
 open http://localhost:3000
 ```
+
+###	Production installation
+
+Required the following pre-steps ...
+
+```BASH
+sudo app install ruby ruby-dev libmysqlclient-dev libsqlite3-dev nodejs
+
+gem install bundler
+```
+
+```BASH
+
+ssh -L 3000:localhost:3000 rdots
+
+```
+
+
+
+
