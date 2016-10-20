@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 
 gem 'passenger'
+gem 'ruby-mcrypt'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
