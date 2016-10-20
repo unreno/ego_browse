@@ -1,8 +1,18 @@
+require 'base64'
 
 #	copy the encryptionKey from your own egoweb installation ...
 #	.../egoweb/app/protected/config/main.php
 
-mcrypt = Mcrypt.new(:blowfish, :cbc, 
+MCRYPT = Mcrypt.new(:blowfish, :cbc, 
 	"ad1adf685cc74e26e24988870ad5ae735760c0086f72b73f3"
 	)
 
+class Mcrypt
+
+	def ivdecrypt(iv_ciphertext)
+		value = Base64.decode64(iv_ciphertext)
+		self.iv = value[0..7]
+		self.decrypt(value[8..-1]).squish
+	end
+
+end
