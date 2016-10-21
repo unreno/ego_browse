@@ -11,4 +11,9 @@ class Answer < ApplicationRecord
 		self.value = MCRYPT.ivdecrypt(self.value)
 	end
 
+#	If answertype == 'MULTIPLE_SELECTION'
+#	then value(s) is/are QuestionOption.find( value.split(/,/) ).(&:value)
+
+#	QuestionOption.find(value.split(/,/))
+
 end
