@@ -6,4 +6,10 @@ class Alter < ApplicationRecord
 #	has_many  :matched_alters, foreign_key: alterId1 and alterId2
 	has_many  :notes, foreign_key: :alterId
 	has_many  :other_specifies, foreign_key: :alterId
+
+	after_find :decrypt_name
+	def decrypt_name
+		self.name = MCRYPT.ivdecrypt(self.name)
+	end
+
 end
