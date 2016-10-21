@@ -16,4 +16,16 @@ class Answer < ApplicationRecord
 
 #	QuestionOption.find(value.split(/,/))
 
+	def option_names
+		if( answerType == 'MULTIPLE_SELECTION' ) ; then
+			QuestionOption.where(:id => value.split(/,/)).collect(&:name)
+		end
+	end
+
+	def option_values
+		if( answerType == 'MULTIPLE_SELECTION' ) ; then
+			QuestionOption.where(:id => value.split(/,/)).collect(&:value)
+		end
+	end
+
 end
