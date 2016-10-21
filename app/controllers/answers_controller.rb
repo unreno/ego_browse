@@ -4,7 +4,12 @@ class AnswersController < ApplicationController
 	# GET /answers
 	# GET /answers.json
 	def index
-		@answers = Answer.all
+#		@answers = Answer.all
+#		@answers = Answer.search(params[:term], params[:page])
+		@answers = Answer.paginate(
+				:per_page => params[:per_page]||100,
+				:page     => valid_find_page
+			)
 	end
 
 	# GET /answers/1
@@ -71,4 +76,5 @@ class AnswersController < ApplicationController
 		def answer_params
 			params.require(:answer).permit(:active, :questionId, :interviewId, :alterId1, :alterId2, :value, :otherSpecifyText, :skipReason, :studyId, :questionType, :answerType)
 		end
+
 end

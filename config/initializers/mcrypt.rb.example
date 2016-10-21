@@ -10,9 +10,13 @@ MCRYPT = Mcrypt.new(:blowfish, :cbc,
 class Mcrypt
 
 	def ivdecrypt(iv_ciphertext)
-		value = Base64.decode64(iv_ciphertext)
-		self.iv = value[0..7]
-		self.decrypt(value[8..-1]).squish
+		if( iv_ciphertext.length > 8 ) then
+			value = Base64.decode64(iv_ciphertext)
+			self.iv = value[0..7]
+			self.decrypt(value[8..-1]).squish
+		else
+			""
+		end
 	end
 
 end

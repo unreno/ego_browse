@@ -2,7 +2,7 @@
 
 <p>
 	<strong>Email:</strong>
-	<%= @user.email %>
+	<%= MCRYPT.ivdecrypt(@user.email) %>
 </p>
 
 <p>
@@ -12,7 +12,7 @@
 
 <p>
 	<strong>Name:</strong>
-	<%= @user.name %>
+	<%= MCRYPT.ivdecrypt(@user.name) %>
 </p>
 
 <p>

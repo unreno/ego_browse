@@ -27,7 +27,7 @@
 
 <p>
 	<strong>Value:</strong>
-	<%= @answer.value %>
+	<%= MCRYPT.ivdecrypt(@answer.value) %>
 </p>
 
 <p>
