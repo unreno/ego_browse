@@ -1,73 +1,73 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  how_learned: MyString
+  how_learned: xxxxx
   how_learned_other: MyString
-  age: MyString
-  sex: MyString
-  race: MyString
+  age: xxxxx
+  sex: xxxxx
+  race: xxxxx
   race_other: MyString
-  children: MyString
-  seen_pcp: MyString
-  marital: MyString
-  tested_hiv: MyString
-  tested_hiv_result: MyString
-  partner_count: MyString
-  injection_drugs: MyString
-  partner_injection_drugs: MyString
-  partner_noninjection_drugs: MyString
-  partner_hiv_positive: MyString
-  partner_other_partners: MyString
-  partner_traded_sex: MyString
-  partner_man_men: MyString
-  eligible_q_8_15: MyString
-  where_live: MyString
+  children: xxxxx
+  seen_pcp: xxxxx
+  marital: xxxxx
+  tested_hiv: xxxxx
+  tested_hiv_result: xxxxx
+  partner_count: xxxxx
+  injection_drugs: xxxxx
+  partner_injection_drugs: xxxxx
+  partner_noninjection_drugs: xxxxx
+  partner_hiv_positive: xxxxx
+  partner_other_partners: xxxxx
+  partner_traded_sex: xxxxx
+  partner_man_men: xxxxx
+  eligible_q_8_15: xxxxx
+  where_live: xxxxx
   where_live_other: MyString
-  willing_to_refer: MyString
-  matched_to_ego: MyString
-  eligible: MyString
+  willing_to_refer: xxxxx
+  matched_to_ego: xxxxx
+  eligible: xxxxx
   name_of_screener: MyString
   location_of_screening: MyString
   date_of_screening: 2016-10-26
-  time_of_screening: 2016-10-26 12:12:49
-  referred_for_interview: MyString
+  time_of_screening: 12:12
+  referred_for_interview: xxxxx
   referred_appointment_date: 2016-10-26
-  referred_appointment_time: 2016-10-26 12:12:49
+  referred_appointment_time: 12:12
   reason_for_refusal: MyString
   reason_for_refusal_other: MyString
 
 two:
-  how_learned: MyString
+  how_learned: yyyyy
   how_learned_other: MyString
-  age: MyString
-  sex: MyString
-  race: MyString
+  age: yyyyy
+  sex: yyyyy
+  race: yyyyy
   race_other: MyString
-  children: MyString
-  seen_pcp: MyString
+  children: yyyyy
+  seen_pcp: yyyyy
   marital: MyString
-  tested_hiv: MyString
+  tested_hiv: yyyyy
   tested_hiv_result: MyString
-  partner_count: MyString
-  injection_drugs: MyString
-  partner_injection_drugs: MyString
-  partner_noninjection_drugs: MyString
-  partner_hiv_positive: MyString
-  partner_other_partners: MyString
-  partner_traded_sex: MyString
-  partner_man_men: MyString
-  eligible_q_8_15: MyString
-  where_live: MyString
+  partner_count: yyyyy
+  injection_drugs: yyyyy
+  partner_injection_drugs: yyyyy
+  partner_noninjection_drugs: yyyyy
+  partner_hiv_positive: yyyyy
+  partner_other_partners: yyyyy
+  partner_traded_sex: yyyyy
+  partner_man_men: yyyyy
+  eligible_q_8_15: yyyyy
+  where_live: yyyyy
   where_live_other: MyString
-  willing_to_refer: MyString
-  matched_to_ego: MyString
-  eligible: MyString
+  willing_to_refer: yyyyy
+  matched_to_ego: yyyyy
+  eligible: yyyyy
   name_of_screener: MyString
   location_of_screening: MyString
   date_of_screening: 2016-10-26
-  time_of_screening: 2016-10-26 12:12:49
-  referred_for_interview: MyString
+  time_of_screening: 12:12
+  referred_for_interview: yyyyy
   referred_appointment_date: 2016-10-26
-  referred_appointment_time: 2016-10-26 12:12:49
-  reason_for_refusal: MyString
+  referred_appointment_time: 12:12
+  reason_for_refusal: yyyyy
   reason_for_refusal_other: MyString
