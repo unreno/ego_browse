@@ -152,7 +152,7 @@ open http://localhost:3000
 Required the following pre-steps ...
 
 ```BASH
-sudo app install ruby ruby-dev libmysqlclient-dev libsqlite3-dev nodejs
+sudo apt install ruby ruby-dev libmysqlclient-dev libsqlite3-dev nodejs libmcrypt-dev
 gem install bundler
 ```
 
