@@ -143,7 +143,7 @@ name?:</strong>
 
 <p>
   <strong>Time of screening:</strong>
-  <%= @eligibility_screening.time_of_screening %>
+  <%= @eligibility_screening.time_of_screening.to_s(:time) %>
 </p>
 
 <p>
@@ -158,7 +158,7 @@ name?:</strong>
 
 <p>
   <strong>Referred appointment time:</strong>
-  <%= @eligibility_screening.referred_appointment_time %>
+  <%= @eligibility_screening.referred_appointment_time.to_s(:time) %>
 </p>
 
 <p>
