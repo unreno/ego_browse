@@ -74,10 +74,10 @@
         <td><%= eligibility_screening.name_of_screener %></td>
         <td><%= eligibility_screening.location_of_screening %></td>
         <td><%= eligibility_screening.date_of_screening %></td>
-        <td><%= eligibility_screening.time_of_screening %></td>
+        <td><%= eligibility_screening.time_of_screening.to_s(:time) %></td>
         <td><%= eligibility_screening.referred_for_interview %></td>
         <td><%= eligibility_screening.referred_appointment_date %></td>
-        <td><%= eligibility_screening.referred_appointment_time %></td>
+        <td><%= eligibility_screening.referred_appointment_time.to_s(:time) %></td>
         <td><%= eligibility_screening.reason_for_refusal %></td>
         <td><%= eligibility_screening.reason_for_refusal_other %></td>
         <td><%= link_to 'Show', eligibility_screening %></td>
