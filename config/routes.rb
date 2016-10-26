@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :eligibility_screenings
 	resources :other_specifies, :only => [:show,:index]
 	resources :users, :only => [:show,:index]
 	resources :studies, :only => [:show,:index]

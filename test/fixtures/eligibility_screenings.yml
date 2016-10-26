@@ -1,0 +1,73 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  how_learned: MyString
+  how_learned_other: MyString
+  age: MyString
+  sex: MyString
+  race: MyString
+  race_other: MyString
+  children: MyString
+  seen_pcp: MyString
+  marital: MyString
+  tested_hiv: MyString
+  tested_hiv_result: MyString
+  partner_count: MyString
+  injection_drugs: MyString
+  partner_injection_drugs: MyString
+  partner_noninjection_drugs: MyString
+  partner_hiv_positive: MyString
+  partner_other_partners: MyString
+  partner_traded_sex: MyString
+  partner_man_men: MyString
+  eligible_q_8_15: MyString
+  where_live: MyString
+  where_live_other: MyString
+  willing_to_refer: MyString
+  matched_to_ego: MyString
+  eligible: MyString
+  name_of_screener: MyString
+  location_of_screening: MyString
+  date_of_screening: 2016-10-26
+  time_of_screening: 2016-10-26 12:12:49
+  referred_for_interview: MyString
+  referred_appointment_date: 2016-10-26
+  referred_appointment_time: 2016-10-26 12:12:49
+  reason_for_refusal: MyString
+  reason_for_refusal_other: MyString
+
+two:
+  how_learned: MyString
+  how_learned_other: MyString
+  age: MyString
+  sex: MyString
+  race: MyString
+  race_other: MyString
+  children: MyString
+  seen_pcp: MyString
+  marital: MyString
+  tested_hiv: MyString
+  tested_hiv_result: MyString
+  partner_count: MyString
+  injection_drugs: MyString
+  partner_injection_drugs: MyString
+  partner_noninjection_drugs: MyString
+  partner_hiv_positive: MyString
+  partner_other_partners: MyString
+  partner_traded_sex: MyString
+  partner_man_men: MyString
+  eligible_q_8_15: MyString
+  where_live: MyString
+  where_live_other: MyString
+  willing_to_refer: MyString
+  matched_to_ego: MyString
+  eligible: MyString
+  name_of_screener: MyString
+  location_of_screening: MyString
+  date_of_screening: 2016-10-26
+  time_of_screening: 2016-10-26 12:12:49
+  referred_for_interview: MyString
+  referred_appointment_date: 2016-10-26
+  referred_appointment_time: 2016-10-26 12:12:49
+  reason_for_refusal: MyString
+  reason_for_refusal_other: MyString

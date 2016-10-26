@@ -126,9 +126,14 @@ rails g scaffold User email:text password:text name:text lastActivity:datetime p
 ```
 
 For some reason after running this, some field names were corrupt?
+I think that that may have been a cut-n-paste issue.
 Testing pointed them out and I editted them.
 
 I only wanted to browse existing, so I deleted all routes, actions, views and tests for new, create, edit, update and destroy.
+
+
+
+rails g scaffold EligibilityScreening how_learned:string{20} how_learned_other:string age:string{5} sex:string{5} race:string{5} race_other:string children:string{5} seen_pcp:string{5} marital:string{10} tested_hiv:string{5} tested_hiv_result:string{10} partner_count:string{10} injection_drugs:string{5} partner_injection_drugs:string{5} partner_noninjection_drugs:string{5} partner_hiv_positive:string{10} partner_other_partners:string{5} partner_traded_sex:string{5} partner_man_men:string{5} eligible_q_8_15:string{5} where_live:string{5} where_live_other:string willing_to_refer:string{5} matched_to_ego:string{5} eligible:string{5} name_of_screener:string location_of_screening:string date_of_screening:date time_of_screening:time  referred_for_interview:string{5} referred_appointment_date:date referred_appointment_time:time reason_for_refusal:string{50} reason_for_refusal_other:string --no-assets --no-jbuilder
 
 
 ##	Installation

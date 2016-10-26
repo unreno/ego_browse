@@ -1,0 +1,2 @@
+class EligibilityScreening < ApplicationRecord
+end
