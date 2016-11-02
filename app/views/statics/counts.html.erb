@@ -28,26 +28,29 @@
 	<% study[:races].each do |race| %>
 		<tr>
 			<td><%= race %></td>
-			<% race_d = study[:demographics].select{|v|v[:race].length==1 && v[:race][0] == race} %>
+			<% d_r = study[:demographics].select{|v|v[:race].length==1 && v[:race][0] == race} %>
 
-			<% race_d_h = race_d.select{|v| v[:hispanic][0] == "No" } %>
-			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0] == "Female/Femenino" }.length %></td>
-			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0] == "Male/Masculino" }.length %></td>
-			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0].blank? || v[:gender][0] == "Other/Otro" }.length %></td>
+			<% d_r_h = d_r.select{|v| v[:hispanic][0] == "No" } %>
+			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0] == "Female/Femenino" }.length %></td>
+			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0] == "Male/Masculino" }.length %></td>
+			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0].blank? || v[:gender][0] == "Other/Otro" }.length %></td>
 
-			<% race_d_h = race_d.select{|v| v[:hispanic][0] == "Yes/Sí" } %>
-			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0] == "Female/Femenino" }.length %></td>
-			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0] == "Male/Masculino" }.length %></td>
-			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0].blank? || v[:gender][0] == "Other/Otro" }.length %></td>
+			<% d_r_h = d_r.select{|v| v[:hispanic][0] == "Yes/Sí" } %>
+			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0] == "Female/Femenino" }.length %></td>
+			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0] == "Male/Masculino" }.length %></td>
+			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0].blank? || v[:gender][0] == "Other/Otro" }.length %></td>
 
-			<% race_d_h = race_d.select{|v| v[:hispanic].blank? || v[:hispanic][0].blank? } %>
-			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0] == "Female/Femenino" }.length %></td>
-			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0] == "Male/Masculino" }.length %></td>
-			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0].blank? || v[:gender][0] == "Other/Otro" }.length %></td>
+			<% d_r_h = d_r.select{|v| v[:hispanic].blank? || v[:hispanic][0].blank? } %>
+			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0] == "Female/Femenino" }.length %></td>
+			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0] == "Male/Masculino" }.length %></td>
+			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0].blank? || v[:gender][0] == "Other/Otro" }.length %></td>
 
-			<td><%= race_d.length %></td>
+			<td><%= d_r.length %></td>
 		</tr>
 	<% end %>
+		<tr>
+			<td colspan='11'>Total Enrollment:&nbsp;&nbsp;<%= study[:demographics].length %></td>
+		</tr>
 	</tbody>
 </table>
 <% end %>
