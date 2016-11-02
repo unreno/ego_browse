@@ -6,9 +6,14 @@ class StaticsController < ApplicationController
 #	HISPLAT
 
 	def counts
-		studyId = 1
-		@races = Study.find(studyId).races
-		@demographics = Study.find(studyId).interviews.collect(&:demographics)
+		@studies = []
+		Study.all.each do |study|
+			s = {}
+			s[:id] = study.id
+			s[:races] = study.races
+			s[:demographics] = study.interviews.collect(&:demographics)
+			@studies << s
+		end
 	end
 
 end
