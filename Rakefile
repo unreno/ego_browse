@@ -16,7 +16,6 @@ DISABLED_TASKS = [
 	'db:migrate:reset',
 	'db:schema:load',
 	'db:seed',
-	'log:clear'
 ]
 
 namespace :app do
