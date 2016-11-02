@@ -7,7 +7,7 @@ class StaticsController < ApplicationController
 
 	def counts
 		studyId = 1
-		@races = Interview.races
+		@races = Study.find(studyId).races
 		@demographics = Study.find(studyId).interviews.collect(&:demographics)
 	end
 

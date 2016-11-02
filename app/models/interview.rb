@@ -4,14 +4,6 @@ class Interview < ApplicationRecord
 	has_many :answers, foreign_key: :interviewId
 	has_many :questions, through: :answers
 
-	def self.races
-		races = Question.where(:title => "RACE").collect(&:question_options).flatten.collect(&:name).sort
-		#	Race is in English and Spanish. Take just the English.
-		races = races.collect{|race|race[0..race.index("/")-1]}
-		races << "More Than One Race"
-		races << "Unknown or Not Reported"
-	end
-
 	def demographics
 		{ :race => race, :gender => gender, :hispanic => hispanic }
 	end
