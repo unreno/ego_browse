@@ -1,5 +1,3 @@
-<h1>Counts</h1>
-
 <table>
 	<thead>
 		<tr>
@@ -25,20 +23,28 @@
 		</tr>
 	</thead>
 	<tbody>
-<% ['American Indian','Asian','Islander','Black','White','More Than One','Unknown'].each do |race| %>
+	<% @races.each do |race| %>
 		<tr>
 			<td><%= race %></td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
-			<td>0</td>
+			<% race_d = @demographics.select{|v|v[:race].length==1 && v[:race][0] == race} %>
+
+			<% race_d_h = race_d.select{|v| v[:hispanic][0] == "No" } %>
+			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0] == "Female/Femenino" }.length %></td>
+			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0] == "Male/Masculino" }.length %></td>
+			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0].blank? || v[:gender][0] == "Other/Otro" }.length %></td>
+
+			<% race_d_h = race_d.select{|v| v[:hispanic][0] == "Yes/Sí" } %>
+			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0] == "Female/Femenino" }.length %></td>
+			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0] == "Male/Masculino" }.length %></td>
+			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0].blank? || v[:gender][0] == "Other/Otro" }.length %></td>
+
+			<% race_d_h = race_d.select{|v| v[:hispanic].blank? || v[:hispanic][0].blank? } %>
+			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0] == "Female/Femenino" }.length %></td>
+			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0] == "Male/Masculino" }.length %></td>
+			<td><%= race_d_h_s = race_d_h.select{|v| v[:gender][0].blank? || v[:gender][0] == "Other/Otro" }.length %></td>
+
+			<td><%= race_d.length %></td>
 		</tr>
-<% end %>
+	<% end %>
 	</tbody>
 </table>
