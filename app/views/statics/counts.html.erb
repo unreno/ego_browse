@@ -1,0 +1,44 @@
+<h1>Counts</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th rowspan='3'>Racial Categories</th>
+			<th colspan='9'>Ethnic Categories</th>
+			<th rowspan='3'>Total</th>
+		</tr>
+		<tr>
+			<th colspan='3'>Not Hispanic or Latino</th>
+			<th colspan='3'>Hispanic or Latino</th>
+			<th colspan='3'>Unknown / Not Reported Ethnicity</th>
+		</tr>
+		<tr>
+			<th>Female</th>
+			<th>Male</th>
+			<th>Unknown / Not Reported</th>
+			<th>Female</th>
+			<th>Male</th>
+			<th>Unknown / Not Reported</th>
+			<th>Female</th>
+			<th>Male</th>
+			<th>Unknown / Not Reported</th>
+		</tr>
+	</thead>
+	<tbody>
+<% ['American Indian','Asian','Islander','Black','White','More Than One','Unknown'].each do |race| %>
+		<tr>
+			<td><%= race %></td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+<% end %>
+	</tbody>
+</table>
