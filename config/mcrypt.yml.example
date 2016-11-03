@@ -1,0 +1,6 @@
+
+#	copy the encryptionKey from your own egoweb installation ...
+#	.../egoweb/app/protected/config/main.php
+
+encryption_key: ad1adf685cc74e26e24988870ad5ae735760c0086f72b73f3
+
