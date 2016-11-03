@@ -27,11 +27,7 @@ Things you may want to cover:
 
 ##	Purpose
 
-This app was created solely for the purpose of browsing the database created by EgoWeb.
-
-https://github.com/qualintitative/egoweb
-
-http://egoweb.wikispaces.com/
+https://github.com/unreno/ego_browse/wiki/EGO-Browse-Purpose
 
 ##	EgoWeb Mac Installation
 
