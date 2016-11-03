@@ -15,7 +15,6 @@ class StaticsController < ApplicationController
 			s[:demographics] = study.demographics
 			@studies << s
 		end
-#		@studies = Study.all.collect(&:demographics)
 	end
 
 end

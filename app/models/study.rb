@@ -48,7 +48,8 @@ class Study < ApplicationRecord
 	end
 
 	def decode(value)
-		QuestionOption.where(:id => decrypt(value).split(/,/)).collect(&:name)
+		@cached_codes ||= {}
+		@cached_codes[value] ||= QuestionOption.where(:id => decrypt(value).split(/,/)).collect(&:name)
 	end
 
 	def decrypt(value)
