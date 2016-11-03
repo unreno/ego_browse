@@ -21,4 +21,38 @@ class Study < ApplicationRecord
 		races << "Unknown or Not Reported"
 	end
 
+	def race_qid
+		@race_qid ||= questions.where(:title => "RACE").select(:id).collect(&:id).first
+	end
+
+	def hisplat_qid
+		@hisplat_qid ||= questions.where(:title => "HISPLAT").select(:id).collect(&:id).first
+	end
+
+	def gender_qid
+		@gender_qid ||= questions.where(:title => "GENDER").select(:id).collect(&:id).first
+	end
+
+	def demographics
+		interviews
+			.joins("LEFT JOIN answer r ON interview.id = r.interviewId AND r.questionId = #{race_qid}")
+			.joins("LEFT JOIN answer h ON interview.id = h.interviewId AND h.questionId = #{hisplat_qid}")
+			.joins("LEFT JOIN answer g ON interview.id = g.interviewId AND g.questionId = #{gender_qid}")
+			.select("interview.id, r.value AS race, h.value AS hispanic, g.value AS gender")
+			.collect{|i| 
+				{	id: i.id, 
+					race: decode(i.race).collect{|race|race[0..race.index("/")-1]},
+					hispanic: decode(i.hispanic),
+					gender: decode(i.gender)
+			}	}
+	end
+
+	def decode(value)
+		QuestionOption.where(:id => decrypt(value).split(/,/)).collect(&:name)
+	end
+
+	def decrypt(value)
+		MCRYPT.ivdecrypt(value)
+	end
+
 end

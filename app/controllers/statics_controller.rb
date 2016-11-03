@@ -11,9 +11,11 @@ class StaticsController < ApplicationController
 			s = {}
 			s[:id] = study.id
 			s[:races] = study.races
-			s[:demographics] = study.interviews.collect(&:demographics)
+			#s[:demographics] = study.interviews.collect(&:demographics)
+			s[:demographics] = study.demographics
 			@studies << s
 		end
+#		@studies = Study.all.collect(&:demographics)
 	end
 
 end
