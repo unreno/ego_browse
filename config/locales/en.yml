@@ -25,41 +25,41 @@ en:
 #  activemodel:
   activerecord:
     attributes:
-      eligibility_screenings:
-#      t.string :how_learned, limit: 20
-#      t.string :how_learned_other
-#      t.string :age, limit: 5
-#      t.string :sex, limit: 5
-#      t.string :race, limit: 5
-#      t.string :race_other
-#      t.string :children, limit: 5
-#      t.string :seen_pcp, limit: 5
-#      t.string :marital, limit: 10
-#      t.string :tested_hiv, limit: 5
-#      t.string :tested_hiv_result, limit: 10
-#      t.string :partner_count, limit: 10
-#      t.string :injection_drugs, limit: 5
-#      t.string :partner_injection_drugs, limit: 5
-#      t.string :partner_noninjection_drugs, limit: 5
-#      t.string :partner_hiv_positive, limit: 10
-#      t.string :partner_other_partners, limit: 5
-#      t.string :partner_traded_sex, limit: 5
-#      t.string :partner_man_men, limit: 5
-#      t.string :eligible_q_8_15, limit: 5
-#      t.string :where_live, limit: 5
-#      t.string :where_live_other
-#      t.string :willing_to_refer, limit: 5
-#      t.string :matched_to_ego, limit: 5
-#      t.string :eligible, limit: 5
-#      t.string :name_of_screener
-#      t.string :location_of_screening
-#      t.date :date_of_screening
-#      t.time :time_of_screening
-#      t.string :referred_for_interview, limit: 5
-#      t.date :referred_appointment_date
-#      t.time :referred_appointment_time
-#      t.string :reason_for_refusal, limit: 50
-#      t.string :reason_for_refusal_other
+      eligibility_screening:
+        how_learned: How did you learn about the study?
+#        how_learned_other: Other ...
+        age: 1) How old are you?
+        sex: 2) What gender do you identify with?
+        race: 3) What race do you identify with?
+#        race_other
+        children: 4) Do you have children?
+        seen_pcp: 5) Have you seen a primary care physician in the past 6 months?
+        marital: 6) What is your marital status?
+        tested_hiv: 7) Have you ever been tested for HIV?
+        tested_hiv_result: What was the result the last time you tested?
+        partner_count: 8) How many sex partners have you had in the past 6 months? And when I say "sex," I mean vaginal or anal sex.
+        injection_drugs: 9) Have you ever used injection drugs? This includes medications not prescribed to you or not used as prescribed.
+        partner_injection_drugs: 10) Have you had a sex partner in the past 6 months who has used injection drugs in the past 6 months?
+        partner_noninjection_drugs: 11) Have you or any of your sex partners used non-injection drugs in the past 6 months (not including marijuana)?
+        partner_hiv_positive: 12) To your knowledge, are any of your sex partners HIV positive?
+        partner_other_partners: 13) To the best of your knowledge, do any of your current sex partners have any other partners besides you?
+        partner_traded_sex: 14) Have you or any of your sex partners ever traded sex for money, drugs, or other items of daily survival?
+        partner_man_men: 15) Have you ever had sex with a man who has sex with other men?
+        eligible_q_8_15: Eligible based on affirmative to at least one of Q 8-15? 
+        where_live: 16) Where do you live?
+#        where_live_other: 
+        willing_to_refer: 17) If you are eligible for the study and you participated, would you be willing to refer friends, family, or acquaintances to participate in the study?
+        matched_to_ego: '18) ALTERS ONLY: Matched to Ego by coupon or name?'
+        eligible: Eligible?
+#        name_of_screener
+#        location_of_screening
+#        date_of_screening
+#        time_of_screening
+        referred_for_interview: Referred to study site for interview?
+#        referred_appointment_date
+#        referred_appointment_time
+        reason_for_refusal: If refused, reason for refusal
+#        reason_for_refusal_other
       contact_information:
         first_name: First Name
         middle_name: Middle Name
