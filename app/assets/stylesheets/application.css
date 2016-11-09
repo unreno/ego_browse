@@ -21,6 +21,7 @@ table, th, td {
 td {
 	text-align: right;
 }
+textarea,
 input[type=text]{
 	width: 500px;
 }

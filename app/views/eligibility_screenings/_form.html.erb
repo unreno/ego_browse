@@ -8,14 +8,6 @@ input[type=text] {
 label.with_radio_button {
 	clear: both;
 }
-/*
-label.with_radio_button * {
-	vertical-align: middle;
-}
-label.with_radio_button input[type=radio] {
-	float: left;
-}
-*/
 </style>
 <%= form_for(eligibility_screening) do |f| %>
 	<% if eligibility_screening.errors.any? %>
@@ -32,7 +24,7 @@ label.with_radio_button input[type=radio] {
 
 
 	<div class="field">
-		<%= f.label :how_learned, "How did you learn about the study?" %>
+		<%= f.label :how_learned %>
 		<%= f.radio_button_with_label(:how_learned, "Outreach") %>
 		<%= f.radio_button_with_label(:how_learned, "Flyer") %>
 		<%= f.radio_button_with_label(:how_learned, "Church/Organization") %>
@@ -41,13 +33,13 @@ label.with_radio_button input[type=radio] {
 	</div>
 
 	<div class="field">
-		<%= f.label :age, "1) How old are you?" %>
+		<%= f.label :age %>
 		<%= f.radio_button_with_label(:age, "18-44") %>
 		<%= f.radio_button_with_label(:age, "Other") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :sex, "2) What gender do you identify with?" %>
+		<%= f.label :sex %>
 		<%= f.radio_button_with_label(:sex, "F") %>
 		<%= f.radio_button_with_label(:sex, "TF") %>
 		<%= f.radio_button_with_label(:sex, "M") %>
@@ -55,7 +47,7 @@ label.with_radio_button input[type=radio] {
 	</div>
 
 	<div class="field">
-		<%= f.label :race, "3) What race do you identify with? If not black/African/African American or Latina, then ineligible" %>
+		<%= f.label :race %>
 		<a>If not black/African/African American or Latina, then ineligible</a><br/>
 		<%= f.radio_button_with_label(:race, "B") %>
 		<%= f.radio_button_with_label(:race, "A") %>
@@ -66,21 +58,21 @@ label.with_radio_button input[type=radio] {
 	</div>
 
 	<div class="field">
-		<%= f.label :children, "4) Do you have children?" %>
+		<%= f.label :children %>
 		<a>Does not affect eligibility</a><br/>
 		<%= f.radio_button_with_label(:children, "Yes") %>
 		<%= f.radio_button_with_label(:children, "No") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :seen_pcp, "5) Have you seen a primary care physician in the past 6 months?" %>
+		<%= f.label :seen_pcp %>
 		<a>Does not affect eligibility</a><br/>
 		<%= f.radio_button_with_label(:seen_pcp, "Yes") %>
 		<%= f.radio_button_with_label(:seen_pcp, "No") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :marital, "6) What is your marital status?" %>
+		<%= f.label :marital %>
 		<a>Does not affect eligibility</a><br/>
 		<%= f.radio_button_with_label(:marital, "Married") %>
 		<%= f.radio_button_with_label(:marital, "Single") %>
@@ -89,45 +81,45 @@ label.with_radio_button input[type=radio] {
 	</div>
 
 	<div class="field">
-		<%= f.label :tested_hiv, "7) Have you ever been tested for HIV?" %>
+		<%= f.label :tested_hiv %>
 		<%= f.radio_button_with_label(:tested_hiv, "Yes") %>
 		<%= f.radio_button_with_label(:tested_hiv, "No") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :tested_hiv_result, "What was the result the last time you tested?" %>
+		<%= f.label :tested_hiv_result %>
 		<%= f.radio_button_with_label(:tested_hiv_result, "Negative") %>
 		<%= f.radio_button_with_label(:tested_hiv_result, "Unknown") %>
 		<%= f.radio_button_with_label(:tested_hiv_result, "Positive") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :partner_count, "8) How many sex partners have you had in the past 6 months? And when I say “sex,” I mean vaginal or anal sex." %>
+		<%= f.label :partner_count %>
 		<a>2 or more, then eligible</a><br/>
 		<%= f.radio_button_with_label(:partner_count, "2 or more") %>
 		<%= f.radio_button_with_label(:partner_count, "0-1") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :injection_drugs, "9) Have you ever used injection drugs? This includes medications not prescribed to you or not used as prescribed." %>
+		<%= f.label :injection_drugs %>
 		<%= f.radio_button_with_label(:injection_drugs, "Yes") %>
 		<%= f.radio_button_with_label(:injection_drugs, "No") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :partner_injection_drugs, "10) Have you had a sex partner in the past 6 months who has used injection drugs in the past 6 months?" %>
+		<%= f.label :partner_injection_drugs %>
 		<%= f.radio_button_with_label(:partner_injection_drugs, "Yes") %>
 		<%= f.radio_button_with_label(:partner_injection_drugs, "No") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :partner_noninjection_drugs, "11) Have you or any of your sex partners used non-injection drugs in the past 6 months (not including marijuana)?" %>
+		<%= f.label :partner_noninjection_drugs %>
 		<%= f.radio_button_with_label(:partner_noninjection_drugs, "Yes") %>
 		<%= f.radio_button_with_label(:partner_noninjection_drugs, "No") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :partner_hiv_positive, "12) To your knowledge, are any of your sex partners HIV positive?" %>
+		<%= f.label :partner_hiv_positive %>
 		<a>If yes or don’t know, then eligible</a><br/>
 		<%= f.radio_button_with_label(:partner_hiv_positive, "Yes") %>
 		<%= f.radio_button_with_label(:partner_hiv_positive, "Don't Know") %>
@@ -135,31 +127,31 @@ label.with_radio_button input[type=radio] {
 	</div>
 
 	<div class="field">
-		<%= f.label :partner_other_partners, "13) To the best of your knowledge, do any of your current sex partners have any other partners besides you?" %>
+		<%= f.label :partner_other_partners %>
 		<%= f.radio_button_with_label(:partner_other_partners, "Yes") %>
 		<%= f.radio_button_with_label(:partner_other_partners, "No") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :partner_traded_sex, "14) Have you or any of your sex partners ever traded sex for money, drugs, or other items of daily survival?" %>
+		<%= f.label :partner_traded_sex %>
 		<%= f.radio_button_with_label(:partner_traded_sex, "Yes") %>
 		<%= f.radio_button_with_label(:partner_traded_sex, "No") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :partner_man_men, "15) Have you ever had sex with a man who has sex with other men?" %>
+		<%= f.label :partner_man_men %>
 		<%= f.radio_button_with_label(:partner_man_men, "Yes") %>
 		<%= f.radio_button_with_label(:partner_man_men, "No") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :eligible_q_8_15, "Eligible based on affirmative to at least one of Q 8-15?" %>
+		<%= f.label :eligible_q_8_15 %>
 		<%= f.radio_button_with_label(:eligible_q_8_15, "Yes") %>
 		<%= f.radio_button_with_label(:eligible_q_8_15, "No") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :where_live, "16) Where do you live?" %>
+		<%= f.label :where_live %>
 		<a>Must live in Reno, Sparks, Carson, North Valleys area</a><br/>
 		<%= f.radio_button_with_label(:where_live, "R") %>
 		<%= f.radio_button_with_label(:where_live, "S") %>
@@ -169,20 +161,20 @@ label.with_radio_button input[type=radio] {
 	</div>
 
 	<div class="field">
-		<%= f.label :willing_to_refer, "17) If you are eligible for the study and you participated, would you be willing to refer friends, family, or acquaintances to participate in the study?" %>
+		<%= f.label :willing_to_refer %>
 		<a>Must be willing</a><br/>
 		<%= f.radio_button_with_label(:willing_to_refer, "Yes") %>
 		<%= f.radio_button_with_label(:willing_to_refer, "No") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :matched_to_ego, "18) ALTERS ONLY: Matched to Ego by coupon or name?" %>
+		<%= f.label :matched_to_ego %>
 		<%= f.radio_button_with_label(:matched_to_ego, "Yes") %>
 		<%= f.radio_button_with_label(:matched_to_ego, "No") %>
 	</div>
 
 	<div class="field">
-		<%= f.label :eligible, "Eligible?" %>
+		<%= f.label :eligible %>
 		<%= f.radio_button_with_label(:eligible, "Yes") %>You are eligible to enroll. Now I’d like to ask for a bit more information and set you up for your interview.
 		<%= f.radio_button_with_label(:eligible, "No") %>Thank you for your time, but you are not eligible to participate at this time. If anything about your situation changes you’re welcome to take this screening interview again in the future, at least one month from today.  
 	</div>
@@ -190,27 +182,27 @@ label.with_radio_button input[type=radio] {
 	<p>To be completed after the screening interview:</p>
 
 	<div class="field">
-		<%= f.label :name_of_screener, "Name of screener:" %>
+		<%= f.label :name_of_screener %>
 		<%= f.text_field :name_of_screener %>
 	</div>
 
 	<div class="field">
-		<%= f.label :location_of_screening, "Location of screening:" %>
+		<%= f.label :location_of_screening %>
 		<%= f.text_field :location_of_screening %>
 	</div>
 
 	<div class="field">
-		<%= f.label :date_of_screening, "Date of screening:" %>
+		<%= f.label :date_of_screening %>
 		<%= f.date_select :date_of_screening %>
 	</div>
 
 	<div class="field">
-		<%= f.label :time_of_screening, "Time of screening:" %>
+		<%= f.label :time_of_screening %>
 		<%= f.time_select :time_of_screening %>
 	</div>
 
 	<div class="field">
-		<%= f.label :referred_for_interview, "Referred to study site for interview?" %>
+		<%= f.label :referred_for_interview %>
 		<%= f.radio_button_with_label(:referred_for_interview, "Yes") %>
 		<%= f.radio_button_with_label(:referred_for_interview, "No") %>
 		<%= f.label :referred_appointment_date %>
@@ -220,7 +212,7 @@ label.with_radio_button input[type=radio] {
 	</div>
 
 	<div class="field">
-		<%= f.label :reason_for_refusal, "If refused, reason for refusal:" %>
+		<%= f.label :reason_for_refusal %>
 		<%= f.radio_button_with_label(:reason_for_refusal, "Too busy/not enough time") %>
 		<%= f.radio_button_with_label(:reason_for_refusal, "Don’t want to travel to the site") %>
 		<%= f.radio_button_with_label(:reason_for_refusal, "Don’t want to talk about the study topics") %>
