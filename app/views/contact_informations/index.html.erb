@@ -3,97 +3,97 @@
 <h1>Contact Informations</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Middle name</th>
-      <th>Last name</th>
-      <th>Alternate names</th>
-      <th>Dob</th>
-      <th>Primary phone number</th>
-      <th>Primary phone type</th>
-      <th>Primary phone message</th>
-      <th>Primary phone text</th>
-      <th>Secondary phone number</th>
-      <th>Secondary phone type</th>
-      <th>Secondary phone message</th>
-      <th>Secondary phone text</th>
-      <th>Tertiary phone number</th>
-      <th>Tertiary phone type</th>
-      <th>Tertiary phone message</th>
-      <th>Tertiary phone text</th>
-      <th>Primary address</th>
-      <th>Primary city</th>
-      <th>Primary state</th>
-      <th>Primary zip</th>
-      <th>Secondary address</th>
-      <th>Secondary city</th>
-      <th>Secondary state</th>
-      <th>Secondary zip</th>
-      <th>Ok to mail negative test result</th>
-      <th>Email</th>
-      <th>Other person relationship</th>
-      <th>Other person phone</th>
-      <th>Other person ok to pass message</th>
-      <th>Referral source</th>
-      <th>Height</th>
-      <th>Build</th>
-      <th>Age</th>
-      <th>Race</th>
-      <th>Eye color</th>
-      <th>Hair</th>
-      <th>Other identifying marks</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+	<thead>
+		<tr>
+			<th>First name</th>
+			<th>Middle name</th>
+			<th>Last name</th>
+			<th>Alternate names</th>
+			<th>Dob</th>
+			<th>Primary phone number</th>
+			<th>Primary phone type</th>
+			<th>Primary phone message</th>
+			<th>Primary phone text</th>
+			<th>Secondary phone number</th>
+			<th>Secondary phone type</th>
+			<th>Secondary phone message</th>
+			<th>Secondary phone text</th>
+			<th>Tertiary phone number</th>
+			<th>Tertiary phone type</th>
+			<th>Tertiary phone message</th>
+			<th>Tertiary phone text</th>
+			<th>Primary address</th>
+			<th>Primary city</th>
+			<th>Primary state</th>
+			<th>Primary zip</th>
+			<th>Secondary address</th>
+			<th>Secondary city</th>
+			<th>Secondary state</th>
+			<th>Secondary zip</th>
+			<th>Ok to mail negative test result</th>
+			<th>Email</th>
+			<th>Other person relationship</th>
+			<th>Other person phone</th>
+			<th>Other person ok to pass message</th>
+			<th>Referral source</th>
+			<th>Height</th>
+			<th>Build</th>
+			<th>Age</th>
+			<th>Race</th>
+			<th>Eye color</th>
+			<th>Hair</th>
+			<th>Other identifying marks</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @contact_informations.each do |contact_information| %>
-      <tr>
-        <td><%= contact_information.first_name %></td>
-        <td><%= contact_information.middle_name %></td>
-        <td><%= contact_information.last_name %></td>
-        <td><%= contact_information.alternate_names %></td>
-        <td><%= contact_information.dob %></td>
-        <td><%= contact_information.primary_phone_number %></td>
-        <td><%= contact_information.primary_phone_type %></td>
-        <td><%= contact_information.primary_phone_message %></td>
-        <td><%= contact_information.primary_phone_text %></td>
-        <td><%= contact_information.secondary_phone_number %></td>
-        <td><%= contact_information.secondary_phone_type %></td>
-        <td><%= contact_information.secondary_phone_message %></td>
-        <td><%= contact_information.secondary_phone_text %></td>
-        <td><%= contact_information.tertiary_phone_number %></td>
-        <td><%= contact_information.tertiary_phone_type %></td>
-        <td><%= contact_information.tertiary_phone_message %></td>
-        <td><%= contact_information.tertiary_phone_text %></td>
-        <td><%= contact_information.primary_address %></td>
-        <td><%= contact_information.primary_city %></td>
-        <td><%= contact_information.primary_state %></td>
-        <td><%= contact_information.primary_zip %></td>
-        <td><%= contact_information.secondary_address %></td>
-        <td><%= contact_information.secondary_city %></td>
-        <td><%= contact_information.secondary_state %></td>
-        <td><%= contact_information.secondary_zip %></td>
-        <td><%= contact_information.ok_to_mail_negative_test_result %></td>
-        <td><%= contact_information.email %></td>
-        <td><%= contact_information.other_person_relationship %></td>
-        <td><%= contact_information.other_person_phone %></td>
-        <td><%= contact_information.other_person_ok_to_pass_message %></td>
-        <td><%= contact_information.referral_source %></td>
-        <td><%= contact_information.height %></td>
-        <td><%= contact_information.build %></td>
-        <td><%= contact_information.age %></td>
-        <td><%= contact_information.race %></td>
-        <td><%= contact_information.eye_color %></td>
-        <td><%= contact_information.hair %></td>
-        <td><%= contact_information.other_identifying_marks %></td>
-        <td><%= link_to 'Show', contact_information %></td>
-        <td><%= link_to 'Edit', edit_contact_information_path(contact_information) %></td>
-        <td><%= link_to 'Destroy', contact_information, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @contact_informations.each do |contact_information| %>
+			<tr>
+				<td><%= contact_information.first_name %></td>
+				<td><%= contact_information.middle_name %></td>
+				<td><%= contact_information.last_name %></td>
+				<td><%= contact_information.alternate_names %></td>
+				<td><%= contact_information.dob %></td>
+				<td><%= contact_information.primary_phone_number %></td>
+				<td><%= contact_information.primary_phone_type %></td>
+				<td><%= contact_information.primary_phone_message %></td>
+				<td><%= contact_information.primary_phone_text %></td>
+				<td><%= contact_information.secondary_phone_number %></td>
+				<td><%= contact_information.secondary_phone_type %></td>
+				<td><%= contact_information.secondary_phone_message %></td>
+				<td><%= contact_information.secondary_phone_text %></td>
+				<td><%= contact_information.tertiary_phone_number %></td>
+				<td><%= contact_information.tertiary_phone_type %></td>
+				<td><%= contact_information.tertiary_phone_message %></td>
+				<td><%= contact_information.tertiary_phone_text %></td>
+				<td><%= contact_information.primary_address %></td>
+				<td><%= contact_information.primary_city %></td>
+				<td><%= contact_information.primary_state %></td>
+				<td><%= contact_information.primary_zip %></td>
+				<td><%= contact_information.secondary_address %></td>
+				<td><%= contact_information.secondary_city %></td>
+				<td><%= contact_information.secondary_state %></td>
+				<td><%= contact_information.secondary_zip %></td>
+				<td><%= contact_information.ok_to_mail_negative_test_result %></td>
+				<td><%= contact_information.email %></td>
+				<td><%= contact_information.other_person_relationship %></td>
+				<td><%= contact_information.other_person_phone %></td>
+				<td><%= contact_information.other_person_ok_to_pass_message %></td>
+				<td><%= contact_information.referral_source %></td>
+				<td><%= contact_information.height %></td>
+				<td><%= contact_information.build %></td>
+				<td><%= contact_information.age %></td>
+				<td><%= contact_information.race %></td>
+				<td><%= contact_information.eye_color %></td>
+				<td><%= contact_information.hair %></td>
+				<td><%= contact_information.other_identifying_marks %></td>
+				<td><%= link_to 'Show', contact_information %></td>
+				<td><%= link_to 'Edit', edit_contact_information_path(contact_information) %></td>
+				<td><%= link_to 'Destroy', contact_information, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
 
 <br>
