@@ -21,3 +21,81 @@
 
 en:
   hello: "Hello world"
+
+#  activemodel:
+  activerecord:
+    attributes:
+      eligibility_screenings:
+#      t.string :how_learned, limit: 20
+#      t.string :how_learned_other
+#      t.string :age, limit: 5
+#      t.string :sex, limit: 5
+#      t.string :race, limit: 5
+#      t.string :race_other
+#      t.string :children, limit: 5
+#      t.string :seen_pcp, limit: 5
+#      t.string :marital, limit: 10
+#      t.string :tested_hiv, limit: 5
+#      t.string :tested_hiv_result, limit: 10
+#      t.string :partner_count, limit: 10
+#      t.string :injection_drugs, limit: 5
+#      t.string :partner_injection_drugs, limit: 5
+#      t.string :partner_noninjection_drugs, limit: 5
+#      t.string :partner_hiv_positive, limit: 10
+#      t.string :partner_other_partners, limit: 5
+#      t.string :partner_traded_sex, limit: 5
+#      t.string :partner_man_men, limit: 5
+#      t.string :eligible_q_8_15, limit: 5
+#      t.string :where_live, limit: 5
+#      t.string :where_live_other
+#      t.string :willing_to_refer, limit: 5
+#      t.string :matched_to_ego, limit: 5
+#      t.string :eligible, limit: 5
+#      t.string :name_of_screener
+#      t.string :location_of_screening
+#      t.date :date_of_screening
+#      t.time :time_of_screening
+#      t.string :referred_for_interview, limit: 5
+#      t.date :referred_appointment_date
+#      t.time :referred_appointment_time
+#      t.string :reason_for_refusal, limit: 50
+#      t.string :reason_for_refusal_other
+      contact_information:
+        first_name: First Name
+        middle_name: Middle Name
+        last_name: Last Name
+        alternate_names: Do you hae another name that you go by?
+        dob: Date of Birth (MM/DD/YYYY)
+        primary_phone_number: Primary Phone
+#        primary_phone_type
+        primary_phone_message: OK to leave message on primary?
+        primary_phone_text: OK to text primary?
+        secondary_phone_number: Secondary Phone
+#        secondary_phone_type
+        secondary_phone_message: OK to leave message on secondary?
+        secondary_phone_text: OK to text secondary?
+        tertiary_phone_number: Tertiary Phone
+#        tertiary_phone_type
+        tertiary_phone_message: OK to leave message on tertiary?
+        tertiary_phone_text: OK to text tertiary?
+        primary_address: Address
+        primary_city: City
+        primary_state: State
+        primary_zip: ZIP
+        secondary_address: Other Address
+        secondary_city: Other City
+        secondary_state: Other State
+        secondary_zip: Other ZIP
+        ok_to_mail_negative_test_result: OK to mail negative test result?
+        email: Email Address
+        other_person_relationship: Other Person Relationship
+        other_person_phone: Other Person Phone Number
+        other_person_ok_to_pass_message: OK to pass on message to other person?
+        referal_source: Referral Source
+#        height
+#        build
+#        age
+#        race
+#        eye_color
+#        hair
+        other_identifying_marks: 'Any other identifying marks: e.g. tattoos, piercings'

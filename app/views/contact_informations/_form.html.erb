@@ -1,0 +1,207 @@
+<%= form_for(contact_information) do |f| %>
+  <% if contact_information.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contact_information.errors.count, "error") %> prohibited this contact_information from being saved:</h2>
+
+      <ul>
+      <% contact_information.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :middle_name %>
+    <%= f.text_field :middle_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :alternate_names %>
+    <%= f.text_field :alternate_names %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dob %>
+    <%= f.date_select :dob %>
+  </div>
+
+  <div class="field">
+    <%= f.label :primary_phone_number %>
+    <%= f.text_field :primary_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :primary_phone_type %>
+    <%= f.text_field :primary_phone_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :primary_phone_message %>
+    <%= f.text_field :primary_phone_message %>
+  </div>
+
+  <div class="field">
+    <%= f.label :primary_phone_text %>
+    <%= f.text_field :primary_phone_text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :secondary_phone_number %>
+    <%= f.text_field :secondary_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :secondary_phone_type %>
+    <%= f.text_field :secondary_phone_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :secondary_phone_message %>
+    <%= f.text_field :secondary_phone_message %>
+  </div>
+
+  <div class="field">
+    <%= f.label :secondary_phone_text %>
+    <%= f.text_field :secondary_phone_text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tertiary_phone_number %>
+    <%= f.text_field :tertiary_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tertiary_phone_type %>
+    <%= f.text_field :tertiary_phone_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tertiary_phone_message %>
+    <%= f.text_field :tertiary_phone_message %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tertiary_phone_text %>
+    <%= f.text_field :tertiary_phone_text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :primary_address %>
+    <%= f.text_field :primary_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :primary_city %>
+    <%= f.text_field :primary_city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :primary_state %>
+    <%= f.text_field :primary_state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :primary_zip %>
+    <%= f.text_field :primary_zip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :secondary_address %>
+    <%= f.text_field :secondary_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :secondary_city %>
+    <%= f.text_field :secondary_city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :secondary_state %>
+    <%= f.text_field :secondary_state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :secondary_zip %>
+    <%= f.text_field :secondary_zip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ok_to_mail_negative_test_result %>
+    <%= f.text_field :ok_to_mail_negative_test_result %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :other_person_relationship %>
+    <%= f.text_field :other_person_relationship %>
+  </div>
+
+  <div class="field">
+    <%= f.label :other_person_phone %>
+    <%= f.text_field :other_person_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :other_person_ok_to_pass_message %>
+    <%= f.text_field :other_person_ok_to_pass_message %>
+  </div>
+
+  <div class="field">
+    <%= f.label :referral_source %>
+    <%= f.text_field :referral_source %>
+  </div>
+
+  <div class="field">
+    <%= f.label :height %>
+    <%= f.text_field :height %>
+  </div>
+
+  <div class="field">
+    <%= f.label :build %>
+    <%= f.text_field :build %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= f.label :race %>
+    <%= f.text_field :race %>
+  </div>
+
+  <div class="field">
+    <%= f.label :eye_color %>
+    <%= f.text_field :eye_color %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hair %>
+    <%= f.text_field :hair %>
+  </div>
+
+  <div class="field">
+    <%= f.label :other_identifying_marks %>
+    <%= f.text_field :other_identifying_marks %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

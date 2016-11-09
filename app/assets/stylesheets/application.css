@@ -21,3 +21,6 @@ table, th, td {
 td {
 	text-align: right;
 }
+input[type=text]{
+	width: 500px;
+}
