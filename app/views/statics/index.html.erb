@@ -1,24 +1,24 @@
 <ul>
 <li><%= link_to 'Reports', reports_statics_path %></li>
 <li>&nbsp;</li>
-<li><%= link_to 'Alters', alters_path %></li>
-<li><%= link_to 'Alter Lists', alter_lists_path %></li>
-<li><%= link_to 'Alter Prompts', alter_prompts_path %></li>
-<li><%= link_to 'Answers', answers_path %></li>
-<li><%= link_to 'Answer Lists', answer_lists_path %></li>
-<li><%= link_to 'Expressions', expressions_path %></li>
-<li><%= link_to 'Graphs', graphs_path %></li>
-<li><%= link_to 'Interviews', interviews_path %></li>
-<li><%= link_to 'Interviewers', interviewers_path %></li>
-<li><%= link_to 'Legends', legends_path %></li>
-<li><%= link_to 'Matched Alters', matched_alters_path %></li>
-<li><%= link_to 'Notes', notes_path %></li>
-<li><%= link_to 'Other Specifies', other_specifies_path %></li>
-<li><%= link_to 'Questions', questions_path %></li>
-<li><%= link_to 'Question Options', question_options_path %></li>
-<li><%= link_to 'Studies', studies_path %></li>
-<li><%= link_to 'Users', users_path %></li>
+<li><%= link_to "Alters (#{Alter.count})", alters_path %></li>
+<li><%= link_to "Alter Lists (#{AlterList.count})", alter_lists_path %></li>
+<li><%= link_to "Alter Prompts (#{AlterPrompt.count})", alter_prompts_path %></li>
+<li><%= link_to "Answers (#{Answer.count})", answers_path %></li>
+<li><%= link_to "Answer Lists (#{AnswerList.count})", answer_lists_path %></li>
+<li><%= link_to "Expressions (#{Expression.count})", expressions_path %></li>
+<li><%= link_to "Graphs (#{Graph.count})", graphs_path %></li>
+<li><%= link_to "Interviews (#{Interview.count})", interviews_path %></li>
+<li><%= link_to "Interviewers (#{Interviewer.count})", interviewers_path %></li>
+<li><%= link_to "Legends (#{Legend.count})", legends_path %></li>
+<li><%= link_to "Matched Alters (#{MatchedAlter.count})", matched_alters_path %></li>
+<li><%= link_to "Notes (#{Note.count})", notes_path %></li>
+<li><%= link_to "Other Specifies (#{OtherSpecify.count})", other_specifies_path %></li>
+<li><%= link_to "Questions (#{Question.count})", questions_path %></li>
+<li><%= link_to "Question Options (#{QuestionOption.count})", question_options_path %></li>
+<li><%= link_to "Studies (#{Study.count})", studies_path %></li>
+<li><%= link_to "Users (#{User.count})", users_path %></li>
 <li>&nbsp;</li>
-<li><%= link_to 'Contact Informations', contact_informations_path %></li>
-<li><%= link_to 'Eligibility Screenings', eligibility_screenings_path %></li>
+<li><%= link_to "Contact Informations (#{ContactInformation.count})", contact_informations_path %></li>
+<li><%= link_to "Eligibility Screenings (#{EligibilityScreening.count})", eligibility_screenings_path %></li>
 </ul>
