@@ -11,7 +11,7 @@ class ActiveSupport::TestCase
 	# Add more helper methods to be used by all tests here...
 end
 
-ApplicationController.skip_before_filter :require_user
+ApplicationController.skip_before_action :require_user
 
 #class ActionDispatch::IntegrationTest	#ActionController::TestCase
 #	setup :activate_authlogic

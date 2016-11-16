@@ -3,8 +3,9 @@ class CreateRailsUsers < ActiveRecord::Migration[5.0]
 		create_table :rails_users do |t|
 			t.string :login
 
-			# Authlogic::ActsAsAuthentic::Email
+#			# Authlogic::ActsAsAuthentic::Email
 #			t.string :email
+#	Will be required if exists.
 
 			# Authlogic::ActsAsAuthentic::Password
 			t.string :crypted_password
@@ -28,6 +29,7 @@ class CreateRailsUsers < ActiveRecord::Migration[5.0]
 			t.string :current_login_ip
 			t.string :last_login_ip
 
+#	Will need all set to true to use
 #			# Authlogic::Session::MagicStates
 #			t.boolean :active, default: false
 #			t.boolean :approved, default: false

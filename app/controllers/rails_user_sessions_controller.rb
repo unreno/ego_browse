@@ -1,6 +1,6 @@
 class RailsUserSessionsController < ApplicationController
 
-	skip_before_filter :require_user, :only => [:new, :create]
+	skip_before_action :require_user, :only => [:new, :create]
 
 
 #	Authlogic::Session::Base.controller = Authlogic::ControllerAdapters::RailsAdapter.new(self)

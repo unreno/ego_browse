@@ -5,3 +5,7 @@ class RailsUser < ApplicationRecord
 #		c.session_class = RailsUserSession
 	end # the configuration block is optional
 end
+
+
+
+#	RailsUser.create(:login => 'jake', :password => 'password', :password_confirmation => 'password')
