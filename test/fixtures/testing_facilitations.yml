@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_of_visit: 2016-11-16
+  participant_id: MyString
+  staff_person: MyString
+  agree_to_use_home_test_kit_at_site: X
+  agree_to_use_home_test_kit_at_site_refusal_reason: MyString
+  agree_to_take_test_kit_home: X
+  agree_to_take_test_kit_home_refusal_reason: MyString
+  agree_to_tell_result_of_home_test_kit: X
+  agree_to_tell_result_of_home_test_kit_refusal_reason: MyString
+  result_of_home_test_kit: MyString
+  confirmatory_test_referred_location: MyString
+  confirmatory_test_referred_appointment: 2016-11-16 13:49:40
+  confirmatory_test_referred_location_other: MyString
+  indeterminate_test_option: MyString
+  indeterminate_test_result: MyString
+  indeterminate_test_referred_to: MyString
+  urine_to_test: X
+  urine_to_test_refusal_reason: MyString
+  urine_to_test_refusal_reason_other: MyString
+  notes: MyText
+
+two:
+  date_of_visit: 2016-11-16
+  participant_id: MyString
+  staff_person: MyString
+  agree_to_use_home_test_kit_at_site: X
+  agree_to_use_home_test_kit_at_site_refusal_reason: MyString
+  agree_to_take_test_kit_home: X
+  agree_to_take_test_kit_home_refusal_reason: MyString
+  agree_to_tell_result_of_home_test_kit: X
+  agree_to_tell_result_of_home_test_kit_refusal_reason: MyString
+  result_of_home_test_kit: MyString
+  confirmatory_test_referred_location: MyString
+  confirmatory_test_referred_appointment: 2016-11-16 13:49:40
+  confirmatory_test_referred_location_other: MyString
+  indeterminate_test_option: MyString
+  indeterminate_test_result: MyString
+  indeterminate_test_referred_to: MyString
+  urine_to_test: X
+  urine_to_test_refusal_reason: MyString
+  urine_to_test_refusal_reason_other: MyString
+  notes: MyText

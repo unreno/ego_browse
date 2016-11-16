@@ -1,0 +1,2 @@
+class TestingFacilitation < ApplicationRecord
+end

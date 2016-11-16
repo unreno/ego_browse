@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116181307) do
+ActiveRecord::Schema.define(version: 20161116214940) do
 
   create_table "alterList", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "studyId",                     null: false
@@ -309,6 +309,31 @@ ActiveRecord::Schema.define(version: 20161116181307) do
 
   create_table "tbl_migration", primary_key: "version", id: :string, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "apply_time"
+  end
+
+  create_table "testing_facilitations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.date     "date_of_visit"
+    t.string   "participant_id"
+    t.string   "staff_person"
+    t.string   "agree_to_use_home_test_kit_at_site",                   limit: 10
+    t.string   "agree_to_use_home_test_kit_at_site_refusal_reason"
+    t.string   "agree_to_take_test_kit_home",                          limit: 10
+    t.string   "agree_to_take_test_kit_home_refusal_reason"
+    t.string   "agree_to_tell_result_of_home_test_kit",                limit: 10
+    t.string   "agree_to_tell_result_of_home_test_kit_refusal_reason"
+    t.string   "result_of_home_test_kit",                              limit: 25
+    t.string   "confirmatory_test_referred_location"
+    t.datetime "confirmatory_test_referred_appointment"
+    t.string   "confirmatory_test_referred_location_other"
+    t.string   "indeterminate_test_option",                            limit: 25
+    t.string   "indeterminate_test_result"
+    t.string   "indeterminate_test_referred_to"
+    t.string   "urine_to_test",                                        limit: 10
+    t.string   "urine_to_test_refusal_reason"
+    t.string   "urine_to_test_refusal_reason_other"
+    t.text     "notes",                                                limit: 65535
+    t.datetime "created_at",                                                         null: false
+    t.datetime "updated_at",                                                         null: false
   end
 
   create_table "user", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

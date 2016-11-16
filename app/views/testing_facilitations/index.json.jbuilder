@@ -1,0 +1,1 @@
+json.array! @testing_facilitations, partial: 'testing_facilitations/testing_facilitation', as: :testing_facilitation

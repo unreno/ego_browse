@@ -1,0 +1,132 @@
+<%= form_for(testing_facilitation) do |f| %>
+	<% if testing_facilitation.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(testing_facilitation.errors.count, "error") %> prohibited this testing_facilitation from being saved:</h2>
+
+			<ul>
+			<% testing_facilitation.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="field">
+		<%= f.label :date_of_visit %>
+		<%= f.date_select :date_of_visit %>
+	</div>
+
+	<div class="field">
+		<%= f.label :participant_id %>
+		<%= f.text_field :participant_id %>
+	</div>
+
+	<div class="field">
+		<%= f.label :staff_person %>
+		<%= f.text_field :staff_person %>
+	</div>
+
+	<div class="field">
+		<%= f.label :agree_to_use_home_test_kit_at_site %>
+		<%= f.radio_button_with_label(:agree_to_use_home_test_kit_at_site, "Yes (1)") %>
+		<%= f.radio_button_with_label(:agree_to_use_home_test_kit_at_site, "No (0)") %>
+	</div>
+
+	<div class="field">
+		<%= f.label :agree_to_use_home_test_kit_at_site_refusal_reason %>
+		<%= f.text_field :agree_to_use_home_test_kit_at_site_refusal_reason %>
+	</div>
+
+	<div class="field">
+		<%= f.label :agree_to_take_test_kit_home %>
+		<%= f.radio_button_with_label(:agree_to_take_test_kit_home, "Yes (1)") %>
+		<%= f.radio_button_with_label(:agree_to_take_test_kit_home, "No (0)") %>
+		<%= f.radio_button_with_label(:agree_to_take_test_kit_home, "N/A (2)") %>
+	</div>
+
+	<div class="field">
+		<%= f.label :agree_to_take_test_kit_home_refusal_reason %>
+		<%= f.text_field :agree_to_take_test_kit_home_refusal_reason %>
+	</div>
+
+	<div class="field">
+		<%= f.label :agree_to_tell_result_of_home_test_kit %>
+		<%= f.radio_button_with_label(:agree_to_tell_result_of_home_test_kit, "Yes") %>
+		<%= f.radio_button_with_label(:agree_to_tell_result_of_home_test_kit, "No") %>
+	</div>
+
+	<div class="field">
+		<%= f.label :agree_to_tell_result_of_home_test_kit_refusal_reason %>
+		<%= f.text_field :agree_to_tell_result_of_home_test_kit_refusal_reason %>
+	</div>
+
+	<div class="field">
+		<%= f.label :result_of_home_test_kit %>
+		<%= f.radio_button_with_label(:result_of_home_test_kit, "Preliminary positive (1)") %>
+		<%= f.radio_button_with_label(:result_of_home_test_kit, "Negative (0)") %>
+		<%= f.radio_button_with_label(:result_of_home_test_kit, "Indeterminate (20)") %>
+	</div>
+
+	<div class="field">
+		<%= f.label :confirmatory_test_referred_location %>
+		<%= f.radio_button_with_label(:confirmatory_test_referred_location, "HOPES ... (1)") %>
+		<%= f.radio_button_with_label(:confirmatory_test_referred_location, "Primary care provider (2)") %>
+		<%= f.radio_button_with_label(:confirmatory_test_referred_location, "WCHD (3)") %>
+		<%= f.radio_button_with_label(:confirmatory_test_referred_location, "Planned Parenthood (4)") %>
+		<%= f.radio_button_with_label(:confirmatory_test_referred_location, "Other ... (20)") %>
+	</div>
+
+	<div class="field">
+		<%= f.label :confirmatory_test_referred_appointment %>
+		<%= f.datetime_select :confirmatory_test_referred_appointment %>
+	</div>
+
+	<div class="field">
+		<%= f.label :confirmatory_test_referred_location_other %>
+		<%= f.text_field :confirmatory_test_referred_location_other %>
+	</div>
+
+	<div class="field">
+		<%= f.label :indeterminate_test_option %>
+		<%= f.radio_button_with_label(:indeterminate_test_option, "Took another test (1)") %>
+		<%= f.radio_button_with_label(:indeterminate_test_option, "Referred to: ... (2)") %>
+	</div>
+
+	<div class="field">
+		<%= f.label :indeterminate_test_result %>
+		<%= f.text_field :indeterminate_test_result %>
+	</div>
+
+	<div class="field">
+		<%= f.label :indeterminate_test_referred_to %>
+		<%= f.text_field :indeterminate_test_referred_to %>
+	</div>
+
+	<div class="field">
+		<%= f.label :urine_to_test %>
+		<%= f.radio_button_with_label(:urine_to_test, "Yes (1)") %>
+		<%= f.radio_button_with_label(:urine_to_test, "No (0)") %>
+	</div>
+
+	<div class="field">
+		<%= f.label :urine_to_test_refusal_reason %>
+		<%= f.radio_button_with_label(:urine_to_test_refusal_reason, "Experiencing symptons and referred to primary care or WCHD") %>
+		<%= f.radio_button_with_label(:urine_to_test_refusal_reason, "Unable to produce a sample") %>
+		<%= f.radio_button_with_label(:urine_to_test_refusal_reason, "Refused") %>
+		<%= f.radio_button_with_label(:urine_to_test_refusal_reason, "Other ...") %>
+	</div>
+
+	<div class="field">
+		<%= f.label :urine_to_test_refusal_reason_other %>
+		<%= f.text_field :urine_to_test_refusal_reason_other %>
+	</div>
+
+	<div class="field">
+		<%= f.label :notes %>
+		<%= f.text_area :notes %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>

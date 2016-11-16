@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Testing Facilitations</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Date of visit</th>
+			<th>Participant</th>
+			<th>Staff person</th>
+			<th>Agree to use home test kit at site</th>
+			<th>Agree to use home test kit at site refusal reason</th>
+			<th>Agree to take test kit home</th>
+			<th>Agree to take test kit home refusal reason</th>
+			<th>Agree to tell result of home test kit</th>
+			<th>Agree to tell result of home test kit refusal reason</th>
+			<th>Result of home test kit</th>
+			<th>Confirmatory test referred location</th>
+			<th>Confirmatory test referred appointment</th>
+			<th>Confirmatory test referred location other</th>
+			<th>Indeterminate test option</th>
+			<th>Indeterminate test result</th>
+			<th>Indeterminate test referred to</th>
+			<th>Urine to test</th>
+			<th>Urine to test refusal reason</th>
+			<th>Urine to test refusal reason other</th>
+			<th>Notes</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @testing_facilitations.each do |testing_facilitation| %>
+			<tr>
+				<td><%= testing_facilitation.date_of_visit %></td>
+				<td><%= testing_facilitation.participant_id %></td>
+				<td><%= testing_facilitation.staff_person %></td>
+				<td><%= testing_facilitation.agree_to_use_home_test_kit_at_site %></td>
+				<td><%= testing_facilitation.agree_to_use_home_test_kit_at_site_refusal_reason %></td>
+				<td><%= testing_facilitation.agree_to_take_test_kit_home %></td>
+				<td><%= testing_facilitation.agree_to_take_test_kit_home_refusal_reason %></td>
+				<td><%= testing_facilitation.agree_to_tell_result_of_home_test_kit %></td>
+				<td><%= testing_facilitation.agree_to_tell_result_of_home_test_kit_refusal_reason %></td>
+				<td><%= testing_facilitation.result_of_home_test_kit %></td>
+				<td><%= testing_facilitation.confirmatory_test_referred_location %></td>
+				<td><%= testing_facilitation.confirmatory_test_referred_appointment %></td>
+				<td><%= testing_facilitation.confirmatory_test_referred_location_other %></td>
+				<td><%= testing_facilitation.indeterminate_test_option %></td>
+				<td><%= testing_facilitation.indeterminate_test_result %></td>
+				<td><%= testing_facilitation.indeterminate_test_referred_to %></td>
+				<td><%= testing_facilitation.urine_to_test %></td>
+				<td><%= testing_facilitation.urine_to_test_refusal_reason %></td>
+				<td><%= testing_facilitation.urine_to_test_refusal_reason_other %></td>
+				<td><%= testing_facilitation.notes %></td>
+				<td><%= link_to 'Show', testing_facilitation %></td>
+				<td><%= link_to 'Edit', edit_testing_facilitation_path(testing_facilitation) %></td>
+				<td><%= link_to 'Destroy', testing_facilitation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Testing Facilitation', new_testing_facilitation_path %>
