@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bundler'
+
 
 gem 'passenger'
 gem 'ruby-mcrypt', :require => 'mcrypt'

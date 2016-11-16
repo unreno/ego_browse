@@ -173,6 +173,7 @@ PLATFORMS
 
 DEPENDENCIES
   authlogic
+  bundler
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
