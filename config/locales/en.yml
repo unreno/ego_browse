@@ -99,3 +99,25 @@ en:
 #        eye_color
 #        hair
         other_identifying_marks: 'Any other identifying marks: e.g. tattoos, piercings'
+      testing_facilitation:
+        date_of_visit: Date of visit (mm/dd/yyyy)
+        participant_id: Participant ID
+        staff_person: Staff person
+        agree_to_use_home_test_kit_at_site: 1. Did the participant agree to use the home test kit at the study site?
+        agree_to_use_home_test_kit_at_site_refusal_reason: If no, what was the reason for refusal?
+        agree_to_take_test_kit_home: If no, did the participant agree to take the test kit home?
+        agree_to_take_test_kit_home_refusal_reason: If no, why not?
+        agree_to_tell_result_of_home_test_kit: 2. Did the participant agree to tell the result of the home test kit?
+        agree_to_tell_result_of_home_test_kit_refusal_reason: If now, what was the reason for not telling the result?
+        result_of_home_test_kit: 3. What was the result of the home test kit?
+        confirmatory_test_referred_location: If the result was preliminary positive, where was the participant referred for a confirmatory test?
+        confirmatory_test_referred_appointment: date/time of appointment
+        confirmatory_test_referred_location_other: Referred where?
+        indeterminate_test_option: If the result was indeterminate, what happened?
+        indeterminate_test_result: Result of other test?
+        indeterminate_test_referred_to: Referred to?
+        urine_to_test: 4. Did the participant provide urine to be tested for gonorrhea and chlamydia?
+        urine_to_test_refusal_reason: If no, why not?
+        urine_to_test_refusal_reason_other: Other refusal reason?
+        notes: Please document any notes about the testing faciliation below
+
