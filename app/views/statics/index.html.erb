@@ -22,3 +22,12 @@
 <li><%= link_to "Contact Informations (#{ContactInformation.count})", contact_informations_path %></li>
 <li><%= link_to "Eligibility Screenings (#{EligibilityScreening.count})", eligibility_screenings_path %></li>
 </ul>
+
+
+
+
+<% if !current_rails_user %>
+  <%= link_to "Log In", new_rails_user_session_path %>
+<% else %>
+  <%= link_to "Logout", rails_user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
+<% end %>

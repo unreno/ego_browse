@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109194525) do
+ActiveRecord::Schema.define(version: 20161116181307) do
 
   create_table "alterList", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "studyId",                     null: false
@@ -254,6 +254,24 @@ ActiveRecord::Schema.define(version: 20161109194525) do
     t.text    "value",        limit: 65535
     t.integer "ordering"
     t.boolean "otherSpecify"
+  end
+
+  create_table "rails_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "login"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "single_access_token"
+    t.string   "perishable_token"
+    t.integer  "login_count",         default: 0, null: false
+    t.integer  "failed_login_count",  default: 0, null: false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "session", id: :string, limit: 32, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

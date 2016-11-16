@@ -7,31 +7,31 @@ one:
   alternate_names: MyString
   dob: 2016-11-09
   primary_phone_number: MyString
-  primary_phone_type: MyString
-  primary_phone_message: MyString
-  primary_phone_text: MyString
+  primary_phone_type: abcde
+  primary_phone_message: X
+  primary_phone_text: X
   secondary_phone_number: MyString
-  secondary_phone_type: MyString
-  secondary_phone_message: MyString
-  secondary_phone_text: MyString
+  secondary_phone_type: abcde
+  secondary_phone_message: X
+  secondary_phone_text: X
   tertiary_phone_number: MyString
-  tertiary_phone_type: MyString
-  tertiary_phone_message: MyString
-  tertiary_phone_text: MyString
+  tertiary_phone_type: abcde
+  tertiary_phone_message: X
+  tertiary_phone_text: X
   primary_address: MyString
   primary_city: MyString
-  primary_state: MyString
+  primary_state: XX
   primary_zip: MyString
   secondary_address: MyString
   secondary_city: MyString
-  secondary_state: MyString
+  secondary_state: XX
   secondary_zip: MyString
-  ok_to_mail_negative_test_result: MyString
+  ok_to_mail_negative_test_result: X
   email: MyString
   other_person_relationship: MyString
   other_person_phone: MyString
-  other_person_ok_to_pass_message: MyString
-  referal_source: MyString
+  other_person_ok_to_pass_message: X
+  referral_source: MyString
   height: MyString
   build: MyString
   age: 1
@@ -47,31 +47,31 @@ two:
   alternate_names: MyString
   dob: 2016-11-09
   primary_phone_number: MyString
-  primary_phone_type: MyString
-  primary_phone_message: MyString
-  primary_phone_text: MyString
+  primary_phone_type: abcde
+  primary_phone_message: X
+  primary_phone_text: X
   secondary_phone_number: MyString
-  secondary_phone_type: MyString
-  secondary_phone_message: MyString
-  secondary_phone_text: MyString
+  secondary_phone_type: abcde
+  secondary_phone_message: X
+  secondary_phone_text: X
   tertiary_phone_number: MyString
-  tertiary_phone_type: MyString
-  tertiary_phone_message: MyString
-  tertiary_phone_text: MyString
+  tertiary_phone_type: abcde
+  tertiary_phone_message: X
+  tertiary_phone_text: X
   primary_address: MyString
   primary_city: MyString
-  primary_state: MyString
+  primary_state: XX
   primary_zip: MyString
   secondary_address: MyString
   secondary_city: MyString
-  secondary_state: MyString
+  secondary_state: XX
   secondary_zip: MyString
-  ok_to_mail_negative_test_result: MyString
+  ok_to_mail_negative_test_result: X
   email: MyString
   other_person_relationship: MyString
   other_person_phone: MyString
-  other_person_ok_to_pass_message: MyString
-  referal_source: MyString
+  other_person_ok_to_pass_message: X
+  referral_source: MyString
   height: MyString
   build: MyString
   age: 1
