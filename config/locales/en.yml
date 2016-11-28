@@ -119,5 +119,7 @@ en:
         urine_to_test: 4. Did the participant provide urine to be tested for gonorrhea and chlamydia?
         urine_to_test_refusal_reason: If no, why not?
         urine_to_test_refusal_reason_other: Other refusal reason?
+        gonorrhea_result: Gonorrhea Result
+        chlamydia_result: Chlamydia Result
         notes: Please document any notes about the testing faciliation below
 
