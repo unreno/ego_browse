@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116214940) do
+ActiveRecord::Schema.define(version: 0) do
 
   create_table "alterList", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "studyId",                     null: false
@@ -54,88 +54,6 @@ ActiveRecord::Schema.define(version: 20161116214940) do
     t.text    "listName",        limit: 65535
     t.integer "studyId"
     t.text    "listOptionNames", limit: 65535
-  end
-
-  create_table "contact_informations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "first_name"
-    t.string   "middle_name"
-    t.string   "last_name"
-    t.string   "alternate_names"
-    t.date     "dob"
-    t.string   "primary_phone_number"
-    t.string   "primary_phone_type",              limit: 5
-    t.string   "primary_phone_message",           limit: 1
-    t.string   "primary_phone_text",              limit: 1
-    t.string   "secondary_phone_number"
-    t.string   "secondary_phone_type",            limit: 5
-    t.string   "secondary_phone_message",         limit: 1
-    t.string   "secondary_phone_text",            limit: 1
-    t.string   "tertiary_phone_number"
-    t.string   "tertiary_phone_type",             limit: 5
-    t.string   "tertiary_phone_message",          limit: 1
-    t.string   "tertiary_phone_text",             limit: 1
-    t.string   "primary_address"
-    t.string   "primary_city"
-    t.string   "primary_state",                   limit: 5
-    t.string   "primary_zip",                     limit: 10
-    t.string   "secondary_address"
-    t.string   "secondary_city"
-    t.string   "secondary_state",                 limit: 5
-    t.string   "secondary_zip",                   limit: 10
-    t.string   "ok_to_mail_negative_test_result", limit: 1
-    t.string   "email"
-    t.string   "other_person_relationship"
-    t.string   "other_person_phone"
-    t.string   "other_person_ok_to_pass_message", limit: 1
-    t.string   "referral_source"
-    t.string   "height"
-    t.string   "build"
-    t.integer  "age"
-    t.string   "race"
-    t.string   "eye_color"
-    t.string   "hair"
-    t.string   "other_identifying_marks"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-  end
-
-  create_table "eligibility_screenings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "how_learned",                limit: 20
-    t.string   "how_learned_other"
-    t.string   "age",                        limit: 5
-    t.string   "sex",                        limit: 5
-    t.string   "race",                       limit: 5
-    t.string   "race_other"
-    t.string   "children",                   limit: 5
-    t.string   "seen_pcp",                   limit: 5
-    t.string   "marital",                    limit: 10
-    t.string   "tested_hiv",                 limit: 5
-    t.string   "tested_hiv_result",          limit: 10
-    t.string   "partner_count",              limit: 10
-    t.string   "injection_drugs",            limit: 5
-    t.string   "partner_injection_drugs",    limit: 5
-    t.string   "partner_noninjection_drugs", limit: 5
-    t.string   "partner_hiv_positive",       limit: 10
-    t.string   "partner_other_partners",     limit: 5
-    t.string   "partner_traded_sex",         limit: 5
-    t.string   "partner_man_men",            limit: 5
-    t.string   "eligible_q_8_15",            limit: 5
-    t.string   "where_live",                 limit: 5
-    t.string   "where_live_other"
-    t.string   "willing_to_refer",           limit: 5
-    t.string   "matched_to_ego",             limit: 5
-    t.string   "eligible",                   limit: 5
-    t.string   "name_of_screener"
-    t.string   "location_of_screening"
-    t.date     "date_of_screening"
-    t.time     "time_of_screening"
-    t.string   "referred_for_interview",     limit: 5
-    t.date     "referred_appointment_date"
-    t.time     "referred_appointment_time"
-    t.string   "reason_for_refusal",         limit: 50
-    t.string   "reason_for_refusal_other"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
   end
 
   create_table "expression", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -256,24 +174,6 @@ ActiveRecord::Schema.define(version: 20161116214940) do
     t.boolean "otherSpecify"
   end
 
-  create_table "rails_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "login"
-    t.string   "crypted_password"
-    t.string   "password_salt"
-    t.string   "persistence_token"
-    t.string   "single_access_token"
-    t.string   "perishable_token"
-    t.integer  "login_count",         default: 0, null: false
-    t.integer  "failed_login_count",  default: 0, null: false
-    t.datetime "last_request_at"
-    t.datetime "current_login_at"
-    t.datetime "last_login_at"
-    t.string   "current_login_ip"
-    t.string   "last_login_ip"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-  end
-
   create_table "session", id: :string, limit: 32, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "expire"
     t.binary  "data",   limit: 4294967295
@@ -309,31 +209,6 @@ ActiveRecord::Schema.define(version: 20161116214940) do
 
   create_table "tbl_migration", primary_key: "version", id: :string, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "apply_time"
-  end
-
-  create_table "testing_facilitations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.date     "date_of_visit"
-    t.string   "participant_id"
-    t.string   "staff_person"
-    t.string   "agree_to_use_home_test_kit_at_site",                   limit: 10
-    t.string   "agree_to_use_home_test_kit_at_site_refusal_reason"
-    t.string   "agree_to_take_test_kit_home",                          limit: 10
-    t.string   "agree_to_take_test_kit_home_refusal_reason"
-    t.string   "agree_to_tell_result_of_home_test_kit",                limit: 10
-    t.string   "agree_to_tell_result_of_home_test_kit_refusal_reason"
-    t.string   "result_of_home_test_kit",                              limit: 25
-    t.string   "confirmatory_test_referred_location"
-    t.datetime "confirmatory_test_referred_appointment"
-    t.string   "confirmatory_test_referred_location_other"
-    t.string   "indeterminate_test_option",                            limit: 25
-    t.string   "indeterminate_test_result"
-    t.string   "indeterminate_test_referred_to"
-    t.string   "urine_to_test",                                        limit: 10
-    t.string   "urine_to_test_refusal_reason"
-    t.string   "urine_to_test_refusal_reason_other"
-    t.text     "notes",                                                limit: 65535
-    t.datetime "created_at",                                                         null: false
-    t.datetime "updated_at",                                                         null: false
   end
 
   create_table "user", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

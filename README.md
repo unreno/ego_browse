@@ -48,3 +48,4 @@ config/mcrypt.yml
 config/secrets.yml
 
 
+RailsUser.create(:login => 'test', :password => 'test123!', :password_confirmation =>'test123!')
