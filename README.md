@@ -41,3 +41,10 @@ https://github.com/unreno/ego_browse/wiki/EGO-Browse-Creation
 
 https://github.com/unreno/ego_browse/wiki/EGO-Browse-Install
 
+
+
+config/database.yml
+config/mcrypt.yml
+config/secrets.yml
+
+
