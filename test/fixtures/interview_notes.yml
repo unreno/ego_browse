@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  participant_id: MyString
+  interview_date: 2016-11-28
+  interview_notes: MyText
+  process_notes: MyText
+
+two:
+  participant_id: MyString
+  interview_date: 2016-11-28
+  interview_notes: MyText
+  process_notes: MyText

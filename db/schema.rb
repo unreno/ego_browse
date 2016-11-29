@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116214940) do
+ActiveRecord::Schema.define(version: 20161129001950) do
 
   create_table "alterList", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "studyId",                     null: false
@@ -162,6 +162,15 @@ ActiveRecord::Schema.define(version: 20161116214940) do
     t.integer "completed"
     t.integer "start_date"
     t.integer "complete_date"
+  end
+
+  create_table "interview_notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "participant_id"
+    t.date     "interview_date"
+    t.text     "interview_notes", limit: 65535
+    t.text     "process_notes",   limit: 65535
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "interviewers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

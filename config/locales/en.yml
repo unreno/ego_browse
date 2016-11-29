@@ -122,4 +122,9 @@ en:
         gonorrhea_result: Gonorrhea Result
         chlamydia_result: Chlamydia Result
         notes: Please document any notes about the testing faciliation below
+      interview_note:
+        participant_id: Participant ID
+        interview_date: Interview Date
+        interview_notes: Interview Notes
+        process_notes: Process Notes
 

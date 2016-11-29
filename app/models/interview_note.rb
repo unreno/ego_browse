@@ -1,0 +1,2 @@
+class InterviewNote < ApplicationRecord
+end

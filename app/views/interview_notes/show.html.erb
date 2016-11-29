@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.interview_note.participant_id' %>:</strong>
+  <%= @interview_note.participant_id %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.interview_note.interview_date' %>:</strong>
+  <%= @interview_note.interview_date %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.interview_note.interview_notes' %>:</strong>
+  <%= @interview_note.interview_notes %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.interview_note.process_notes' %>:</strong>
+  <%= @interview_note.process_notes %>
+</p>
+
+<%= link_to 'Edit', edit_interview_note_path(@interview_note) %> |
+<%= link_to 'Back', interview_notes_path %>

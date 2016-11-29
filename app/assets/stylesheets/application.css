@@ -23,7 +23,10 @@ td {
 }
 textarea,
 input[type=text]{
-	width: 500px;
+	width: 50em;
+}
+textarea {
+	height: 10em;
 }
 div.field label:first-child {
 	font-weight: bold;
