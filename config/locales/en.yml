@@ -29,7 +29,7 @@ en:
         how_learned: How did you learn about the study?
 #        how_learned_other: Other ...
         age: 1) How old are you?
-        sex: 2) What gender do you identify with?
+        gender: 2) What gender do you identify with?
         race: 3) What race do you identify with?
 #        race_other
         children: 4) Do you have children?

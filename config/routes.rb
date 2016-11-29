@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :interview_notes
   resources :testing_facilitations
   resource :rails_user_session
 #  resources :rails_user_sessions, :only => [:new,:create] do

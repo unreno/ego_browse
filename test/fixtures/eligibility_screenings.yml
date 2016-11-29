@@ -1,73 +1,73 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  how_learned: xxxxx
+  how_learned: xxxx
   how_learned_other: MyString
-  age: xxxxx
-  sex: xxxxx
-  race: xxxxx
+  age: 1
+  gender: 1
+  race: 1
   race_other: MyString
-  children: xxxxx
-  seen_pcp: xxxxx
+  children: 1
+  seen_pcp: 1
   marital: xxxxx
-  tested_hiv: xxxxx
-  tested_hiv_result: xxxxx
-  partner_count: xxxxx
-  injection_drugs: xxxxx
-  partner_injection_drugs: xxxxx
-  partner_noninjection_drugs: xxxxx
-  partner_hiv_positive: xxxxx
-  partner_other_partners: xxxxx
-  partner_traded_sex: xxxxx
-  partner_man_men: xxxxx
-  eligible_q_8_15: xxxxx
-  where_live: xxxxx
+  tested_hiv: 1
+  tested_hiv_result: 1
+  partner_count: 1
+  injection_drugs: 1
+  partner_injection_drugs: 1
+  partner_noninjection_drugs: 1
+  partner_hiv_positive: 1
+  partner_other_partners: 1
+  partner_traded_sex: 1
+  partner_man_men: 1
+  eligible_q_8_15: 1
+  where_live: 1
   where_live_other: MyString
-  willing_to_refer: xxxxx
-  matched_to_ego: xxxxx
-  eligible: xxxxx
+  willing_to_refer: 1
+  matched_to_ego: 1
+  eligible: 1
   name_of_screener: MyString
   location_of_screening: MyString
   date_of_screening: 2016-10-26
   time_of_screening: 12:12
-  referred_for_interview: xxxxx
+  referred_for_interview: 1
   referred_appointment_date: 2016-10-26
   referred_appointment_time: 12:12
-  reason_for_refusal: MyString
+  reason_for_refusal: 1
   reason_for_refusal_other: MyString
 
 two:
   how_learned: yyyyy
   how_learned_other: MyString
-  age: yyyyy
-  sex: yyyyy
-  race: yyyyy
+  age: 1
+  gender: 1
+  race: 1
   race_other: MyString
-  children: yyyyy
-  seen_pcp: yyyyy
+  children: 1
+  seen_pcp: 1
   marital: MyString
-  tested_hiv: yyyyy
-  tested_hiv_result: MyString
-  partner_count: yyyyy
-  injection_drugs: yyyyy
-  partner_injection_drugs: yyyyy
-  partner_noninjection_drugs: yyyyy
-  partner_hiv_positive: yyyyy
-  partner_other_partners: yyyyy
-  partner_traded_sex: yyyyy
-  partner_man_men: yyyyy
-  eligible_q_8_15: yyyyy
-  where_live: yyyyy
+  tested_hiv: 1
+  tested_hiv_result: 1
+  partner_count: 1
+  injection_drugs: 1
+  partner_injection_drugs: 1
+  partner_noninjection_drugs: 1
+  partner_hiv_positive: 1
+  partner_other_partners: 1
+  partner_traded_sex: 1
+  partner_man_men: 1
+  eligible_q_8_15: 1
+  where_live: 1
   where_live_other: MyString
-  willing_to_refer: yyyyy
-  matched_to_ego: yyyyy
-  eligible: yyyyy
+  willing_to_refer: 1
+  matched_to_ego: 1
+  eligible: 1
   name_of_screener: MyString
   location_of_screening: MyString
   date_of_screening: 2016-10-26
   time_of_screening: 12:12
-  referred_for_interview: yyyyy
+  referred_for_interview: 1
   referred_appointment_date: 2016-10-26
   referred_appointment_time: 12:12
-  reason_for_refusal: yyyyy
+  reason_for_refusal: 1
   reason_for_refusal_other: MyString
