@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class AlterListsControllerTest < ActionDispatch::IntegrationTest
+
 	setup do
 		@alter_list = alter_lists(:one)
 	end
