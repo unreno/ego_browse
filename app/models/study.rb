@@ -17,6 +17,7 @@ class Study < ApplicationRecord
 #		hisplats = ["Yes","No","Other"]
 #		hisplats += questions.where(:title => "HISPLAT").collect(&:question_options).flatten.collect(&:name).sort
 		hisplats = questions.where(:title => "HISPLAT").collect(&:question_options).flatten.collect(&:name)
+			.collect{|x|x[0..(x.index("/")||x.length)-1]}
 		hisplats << "Unknown"
 		hisplats.uniq
 	end
@@ -24,12 +25,14 @@ class Study < ApplicationRecord
 	def genders
 #		genders = ["Other", "Gender queer/non-binary", "Female", "Transmale/transman", "Male", "Transfemale/transwoman"]
 		genders = questions.where(:title => "GENDER").collect(&:question_options).flatten.collect(&:name).sort
+			.collect{|x|x[0..(x.index("/")||x.length)-1]}
 		genders << "Unknown"
 		genders.uniq
 	end
 
 	def sexes
 		sexes = questions.where(:title => "SEX").collect(&:question_options).flatten.collect(&:name).sort
+			.collect{|x|x[0..(x.index("/")||x.length)-1]}
 		sexes << "Unknown"
 		sexes.uniq
 	end
