@@ -1,5 +1,6 @@
 class InterviewNotesController < ApplicationController
   before_action :set_interview_note, only: [:show, :edit, :update, :destroy]
+	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
   # GET /interview_notes
   # GET /interview_notes.json

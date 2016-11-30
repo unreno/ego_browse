@@ -1,5 +1,6 @@
 class AltersController < ApplicationController
 	before_action :set_alter, only: [:show, :edit, :update, :destroy]
+	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
 	# GET /alters
 	# GET /alters.json

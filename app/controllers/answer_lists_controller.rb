@@ -1,5 +1,6 @@
 class AnswerListsController < ApplicationController
 	before_action :set_answer_list, only: [:show, :edit, :update, :destroy]
+	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
 	# GET /answer_lists
 	# GET /answer_lists.json

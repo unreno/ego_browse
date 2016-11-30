@@ -1,5 +1,6 @@
 class QuestionOptionsController < ApplicationController
 	before_action :set_question_option, only: [:show, :edit, :update, :destroy]
+	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
 	# GET /question_options
 	# GET /question_options.json

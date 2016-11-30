@@ -1,5 +1,6 @@
 class InterviewersController < ApplicationController
 	before_action :set_interviewer, only: [:show, :edit, :update, :destroy]
+	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
 	# GET /interviewers
 	# GET /interviewers.json

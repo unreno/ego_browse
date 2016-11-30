@@ -1,5 +1,6 @@
 class ExpressionsController < ApplicationController
 	before_action :set_expression, only: [:show, :edit, :update, :destroy]
+	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
 	# GET /expressions
 	# GET /expressions.json

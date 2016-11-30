@@ -1,5 +1,6 @@
 class AlterPromptsController < ApplicationController
 	before_action :set_alter_prompt, only: [:show, :edit, :update, :destroy]
+	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
 	# GET /alter_prompts
 	# GET /alter_prompts.json

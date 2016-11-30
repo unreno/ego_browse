@@ -1,5 +1,6 @@
 class AlterListsController < ApplicationController
 	before_action :set_alter_list, only: [:show, :edit, :update, :destroy]
+	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
 	# GET /alter_lists
 	# GET /alter_lists.json

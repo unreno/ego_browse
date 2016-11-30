@@ -1,5 +1,6 @@
 class TestingFacilitationsController < ApplicationController
 	before_action :set_testing_facilitation, only: [:show, :edit, :update, :destroy]
+	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
 	# GET /testing_facilitations
 	# GET /testing_facilitations.json

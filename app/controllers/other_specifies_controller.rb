@@ -1,5 +1,6 @@
 class OtherSpecifiesController < ApplicationController
 	before_action :set_other_specify, only: [:show, :edit, :update, :destroy]
+	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
 	# GET /other_specifies
 	# GET /other_specifies.json

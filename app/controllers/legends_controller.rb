@@ -1,5 +1,6 @@
 class LegendsController < ApplicationController
 	before_action :set_legend, only: [:show, :edit, :update, :destroy]
+	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
 	# GET /legends
 	# GET /legends.json

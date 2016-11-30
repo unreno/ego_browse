@@ -1,5 +1,6 @@
 class EligibilityScreeningsController < ApplicationController
   before_action :set_eligibility_screening, only: [:show, :edit, :update, :destroy]
+	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
   # GET /eligibility_screenings
   # GET /eligibility_screenings.json
