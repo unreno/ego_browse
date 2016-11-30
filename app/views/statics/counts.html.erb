@@ -1,55 +1,64 @@
+<h1>Counts for <%= @studies.count -%> <%= 'study'.pluralize(@studies.count) -%>.</h1>
 <% @studies.each do |study| %>
-<h1>Study ID : <%= study[:id] %></h1>
+<h2>Study ID : <%= study[:id] %></h2>
 <table>
 	<thead>
 		<tr>
 			<th rowspan='3'>Racial Categories</th>
-			<th colspan='9'>Ethnic Categories</th>
+			<th colspan='<%=study[:hisplats].length*study[:genders].length-%>'>
+				Ethnic Categories (Hispanic?)</th>
 			<th rowspan='3'>Total</th>
 		</tr>
 		<tr>
-			<th colspan='3'>Not Hispanic or Latino</th>
-			<th colspan='3'>Hispanic or Latino</th>
-			<th colspan='3'>Unknown / Not Reported Ethnicity</th>
+			<% study[:hisplats].each do |hisplat| %>
+				<th colspan='<%=study[:genders].length-%>'><%=hisplat-%></th>
+			<% end	#study[:hisplats].each do |hisplat| %>
 		</tr>
 		<tr>
-			<th>Female</th>
-			<th>Male</th>
-			<th>Unknown / Not Reported</th>
-			<th>Female</th>
-			<th>Male</th>
-			<th>Unknown / Not Reported</th>
-			<th>Female</th>
-			<th>Male</th>
-			<th>Unknown / Not Reported</th>
+			<% study[:hisplats].length.times do %>
+				<% study[:genders].each do |gender| %>
+				<th><%= gender.gsub("/"," / ") -%></th>
+				<% end #study[:genders].each do |gender| %>
+			<% end	#study[:hisplats].length.times do %>
 		</tr>
 	</thead>
 	<tbody>
 	<% study[:races].each do |race| %>
 		<tr>
 			<td><%= race %></td>
+
+<%#
+
+		How exactly does this show multi or zero race counts?
+
+%>
+
 			<% d_r = study[:demographics].select{|v|v[:race].length==1 && v[:race][0] == race} %>
+			<% study[:hisplats].each do |hisplat| %>
 
-			<% d_r_h = d_r.select{|v| v[:hispanic][0] == "No" } %>
-			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0] == "Female/Femenino" }.length %></td>
-			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0] == "Male/Masculino" }.length %></td>
-			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0].blank? || v[:gender][0] == "Other/Otro" }.length %></td>
+				<% d_r_h = d_r.select{|v| v[:hispanic][0] == hisplat } %>
+				<% study[:genders].each do |gender| %>
+					<td><%= d_r_h.select{|v| v[:gender][0] == gender }.length -%></td>
+				<% end	#study[:genders].each do |gender| %>
 
-			<% d_r_h = d_r.select{|v| v[:hispanic][0] == "Yes/Sí" } %>
-			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0] == "Female/Femenino" }.length %></td>
-			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0] == "Male/Masculino" }.length %></td>
-			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0].blank? || v[:gender][0] == "Other/Otro" }.length %></td>
-
-			<% d_r_h = d_r.select{|v| v[:hispanic].blank? || v[:hispanic][0].blank? } %>
-			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0] == "Female/Femenino" }.length %></td>
-			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0] == "Male/Masculino" }.length %></td>
-			<td><%= d_r_h_s = d_r_h.select{|v| v[:gender][0].blank? || v[:gender][0] == "Other/Otro" }.length %></td>
+			<% end	#study[:hisplats].each do |hisplat| %>
 
 			<td><%= d_r.length %></td>
 		</tr>
 	<% end %>
+
+
+<%# 
+
+	Multiple races?
+
+%>
+
+
 		<tr>
-			<td colspan='11'>Total Enrollment:&nbsp;&nbsp;<%= study[:demographics].length %></td>
+			<td colspan='<%=study[:hisplats].length*study[:genders].length+2-%>'>
+				Total Enrollment:&nbsp;&nbsp;<%= study[:demographics].length %>
+			</td>
 		</tr>
 	</tbody>
 </table>

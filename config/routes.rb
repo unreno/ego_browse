@@ -1,16 +1,11 @@
 Rails.application.routes.draw do
 
+  resource :rails_user_session
   resources :interview_notes
   resources :testing_facilitations
-  resource :rails_user_session
-#  resources :rails_user_sessions, :only => [:new,:create] do
-#		collection do
-#			get :destroy
-#		end
-#	end
-
   resources :contact_informations
   resources :eligibility_screenings
+
 	resources :other_specifies, :only => [:show,:index]
 	resources :users, :only => [:show,:index]
 	resources :studies, :only => [:show,:index]

@@ -13,12 +13,34 @@ class Study < ApplicationRecord
 	has_many :question_options, foreign_key: :studyId
 	has_many :questions, foreign_key: :studyId
 
+	def hisplats
+#		hisplats = ["Yes","No","Other"]
+#		hisplats += questions.where(:title => "HISPLAT").collect(&:question_options).flatten.collect(&:name).sort
+		hisplats = questions.where(:title => "HISPLAT").collect(&:question_options).flatten.collect(&:name)
+		hisplats << "Unknown"
+		hisplats.uniq
+	end
+
+	def genders
+#		genders = ["Other", "Gender queer/non-binary", "Female", "Transmale/transman", "Male", "Transfemale/transwoman"]
+		genders = questions.where(:title => "GENDER").collect(&:question_options).flatten.collect(&:name).sort
+		genders << "Unknown"
+		genders.uniq
+	end
+
+	def sexes
+		sexes = questions.where(:title => "SEX").collect(&:question_options).flatten.collect(&:name).sort
+		sexes << "Unknown"
+		sexes.uniq
+	end
+
 	def races
 		races = questions.where(:title => "RACE").collect(&:question_options).flatten.collect(&:name).sort
 		#	Race is in English and Spanish. Take just the English.
-		races = races.collect{|race|race[0..race.index("/")-1]}
+		races = races.collect{|race|race[0..(race.index("/")||race.length)-1]}
 		races << "More Than One Race"
 		races << "Unknown or Not Reported"
+		races.uniq
 	end
 
 	def race_qid
@@ -33,18 +55,32 @@ class Study < ApplicationRecord
 		@gender_qid ||= questions.where(:title => "GENDER").select(:id).collect(&:id).first
 	end
 
+	def sex_qid
+		@sex_qid ||= questions.where(:title => "SEX").select(:id).collect(&:id).first
+	end
+
 	def demographics
 		interviews
 			.joins("LEFT JOIN answer r ON interview.id = r.interviewId AND r.questionId = #{race_qid}")
 			.joins("LEFT JOIN answer h ON interview.id = h.interviewId AND h.questionId = #{hisplat_qid}")
 			.joins("LEFT JOIN answer g ON interview.id = g.interviewId AND g.questionId = #{gender_qid}")
-			.select("interview.id, r.value AS race, h.value AS hispanic, g.value AS gender")
+			.joins("LEFT JOIN answer s ON interview.id = s.interviewId AND s.questionId = #{sex_qid}")
+			.select("interview.id, r.value AS race, h.value AS hispanic, g.value AS gender, s.value AS sex")
 			.collect{|i| 
 				{	id: i.id, 
-					race: decode(i.race).collect{|race|race[0..race.index("/")-1]},
-					hispanic: decode(i.hispanic),
-					gender: decode(i.gender)
+					race: decode(i.race).collect{|race|race[0..race.index("/")-1]
+						}||['Unknown'],
+					hispanic: decode(i.hispanic).collect{|hispanic|hispanic[0..hispanic.index("/")-1]
+						}||['Unknown'],
+					sex: decode(i.sex).collect{|sex|sex[0..sex.index("/")-1]
+						}||['Unknown'],
+					gender: decode(i.gender).collect{|gender|gender[0..gender.index("/")-1]
+						}||['Unknown']
 			}	}
+
+#	I don't think that this will return multiples
+
+#	Add ||['Other'] ???
 	end
 
 	def decode(value)
