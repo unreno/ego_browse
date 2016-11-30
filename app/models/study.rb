@@ -68,13 +68,13 @@ class Study < ApplicationRecord
 			.select("interview.id, r.value AS race, h.value AS hispanic, g.value AS gender, s.value AS sex")
 			.collect{|i| 
 				{	id: i.id, 
-					race: decode(i.race).collect{|race|race[0..race.index("/")-1]
+					race: decode(i.race).collect{|x|x[0..(x.index("/")||x.length)-1]
 						}||['Unknown'],
-					hispanic: decode(i.hispanic).collect{|hispanic|hispanic[0..hispanic.index("/")-1]
+					hispanic: decode(i.hispanic).collect{|x|x[0..(x.index("/")||x.length)-1]
 						}||['Unknown'],
-					sex: decode(i.sex).collect{|sex|sex[0..sex.index("/")-1]
+					sex: decode(i.sex).collect{|x|x[0..(x.index("/")||x.length)-1]
 						}||['Unknown'],
-					gender: decode(i.gender).collect{|gender|gender[0..gender.index("/")-1]
+					gender: decode(i.gender).collect{|x|x[0..(x.index("/")||x.length)-1]
 						}||['Unknown']
 			}	}
 
