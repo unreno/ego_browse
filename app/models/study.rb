@@ -70,18 +70,24 @@ class Study < ApplicationRecord
 			.joins("LEFT JOIN answer s ON interview.id = s.interviewId AND s.questionId = #{sex_qid}")
 			.select("interview.id, r.value AS race, h.value AS hispanic, g.value AS gender, s.value AS sex")
 			.collect{|i| 
+				race = decode(i.race).collect{|x|x[0..(x.index("/")||x.length)-1]}
+				race = ["Unknown"] if race.empty?
+				race = ["More Than One"] if race.length > 1
+				hispanic = decode(i.hispanic).collect{|x|x[0..(x.index("/")||x.length)-1]
+				hispanic = ["Unknown"] if hispanic.empty?
+				sex = decode(i.sex).collect{|x|x[0..(x.index("/")||x.length)-1]
+				sex = ["Unknown"] if sex.empty?
+				gender = decode(i.gender).collect{|x|x[0..(x.index("/")||x.length)-1]
+				gender = ["Unknown"] if gender.empty?
 				{	id: i.id, 
-					race: decode(i.race).collect{|x|x[0..(x.index("/")||x.length)-1]
-						}||['Unknown'],
-					hispanic: decode(i.hispanic).collect{|x|x[0..(x.index("/")||x.length)-1]
-						}||['Unknown'],
-					sex: decode(i.sex).collect{|x|x[0..(x.index("/")||x.length)-1]
-						}||['Unknown'],
-					gender: decode(i.gender).collect{|x|x[0..(x.index("/")||x.length)-1]
-						}||['Unknown']
+					race: race,
+					hispanic: hispanic,
+					sex: sex,
+					gender: gender
 			}	}
 
 #	I don't think that this will return multiples
+#	Multiple values are actually concatted and joined with commas
 
 #	Add ||['Other'] ???
 	end
