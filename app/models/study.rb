@@ -41,8 +41,10 @@ class Study < ApplicationRecord
 		races = questions.where(:title => "RACE").collect(&:question_options).flatten.collect(&:name).sort
 		#	Race is in English and Spanish. Take just the English.
 		races = races.collect{|race|race[0..(race.index("/")||race.length)-1]}
-		races << "More Than One Race"
-		races << "Unknown or Not Reported"
+#		races << "More Than One Race"
+#		races << "Unknown or Not Reported"
+		races << "More Than One"
+		races << "Unknown"
 		races.uniq
 	end
 
