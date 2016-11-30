@@ -75,7 +75,7 @@ class Study < ApplicationRecord
 				race = ["More Than One"] if race.length > 1
 				hispanic = decode(i.hispanic).collect{|x|x[0..(x.index("/")||x.length)-1]}
 				hispanic = ["Unknown"] if hispanic.empty?
-				sex = decode(i.sex).collect{|x|x[0..(x.index("/")||x.length)-1]
+				sex = decode(i.sex).collect{|x|x[0..(x.index("/")||x.length)-1]}
 				sex = ["Unknown"] if sex.empty?
 				gender = decode(i.gender).collect{|x|x[0..(x.index("/")||x.length)-1]}
 				gender = ["Unknown"] if gender.empty?
