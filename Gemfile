@@ -56,7 +56,17 @@ group :test do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
 
-	gem "mocha", :require => 'mocha/api'
+	#	For eventual stubbing
+	#gem "mocha", :require => 'mocha/api'
+
+	#	For pretty printing
+	gem "jakewendt-test_with_verbosity"
+
+#	gem "test-unit"
+
+	#	Solely to preserve alphabetical order in test running
+	gem 'minitest', '= 5.3.3'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
