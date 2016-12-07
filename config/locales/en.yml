@@ -127,4 +127,15 @@ en:
         interview_date: Interview Date
         interview_notes: Interview Notes
         process_notes: Process Notes
+      alter_referral_sheet:
+        ego_id: Ego ID
+      alter_referral:
+        plan_to_refer: Plan to Refer
+        first_name: First Name
+        last_initial: Last Initial
+        last_4_cell: Last 4 Cell
+        date_of_alter_interview: Date of Alter Interview
+        alter_id: Alter ID
+        date_ego_notified: Date Ego Notified
+        date_ego_paid: Date Ego Paid
 

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  alter_referral_sheet: one
+  plan_to_refer: false
+  first_name: MyString
+  last_initial: Y
+  last_4_cell: 1234
+  date_of_alter_interview: 2016-12-07
+  alter_id: MyString
+  date_ego_notified: 2016-12-07
+  date_ego_paid: 2016-12-07
+
+two:
+  alter_referral_sheet: two
+  plan_to_refer: false
+  first_name: MyString
+  last_initial: X
+  last_4_cell: 5678
+  date_of_alter_interview: 2016-12-07
+  alter_id: MyString
+  date_ego_notified: 2016-12-07
+  date_ego_paid: 2016-12-07

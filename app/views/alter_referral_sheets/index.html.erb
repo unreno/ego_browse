@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Alter Referral Sheets</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th><%= t 'activerecord.attributes.alter_referral_sheet.ego_id' %></th>
+			<th>Refferals</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @alter_referral_sheets.each do |alter_referral_sheet| %>
+			<tr>
+				<td><%= alter_referral_sheet.ego_id %></td>
+				<td><%= alter_referral_sheet.alter_referrals_count %></td>
+				<td><%= link_to 'Show', alter_referral_sheet %></td>
+				<td><%= link_to 'Edit', edit_alter_referral_sheet_path(alter_referral_sheet) %></td>
+				<td><%= link_to 'Destroy', alter_referral_sheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Alter Referral Sheet', new_alter_referral_sheet_path %>

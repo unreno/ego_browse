@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+	resources :alter_referral_sheets
   resource :rails_user_session
   resources :interview_notes
   resources :testing_facilitations

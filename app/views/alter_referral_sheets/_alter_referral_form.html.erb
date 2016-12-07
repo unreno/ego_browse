@@ -1,0 +1,12 @@
+<tr>
+	<td><%= f.options[:child_index] + 1 %></td>
+	<td><%= f.check_box :plan_to_refer %></td>
+	<td><%= f.text_field :first_name %></td>
+	<td><%= f.select :last_initial, ('A'..'Z').to_a, { include_blank: true } %></td>
+	<td><%= f.text_field :last_4_cell %></td>
+	<td><%= f.date_select :date_of_alter_interview %></td>
+	<td><%= f.text_field :alter_id %></td>
+	<td><%= f.date_select :date_ego_notified %></td>
+	<td><%= f.date_select :date_ego_paid %></td>
+	<td><%= f.check_box :_destroy %></td>
+</tr>

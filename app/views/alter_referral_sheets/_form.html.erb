@@ -1,0 +1,45 @@
+<%= form_for(alter_referral_sheet) do |f| %>
+	<% if alter_referral_sheet.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(alter_referral_sheet.errors.count, "error") %> prohibited this alter_referral_sheet from being saved:</h2>
+
+			<ul>
+			<% alter_referral_sheet.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="field">
+		<%= f.label :ego_id %>
+		<%= f.text_field :ego_id %>
+	</div>
+
+<%# if @alter_referral_sheet.alter_referrals_count > 0 %>
+<%# @alter_referral_sheet.alter_referrals.new() %>
+<table class='alter_referral_sheets'>
+	<thead><tr>
+		<th>&nbsp;</th>
+		<th><%= t 'activerecord.attributes.alter_referral.plan_to_refer' %></th>
+		<th><%= t 'activerecord.attributes.alter_referral.first_name' %></th>
+		<th><%= t 'activerecord.attributes.alter_referral.last_initial' %></th>
+		<th><%= t 'activerecord.attributes.alter_referral.last_4_cell' %></th>
+		<th><%= t 'activerecord.attributes.alter_referral.date_of_alter_interview' %></th>
+		<th><%= t 'activerecord.attributes.alter_referral.alter_id' %></th>
+		<th><%= t 'activerecord.attributes.alter_referral.date_ego_notified' %></th>
+		<th><%= t 'activerecord.attributes.alter_referral.date_ego_paid' %></th>
+		<th>Destroy?</th>
+	</tr></thead>
+	<tbody>
+	<%= f.fields_for :alter_referrals do |alter_referral| %>
+		<%= render 'alter_referral_form', f: alter_referral %>
+	<% end	#f.fields_for :alter_referrals do |alter_referral| %>
+	</tbody>
+</table>
+<%# end %>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>

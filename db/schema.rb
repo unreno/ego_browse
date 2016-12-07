@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129001950) do
+ActiveRecord::Schema.define(version: 20161207211328) do
 
   create_table "alterList", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "studyId",                     null: false
@@ -24,6 +24,28 @@ ActiveRecord::Schema.define(version: 20161129001950) do
     t.integer "studyId",                          null: false
     t.integer "afterAltersEntered",               null: false
     t.text    "display",            limit: 65535, null: false
+  end
+
+  create_table "alter_referral_sheets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "ego_id"
+    t.integer  "alter_referrals_count", default: 0
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  create_table "alter_referrals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "alter_referral_sheet_id"
+    t.boolean  "plan_to_refer"
+    t.string   "first_name"
+    t.string   "last_initial",            limit: 1
+    t.string   "last_4_cell",             limit: 4
+    t.date     "date_of_alter_interview"
+    t.string   "alter_id"
+    t.date     "date_ego_notified"
+    t.date     "date_ego_paid"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["alter_referral_sheet_id"], name: "index_alter_referrals_on_alter_referral_sheet_id", using: :btree
   end
 
   create_table "alters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
