@@ -1,0 +1,62 @@
+<h2>Study ID : <%= study[:id] %></h2>
+<table>
+	<thead>
+		<tr>
+			<th rowspan='3'>Racial Categories</th>
+			<th colspan='<%=study[:hisplats].length*study[:genders].length-%>'>
+				Ethnic Categories (Hispanic?)</th>
+			<th rowspan='3'>Total</th>
+		</tr>
+		<tr>
+			<% study[:hisplats].each do |hisplat| %>
+				<th colspan='<%=study[:genders].length-%>'><%=hisplat-%></th>
+			<% end	#study[:hisplats].each do |hisplat| %>
+		</tr>
+		<tr>
+			<% study[:hisplats].length.times do %>
+				<% study[:genders].each do |gender| %>
+				<th><%= gender.gsub("/"," / ") -%></th>
+				<% end #study[:genders].each do |gender| %>
+			<% end	#study[:hisplats].length.times do %>
+		</tr>
+	</thead>
+	<tbody>
+	<% study[:races].each do |race| %>
+		<tr>
+			<td><%= race %></td>
+
+<%#
+
+		How exactly does this show multi or zero race counts?
+
+%>
+
+			<% d_r = study[:demographics].select{|v|v[:race].length==1 && v[:race][0] == race} %>
+			<% study[:hisplats].each do |hisplat| %>
+
+				<% d_r_h = d_r.select{|v| v[:hispanic][0] == hisplat } %>
+				<% study[:genders].each do |gender| %>
+					<td><%= d_r_h.select{|v| v[:gender][0] == gender }.length -%></td>
+				<% end	#study[:genders].each do |gender| %>
+
+			<% end	#study[:hisplats].each do |hisplat| %>
+
+			<td><%= d_r.length %></td>
+		</tr>
+	<% end %>
+
+
+<%# 
+
+	Multiple races?
+
+%>
+
+
+		<tr>
+			<td colspan='<%=study[:hisplats].length*study[:genders].length+2-%>'>
+				Total Enrollment:&nbsp;&nbsp;<%= study[:demographics].length %>
+			</td>
+		</tr>
+	</tbody>
+</table>
