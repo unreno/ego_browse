@@ -1,6 +1,5 @@
 <h1>Counts for <%= @studies.count -%> <%= 'study'.pluralize(@studies.count) -%>.</h1>
 
-<%= render partial: 'study', collection: @studies %>
 
 <%
 	s = {}
@@ -13,3 +12,9 @@
 %>
 
 <%= render partial: 'study', locals: { study: s } %>
+
+<br/>
+<hr/>
+<br/>
+
+<%= render partial: 'study', collection: @studies %>
