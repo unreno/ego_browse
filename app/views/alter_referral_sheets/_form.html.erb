@@ -18,7 +18,7 @@
 
 <%# if @alter_referral_sheet.alter_referrals_count > 0 %>
 <%# @alter_referral_sheet.alter_referrals.new() %>
-<table class='alter_referral_sheets'>
+<table id='alter_referral_sheet'>
 	<thead><tr>
 		<th>&nbsp;</th>
 		<th><%= t 'activerecord.attributes.alter_referral.plan_to_refer' %></th>
@@ -38,9 +38,11 @@
 	</tbody>
 </table>
 <%# end %>
-<a class='add'>Add</a>
 
 	<div class="actions">
 		<%= f.submit %>
 	</div>
 <% end %>
+
+<button class='add'>Add Referral</button>
+
