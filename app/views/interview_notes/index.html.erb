@@ -9,7 +9,7 @@
       <th>Interview date</th>
       <th>Interview notes</th>
       <th>Process notes</th>
-      <th colspan="3"></th>
+      <th>Manage</th>
     </tr>
   </thead>
 
@@ -20,9 +20,14 @@
         <td><%= interview_note.interview_date %></td>
         <td><%= interview_note.interview_notes %></td>
         <td><%= interview_note.process_notes %></td>
-        <td><%= link_to 'Show', interview_note %></td>
-        <td><%= link_to 'Edit', edit_interview_note_path(interview_note) %></td>
-        <td><%= link_to 'Destroy', interview_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', interview_note %>
+				<% if current_rails_user.is_admin? %>
+					&nbsp;|&nbsp;
+	        <%= link_to 'Edit', edit_interview_note_path(interview_note) %>
+					&nbsp;|&nbsp;
+	        <%= link_to 'Destroy', interview_note, method: :delete, data: { confirm: 'Are you sure?' } %>
+				<% end %>
+	      </td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +35,6 @@
 
 <br>
 
+<% if current_rails_user.is_admin? %>
 <%= link_to 'New Interview Note', new_interview_note_path %>
+<% end %>

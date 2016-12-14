@@ -27,7 +27,7 @@
 			<th>Gonorrhea Result</th>
 			<th>Chlamydia Result</th>
 			<th>Notes</th>
-			<th colspan="3"></th>
+			<th>Manage</th>
 		</tr>
 	</thead>
 
@@ -56,9 +56,14 @@
 				<td><%= testing_facilitation.gonorrhea_result %></td>
 				<td><%= testing_facilitation.chlamydia_result %></td>
 				<td><%= testing_facilitation.notes %></td>
-				<td><%= link_to 'Show', testing_facilitation %></td>
-				<td><%= link_to 'Edit', edit_testing_facilitation_path(testing_facilitation) %></td>
-				<td><%= link_to 'Destroy', testing_facilitation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= link_to 'Show', testing_facilitation %>
+				<% if current_rails_user.is_admin? %>
+					&nbsp;|&nbsp;
+					<%= link_to 'Edit', edit_testing_facilitation_path(testing_facilitation) %>
+					&nbsp;|&nbsp;
+					<%= link_to 'Destroy', testing_facilitation, method: :delete, data: { confirm: 'Are you sure?' } %>
+				<% end %>
+				</td>
 			</tr>
 		<% end %>
 	</tbody>
@@ -66,4 +71,6 @@
 
 <br>
 
+<% if current_rails_user.is_admin? %>
 <%= link_to 'New Testing Facilitation', new_testing_facilitation_path %>
+<% end %>

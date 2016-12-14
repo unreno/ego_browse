@@ -36,4 +36,6 @@ Rails.application.routes.draw do
 	end
 	root :to => "statics#index"
 
+	get 'logout' =>  'rails_user_sessions#destroy'
+
 end
