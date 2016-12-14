@@ -48,4 +48,10 @@ config/mcrypt.yml
 config/secrets.yml
 
 
-RailsUser.create(:login => 'test', :password => 'test123!', :password_confirmation =>'test123!')
+Create a couple users. Use your own passwords!
+
+RailsUser.create(:login => 'admin', :password => 'test123!', :password_confirmation =>'test123!')
+RailsUser.create(:login => 'readonly', :password => 'test123!', :password_confirmation =>'test123!')
+
+
+
