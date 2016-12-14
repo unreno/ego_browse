@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
 	resources :alter_referral_sheets
-  resource :rails_user_session
-  resources :interview_notes
-  resources :testing_facilitations
-  resources :contact_informations
-  resources :eligibility_screenings
+	resources :interview_notes
+	resources :testing_facilitations
+	resources :contact_informations
+	resources :eligibility_screenings
+
+	resource :rails_user_session
 
 	resources :other_specifies, :only => [:show,:index]
 	resources :users, :only => [:show,:index]

@@ -1,5 +1,6 @@
 class AlterReferralSheetsController < ApplicationController
 	before_action :set_alter_referral_sheet, only: [:show, :edit, :update, :destroy]
+	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
 	# GET /alter_referral_sheets
 	# GET /alter_referral_sheets.json
