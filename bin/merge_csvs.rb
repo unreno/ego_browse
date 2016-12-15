@@ -2,6 +2,14 @@
 
 require 'csv'
 
+
+#	../bin/merge_csvs.rb dots*other-specify-data.csv > merged-other-specify-data.csv
+#	../bin/merge_csvs.rb dots*other-specify-data*1*.csv > merged-other-specify-data\ \(1\).csv
+#	../bin/merge_csvs.rb dots*alter-pair-data.csv > merged-alter-pair-data.csv
+#	../bin/merge_csvs.rb dots*ego-alter-data.csv > merged-ego-alter-data.csv
+
+
+
 all_columns=[]
 
 ARGV.each do |infilename|
