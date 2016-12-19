@@ -3,10 +3,44 @@
 require 'csv'
 
 
-#	../bin/merge_csvs.rb dots*other-specify-data.csv > merged-other-specify-data.csv
-#	../bin/merge_csvs.rb dots*other-specify-data*1*.csv > merged-other-specify-data\ \(1\).csv
-#	../bin/merge_csvs.rb dots*alter-pair-data.csv > merged-alter-pair-data.csv
-#	../bin/merge_csvs.rb dots*ego-alter-data.csv > merged-ego-alter-data.csv
+
+if ARGV.length <= 0
+	puts
+	puts "#{$0} <CSV_FILE_NAMES>"
+	puts
+	puts "This script reads the header (first line) of each of the given csv files."
+	puts "This list of columns is then merged and uniqued."
+	puts "Then each file is read and each column from the complete list is printed."
+	puts "If the current file does not have a given column, it is left blank."
+	puts "In addition, it adds a column called filename and includes this data with each row."
+	puts "The output can, if desired, be redirected to a file."
+	puts
+	puts "Examples:"
+	puts "	cat abc.csv"
+	puts "	a,b,c"
+	puts "	1,2,3"
+	puts "	4,5,6"
+	puts
+	puts "	cat bcd.csv"
+	puts "	b,c,d"
+	puts "	7,8,9"
+	puts "	10,11,12"
+	puts
+	puts "	bin/merge_csvs.rb abc.csv bcd.csv"
+	puts "	filename,a,b,c,d"
+	puts "	abc.csv,1,2,3,"
+	puts "	abc.csv,4,5,6,"
+	puts "	bcd.csv,,7,8,9"
+	puts "	bcd.csv,,10,11,12"
+	puts
+	puts "	#{$0} dots*other-specify-data.csv > merged-other-specify-data.csv"
+	puts "	#{$0} dots*other-specify-data*1*.csv > merged-other-specify-data\(1\).csv"
+	puts "	#{$0} dots*alter-pair-data.csv > merged-alter-pair-data.csv"
+	puts "	#{$0} dots*ego-alter-data.csv > merged-ego-alter-data.csv"
+	puts
+
+	exit
+end
 
 
 
