@@ -8,7 +8,11 @@ class Answer < ApplicationRecord
 
 	after_find :decrypt_value
 	def decrypt_value
-		self.value = MCRYPT.ivdecrypt(self.value)
+		#	Added this condition so if use Answer.all.select(:id),
+		#	or something other than value, it doesn't crash.
+		if try(:value).present?
+			self.value = MCRYPT.ivdecrypt(self.value) 
+		end
 	end
 
 #	If answertype == 'MULTIPLE_SELECTION'
