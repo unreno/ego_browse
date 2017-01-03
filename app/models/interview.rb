@@ -27,4 +27,26 @@ class Interview < ApplicationRecord
 #		answers.joins(:question).where('question.title' => "HISPLAT").collect(&:option_names).flatten
 #	end
 
+#	scope :egos, ->{ joins(:questions)
+#		.where(:question => { :title => 'SUBJECT' })
+#
+#	First off, an underscore is a special character that needs escaped, but AREL keeps unescaping it!!
+#		or escaping the escape characters!!!!!
+#		.where(Answer.arel_table[:value].matches('%_%')) }
+#		.where(Answer.arel_table[:value].matches("%\\_%")) }
+#		.where(Answer.arel_table[:value].matches('%\\\_%')) }
+#	This works but is not agnostic.
+#		.where("`answer`.`value` LIKE '%\\_%'") }
+#
+#	Secondly, this regexs the database which is actually encrypted so won't work.
+#
+#	I need a field to query on that is not encrypted.
+
+
+#	def egos
+#		answers.joins(:question).where(:question => { :title => 'SUBJECT' })
+#
+#		.select{|i| i.answer.value == '17P' }
+#	end
+
 end

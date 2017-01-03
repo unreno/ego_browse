@@ -103,4 +103,23 @@ class Study < ApplicationRecord
 		MCRYPT.ivdecrypt(value)
 	end
 
+
+
+	def subject_qid
+		@subject_qid ||= questions.where(:title => "SUBJECT").select(:id).collect(&:id).first
+	end
+
+	def ego_interviews
+		interviews
+			.joins("LEFT JOIN answer s ON interview.id = s.interviewId AND s.questionId = #{subject_qid}")
+			.select("interview.id, s.value AS subject")
+			.collect{|i| 
+				{	id: i.id, 
+					subject: decrypt(i.subject)
+			}	}
+			.select{|i|
+				i[:subject] !~ /_/
+			}
+	end
+
 end
