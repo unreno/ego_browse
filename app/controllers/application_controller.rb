@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
 		end
 
 		def require_admin
-			unless current_rails_user and current_rails_user.is_admin?
+			unless current_rails_user.present? and current_rails_user.is_admin?
 				store_location
 				flash[:warn] = "You must be logged in as an admin to do that."
 				redirect_to root_url

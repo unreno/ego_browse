@@ -89,7 +89,7 @@
 				<td><%= contact_information.hair %></td>
 				<td><%= contact_information.other_identifying_marks %></td>
 				<td><%= link_to 'Show', contact_information %>
-				<% if current_rails_user.is_admin? %>
+				<% if current_rails_user.present? and current_rails_user.is_admin? %>
 					&nbsp;|&nbsp;
 					<%= link_to 'Edit', edit_contact_information_path(contact_information) %>
 					&nbsp;|&nbsp;
@@ -103,6 +103,6 @@
 
 <br>
 
-<% if current_rails_user.is_admin? %>
+<% if current_rails_user.present? and current_rails_user.is_admin? %>
 <%= link_to 'New Contact Information', new_contact_information_path %>
 <% end %>

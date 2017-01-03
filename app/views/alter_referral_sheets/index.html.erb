@@ -17,7 +17,7 @@
 				<td><%= alter_referral_sheet.ego_id %></td>
 				<td><%= alter_referral_sheet.alter_referrals_count %></td>
 				<td><%= link_to 'Show', alter_referral_sheet %>
-				<% if current_rails_user.is_admin? %>
+				<% if current_rails_user.present? and current_rails_user.is_admin? %>
 					&nbsp;|&nbsp;
 					<%= link_to 'Edit', edit_alter_referral_sheet_path(alter_referral_sheet) %>
 					&nbsp;|&nbsp;
@@ -31,6 +31,6 @@
 
 <br>
 
-<% if current_rails_user.is_admin? %>
+<% if current_rails_user.present? and current_rails_user.is_admin? %>
 <%= link_to 'New Alter Referral Sheet', new_alter_referral_sheet_path %>
 <% end %>

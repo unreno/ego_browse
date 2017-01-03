@@ -81,7 +81,7 @@
 				<td><%= eligibility_screening.reason_for_refusal %></td>
 				<td><%= eligibility_screening.reason_for_refusal_other %></td>
 				<td><%= link_to 'Show', eligibility_screening %>
-				<% if current_rails_user.is_admin? %>
+				<% if current_rails_user.present? and current_rails_user.is_admin? %>
 					&nbsp;|&nbsp;
 					<%= link_to 'Edit', edit_eligibility_screening_path(eligibility_screening) %>
 					&nbsp;|&nbsp;
@@ -95,6 +95,6 @@
 
 <br>
 
-<% if current_rails_user.is_admin? %>
+<% if current_rails_user.present? and current_rails_user.is_admin? %>
 <%= link_to 'New Eligibility Screening', new_eligibility_screening_path %>
 <% end %>
