@@ -11,10 +11,10 @@
 	s[:demographics] = @studies.collect{|s|s[:demographics]}.inject([],:+).flatten
 %>
 
-<%= render partial: 'study', locals: { study: s } %>
+<%= render partial: 'demographic_counts', locals: { study: s } %>
 
 <br/>
 <hr/>
 <br/>
 
-<%= render partial: 'study', collection: @studies %>
+<%= render partial: 'demographic_counts', collection: @studies, as: :study %>
