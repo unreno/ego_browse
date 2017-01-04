@@ -1,6 +1,5 @@
 class StaticsController < ApplicationController
 
-
 #	Question.where(:title => "RACE")
 #	GENDER
 #	HISPLAT
@@ -18,6 +17,12 @@ class StaticsController < ApplicationController
 			s[:demographics] = study.demographics
 			@studies << s
 		end
+	end
+
+	def alters_per_ego
+	end
+
+	def screening_report_eligible
 	end
 
 end
