@@ -6,7 +6,7 @@ class RailsUser < ApplicationRecord
 	end # the configuration block is optional
 
 	def is_admin?
-		login == 'admin'
+		['admin','jake'].include?(login)
 	end
 
 end
