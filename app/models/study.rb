@@ -70,7 +70,8 @@ class Study < ApplicationRecord
 			.joins("LEFT JOIN answer h ON interview.id = h.interviewId AND h.questionId = #{hisplat_qid}")
 			.joins("LEFT JOIN answer g ON interview.id = g.interviewId AND g.questionId = #{gender_qid}")
 			.joins("LEFT JOIN answer s ON interview.id = s.interviewId AND s.questionId = #{sex_qid}")
-			.select("interview.id, r.value AS race, h.value AS hispanic, g.value AS gender, s.value AS sex")
+			.joins("LEFT JOIN answer a ON interview.id = a.interviewId AND a.questionId = #{subject_qid}")
+			.select("interview.id, r.value AS race, h.value AS hispanic, g.value AS gender, s.value AS sex, a.value AS subject")
 			.collect{|i| 
 				race = decode(i.race).collect{|x|x[0..(x.index("/")||x.length)-1]}
 				race = ["Unknown"] if race.empty?
@@ -81,7 +82,10 @@ class Study < ApplicationRecord
 				sex = ["Unknown"] if sex.empty?
 				gender = decode(i.gender).collect{|x|x[0..(x.index("/")||x.length)-1]}
 				gender = ["Unknown"] if gender.empty?
+				subject = decrypt(i.subject)
+				subject = ["Unknown"] if subject.empty?
 				{	id: i.id, 
+					subject: subject,
 					race: race,
 					hispanic: hispanic,
 					sex: sex,
