@@ -5,7 +5,7 @@ class StaticsController < ApplicationController
 #	GENDER
 #	HISPLAT
 
-	def counts
+	def demographic_counts
 		@studies = []
 		Study.all.each do |study|
 			s = {}

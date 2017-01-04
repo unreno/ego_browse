@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
 	resources :statics, :only => [:index] do
 		collection do
-			get :reports, :counts
+			get :reports, :demographic_counts
 			#	puts app.reports_statics_path
 			#	=> /statics/reports
 		end
