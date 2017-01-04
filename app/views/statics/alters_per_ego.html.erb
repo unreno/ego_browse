@@ -1,2 +1,18 @@
+<table>
+	<thead>
+		<tr>
+			<th>Ego ID</th>
+			<th>Alter Count</th>
+		</tr>
+	</thead>
+	<tbody>
 
+<% @studies.collect{|s|s[:subject]}.select{|s|s !~ /_/}.sort.each do |ego_id| %>
+		<tr>
+			<td><%= ego_id %></td>
+			<td><%= @studies.collect{|s|s[:subject]}.flatten.select{|s|s=~/^#{ego_id}_/ }.length %></td>
+		</tr>
+<% end	#	studies %>
 
+	</tbody>
+</table>

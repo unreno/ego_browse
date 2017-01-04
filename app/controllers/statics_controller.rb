@@ -20,7 +20,7 @@ class StaticsController < ApplicationController
 	end
 
 	def alters_per_ego
-		@studies = Study.all.collect{|s| s.demographics }
+		@studies = Study.all.collect{|s| s.demographics }.flatten
 	end
 
 	def screening_report_eligible
