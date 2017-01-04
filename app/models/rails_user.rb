@@ -10,8 +10,3 @@ class RailsUser < ApplicationRecord
 	end
 
 end
-
-#	EGOWeb seems to lock the database so can't even connect?
-
-#	RailsUser.create(:login => 'jake', :password => 'password', :password_confirmation => 'password')
-

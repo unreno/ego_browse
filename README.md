@@ -50,8 +50,15 @@ config/secrets.yml
 
 Create a couple users. Use your own passwords!
 
+/etc/init.d/apache2 status
+
 RailsUser.create(:login => 'admin', :password => 'test123!', :password_confirmation =>'test123!')
 RailsUser.create(:login => 'readonly', :password => 'test123!', :password_confirmation =>'test123!')
 
+For some reason, in production, nothing loads in the console.
+
+Need to ...
+require 'application_record'
+require 'rails_user'
 
 
