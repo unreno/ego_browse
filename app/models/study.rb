@@ -82,13 +82,13 @@ class Study < ApplicationRecord
 			.joins(Arel::Nodes::OuterJoin.new(r,
 				Arel::Nodes::On.new(i[:id].eq(r[:interviewId]).and(r[:questionId].eq(race_qid)))))
 			.joins(Arel::Nodes::OuterJoin.new(h,
-				Arel::Nodes::On.new(i[:id].eq(r[:interviewId]).and(r[:questionId].eq(hisplat_qid)))))
+				Arel::Nodes::On.new(i[:id].eq(h[:interviewId]).and(h[:questionId].eq(hisplat_qid)))))
 			.joins(Arel::Nodes::OuterJoin.new(g,
-				Arel::Nodes::On.new(i[:id].eq(r[:interviewId]).and(r[:questionId].eq(gender_qid)))))
+				Arel::Nodes::On.new(i[:id].eq(g[:interviewId]).and(g[:questionId].eq(gender_qid)))))
 			.joins(Arel::Nodes::OuterJoin.new(s,
-				Arel::Nodes::On.new(i[:id].eq(r[:interviewId]).and(r[:questionId].eq(sex_qid)))))
+				Arel::Nodes::On.new(i[:id].eq(s[:interviewId]).and(s[:questionId].eq(sex_qid)))))
 			.joins(Arel::Nodes::OuterJoin.new(a,
-				Arel::Nodes::On.new(i[:id].eq(r[:interviewId]).and(r[:questionId].eq(subject_qid)))))
+				Arel::Nodes::On.new(i[:id].eq(a[:interviewId]).and(a[:questionId].eq(subject_qid)))))
 			.select(i[:id])
 			.select(r[:value].as('race'))
 			.select(h[:value].as('hispanic'))
