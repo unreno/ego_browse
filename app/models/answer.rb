@@ -15,6 +15,8 @@ class Answer < ApplicationRecord
 		end
 	end
 
+#	value is an QuestionOption id when answerType MULTIPLE_SELECTION
+
 #	If answertype == 'MULTIPLE_SELECTION'
 #	then value(s) is/are QuestionOption.find( value.split(/,/) ).(&:value)
 

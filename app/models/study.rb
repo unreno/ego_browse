@@ -111,8 +111,8 @@ class Study < ApplicationRecord
 
 	def ego_interviews
 		interviews
-			.joins("LEFT JOIN answer s ON interview.id = s.interviewId AND s.questionId = #{subject_qid}")
-			.select("interview.id, s.value AS subject")
+			.joins("LEFT JOIN answer a ON interview.id = a.interviewId AND a.questionId = #{subject_qid}")
+			.select("interview.id, a.value AS subject")
 			.collect{|i| 
 				{	id: i.id, 
 					subject: decrypt(i.subject)
