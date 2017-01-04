@@ -14,35 +14,34 @@ class Study < ApplicationRecord
 	has_many :questions, foreign_key: :studyId
 
 	def hisplats
-#		hisplats = ["Yes","No","Other"]
-#		hisplats += questions.where(:title => "HISPLAT").collect(&:question_options).flatten.collect(&:name).sort
-		hisplats = questions.where(:title => "HISPLAT").collect(&:question_options).flatten.collect(&:name)
+		hisplats = questions.where(:title => "HISPLAT").collect(&:question_options)
+			.flatten.collect(&:name)
 			.collect{|x|x[0..(x.index("/")||x.length)-1]}
 		hisplats << "Unknown"
 		hisplats.uniq
 	end
 
 	def genders
-#		genders = ["Other", "Gender queer/non-binary", "Female", "Transmale/transman", "Male", "Transfemale/transwoman"]
-		genders = questions.where(:title => "GENDER").collect(&:question_options).flatten.collect(&:name).sort
+		genders = questions.where(:title => "GENDER").collect(&:question_options)
+			.flatten.collect(&:name).sort
 			.collect{|x|x[0..(x.index("/")||x.length)-1]}
 		genders << "Unknown"
 		genders.uniq
 	end
 
 	def sexes
-		sexes = questions.where(:title => "SEX").collect(&:question_options).flatten.collect(&:name).sort
+		sexes = questions.where(:title => "SEX").collect(&:question_options)
+			.flatten.collect(&:name).sort
 			.collect{|x|x[0..(x.index("/")||x.length)-1]}
 		sexes << "Unknown"
 		sexes.uniq
 	end
 
 	def races
-		races = questions.where(:title => "RACE").collect(&:question_options).flatten.collect(&:name).sort
+		races = questions.where(:title => "RACE").collect(&:question_options)
+			.flatten.collect(&:name).sort
 		#	Race is in English and Spanish. Take just the English.
 		races = races.collect{|race|race[0..(race.index("/")||race.length)-1]}
-#		races << "More Than One Race"
-#		races << "Unknown or Not Reported"
 		races << "More Than One"
 		races << "Unknown"
 		races.uniq
@@ -62,6 +61,59 @@ class Study < ApplicationRecord
 
 	def sex_qid
 		@sex_qid ||= questions.where(:title => "SEX").select(:id).collect(&:id).first
+	end
+
+	def subject_qid
+		@subject_qid ||= questions.where(:title => "SUBJECT").select(:id).collect(&:id).first
+	end
+
+#	> Interview.joins(Arel::Nodes::OuterJoin.new(Answer.arel_table.alias(:a),Arel::Nodes::On.new(Interview.arel_table[:id].eq(Answer.arel_table.alias(:a)[:interviewId]))))
+#  Interview Load (687.5ms)  SELECT `interview`.* FROM `interview` LEFT OUTER JOIN `answer` `a` ON `interview`.`id` = `a`.`interviewId`
+
+	#	AGNOSTIC!!!
+	def demodemo
+		r = Answer.arel_table.alias(:r)
+		h = Answer.arel_table.alias(:h)
+		g = Answer.arel_table.alias(:g)
+		s = Answer.arel_table.alias(:s)
+		a = Answer.arel_table.alias(:a)
+		i = Interview.arel_table
+		interviews
+			.joins(Arel::Nodes::OuterJoin.new(r,
+				Arel::Nodes::On.new(i[:id].eq(r[:interviewId]).and(r[:questionId].eq(race_qid)))))
+			.joins(Arel::Nodes::OuterJoin.new(h,
+				Arel::Nodes::On.new(i[:id].eq(r[:interviewId]).and(r[:questionId].eq(hisplat_qid)))))
+			.joins(Arel::Nodes::OuterJoin.new(g,
+				Arel::Nodes::On.new(i[:id].eq(r[:interviewId]).and(r[:questionId].eq(gender_qid)))))
+			.joins(Arel::Nodes::OuterJoin.new(s,
+				Arel::Nodes::On.new(i[:id].eq(r[:interviewId]).and(r[:questionId].eq(sex_qid)))))
+			.joins(Arel::Nodes::OuterJoin.new(a,
+				Arel::Nodes::On.new(i[:id].eq(r[:interviewId]).and(r[:questionId].eq(subject_qid)))))
+			.select(i[:id])
+			.select(r[:value].as('race'))
+			.select(h[:value].as('hispanic'))
+			.select(g[:value].as('gender'))
+			.select(s[:value].as('sex'))
+			.select(a[:value].as('subject'))
+			.collect{|i| 
+				race = decode(i.race).collect{|x|x[0..(x.index("/")||x.length)-1]}
+				race = ["Unknown"] if race.empty?
+				race = ["More Than One"] if race.length > 1
+				hispanic = decode(i.hispanic).collect{|x|x[0..(x.index("/")||x.length)-1]}
+				hispanic = ["Unknown"] if hispanic.empty?
+				sex = decode(i.sex).collect{|x|x[0..(x.index("/")||x.length)-1]}
+				sex = ["Unknown"] if sex.empty?
+				gender = decode(i.gender).collect{|x|x[0..(x.index("/")||x.length)-1]}
+				gender = ["Unknown"] if gender.empty?
+				subject = decrypt(i.subject)
+				subject = ["Unknown"] if subject.empty?
+				{	id: i.id, 
+					subject: subject,
+					race: race,
+					hispanic: hispanic,
+					sex: sex,
+					gender: gender
+			}	}
 	end
 
 	def demographics
@@ -105,25 +157,6 @@ class Study < ApplicationRecord
 
 	def decrypt(value)
 		MCRYPT.ivdecrypt(value)
-	end
-
-
-
-	def subject_qid
-		@subject_qid ||= questions.where(:title => "SUBJECT").select(:id).collect(&:id).first
-	end
-
-	def ego_interviews
-		interviews
-			.joins("LEFT JOIN answer a ON interview.id = a.interviewId AND a.questionId = #{subject_qid}")
-			.select("interview.id, a.value AS subject")
-			.collect{|i| 
-				{	id: i.id, 
-					subject: decrypt(i.subject)
-			}	}
-			.select{|i|
-				i[:subject] !~ /_/
-			}
 	end
 
 end
