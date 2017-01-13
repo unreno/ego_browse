@@ -13,10 +13,67 @@ class StaticsController < ApplicationController
 			s[:genders] = study.genders
 			s[:sexes] = study.sexes
 			s[:races] = study.races
-			#s[:demographics] = study.interviews.collect(&:demographics)
 			s[:demographics] = study.demographics
 			@studies << s
 		end
+	end
+
+#All
+#Black: where sex = gender
+#Latina: where sex = gender
+#Trans: where sex != gender
+
+	def black_demographic_counts
+		@studies = []
+		Study.all.each do |study|
+			s = {}
+			s[:id] = study.id
+			s[:hisplats] = study.hisplats
+			s[:genders] = study.genders
+			s[:sexes] = study.sexes
+			s[:races] = study.races
+			s[:demographics] = study.nested_demographics
+				.select{|d| d[:race] == ["Black or African-American"] }
+				.select{|d| d[:sex] == d[:gender] }
+				.collect{|d| d[:assoc] }.flatten
+			@studies << s
+		end
+		render :demographic_counts
+	end
+
+	def latina_demographic_counts
+		@studies = []
+		Study.all.each do |study|
+			s = {}
+			s[:id] = study.id
+			s[:hisplats] = study.hisplats
+			s[:genders] = study.genders
+			s[:sexes] = study.sexes
+			s[:races] = study.races
+			s[:demographics] = study.nested_demographics
+				.select{|d| d[:hispanic] == ["Yes"] }		#	should this be by race or by hispanicity?
+				.select{|d| d[:sex] == d[:gender] }
+				.collect{|d| d[:assoc] }.flatten
+			@studies << s
+		end
+		render :demographic_counts
+	end
+
+	def trans_demographic_counts
+		@studies = []
+		Study.all.each do |study|
+			s = {}
+			s[:id] = study.id
+			s[:hisplats] = study.hisplats
+			s[:genders] = study.genders
+			s[:sexes] = study.sexes
+			s[:races] = study.races
+			s[:demographics] = study.nested_demographics
+				.select{|d| d[:sex] != d[:gender] }			#	likely more to it than this
+				.collect{|d| d[:assoc] }.flatten
+			@studies << s
+		end
+		render :demographic_counts
 	end
 
 	def alters_per_ego

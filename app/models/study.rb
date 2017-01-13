@@ -150,6 +150,40 @@ class Study < ApplicationRecord
 #	Add ||['Other'] ???
 	end
 
+	#	Returns array of hashes with :assoc[] containing ego and matching alters.
+	#	DOES NOT include ALTERs with no matching EGO
+	def nested_demographics
+		#	Using Marshal stuff here to copy the values to avoid self referencing.
+		demo = Marshal.load( Marshal.dump(demographics) )
+
+		#	Select the EGOs and add an empty array to hold the associated subjects.
+		ea = demo.select{|d| d[:subject] !~ /_/ }.each{|d| d[:assoc] = [] }
+
+		#	Add all to the assoc[] for the appropriate ego. (if exists)
+		demo.each{|d| 
+			z = ea.detect{|y| y[:subject] == d[:subject].split(/_/)[0] }
+			z[:assoc] << Marshal.load( Marshal.dump(d) ) if z.present?
+		}
+		ea
+	end
+
+	#	Returns array of hashes with :alters[] containing matching alters.
+	#	DOES NOT include ALTERs with no matching EGO
+	def ego_alter_demographics
+		#	Don't need to worry about Marshal or clone as not nesting hash within self.
+		demo = demographics
+
+		#	Select the EGOs and add an empty array to hold the alters.
+		ea = demo.select{|d| d[:subject] !~ /_/ }.each{|d| d[:alters] = [] }
+
+		#	Select the alters and add them to the alters[] for the appropriate ego. (if exists)
+		demo.select{|d| d[:subject] =~ /_/ }.each{|d| 
+			z = ea.detect{|y| y[:subject] == d[:subject].split(/_/)[0] }
+			z[:alters] << d if z.present?
+		}
+		ea
+	end
+
 	def decode(value)
 		@cached_codes ||= {}
 		@cached_codes[value] ||= QuestionOption.where(:id => decrypt(value).split(/,/)).collect(&:name)
