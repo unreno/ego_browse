@@ -44,7 +44,7 @@ GEM
       activesupport (>= 3.2, < 5.1)
       request_store (~> 1.0)
       scrypt (>= 1.2, < 4.0)
-    builder (3.2.2)
+    builder (3.2.3)
     byebug (9.0.6)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -57,7 +57,7 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
-    ffi (1.9.14)
+    ffi (1.9.16)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
