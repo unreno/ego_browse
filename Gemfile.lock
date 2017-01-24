@@ -57,7 +57,7 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
-    ffi (1.9.16)
+    ffi (1.9.17)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -136,7 +136,7 @@ GEM
     scrypt (3.0.3)
       ffi-compiler (>= 1.0.0)
       rake
-    spring (2.0.0)
+    spring (2.0.1)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -164,7 +164,7 @@ GEM
       activemodel (>= 5.0)
       debug_inspector
       railties (>= 5.0)
-    websocket-driver (0.6.4)
+    websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     will_paginate (3.1.5)
@@ -198,4 +198,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.13.7
+   1.14.2
