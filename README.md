@@ -75,4 +75,10 @@ passenger start --port 3000 --daemonize
 ```
 
 
+ Question.where(:title => 'SUBJECT').last.answers.select{|a|a.value == '041_3'}.first.interview.answers.joins(:question).where('question.title' => 'HIVTEST_LAST')
+
+
+Answer.where(Answer.arel_table[:otherSpecifyText].not_eq('')).collect{|a|MCRYPT.ivdecrypt(a.otherSpecifyText)}.select{|a| a =~ /aaa/i}
+
+
 
