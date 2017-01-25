@@ -62,3 +62,17 @@ require 'application_record'
 require 'rails_user'
 
 
+
+
+
+##	Start
+
+```BASH
+cd /var/www/ego_browse
+passenger stop --port 3000
+sudo iptables --policy INPUT ACCEPT
+passenger start --port 3000 --daemonize
+```
+
+
+
