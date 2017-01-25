@@ -41,7 +41,7 @@ $(document).on('turbolinks:load', function() {
 	});
 
 
-	$('td').each(function (){
+	$('table.demographics td').each(function (){
 		t = $(this).text();
 		if( t == parseInt(t) && t > 0 )
 			$(this).css({ 'background' : 'yellow' });
