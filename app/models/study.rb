@@ -71,7 +71,8 @@ class Study < ApplicationRecord
 #  Interview Load (687.5ms)  SELECT `interview`.* FROM `interview` LEFT OUTER JOIN `answer` `a` ON `interview`.`id` = `a`.`interviewId`
 
 	#	AGNOSTIC!!!
-	def demodemo
+#	def demodemo
+	def raw_demographics
 		r = Answer.arel_table.alias(:r)
 		h = Answer.arel_table.alias(:h)
 		g = Answer.arel_table.alias(:g)
@@ -97,16 +98,16 @@ class Study < ApplicationRecord
 			.select(a[:value].as('subject'))
 			.collect{|i| 
 				race = decode(i.race).collect{|x|x[0..(x.index("/")||x.length)-1]}
-				race = ["Unknown"] if race.empty?
-				race = ["More Than One"] if race.length > 1
+#				race = ["Unknown"] if race.empty?
+#				race = ["More Than One"] if race.length > 1
 				hispanic = decode(i.hispanic).collect{|x|x[0..(x.index("/")||x.length)-1]}
-				hispanic = ["Unknown"] if hispanic.empty?
+#				hispanic = ["Unknown"] if hispanic.empty?
 				sex = decode(i.sex).collect{|x|x[0..(x.index("/")||x.length)-1]}
-				sex = ["Unknown"] if sex.empty?
+#				sex = ["Unknown"] if sex.empty?
 				gender = decode(i.gender).collect{|x|x[0..(x.index("/")||x.length)-1]}
-				gender = ["Unknown"] if gender.empty?
+#				gender = ["Unknown"] if gender.empty?
 				subject = decrypt(i.subject)
-				subject = ["Unknown"] if subject.empty?
+#				subject = ["Unknown"] if subject.empty?
 				{	id: i.id, 
 					subject: subject,
 					race: race,
@@ -117,38 +118,45 @@ class Study < ApplicationRecord
 	end
 
 	def demographics
-		interviews
-			.joins("LEFT JOIN answer r ON interview.id = r.interviewId AND r.questionId = #{race_qid}")
-			.joins("LEFT JOIN answer h ON interview.id = h.interviewId AND h.questionId = #{hisplat_qid}")
-			.joins("LEFT JOIN answer g ON interview.id = g.interviewId AND g.questionId = #{gender_qid}")
-			.joins("LEFT JOIN answer s ON interview.id = s.interviewId AND s.questionId = #{sex_qid}")
-			.joins("LEFT JOIN answer a ON interview.id = a.interviewId AND a.questionId = #{subject_qid}")
-			.select("interview.id, r.value AS race, h.value AS hispanic, g.value AS gender, s.value AS sex, a.value AS subject")
-			.collect{|i| 
-				race = decode(i.race).collect{|x|x[0..(x.index("/")||x.length)-1]}
-				race = ["Unknown"] if race.empty?
-				race = ["More Than One"] if race.length > 1
-				hispanic = decode(i.hispanic).collect{|x|x[0..(x.index("/")||x.length)-1]}
-				hispanic = ["Unknown"] if hispanic.empty?
-				sex = decode(i.sex).collect{|x|x[0..(x.index("/")||x.length)-1]}
-				sex = ["Unknown"] if sex.empty?
-				gender = decode(i.gender).collect{|x|x[0..(x.index("/")||x.length)-1]}
-				gender = ["Unknown"] if gender.empty?
-				subject = decrypt(i.subject)
-				subject = ["Unknown"] if subject.empty?
-				{	id: i.id, 
-					subject: subject,
-					race: race,
-					hispanic: hispanic,
-					sex: sex,
-					gender: gender
-			}	}
-
-#	I don't think that this will return multiples
-#	Multiple values are actually concatted and joined with commas
-
-#	Add ||['Other'] ???
+		raw_demographics.collect{|d|
+			d[:race] = ["Unknown"] if d[:race].empty?
+			d[:race] = ["More Than One"] if d[:race].length > 1
+			d[:hispanic] = ["Unknown"] if d[:hispanic].empty?
+			d[:sex] = ["Unknown"] if d[:sex].empty?
+			d[:gender] = ["Unknown"] if d[:gender].empty?
+			d[:subject] = ["Unknown"] if d[:subject].empty?
+			d
+		}
 	end
+
+#	def old_demographics
+#		interviews
+#			.joins("LEFT JOIN answer r ON interview.id = r.interviewId AND r.questionId = #{race_qid}")
+#			.joins("LEFT JOIN answer h ON interview.id = h.interviewId AND h.questionId = #{hisplat_qid}")
+#			.joins("LEFT JOIN answer g ON interview.id = g.interviewId AND g.questionId = #{gender_qid}")
+#			.joins("LEFT JOIN answer s ON interview.id = s.interviewId AND s.questionId = #{sex_qid}")
+#			.joins("LEFT JOIN answer a ON interview.id = a.interviewId AND a.questionId = #{subject_qid}")
+#			.select("interview.id, r.value AS race, h.value AS hispanic, g.value AS gender, s.value AS sex, a.value AS subject")
+#			.collect{|i| 
+#				race = decode(i.race).collect{|x|x[0..(x.index("/")||x.length)-1]}
+#				race = ["Unknown"] if race.empty?
+#				race = ["More Than One"] if race.length > 1
+#				hispanic = decode(i.hispanic).collect{|x|x[0..(x.index("/")||x.length)-1]}
+#				hispanic = ["Unknown"] if hispanic.empty?
+#				sex = decode(i.sex).collect{|x|x[0..(x.index("/")||x.length)-1]}
+#				sex = ["Unknown"] if sex.empty?
+#				gender = decode(i.gender).collect{|x|x[0..(x.index("/")||x.length)-1]}
+#				gender = ["Unknown"] if gender.empty?
+#				subject = decrypt(i.subject)
+#				subject = ["Unknown"] if subject.empty?
+#				{	id: i.id, 
+#					subject: subject,
+#					race: race,
+#					hispanic: hispanic,
+#					sex: sex,
+#					gender: gender
+#			}	}
+#	end
 
 	#	Returns array of hashes with :assoc[] containing ego and matching alters.
 	#	DOES NOT include ALTERs with no matching EGO
