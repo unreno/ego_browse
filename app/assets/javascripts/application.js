@@ -17,7 +17,9 @@
 
 
 
-$(function (){
+$(document).on('turbolinks:load', function() {
+
+//$(function (){
 //$(document).ready(function() {
 
 //	$('button.add').click(function(){
@@ -37,4 +39,12 @@ $(function (){
 			'<td><input name="alter_referral_sheet[alter_referrals_attributes]['+i+'][_destroy]" type="hidden" value="0" /><input type="checkbox" value="1" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][_destroy]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'__destroy" /></td> </tr>')
 		return false;
 	});
+
+
+	$('td').each(function (){
+		t = $(this).text();
+		if( t == parseInt(t) && t > 0 )
+			$(this).css({ 'background' : 'yellow' });
+	});
+
 });

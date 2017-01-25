@@ -54,3 +54,9 @@ table input[type=text]{
 table#alter_referral_sheet td {
 	text-align: center;
 }
+
+table tr th,
+table tr td:first-child {
+	background-color: #EEE;
+}
+
