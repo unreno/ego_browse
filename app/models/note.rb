@@ -4,10 +4,12 @@ class Note < ApplicationRecord
 	belongs_to :expression, foreign_key: :expressionId
 	belongs_to :alter, foreign_key: :alterId
 
-	after_find :decrypt_notes
+	after_find :decrypt_encrypted_fields
 
-	def decrypt_notes
-		self.notes = MCRYPT.ivdecrypt(self.notes)
+	def decrypt_encrypted_fields
+		if try(:notes).present?
+			self.notes = MCRYPT.ivdecrypt(self.notes)
+		end
 	end
 
 end

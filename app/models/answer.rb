@@ -6,12 +6,15 @@ class Answer < ApplicationRecord
 	belongs_to :alter1, foreign_key: :alterId1, class_name: :Alter
 	belongs_to :alter2, foreign_key: :alterId2, class_name: :Alter
 
-	after_find :decrypt_value
-	def decrypt_value
+	after_find :decrypt_encrypted_fields
+	def decrypt_encrypted_fields
 		#	Added this condition so if use Answer.all.select(:id),
 		#	or something other than value, it doesn't crash.
 		if try(:value).present?
 			self.value = MCRYPT.ivdecrypt(self.value) 
+		end
+		if try(:otherSpecifyText).present?
+			self.otherSpecifyText = MCRYPT.ivdecrypt(self.otherSpecifyText) 
 		end
 	end
 

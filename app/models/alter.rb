@@ -7,9 +7,11 @@ class Alter < ApplicationRecord
 	has_many  :notes, foreign_key: :alterId
 	has_many  :other_specifies, foreign_key: :alterId
 
-	after_find :decrypt_name
-	def decrypt_name
-		self.name = MCRYPT.ivdecrypt(self.name)
+	after_find :decrypt_encrypted_fields
+	def decrypt_encrypted_fields
+		if try(:name).present?
+			self.name = MCRYPT.ivdecrypt(self.name)
+		end
 	end
 
 end
