@@ -60,12 +60,18 @@ group :test do
 	#gem "mocha", :require => 'mocha/api'
 
 	#	For pretty printing
-	gem "jakewendt-test_with_verbosity"
+	#	Doesn't raise errors in the right place in Rails 5
+#	gem "jakewendt-test_with_verbosity"
 
 #	gem "test-unit"
 
 	#	Solely to preserve alphabetical order in test running
 	gem 'minitest', '= 5.3.3'
+
+	gem "simplecov", :require => false	#	for coverage testing
+#	gem "mocha"	#, :require => 'mocha/setup'
+	gem "mocha"	#, :require => 'mocha/api'
+	#	mocha requires "require 'mocha/mini_test'" near the bottom of test/test_helper.rb
 
 end
 
