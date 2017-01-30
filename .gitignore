@@ -25,4 +25,4 @@
 /config/secrets.yml
 /config/mcrypt.yml
 
-
+/coverage
