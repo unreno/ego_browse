@@ -1,3 +1,6 @@
+class StudyHash < Hash
+
+end
 class Study < ApplicationRecord
 	self.table_name = "study"
 	belongs_to :user, foreign_key: :userId
