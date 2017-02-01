@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :sti_questionnaires
 	resources :alter_referral_sheets
 	resources :interview_notes
 	resources :testing_facilitations

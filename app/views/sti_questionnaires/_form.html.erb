@@ -1,0 +1,132 @@
+<%= form_for(sti_questionnaire) do |f| %>
+  <% if sti_questionnaire.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sti_questionnaire.errors.count, "error") %> prohibited this sti_questionnaire from being saved:</h2>
+
+      <ul>
+      <% sti_questionnaire.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date_of_visit %>
+    <%= f.date_select :date_of_visit %>
+  </div>
+
+  <div class="field">
+    <%= f.label :participant_id %>
+    <%= f.text_field :participant_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :staff_person %>
+    <%= f.text_field :staff_person %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_ev %>
+    <%= f.number_field :stitest_ev %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest %>
+    <%= f.number_field :stitest %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_other %>
+    <%= f.text_field :stitest_other %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_last %>
+    <%= f.date_select :stitest_last %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_reason_a %>
+    <%= f.check_box :stitest_reason_a %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_reason_b %>
+    <%= f.check_box :stitest_reason_b %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_reason_c %>
+    <%= f.check_box :stitest_reason_c %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_reason_d %>
+    <%= f.check_box :stitest_reason_d %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_reason_e %>
+    <%= f.check_box :stitest_reason_e %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_reason_f %>
+    <%= f.check_box :stitest_reason_f %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_reason_g %>
+    <%= f.check_box :stitest_reason_g %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_reason_h %>
+    <%= f.check_box :stitest_reason_h %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_reason_i %>
+    <%= f.check_box :stitest_reason_i %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_reason_other %>
+    <%= f.text_field :stitest_reason_other %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_locn %>
+    <%= f.number_field :stitest_locn %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_rslt %>
+    <%= f.number_field :stitest_rslt %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notest_reason %>
+    <%= f.number_field :notest_reason %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stitest_future %>
+    <%= f.number_field :stitest_future %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stipercrisk %>
+    <%= f.number_field :stipercrisk %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stistigma %>
+    <%= f.number_field :stistigma %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

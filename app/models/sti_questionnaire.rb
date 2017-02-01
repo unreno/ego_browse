@@ -1,0 +1,2 @@
+class StiQuestionnaire < ApplicationRecord
+end

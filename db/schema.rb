@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207211328) do
+ActiveRecord::Schema.define(version: 20170201183419) do
 
   create_table "alterList", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "studyId",                     null: false
@@ -308,6 +308,34 @@ ActiveRecord::Schema.define(version: 20161207211328) do
   create_table "session", id: :string, limit: 32, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "expire"
     t.binary  "data",   limit: 4294967295
+  end
+
+  create_table "sti_questionnaires", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.date     "date_of_visit"
+    t.string   "participant_id"
+    t.string   "staff_person"
+    t.integer  "stitest_ev"
+    t.integer  "stitest"
+    t.string   "stitest_other"
+    t.date     "stitest_last"
+    t.boolean  "stitest_reason_a"
+    t.boolean  "stitest_reason_b"
+    t.boolean  "stitest_reason_c"
+    t.boolean  "stitest_reason_d"
+    t.boolean  "stitest_reason_e"
+    t.boolean  "stitest_reason_f"
+    t.boolean  "stitest_reason_g"
+    t.boolean  "stitest_reason_h"
+    t.boolean  "stitest_reason_i"
+    t.string   "stitest_reason_other"
+    t.integer  "stitest_locn"
+    t.integer  "stitest_rslt"
+    t.integer  "notest_reason"
+    t.integer  "stitest_future"
+    t.integer  "stipercrisk"
+    t.integer  "stistigma"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "study", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sti Questionnaires</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date of visit</th>
+      <th>Participant</th>
+      <th>Staff person</th>
+      <th>Stitest ev</th>
+      <th>Stitest</th>
+      <th>Stitest other</th>
+      <th>Stitest last</th>
+      <th>Stitest reason a</th>
+      <th>Stitest reason b</th>
+      <th>Stitest reason c</th>
+      <th>Stitest reason d</th>
+      <th>Stitest reason e</th>
+      <th>Stitest reason f</th>
+      <th>Stitest reason g</th>
+      <th>Stitest reason h</th>
+      <th>Stitest reason i</th>
+      <th>Stitest reason other</th>
+      <th>Stitest locn</th>
+      <th>Stitest rslt</th>
+      <th>Notest reason</th>
+      <th>Stitest future</th>
+      <th>Stipercrisk</th>
+      <th>Stistigma</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sti_questionnaires.each do |sti_questionnaire| %>
+      <tr>
+        <td><%= sti_questionnaire.date_of_visit %></td>
+        <td><%= sti_questionnaire.participant_id %></td>
+        <td><%= sti_questionnaire.staff_person %></td>
+        <td><%= sti_questionnaire.stitest_ev %></td>
+        <td><%= sti_questionnaire.stitest %></td>
+        <td><%= sti_questionnaire.stitest_other %></td>
+        <td><%= sti_questionnaire.stitest_last %></td>
+        <td><%= sti_questionnaire.stitest_reason_a %></td>
+        <td><%= sti_questionnaire.stitest_reason_b %></td>
+        <td><%= sti_questionnaire.stitest_reason_c %></td>
+        <td><%= sti_questionnaire.stitest_reason_d %></td>
+        <td><%= sti_questionnaire.stitest_reason_e %></td>
+        <td><%= sti_questionnaire.stitest_reason_f %></td>
+        <td><%= sti_questionnaire.stitest_reason_g %></td>
+        <td><%= sti_questionnaire.stitest_reason_h %></td>
+        <td><%= sti_questionnaire.stitest_reason_i %></td>
+        <td><%= sti_questionnaire.stitest_reason_other %></td>
+        <td><%= sti_questionnaire.stitest_locn %></td>
+        <td><%= sti_questionnaire.stitest_rslt %></td>
+        <td><%= sti_questionnaire.notest_reason %></td>
+        <td><%= sti_questionnaire.stitest_future %></td>
+        <td><%= sti_questionnaire.stipercrisk %></td>
+        <td><%= sti_questionnaire.stistigma %></td>
+        <td><%= link_to 'Show', sti_questionnaire %></td>
+        <td><%= link_to 'Edit', edit_sti_questionnaire_path(sti_questionnaire) %></td>
+        <td><%= link_to 'Destroy', sti_questionnaire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sti Questionnaire', new_sti_questionnaire_path %>
