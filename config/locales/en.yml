@@ -138,4 +138,47 @@ en:
         alter_id: Alter ID
         date_ego_notified: Date Ego Notified
         date_ego_paid: Date Ego Paid
+      sti_questionnaire:
+        date_of_visit: Date of visit (mm/dd/yyyy)
+        participant_id: Participant ID
+        staff_person: Staff person
+        stitest_ev: 1. Have you ever been tested for a sexually transmitted infection (STI) other than HIB?
+        stitest_a: Syphilis
+        stitest_b: Genital or anal warts
+        stitest_c: Genital or anal herpes
+        stitest_d: Chancroid
+        stitest_e: Trichomoniasis (trich)
+        stitest_f: Gonorrhea
+        stitest_g: Chlamydia
+        stitest_h: HPV
+        stitest_i: Other (specify)
+        stitest_j: Never tested
+        stitest_other: Other STI Test
+        stitest_last: 3. If yes, what was the date of you last STI test? (mm/yyyy)
+        stitest_last_never: Never tested
+        stitest_reason_a: I suspected an STI and/or had symtpons
+        stitest_reason_b: Recently had unprotedted sex
+        stitest_reason_c: Recommended by a health professional
+        stitest_reason_d: Recommended by a sexual partner
+        stitest_reason_e: Part of my regular precentive health care
+        stitest_reason_f: I had a new sexual partner
+        stitest_reason_g: I was getting tested for HIV
+        stitest_reason_h: Other (specify)
+        stitest_reason_i: Never tested
+        stitest_reason_other: Other STI Test Reason
+        stitest_locn: 5. If yes, where were you tested the last time you were tested?
+        stitest_rslt: 6. If yes, of the times that you have been tested for STIs, how often have you received the results?
+        notest_reason_a: Too expensive
+        notest_reason_b: Lack of insurance
+        notest_reason_c: Confidentiality reasons (didn't want someone to find out)
+        notest_reason_d: Didn't know where to get tested
+        notest_reason_e: Doctor or health care procider has never suggested it
+        notest_reason_f: Embarrassed or difficult to ask to be tested
+        notest_reason_g: Don't think I'm at risk
+        notest_reason_h: Other (specify)
+        notest_reason_i: I have been tested
+        notest_reason_other: Other Reason
+        stitest_future: 8. How likely is it that you will be tested for STIs in the next 6 months (not including the test we do today as part of the study)?
+        stipercrisk: 9. How at risk do you think you are for getting an STI?
+        stistigma: 10. Overall, how do you feel about people who have STIs?
 

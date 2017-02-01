@@ -179,6 +179,21 @@ class Study < ApplicationRecord
 		ea
 	end
 
+	def nested_raw_demographics
+		#	Using Marshal stuff here to copy the values to avoid self referencing.
+		demo = Marshal.load( Marshal.dump(raw_demographics) )
+
+		#	Select the EGOs and add an empty array to hold the associated subjects.
+		ea = demo.select{|d| d[:subject] !~ /_/ }.each{|d| d[:assoc] = [] }
+
+		#	Add all to the assoc[] for the appropriate ego. (if exists)
+		demo.each{|d| 
+			z = ea.detect{|y| y[:subject] == d[:subject].split(/_/)[0] }
+			z[:assoc] << Marshal.load( Marshal.dump(d) ) if z.present?
+		}
+		ea
+	end
+
 	#	Returns array of hashes with :alters[] containing matching alters.
 	#	DOES NOT include ALTERs with no matching EGO
 	def ego_alter_demographics

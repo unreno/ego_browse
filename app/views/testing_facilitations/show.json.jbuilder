@@ -1,1 +1,0 @@
-json.partial! "testing_facilitations/testing_facilitation", testing_facilitation: @testing_facilitation

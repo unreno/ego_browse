@@ -60,3 +60,12 @@ table.demographics tr td:first-child {
 	background-color: #EEE;
 }
 
+
+div.field {
+	input[type=checkbox] {
+		display: inline;
+		+ label {
+		display: inline;
+		}
+	}
+}

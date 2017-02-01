@@ -1,132 +1,258 @@
 <%= form_for(sti_questionnaire) do |f| %>
-  <% if sti_questionnaire.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(sti_questionnaire.errors.count, "error") %> prohibited this sti_questionnaire from being saved:</h2>
+	<% if sti_questionnaire.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(sti_questionnaire.errors.count, "error") %> prohibited this sti_questionnaire from being saved:</h2>
 
-      <ul>
-      <% sti_questionnaire.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+			<% sti_questionnaire.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :date_of_visit %>
-    <%= f.date_select :date_of_visit %>
-  </div>
+	<div class="field">
+		<%= f.label :date_of_visit %>
+		<%= f.date_select :date_of_visit %>
+	</div>
 
-  <div class="field">
-    <%= f.label :participant_id %>
-    <%= f.text_field :participant_id %>
-  </div>
+	<div class="field">
+		<%= f.label :participant_id %>
+		<%= f.text_field :participant_id %>
+	</div>
 
-  <div class="field">
-    <%= f.label :staff_person %>
-    <%= f.text_field :staff_person %>
-  </div>
+	<div class="field">
+		<%= f.label :staff_person %>
+		<%= f.text_field :staff_person %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_ev %>
-    <%= f.number_field :stitest_ev %>
-  </div>
+	<div class="field">
+		<%= f.label :stitest_ev %>
+		<%= f.radio_button_with_label(:stitest_ev, "Yes (1)", 1) %>
+		<%= f.radio_button_with_label(:stitest_ev, "No (0)", 0) %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest %>
-    <%= f.number_field :stitest %>
-  </div>
+	<div class="field">
+		<label>2. If yes, which STIs have you been tested for, other than HIV? Check all that apply.</label>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_other %>
-    <%= f.text_field :stitest_other %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_a %>
+		<%= f.label :stitest_a %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_last %>
-    <%= f.date_select :stitest_last %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_b %>
+		<%= f.label :stitest_b %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_reason_a %>
-    <%= f.check_box :stitest_reason_a %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_c %>
+		<%= f.label :stitest_c %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_reason_b %>
-    <%= f.check_box :stitest_reason_b %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_d %>
+		<%= f.label :stitest_d %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_reason_c %>
-    <%= f.check_box :stitest_reason_c %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_e %>
+		<%= f.label :stitest_e %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_reason_d %>
-    <%= f.check_box :stitest_reason_d %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_f %>
+		<%= f.label :stitest_f %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_reason_e %>
-    <%= f.check_box :stitest_reason_e %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_g %>
+		<%= f.label :stitest_g %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_reason_f %>
-    <%= f.check_box :stitest_reason_f %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_h %>
+		<%= f.label :stitest_h %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_reason_g %>
-    <%= f.check_box :stitest_reason_g %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_i %>
+		<%= f.label :stitest_i %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_reason_h %>
-    <%= f.check_box :stitest_reason_h %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_j %>
+		<%= f.label :stitest_j %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_reason_i %>
-    <%= f.check_box :stitest_reason_i %>
-  </div>
+	<div class="field">
+		<%= f.label :stitest_other %>
+		<%= f.text_field :stitest_other %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_reason_other %>
-    <%= f.text_field :stitest_reason_other %>
-  </div>
+	<div class="field">
+		<%= f.label :stitest_last %>
+		<%= f.date_select :stitest_last %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_locn %>
-    <%= f.number_field :stitest_locn %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_last_never %>
+		<%= f.label :stitest_last_never %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_rslt %>
-    <%= f.number_field :stitest_rslt %>
-  </div>
+	<div class="field">
+		<label>4. If yes, the last time you got an STI test, why did you decide to get tested for an STI? Check all that apply.</label>
+	</div>
 
-  <div class="field">
-    <%= f.label :notest_reason %>
-    <%= f.number_field :notest_reason %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_reason_a %>
+		<%= f.label :stitest_reason_a %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stitest_future %>
-    <%= f.number_field :stitest_future %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_reason_b %>
+		<%= f.label :stitest_reason_b %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stipercrisk %>
-    <%= f.number_field :stipercrisk %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_reason_c %>
+		<%= f.label :stitest_reason_c %>
+	</div>
 
-  <div class="field">
-    <%= f.label :stistigma %>
-    <%= f.number_field :stistigma %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_reason_d %>
+		<%= f.label :stitest_reason_d %>
+	</div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="field">
+		<%= f.check_box :stitest_reason_e %>
+		<%= f.label :stitest_reason_e %>
+	</div>
+
+	<div class="field">
+		<%= f.check_box :stitest_reason_f %>
+		<%= f.label :stitest_reason_f %>
+	</div>
+
+	<div class="field">
+		<%= f.check_box :stitest_reason_g %>
+		<%= f.label :stitest_reason_g %>
+	</div>
+
+	<div class="field">
+		<%= f.check_box :stitest_reason_h %>
+		<%= f.label :stitest_reason_h %>
+	</div>
+
+	<div class="field">
+		<%= f.check_box :stitest_reason_i %>
+		<%= f.label :stitest_reason_i %>
+	</div>
+
+	<div class="field">
+		<%= f.label :stitest_reason_other %>
+		<%= f.text_field :stitest_reason_other %>
+	</div>
+
+	<div class="field">
+		<%= f.label :stitest_locn %>
+		<%= f.radio_button_with_label(:stitest_locn, "Your primary care physician (1)", 1) %>
+		<%= f.radio_button_with_label(:stitest_locn, "Your OBGYN (2)", 2) %>
+		<%= f.radio_button_with_label(:stitest_locn, "Health district or health department (3)", 3) %>
+		<%= f.radio_button_with_label(:stitest_locn, "Mobile outreach clinic or van (4)", 4) %>
+		<%= f.radio_button_with_label(:stitest_locn, "Community clinic (eg, Planned Parenthood, NN HOPES) (5)", 5) %>
+		<%= f.radio_button_with_label(:stitest_locn, "Other (specify) (20)", 20) %>
+		<%= f.radio_button_with_label(:stitest_locn, "Never Tested (0)", 0) %>
+	</div>
+
+	<div class="field">
+		<%= f.label :stitest_rslt %>
+		<%= f.radio_button_with_label(:stitest_rslt, "Never (0)", 0) %>
+		<%= f.radio_button_with_label(:stitest_rslt, "Almost never (1)", 1) %>
+		<%= f.radio_button_with_label(:stitest_rslt, "Sometimes (2)", 2) %>
+		<%= f.radio_button_with_label(:stitest_rslt, "Almost always (3)", 3) %>
+		<%= f.radio_button_with_label(:stitest_rslt, "Always (4)", 4) %>
+	</div>
+
+	<div class="field">
+		<label>7. If no, why haven't you tested for STIs?</label>
+	</div>
+
+	<div class="field">
+		<%= f.check_box :notest_reason_a %>
+		<%= f.label :notest_reason_a %>
+	</div>
+
+	<div class="field">
+		<%= f.check_box :notest_reason_b %>
+		<%= f.label :notest_reason_b %>
+	</div>
+
+	<div class="field">
+		<%= f.check_box :notest_reason_c %>
+		<%= f.label :notest_reason_c %>
+	</div>
+
+	<div class="field">
+		<%= f.check_box :notest_reason_d %>
+		<%= f.label :notest_reason_d %>
+	</div>
+
+	<div class="field">
+		<%= f.check_box :notest_reason_e %>
+		<%= f.label :notest_reason_e %>
+	</div>
+
+	<div class="field">
+		<%= f.check_box :notest_reason_f %>
+		<%= f.label :notest_reason_f %>
+	</div>
+
+	<div class="field">
+		<%= f.check_box :notest_reason_g %>
+		<%= f.label :notest_reason_g %>
+	</div>
+
+	<div class="field">
+		<%= f.check_box :notest_reason_h %>
+		<%= f.label :notest_reason_h %>
+	</div>
+
+	<div class="field">
+		<%= f.check_box :notest_reason_i %>
+		<%= f.label :notest_reason_i %>
+	</div>
+
+	<div class="field">
+		<%= f.label :notest_reason_other %>
+		<%= f.text_field :notest_reason_other %>
+	</div>
+
+	<div class="field">
+		<%= f.label :stitest_future %>
+		<%= f.radio_button_with_label(:stitest_future, "Not at all likely (1)", 1) %>
+		<%= f.radio_button_with_label(:stitest_future, "Somewhat unlikely (2)", 2) %>
+		<%= f.radio_button_with_label(:stitest_future, "Not likely nor unlikely (3)", 3) %>
+		<%= f.radio_button_with_label(:stitest_future, "Somewhat likely (4)", 4) %>
+		<%= f.radio_button_with_label(:stitest_future, "Very likely (5)", 5) %>
+	</div>
+
+	<div class="field">
+		<%= f.label :stipercrisk %>
+		<%= f.radio_button_with_label(:stipercrisk, "Very likely (5)", 5) %>
+
+
+
+
+	</div>
+
+	<div class="field">
+		<%= f.label :stistigma %>
+		<%= f.number_field :stistigma %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 <% end %>

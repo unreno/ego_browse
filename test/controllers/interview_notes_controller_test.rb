@@ -17,7 +17,7 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create interview_note" do
     assert_difference('InterviewNote.count') do
-      post interview_notes_url, params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, process_notes: @interview_note.process_notes } }
+      post interview_notes_url, params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, process_notes: @interview_note.process_notes, interviewer: @interview_note.interviewer } }
     end
 
     assert_redirected_to interview_note_url(InterviewNote.last)
@@ -34,7 +34,7 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update interview_note" do
-    patch interview_note_url(@interview_note), params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, process_notes: @interview_note.process_notes } }
+    patch interview_note_url(@interview_note), params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, process_notes: @interview_note.process_notes, interviewer: @interview_note.interviewer } }
     assert_redirected_to interview_note_url(@interview_note)
   end
 

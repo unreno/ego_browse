@@ -7,6 +7,7 @@
     <tr>
       <th>Participant</th>
       <th>Interview date</th>
+      <th>Interviewer</th>
       <th>Interview notes</th>
       <th>Process notes</th>
       <th>Manage</th>
@@ -18,6 +19,7 @@
       <tr>
         <td><%= interview_note.participant_id %></td>
         <td><%= interview_note.interview_date %></td>
+        <td><%= interview_note.interviewer %></td>
         <td><%= interview_note.interview_notes %></td>
         <td><%= interview_note.process_notes %></td>
         <td><%= link_to 'Show', interview_note %>
