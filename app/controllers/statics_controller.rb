@@ -4,6 +4,7 @@ class StaticsController < ApplicationController
 #	GENDER
 #	HISPLAT
 
+
 	def demographic_counts
 		@studies = []
 		Study.all.each do |study|
@@ -23,6 +24,13 @@ class StaticsController < ApplicationController
 #Latina: where sex = gender
 #Trans: where sex != gender
 
+#	TODO special reports for NIH
+#	TODO need to group races to just American Indian, Asian, Natice Hawaiian, Black or AA, White, More than one, Unknown
+#	TODO need to group sexes to just Male, Female, Unknown
+
+
+	#	TODO Black at all. Either of Black races even if more than one!
+#	TODO does sex or gender matter?
 	def black_demographic_counts
 		@studies = []
 		Study.all.each do |study|
@@ -41,6 +49,8 @@ class StaticsController < ApplicationController
 		render :demographic_counts
 	end
 
+	#	TODO filter by Latino race, not hispanicity?
+#	TODO does sex or gender matter?
 	def latina_demographic_counts
 		@studies = []
 		Study.all.each do |study|
@@ -59,6 +69,8 @@ class StaticsController < ApplicationController
 		render :demographic_counts
 	end
 
+	#	TODO definition of trans is not quite clear yet
+#	TODO possibly gender = trans* or gender != sex
 	def trans_demographic_counts
 		@studies = []
 		Study.all.each do |study|

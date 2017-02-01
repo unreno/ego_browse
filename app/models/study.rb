@@ -13,6 +13,7 @@ class Study < ApplicationRecord
 	has_many :question_options, foreign_key: :studyId
 	has_many :questions, foreign_key: :studyId
 
+#	=> ["No", "Yes/Sí"]
 	def hisplats
 		hisplats = questions.where(:title => "HISPLAT").collect(&:question_options)
 			.flatten.collect(&:name)
@@ -21,6 +22,7 @@ class Study < ApplicationRecord
 		hisplats.uniq
 	end
 
+#	=> ["Female/Femenino", "Gender queer/non-binary/Género “queer” /no binario", "Male/Masculino", "Other/Otro", "Transfemale/transwoman/Mujer transgénero/transmujer", "Transmale/transman/Hombre transgénero/trans hombre"]
 	def genders
 		genders = questions.where(:title => "GENDER").collect(&:question_options)
 			.flatten.collect(&:name).sort
@@ -29,6 +31,7 @@ class Study < ApplicationRecord
 		genders.uniq
 	end
 
+#	=> ["Female/Femenino", "Inter-Sex", "Male/Masculino"]
 	def sexes
 		sexes = questions.where(:title => "SEX").collect(&:question_options)
 			.flatten.collect(&:name).sort
@@ -37,6 +40,7 @@ class Study < ApplicationRecord
 		sexes.uniq
 	end
 
+#	=> ["African/Africano", "Afro-Caribbean/Afrocaribeño", "American Indian or Alaskan Native/Indio americano o nativo de Alaska", "Asian/Asiático", "Black or African-American/Negro o afroamericano", "Black, other/Negro, otro", "Latino or Hispanic (Example: Mexican)/Latino o hispano (ejemplo: Mexicano)", "Native Hawaiian or Pacific Islander/Nativo de Hawaii o Isleño pacifico", "Other/Otro", "White/Blanco"]
 	def races
 		races = questions.where(:title => "RACE").collect(&:question_options)
 			.flatten.collect(&:name).sort
