@@ -122,7 +122,7 @@ class Study < ApplicationRecord
 	end
 
 	def demographics
-		raw_demographics.collect{|d|
+		raw_demographics.collect do |d|
 			d[:race] = ["Unknown"] if d[:race].empty?
 			d[:race] = ["More Than One"] if d[:race].length > 1
 			d[:hispanic] = ["Unknown"] if d[:hispanic].empty?
@@ -130,37 +130,21 @@ class Study < ApplicationRecord
 			d[:gender] = ["Unknown"] if d[:gender].empty?
 			d[:subject] = ["Unknown"] if d[:subject].empty?
 			d
-		}
+		end
 	end
 
-#	def old_demographics
-#		interviews
-#			.joins("LEFT JOIN answer r ON interview.id = r.interviewId AND r.questionId = #{race_qid}")
-#			.joins("LEFT JOIN answer h ON interview.id = h.interviewId AND h.questionId = #{hisplat_qid}")
-#			.joins("LEFT JOIN answer g ON interview.id = g.interviewId AND g.questionId = #{gender_qid}")
-#			.joins("LEFT JOIN answer s ON interview.id = s.interviewId AND s.questionId = #{sex_qid}")
-#			.joins("LEFT JOIN answer a ON interview.id = a.interviewId AND a.questionId = #{subject_qid}")
-#			.select("interview.id, r.value AS race, h.value AS hispanic, g.value AS gender, s.value AS sex, a.value AS subject")
-#			.collect{|i| 
-#				race = decode(i.race).collect{|x|x[0..(x.index("/")||x.length)-1]}
-#				race = ["Unknown"] if race.empty?
-#				race = ["More Than One"] if race.length > 1
-#				hispanic = decode(i.hispanic).collect{|x|x[0..(x.index("/")||x.length)-1]}
-#				hispanic = ["Unknown"] if hispanic.empty?
-#				sex = decode(i.sex).collect{|x|x[0..(x.index("/")||x.length)-1]}
-#				sex = ["Unknown"] if sex.empty?
-#				gender = decode(i.gender).collect{|x|x[0..(x.index("/")||x.length)-1]}
-#				gender = ["Unknown"] if gender.empty?
-#				subject = decrypt(i.subject)
-#				subject = ["Unknown"] if subject.empty?
-#				{	id: i.id, 
-#					subject: subject,
-#					race: race,
-#					hispanic: hispanic,
-#					sex: sex,
-#					gender: gender
-#			}	}
-#	end
+	def demographics_hash
+		s = {}
+		s[:id] = self.id
+		s[:hisplats] = self.hisplats
+		s[:genders] = self.genders
+		s[:sexes] = self.sexes
+		s[:races] = self.races
+		s[:demographics] = self.demographics
+		s
+	end
+
+
 
 	#	Returns array of hashes with :assoc[] containing ego and matching alters.
 	#	DOES NOT include ALTERs with no matching EGO

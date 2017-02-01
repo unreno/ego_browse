@@ -1,18 +1,10 @@
 class StaticsController < ApplicationController
 
 	def demographic_counts
-		@studies = []
-		Study.all.each do |study|
-			s = {}
-			s[:id] = study.id
-			s[:hisplats] = study.hisplats
-			s[:genders] = study.genders
-			s[:sexes] = study.sexes
-			s[:races] = study.races
-			s[:demographics] = study.demographics
-			@studies << s
-		end
+		@studies = Study.all.collect{|s|s.demographics_hash}
 	end
+
+	#	try to move this into the model?
 
 	#	TODO EGO race includes any of African, Caribean, Black (other), Black (or AA)
 	def black_demographic_counts
