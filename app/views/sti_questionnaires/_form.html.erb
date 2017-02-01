@@ -240,16 +240,20 @@
 
 	<div class="field">
 		<%= f.label :stipercrisk %>
-		<%= f.radio_button_with_label(:stipercrisk, "Very likely (5)", 5) %>
-
-
-
-
+		<%= f.radio_button_with_label(:stipercrisk, "Not at all at risk (0)", 0) %>
+		<%= f.radio_button_with_label(:stipercrisk, "A little at risk (1)", 1) %>
+		<%= f.radio_button_with_label(:stipercrisk, "Somewhat at risk (2)", 2) %>
+		<%= f.radio_button_with_label(:stipercrisk, "Very at risk (3)", 3) %>
+		<%= f.radio_button_with_label(:stipercrisk, "Extremely at risk (4)", 4) %>
 	</div>
 
 	<div class="field">
 		<%= f.label :stistigma %>
-		<%= f.number_field :stistigma %>
+		<%= f.radio_button_with_label(:stistigma, "Very negative (5)", 5) %>
+		<%= f.radio_button_with_label(:stistigma, "Negative (4)", 4) %>
+		<%= f.radio_button_with_label(:stistigma, "Neither negative or positive (3)", 3) %>
+		<%= f.radio_button_with_label(:stistigma, "Positive (2)", 2) %>
+		<%= f.radio_button_with_label(:stistigma, "Very positive (1)", 1) %>
 	</div>
 
 	<div class="actions">
