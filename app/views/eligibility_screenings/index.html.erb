@@ -39,7 +39,11 @@
 			<th>Referred appointment time</th>
 			<th>Reason for refusal</th>
 			<th>Reason for refusal other</th>
-			<th>Manage</th>
+			<th>Show</th>
+			<% if current_rails_user.present? and current_rails_user.is_admin? %>
+			<th>Edit</th>
+			<th>Destroy</th>
+			<% end %>
 		</tr>
 	</thead>
 
@@ -80,14 +84,11 @@
 				<td><%= eligibility_screening.referred_appointment_time.to_s(:time) %></td>
 				<td><%= eligibility_screening.reason_for_refusal %></td>
 				<td><%= eligibility_screening.reason_for_refusal_other %></td>
-				<td><%= link_to 'Show', eligibility_screening %>
+				<td><%= link_to 'Show', eligibility_screening %></td>
 				<% if current_rails_user.present? and current_rails_user.is_admin? %>
-					&nbsp;|&nbsp;
-					<%= link_to 'Edit', edit_eligibility_screening_path(eligibility_screening) %>
-					&nbsp;|&nbsp;
-					<%= link_to 'Destroy', eligibility_screening, method: :delete, data: { confirm: 'Are you sure?' } %>
+					<td><%= link_to 'Edit', edit_eligibility_screening_path(eligibility_screening) %></td>
+					<td><%= link_to 'Destroy', eligibility_screening, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				<% end %>
-				</td>
 			</tr>
 		<% end %>
 	</tbody>

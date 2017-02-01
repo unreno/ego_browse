@@ -10,7 +10,11 @@
       <th>Interviewer</th>
       <th>Interview notes</th>
       <th>Process notes</th>
-      <th>Manage</th>
+      <th>Show</th>
+			<% if current_rails_user.present? and current_rails_user.is_admin? %>
+      <th>Edit</th>
+      <th>Destroy</th>
+			<% end %>
     </tr>
   </thead>
 
@@ -22,14 +26,11 @@
         <td><%= interview_note.interviewer %></td>
         <td><%= interview_note.interview_notes %></td>
         <td><%= interview_note.process_notes %></td>
-        <td><%= link_to 'Show', interview_note %>
+        <td><%= link_to 'Show', interview_note %></td>
 				<% if current_rails_user.present? and current_rails_user.is_admin? %>
-					&nbsp;|&nbsp;
-	        <%= link_to 'Edit', edit_interview_note_path(interview_note) %>
-					&nbsp;|&nbsp;
-	        <%= link_to 'Destroy', interview_note, method: :delete, data: { confirm: 'Are you sure?' } %>
+	        <td><%= link_to 'Edit', edit_interview_note_path(interview_note) %></td>
+	        <td><%= link_to 'Destroy', interview_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				<% end %>
-	      </td>
       </tr>
     <% end %>
   </tbody>
