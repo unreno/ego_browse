@@ -11,10 +11,10 @@ class ActiveSupport::TestCase
 	# Add more helper methods to be used by all tests here...
 end
 
-ApplicationController.skip_before_action :require_user
+#ApplicationController.skip_before_action :require_user
 
 #	Effectively skips the admin requirement.
-ApplicationController.send(:define_method,:require_admin){true}
+#ApplicationController.send(:define_method,:require_admin){true}
 
 #class ApplicationController
 #	def require_admin

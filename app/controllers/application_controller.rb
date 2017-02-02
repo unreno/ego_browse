@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
 			if current_rails_user
 				store_location
 				flash[:notice] = "You must be logged out to access this page"
-				redirect_to new_rails_user_session_url
+				redirect_to root_url	#	new_rails_user_session_url
 				return false
 			end
 		end

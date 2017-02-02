@@ -82,3 +82,4 @@ end
 
 
 gem 'authlogic'
+gem 'rails-controller-testing'
