@@ -204,7 +204,7 @@ class Study < ApplicationRecord
 	end
 
 	def decrypt(value)
-		MCRYPT.ivdecrypt(value)
+		MCRYPT.mydecrypt(value)
 	end
 
 end

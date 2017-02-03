@@ -11,10 +11,10 @@ class Answer < ApplicationRecord
 		#	Added this condition so if use Answer.all.select(:id),
 		#	or something other than value, it doesn't crash.
 		if try(:value).present?
-			self.value = MCRYPT.ivdecrypt(self.value) 
+			self.value = MCRYPT.mydecrypt(self.value) 
 		end
 		if try(:otherSpecifyText).present?
-			self.otherSpecifyText = MCRYPT.ivdecrypt(self.otherSpecifyText) 
+			self.otherSpecifyText = MCRYPT.mydecrypt(self.otherSpecifyText) 
 		end
 	end
 

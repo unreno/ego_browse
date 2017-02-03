@@ -10,7 +10,7 @@ class Alter < ApplicationRecord
 	after_find :decrypt_encrypted_fields
 	def decrypt_encrypted_fields
 		if try(:name).present?
-			self.name = MCRYPT.ivdecrypt(self.name)
+			self.name = MCRYPT.mydecrypt(self.name)
 		end
 	end
 

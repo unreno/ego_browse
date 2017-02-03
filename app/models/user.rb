@@ -6,10 +6,10 @@ class User < ApplicationRecord
 
 	def decrypt_encrypted_fields
 		if try(:name).present?
-			self.name = MCRYPT.ivdecrypt(self.name)
+			self.name = MCRYPT.mydecrypt(self.name)
 		end
 		if try(:email).present?
-			self.email = MCRYPT.ivdecrypt(self.email)
+			self.email = MCRYPT.mydecrypt(self.email)
 		end
 	end
 

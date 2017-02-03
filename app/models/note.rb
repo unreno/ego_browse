@@ -8,7 +8,7 @@ class Note < ApplicationRecord
 
 	def decrypt_encrypted_fields
 		if try(:notes).present?
-			self.notes = MCRYPT.ivdecrypt(self.notes)
+			self.notes = MCRYPT.mydecrypt(self.notes)
 		end
 	end
 
