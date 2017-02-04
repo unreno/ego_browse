@@ -18,7 +18,7 @@ class Study < ApplicationRecord
 
 #	=> ["No", "Yes/Sí"]
 	def hisplats
-		hisplats = questions.where(:title => "HISPLAT").collect(&:question_options)
+		hisplats = questions.where(title: "HISPLAT").collect(&:question_options)
 			.flatten.collect(&:name)
 			.collect{|x|x[0..(x.index("/")||x.length)-1]}
 		hisplats << "Unknown"
@@ -27,7 +27,7 @@ class Study < ApplicationRecord
 
 #	=> ["Female/Femenino", "Gender queer/non-binary/Género “queer” /no binario", "Male/Masculino", "Other/Otro", "Transfemale/transwoman/Mujer transgénero/transmujer", "Transmale/transman/Hombre transgénero/trans hombre"]
 	def genders
-		genders = questions.where(:title => "GENDER").collect(&:question_options)
+		genders = questions.where(title: "GENDER").collect(&:question_options)
 			.flatten.collect(&:name).sort
 			.collect{|x|x[0..(x.index("/")||x.length)-1]}
 		genders << "Unknown"
@@ -36,7 +36,7 @@ class Study < ApplicationRecord
 
 #	=> ["Female/Femenino", "Inter-Sex", "Male/Masculino"]
 	def sexes
-		sexes = questions.where(:title => "SEX").collect(&:question_options)
+		sexes = questions.where(title: "SEX").collect(&:question_options)
 			.flatten.collect(&:name).sort
 			.collect{|x|x[0..(x.index("/")||x.length)-1]}
 		sexes << "Unknown"
@@ -45,7 +45,7 @@ class Study < ApplicationRecord
 
 #	=> ["African/Africano", "Afro-Caribbean/Afrocaribeño", "American Indian or Alaskan Native/Indio americano o nativo de Alaska", "Asian/Asiático", "Black or African-American/Negro o afroamericano", "Black, other/Negro, otro", "Latino or Hispanic (Example: Mexican)/Latino o hispano (ejemplo: Mexicano)", "Native Hawaiian or Pacific Islander/Nativo de Hawaii o Isleño pacifico", "Other/Otro", "White/Blanco"]
 	def races
-		races = questions.where(:title => "RACE").collect(&:question_options)
+		races = questions.where(title: "RACE").collect(&:question_options)
 			.flatten.collect(&:name).sort
 		#	Race is in English and Spanish. Take just the English.
 		races = races.collect{|race|race[0..(race.index("/")||race.length)-1]}
@@ -55,23 +55,23 @@ class Study < ApplicationRecord
 	end
 
 	def race_qid
-		@race_qid ||= questions.where(:title => "RACE").select(:id).collect(&:id).first
+		@race_qid ||= questions.where(title: "RACE").select(:id).collect(&:id).first
 	end
 
 	def hisplat_qid
-		@hisplat_qid ||= questions.where(:title => "HISPLAT").select(:id).collect(&:id).first
+		@hisplat_qid ||= questions.where(title: "HISPLAT").select(:id).collect(&:id).first
 	end
 
 	def gender_qid
-		@gender_qid ||= questions.where(:title => "GENDER").select(:id).collect(&:id).first
+		@gender_qid ||= questions.where(title: "GENDER").select(:id).collect(&:id).first
 	end
 
 	def sex_qid
-		@sex_qid ||= questions.where(:title => "SEX").select(:id).collect(&:id).first
+		@sex_qid ||= questions.where(title: "SEX").select(:id).collect(&:id).first
 	end
 
 	def subject_qid
-		@subject_qid ||= questions.where(:title => "SUBJECT").select(:id).collect(&:id).first
+		@subject_qid ||= questions.where(title: "SUBJECT").select(:id).collect(&:id).first
 	end
 
 #	> Interview.joins(Arel::Nodes::OuterJoin.new(Answer.arel_table.alias(:a),Arel::Nodes::On.new(Interview.arel_table[:id].eq(Answer.arel_table.alias(:a)[:interviewId]))))
@@ -200,7 +200,7 @@ class Study < ApplicationRecord
 
 	def decode(value)
 		@cached_codes ||= {}
-		@cached_codes[value] ||= QuestionOption.where(:id => decrypt(value).split(/,/)).collect(&:name)
+		@cached_codes[value] ||= QuestionOption.where(id: decrypt(value).split(/,/)).collect(&:name)
 	end
 
 	def decrypt(value)
