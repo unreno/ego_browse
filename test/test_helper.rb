@@ -9,6 +9,98 @@ class ActiveSupport::TestCase
 	fixtures :all
 
 	# Add more helper methods to be used by all tests here...
+
+end
+
+Study.class_eval do
+
+	def self.create_empty
+		s = Study.create!(name:'Study Name',userId:0,hideEgoIdPage:true)
+	#	s.interviews.create!
+		s.questions.create!(title: 'GENDER')
+		s.questions.create!(title: 'HISPLAT')
+		s.questions.create!(title: 'RACE')
+		s.questions.create!(title: 'SUBJECT')
+		s.questions.create!(title: 'SEX')
+		s
+	end
+
+	def add_subject( subjectid='001' )
+		i = interviews.create!	
+		qid = subject_qid
+		i.answers.create!(questionId: qid, value: MCRYPT.myencrypt(subjectid))
+		i
+	end
+
+	def self.create_with_ego( subjectid='001' )
+		s = create_empty
+		s.add_subject( subjectid )
+		s
+	end
+
+	def self.create_with_ego_and_alter( subjectids=['001','001_1'] )
+		s = create_empty
+		subjectids.each do |subjectid|
+			s.add_subject( subjectid )
+		end
+		s
+	end
+
+	def self.create_with( subjects={} )
+		s = create_empty
+		subjects.each do |subject|
+			i = s.add_subject( subject[:subjectid] ) 
+			i.add_races( subject[:races]||[] )
+			i.add_sexes( subject[:sexes]||[] )
+			i.add_genders( subject[:genders]||[] )
+			i.add_hisplats( subject[:hisplats]||[] )
+		end
+		s
+	end
+
+end
+Interview.class_eval do
+
+	def add_races( values=[] )
+		unless values.empty?
+			qid = study.race_qid
+			ids = values.collect do |value|
+				Question.find(qid).question_options.find_or_create_by(studyId:study.id,name:value).id
+			end
+			a = answers.create!(questionId: qid, value: MCRYPT.myencrypt(ids.join(',')))
+		end
+	end
+
+	def add_sexes( values=[] )
+		unless values.empty?
+			qid = study.sex_qid
+			ids = values.collect do |value|
+				Question.find(qid).question_options.find_or_create_by(studyId:study.id,name:value).id
+			end
+			answers.create!(questionId: qid, value: MCRYPT.myencrypt(ids.join(',')))
+		end
+	end
+
+	def add_genders( values=[] )
+		unless values.empty?
+			qid = study.gender_qid
+			ids = values.collect do |value|
+				Question.find(qid).question_options.find_or_create_by(studyId:study.id,name:value).id
+			end
+			answers.create!(questionId: qid, value: MCRYPT.myencrypt(ids.join(',')))
+		end
+	end
+
+	def add_hisplats( values=[] )
+		unless values.empty?
+			qid = study.hisplat_qid
+			ids = values.collect do |value|
+				Question.find(qid).question_options.find_or_create_by(studyId:study.id,name:value).id
+			end
+			answers.create!(questionId: qid, value: MCRYPT.myencrypt(ids.join(',')))
+		end
+	end
+
 end
 
 #ApplicationController.skip_before_action :require_user

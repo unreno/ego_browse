@@ -63,7 +63,12 @@ group :test do
 	#	Doesn't raise errors in the right place in Rails 5
 #	gem "jakewendt-test_with_verbosity"
 
-#	gem "test-unit"
+
+
+#	This will need local Validator SAC installed and setup
+#	gem "test-unit"	#	needed for my html_test???
+#	gem 'jakewendt-html_test'
+
 
 	#	Solely to preserve alphabetical order in test running
 	gem 'minitest', '= 5.3.3'

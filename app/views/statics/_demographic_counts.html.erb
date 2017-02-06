@@ -34,7 +34,7 @@
 			<% d_r = study[:demographics].select{|v|v[:race].length==1 && v[:race][0] == race} %>
 			<% study[:hisplats].each do |hisplat| %>
 
-				<% d_r_h = d_r.select{|v| v[:hispanic][0] == hisplat } %>
+				<% d_r_h = d_r.select{|v| v[:hisplat][0] == hisplat } %>
 				<% study[:genders].each do |gender| %>
 					<td><%= d_r_h.select{|v| v[:gender][0] == gender }.length -%></td>
 				<% end	#study[:genders].each do |gender| %>

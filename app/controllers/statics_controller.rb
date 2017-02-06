@@ -23,7 +23,7 @@ class StaticsController < ApplicationController
 				.collect{|d| d[:assoc] }.flatten
 			s[:demographics].collect!{|ss|
 				ss[:race] = ["Unknown"] if ss[:race].empty?
-				ss[:hispanic] = ["Unknown"] if ss[:hispanic].empty?
+				ss[:hisplat] = ["Unknown"] if ss[:hisplat].empty?
 				ss[:sex] = ["Unknown"] if ss[:sex].empty?
 				ss[:gender] = ["Unknown"] if ss[:gender].empty?
 				ss[:subject] = ["Unknown"] if ss[:subject].empty?
@@ -51,13 +51,13 @@ class StaticsController < ApplicationController
 					( (d[:race] & ["African", "Afro-Caribbean",
 						"Black or African-American", "Black, other"]).length == 0 ) &&
 					( d[:race].include?("Latino or Hispanic (Example: Mexican)" ) ||
-						( d[:hispanic] == ["Yes"] )
+						( d[:hisplat] == ["Yes"] )
 					)
 				}
 				.collect{|d| d[:assoc] }.flatten
 			s[:demographics].collect!{|ss|
 				ss[:race] = ["Unknown"] if ss[:race].empty?
-				ss[:hispanic] = ["Unknown"] if ss[:hispanic].empty?
+				ss[:hisplat] = ["Unknown"] if ss[:hisplat].empty?
 				ss[:sex] = ["Unknown"] if ss[:sex].empty?
 				ss[:gender] = ["Unknown"] if ss[:gender].empty?
 				ss[:subject] = ["Unknown"] if ss[:subject].empty?
@@ -86,7 +86,7 @@ class StaticsController < ApplicationController
 				.select{|d| 
 					( ( (d[:race] & ["African", "Afro-Caribbean", "Black or African-American",
 						"Black, other", "Latino or Hispanic (Example: Mexican)" ]).length == 0 ) &&
-						( d[:hispanic] != ["Yes"] ) &&
+						( d[:hisplat] != ["Yes"] ) &&
 						( ( d[:gender] == ["Transfemale"] ) || 
 							( d[:sex] == ["Male"] ) )
 					)
@@ -94,7 +94,7 @@ class StaticsController < ApplicationController
 				.collect{|d| d[:assoc] }.flatten
 			s[:demographics].collect!{|ss|
 				ss[:race] = ["Unknown"] if ss[:race].empty?
-				ss[:hispanic] = ["Unknown"] if ss[:hispanic].empty?
+				ss[:hisplat] = ["Unknown"] if ss[:hisplat].empty?
 				ss[:sex] = ["Unknown"] if ss[:sex].empty?
 				ss[:gender] = ["Unknown"] if ss[:gender].empty?
 				ss[:subject] = ["Unknown"] if ss[:subject].empty?
@@ -125,7 +125,7 @@ class StaticsController < ApplicationController
 				.select{|d| 
 					( ( (d[:race] & ["African", "Afro-Caribbean", "Black or African-American",
 						"Black, other", "Latino or Hispanic (Example: Mexican)" ]).length == 0 ) &&
-						( d[:hispanic] != ["Yes"] ) &&
+						( d[:hisplat] != ["Yes"] ) &&
 						( d[:gender] != ["Transfemale"] ) &&
 						( d[:sex] != ["Male"] )
 					)
@@ -133,7 +133,7 @@ class StaticsController < ApplicationController
 				.collect{|d| d[:assoc] }.flatten
 			s[:demographics].collect!{|ss|
 				ss[:race] = ["Unknown"] if ss[:race].empty?
-				ss[:hispanic] = ["Unknown"] if ss[:hispanic].empty?
+				ss[:hisplat] = ["Unknown"] if ss[:hisplat].empty?
 				ss[:sex] = ["Unknown"] if ss[:sex].empty?
 				ss[:gender] = ["Unknown"] if ss[:gender].empty?
 				ss[:subject] = ["Unknown"] if ss[:subject].empty?

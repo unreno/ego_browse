@@ -99,7 +99,7 @@ class Study < ApplicationRecord
 				Arel::Nodes::On.new(i[:id].eq(a[:interviewId]).and(a[:questionId].eq(subject_qid)))))
 			.select(i[:id])
 			.select(r[:value].as('race'))
-			.select(h[:value].as('hispanic'))
+			.select(h[:value].as('hisplat'))
 			.select(g[:value].as('gender'))
 			.select(s[:value].as('sex'))
 			.select(a[:value].as('subject'))
@@ -107,18 +107,18 @@ class Study < ApplicationRecord
 				race = decode(i.race).collect{|x|x[0..(x.index("/")||x.length)-1]}
 #				race = ["Unknown"] if race.empty?
 #				race = ["More Than One"] if race.length > 1
-				hispanic = decode(i.hispanic).collect{|x|x[0..(x.index("/")||x.length)-1]}
-#				hispanic = ["Unknown"] if hispanic.empty?
+				hisplat = decode(i.hisplat).collect{|x|x[0..(x.index("/")||x.length)-1]}
+#				hisplat = ["Unknown"] if hisplat.empty?
 				sex = decode(i.sex).collect{|x|x[0..(x.index("/")||x.length)-1]}
 #				sex = ["Unknown"] if sex.empty?
 				gender = decode(i.gender).collect{|x|x[0..(x.index("/")||x.length)-1]}
 #				gender = ["Unknown"] if gender.empty?
-				subject = decrypt(i.subject)
+				subject = MCRYPT.mydecrypt(i.subject)
 #				subject = ["Unknown"] if subject.empty?
 				{	id: i.id, 
 					subject: subject,
 					race: race,
-					hispanic: hispanic,
+					hisplat: hisplat,
 					sex: sex,
 					gender: gender
 			}	}
@@ -128,10 +128,11 @@ class Study < ApplicationRecord
 		raw_demographics.collect do |d|
 			d[:race] = ["Unknown"] if d[:race].empty?
 			d[:race] = ["More Than One"] if d[:race].length > 1
-			d[:hispanic] = ["Unknown"] if d[:hispanic].empty?
+			d[:hisplat] = ["Unknown"] if d[:hisplat].empty?
 			d[:sex] = ["Unknown"] if d[:sex].empty?
 			d[:gender] = ["Unknown"] if d[:gender].empty?
-			d[:subject] = ["Unknown"] if d[:subject].empty?
+#			d[:subject] = ["Unknown"] if d[:subject].empty?
+			d[:subject] = "Unknown" if d[:subject].empty?
 			d
 		end
 	end
@@ -198,13 +199,10 @@ class Study < ApplicationRecord
 		ea
 	end
 
+	#	should really be elsewhere or global
 	def decode(value)
 		@cached_codes ||= {}
-		@cached_codes[value] ||= QuestionOption.where(id: decrypt(value).split(/,/)).collect(&:name)
-	end
-
-	def decrypt(value)
-		MCRYPT.mydecrypt(value)
+		@cached_codes[value] ||= QuestionOption.where(id: MCRYPT.mydecrypt(value).split(/,/)).collect(&:name)
 	end
 
 end

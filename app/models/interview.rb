@@ -5,7 +5,7 @@ class Interview < ApplicationRecord
 	has_many :questions, through: :answers
 
 #	def demographics
-#		{ :race => race, :gender => gender, :hispanic => hispanic }
+#		{ :race => race, :gender => gender, :hisplat => hisplat }
 #	end
 #
 #	def race
@@ -23,7 +23,7 @@ class Interview < ApplicationRecord
 #		answers.joins(:question).where('question.title' => "GENDER").collect(&:option_names).flatten
 #	end
 #
-#	def hispanic
+#	def hisplat
 #		answers.joins(:question).where('question.title' => "HISPLAT").collect(&:option_names).flatten
 #	end
 
