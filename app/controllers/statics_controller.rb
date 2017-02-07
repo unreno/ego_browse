@@ -81,8 +81,8 @@ class StaticsController < ApplicationController
 			s[:genders] = study.genders
 			s[:sexes] = study.sexes
 			s[:races] = study.races
+#				.select{|d| d[:sex] != d[:gender] }			#	likely more to it than this
 			s[:demographics] = study.nested_raw_demographics
-				.select{|d| d[:sex] != d[:gender] }			#	likely more to it than this
 				.select{|d| 
 					( ( (d[:race] & ["African", "Afro-Caribbean", "Black or African-American",
 						"Black, other", "Latino or Hispanic (Example: Mexican)" ]).length == 0 ) &&
@@ -120,8 +120,8 @@ class StaticsController < ApplicationController
 			s[:genders] = study.genders
 			s[:sexes] = study.sexes
 			s[:races] = study.races
+#				.select{|d| d[:sex] != d[:gender] }			#	likely more to it than this
 			s[:demographics] = study.nested_raw_demographics
-				.select{|d| d[:sex] != d[:gender] }			#	likely more to it than this
 				.select{|d| 
 					( ( (d[:race] & ["African", "Afro-Caribbean", "Black or African-American",
 						"Black, other", "Latino or Hispanic (Example: Mexican)" ]).length == 0 ) &&

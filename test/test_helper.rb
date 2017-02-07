@@ -67,7 +67,7 @@ Interview.class_eval do
 			ids = values.collect do |value|
 				Question.find(qid).question_options.find_or_create_by(studyId:study.id,name:value).id
 			end
-			a = answers.create!(questionId: qid, value: MCRYPT.myencrypt(ids.join(',')))
+			a = answers.create!(interviewId: id, questionId: qid, value: MCRYPT.myencrypt(ids.join(',')))
 		end
 	end
 
@@ -77,7 +77,7 @@ Interview.class_eval do
 			ids = values.collect do |value|
 				Question.find(qid).question_options.find_or_create_by(studyId:study.id,name:value).id
 			end
-			answers.create!(questionId: qid, value: MCRYPT.myencrypt(ids.join(',')))
+			answers.create!(interviewId: id, questionId: qid, value: MCRYPT.myencrypt(ids.join(',')))
 		end
 	end
 
@@ -87,7 +87,7 @@ Interview.class_eval do
 			ids = values.collect do |value|
 				Question.find(qid).question_options.find_or_create_by(studyId:study.id,name:value).id
 			end
-			answers.create!(questionId: qid, value: MCRYPT.myencrypt(ids.join(',')))
+			answers.create!(interviewId: id, questionId: qid, value: MCRYPT.myencrypt(ids.join(',')))
 		end
 	end
 
@@ -97,7 +97,7 @@ Interview.class_eval do
 			ids = values.collect do |value|
 				Question.find(qid).question_options.find_or_create_by(studyId:study.id,name:value).id
 			end
-			answers.create!(questionId: qid, value: MCRYPT.myencrypt(ids.join(',')))
+			answers.create!(interviewId: id, questionId: qid, value: MCRYPT.myencrypt(ids.join(',')))
 		end
 	end
 
