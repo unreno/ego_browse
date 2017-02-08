@@ -70,7 +70,7 @@ class AlterReferralSheetsController < ApplicationController
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def alter_referral_sheet_params
-			params.require(:alter_referral_sheet).permit(:ego_id,
+			params.require(:alter_referral_sheet).permit(:ego_id, :data_entry_name,
 				:alter_referrals_attributes => [:id, :plan_to_refer, :first_name,
 					:last_initial, :last_4_cell, :date_of_alter_interview, :alter_id,
 					:date_ego_notified, :date_ego_paid, :_destroy ]

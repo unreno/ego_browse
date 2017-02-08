@@ -70,6 +70,6 @@ class InterviewNotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interview_note_params
-      params.require(:interview_note).permit(:participant_id, :interview_date, :interview_notes, :process_notes, :interviewer)
+      params.require(:interview_note).permit(:participant_id, :interview_date, :interview_notes, :process_notes, :interviewer, :data_entry_name )
     end
 end

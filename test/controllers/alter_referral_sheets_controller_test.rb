@@ -32,8 +32,11 @@ class AlterReferralSheetsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should create alter_referral_sheet with #{login} login" do
 			create_and_login_as(login)
+			params = AlterReferralSheet.new.attributes.with_indifferent_access
+				.except(:id,:created_at,:updated_at,:alter_referrals_count)
 			assert_difference('AlterReferralSheet.count') do
-				post alter_referral_sheets_url, params: { alter_referral_sheet: { ego_id: @alter_referral_sheet.ego_id } }
+				post alter_referral_sheets_url, params: { alter_referral_sheet: 
+					params.update({ ego_id: @alter_referral_sheet.ego_id }) }
 			end
 			assert_redirected_to alter_referral_sheet_url(AlterReferralSheet.last)
 		end

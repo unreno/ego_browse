@@ -70,6 +70,7 @@ class TestingFacilitationsController < ApplicationController
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def testing_facilitation_params
-			params.require(:testing_facilitation).permit(:date_of_visit, :participant_id, :staff_person, :agree_to_use_home_test_kit_at_site, :agree_to_use_home_test_kit_at_site_refusal_reason, :agree_to_take_test_kit_home, :agree_to_take_test_kit_home_refusal_reason, :agree_to_tell_result_of_home_test_kit, :agree_to_tell_result_of_home_test_kit_refusal_reason, :result_of_home_test_kit, :confirmatory_test_referred_location, :confirmatory_test_referred_appointment, :confirmatory_test_referred_location_other, :indeterminate_test_option, :indeterminate_test_result, :indeterminate_test_referred_to, :urine_to_test, :urine_to_test_refusal_reason, :urine_to_test_refusal_reason_other, :notes)
+			params.require(:testing_facilitation).permit(:date_of_visit, :participant_id, :staff_person, :agree_to_use_home_test_kit_at_site, :agree_to_use_home_test_kit_at_site_refusal_reason, :agree_to_take_test_kit_home, :agree_to_take_test_kit_home_refusal_reason, :agree_to_tell_result_of_home_test_kit, :agree_to_tell_result_of_home_test_kit_refusal_reason, :result_of_home_test_kit, :confirmatory_test_referred_location, :confirmatory_test_referred_appointment, :confirmatory_test_referred_location_other, :indeterminate_test_option, :indeterminate_test_result, :indeterminate_test_referred_to, :urine_to_test, :urine_to_test_refusal_reason, :urine_to_test_refusal_reason_other, :notes, :gonorrhea_result, :chlamydia_result, :data_entry_name
+)
 		end
 end
