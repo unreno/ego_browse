@@ -26,6 +26,7 @@ en:
   activerecord:
     attributes:
       eligibility_screening:
+        data_entry_name: Data Entry Person's Name
         how_learned: How did you learn about the study?
 #        how_learned_other: Other ...
         age: 1) How old are you?
@@ -61,6 +62,7 @@ en:
         reason_for_refusal: If refused, reason for refusal
 #        reason_for_refusal_other
       contact_information:
+        data_entry_name: Data Entry Person's Name
         first_name: First Name
         middle_name: Middle Name
         last_name: Last Name
@@ -100,6 +102,7 @@ en:
 #        hair
         other_identifying_marks: 'Any other identifying marks: e.g. tattoos, piercings'
       testing_facilitation:
+        data_entry_name: Data Entry Person's Name
         date_of_visit: Date of visit (mm/dd/yyyy)
         participant_id: Participant ID
         staff_person: Staff person
@@ -123,11 +126,13 @@ en:
         chlamydia_result: Chlamydia Result
         notes: Please document any notes about the testing faciliation below
       interview_note:
+        data_entry_name: Data Entry Person's Name
         participant_id: Participant ID
         interview_date: Interview Date
         interview_notes: Interview Notes
         process_notes: Process Notes
       alter_referral_sheet:
+        data_entry_name: Data Entry Person's Name
         ego_id: Ego ID
       alter_referral:
         plan_to_refer: Plan to Refer
@@ -139,6 +144,7 @@ en:
         date_ego_notified: Date Ego Notified
         date_ego_paid: Date Ego Paid
       sti_questionnaire:
+        data_entry_name: Data Entry Person's Name
         date_of_visit: Date of visit (mm/dd/yyyy)
         participant_id: Participant ID
         staff_person: Staff person
