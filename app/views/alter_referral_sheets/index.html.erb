@@ -5,6 +5,7 @@
 <table>
 	<thead>
 		<tr>
+			<th>Data Entry Name</th>
 			<th><%= t 'activerecord.attributes.alter_referral_sheet.ego_id' %></th>
 			<th>Referals</th>
 			<th>Show</th>
@@ -18,6 +19,7 @@
 	<tbody>
 		<% @alter_referral_sheets.each do |alter_referral_sheet| %>
 			<tr>
+				<td><%= alter_referral_sheet.data_entry_name %></td>
 				<td><%= alter_referral_sheet.ego_id %></td>
 				<td><%= alter_referral_sheet.alter_referrals_count %></td>
 				<td><%= link_to 'Show', alter_referral_sheet %></td>

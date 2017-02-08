@@ -5,6 +5,7 @@
 <table>
 	<thead>
 		<tr>
+			<th>Data entry name</th>
 			<th>First name</th>
 			<th>Middle name</th>
 			<th>Last name</th>
@@ -54,6 +55,7 @@
 	<tbody>
 		<% @contact_informations.each do |contact_information| %>
 			<tr>
+				<td><%= contact_information.data_entry_name %></td>
 				<td><%= contact_information.first_name %></td>
 				<td><%= contact_information.middle_name %></td>
 				<td><%= contact_information.last_name %></td>

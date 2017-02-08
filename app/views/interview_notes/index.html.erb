@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Data Entry Name</th>
       <th>Participant</th>
       <th>Interview date</th>
       <th>Interviewer</th>
@@ -21,6 +22,7 @@
   <tbody>
     <% @interview_notes.each do |interview_note| %>
       <tr>
+        <td><%= interview_note.data_entry_name %></td>
         <td><%= interview_note.participant_id %></td>
         <td><%= interview_note.interview_date %></td>
         <td><%= interview_note.interviewer %></td>

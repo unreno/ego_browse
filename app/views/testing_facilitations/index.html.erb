@@ -5,6 +5,7 @@
 <table>
 	<thead>
 		<tr>
+			<th>Data entry name</th>
 			<th>Date of visit</th>
 			<th>Participant</th>
 			<th>Staff person</th>
@@ -38,6 +39,7 @@
 	<tbody>
 		<% @testing_facilitations.each do |testing_facilitation| %>
 			<tr>
+				<td><%= testing_facilitation.data_entry_name %></td>
 				<td><%= testing_facilitation.date_of_visit %></td>
 				<td><%= testing_facilitation.participant_id %></td>
 				<td><%= testing_facilitation.staff_person %></td>

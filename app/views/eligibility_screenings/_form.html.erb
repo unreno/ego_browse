@@ -12,6 +12,11 @@
 	<% end %>
 
 	<div class="field">
+		<%= f.label :data_entry_name %>
+		<%= f.text_field :data_entry_name %>
+	</div>
+
+	<div class="field">
 		<%= f.label :how_learned %>
 		<%= f.radio_button_with_label(:how_learned, "Outreach") %>
 		<%= f.radio_button_with_label(:how_learned, "Flyer") %>

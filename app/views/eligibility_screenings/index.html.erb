@@ -5,6 +5,7 @@
 <table>
 	<thead>
 		<tr>
+			<th>Data Entry Name</th>
 			<th>How learned</th>
 			<th>How learned other</th>
 			<th>Age</th>
@@ -50,6 +51,7 @@
 	<tbody>
 		<% @eligibility_screenings.each do |eligibility_screening| %>
 			<tr>
+				<td><%= eligibility_screening.data_entry_name %></td>
 				<td><%= eligibility_screening.how_learned %></td>
 				<td><%= eligibility_screening.how_learned_other %></td>
 				<td><%= eligibility_screening.age %></td>

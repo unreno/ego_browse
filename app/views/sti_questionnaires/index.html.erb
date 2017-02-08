@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Data Entry Name</th>
       <th>Date of visit</th>
       <th>Participant</th>
       <th>Staff person</th>
@@ -59,6 +60,7 @@
   <tbody>
     <% @sti_questionnaires.each do |sti_questionnaire| %>
       <tr>
+        <td><%= sti_questionnaire.data_entry_name %></td>
         <td><%= sti_questionnaire.date_of_visit %></td>
         <td><%= sti_questionnaire.participant_id %></td>
         <td><%= sti_questionnaire.staff_person %></td>

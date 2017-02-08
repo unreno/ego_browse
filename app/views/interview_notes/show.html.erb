@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong><%= t 'activerecord.attributes.interview_note.data_entry_name' %>:</strong>
+  <%= @interview_note.data_entry_name %>
+</p>
+
+<p>
   <strong><%= t 'activerecord.attributes.interview_note.participant_id' %>:</strong>
   <%= @interview_note.participant_id %>
 </p>
