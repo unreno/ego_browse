@@ -118,7 +118,7 @@ en:
         indeterminate_test_referred_to: Referred to?
         urine_to_test: 4. Did the participant provide urine to be tested for gonorrhea and chlamydia?
         urine_to_test_refusal_reason: If no, why not?
-        urine_to_test_refusal_reason_other: Other refusal reason?
+        urine_to_test_refusal_reason_other: Other Urine Test Refusal Reason?
         gonorrhea_result: Gonorrhea Result
         chlamydia_result: Chlamydia Result
         notes: Please document any notes about the testing faciliation below
@@ -167,7 +167,7 @@ en:
         stitest_reason_i: Never tested
         stitest_reason_other: Other STI Test Reason
         stitest_locn: 5. If yes, where were you tested the last time you were tested?
-        stitest_locn_other: Other STI Location
+        stitest_locn_other: Other STI Test Location
         stitest_rslt: 6. If yes, of the times that you have been tested for STIs, how often have you received the results?
         notest_reason_a: Too expensive
         notest_reason_b: Lack of insurance
@@ -178,7 +178,7 @@ en:
         notest_reason_g: Don't think I'm at risk
         notest_reason_h: Other (specify)
         notest_reason_i: I have been tested
-        notest_reason_other: Other Reason
+        notest_reason_other: Other No Test Reason
         stitest_future: 8. How likely is it that you will be tested for STIs in the next 6 months (not including the test we do today as part of the study)?
         stipercrisk: 9. How at risk do you think you are for getting an STI?
         stistigma: 10. Overall, how do you feel about people who have STIs?
