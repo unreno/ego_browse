@@ -152,6 +152,7 @@ class StaticsController < ApplicationController
 #Columns: # agreed to test for hiv, # told results ov HIV, HIV+, # HIV-, # HIV Ind, # tested for chlamydia / gonorrhea, # Gonorrhea+, # Chlamydia+
 
 	def sti_counts
+#		@studies = Study.all.collect{|s|s.nested_raw_demographics}
 	end
 
 	def alters_per_ego
