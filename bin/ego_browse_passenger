@@ -1,43 +1,67 @@
 #!/bin/bash 
 
+
+#	Copy this script to /etc/init.d/
+#
+#	sudo cp $0 /etc/init.d/
+#	sudo update-rc.d ego_browse_passenger defaults
+
+
 ### BEGIN INIT INFO 
 # Provides:          EGO Browse passenger
 # Default-Start:     2 3 4 5 
 # Default-Stop:      0 1 6 
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
 # X-Interactive:     true 
 # Short-Description: Start/stop ego_browse web site 
 ### END INIT INFO 
 
 #PATH=/sbin:/usr/sbin:/bin:/usr/bin 
-#PATH=/home/ruby/.local/bin:/home/ruby/.gem/ruby/2.3/bin:/home/ruby/.python/bin:/home/ruby/.kentUtils/bin:/home/ruby/.blat:/home/ruby/.trinity:/home/ruby/.blast/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:/homebrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/local/libexec/qt5/bin
-GEM_HOME=/home/ruby/.gem/ruby/2.3
+PATH=/home/ruby/.local/bin:/home/ruby/.gem/ruby/2.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export GEM_HOME=/home/ruby/.gem/ruby/2.3
 PASSENGER=/home/ruby/.gem/ruby/2.3/bin/passenger
 ADDRESS=127.0.0.1 
 PORT=3000 
 RAILS_ENV=production
 ENVIRONMENT=production 
 APP=/var/www/ego_browse
-USER=deploy 
+#USER=deploy 
 #RUBY_VERSION=1.8.7 
 USER=ruby
 #SET_PATH="cd $APP; $RVM use $RUBY_VERSION; export GEM_HOME=$GEM_HOME" 
 #CMD="$PASSENGER start -a $ADDRESS -p $PORT -e $ENVIRONMENT - 
-CMD="$PASSENGER start --port $PORT --environment $ENVIRONMENT --daemonize" 
 
-#. /lib/lsb/init-functions 
+
+
+. /lib/lsb/init-functions 
 
 case "$1" in 
   start) 
     echo "Starting EGO Web passenger" 
-    echo $CMD 
-    su - $USER -c "cd $APP; $CMD" 
+#    echo $CMD 
+#    sudo iptables --policy INPUT ACCEPT
+    iptables --policy INPUT ACCEPT
+		#	Why do I need to "su - $USER"?
+#	I don't think that I do
+#    su - $USER -c "cd $APP; $PASSENGER start --port $PORT --environment $ENVIRONMENT --daemonize" 
+    cd $APP
+		echo "$PASSENGER start --port $PORT --environment $ENVIRONMENT --daemonize"
+		$PASSENGER start --port $PORT --environment $ENVIRONMENT --daemonize
     ;; 
   stop) 
     echo "Stopping EGO Web passenger" 
-    cd $APP 
-    su - $USER -c "cd $APP; $PASSENGER stop -p $PORT"
-#    su - $USER -c "$PASSENGER stop -p $PORT"
+#    cd $APP 
+#    su - $USER -c "cd $APP; $PASSENGER stop -p $PORT"
+    cd $APP
+		echo "$PASSENGER stop -p $PORT"
+		$PASSENGER stop -p $PORT
     ;; 
+  status)
+     status_of_proc -p $APP/tmp/pids/passenger.$PORT.pid "" "passenger" && exit 0 || exit $?
+#    cd $APP
+#    ps -hp $(cat tmp/pids/passenger.$PORT.pid)
+    ;;
   *) 
     echo "Usage: $0 start|stop" >&2 
     exit 3 
