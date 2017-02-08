@@ -25,23 +25,23 @@ Study.class_eval do
 		s
 	end
 
-	def add_subject( subjectid='001' )
+	def add_subject( subject='001' )
 		i = interviews.create!	
 		qid = subject_qid
-		i.answers.create!(questionId: qid, value: MCRYPT.myencrypt(subjectid))
+		i.answers.create!(questionId: qid, value: MCRYPT.myencrypt(subject))
 		i
 	end
 
-	def self.create_with_ego( subjectid='001' )
+	def self.create_with_ego( subject='001' )
 		s = create_empty
-		s.add_subject( subjectid )
+		s.add_subject( subject )
 		s
 	end
 
-	def self.create_with_ego_and_alter( subjectids=['001','001_1'] )
+	def self.create_with_ego_and_alter( subjects=['001','001_1'] )
 		s = create_empty
-		subjectids.each do |subjectid|
-			s.add_subject( subjectid )
+		subjects.each do |subject|
+			s.add_subject( subject )
 		end
 		s
 	end
@@ -49,7 +49,7 @@ Study.class_eval do
 	def self.create_with( subjects={} )
 		s = create_empty
 		subjects.each do |subject|
-			i = s.add_subject( subject[:subjectid] ) 
+			i = s.add_subject( subject[:subject] ) 
 			i.add_races( subject[:races]||[] )
 			i.add_sexes( subject[:sexes]||[] )
 			i.add_genders( subject[:genders]||[] )

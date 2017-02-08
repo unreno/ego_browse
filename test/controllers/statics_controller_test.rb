@@ -158,8 +158,8 @@ class StaticsControllerTest < ActionDispatch::IntegrationTest
 
 		test "should get black_demographic_counts with #{login} login and black ego and alter study" do
 			s = Study.create_with([
-				{subjectid: '001', races: ['African']},
-				{subjectid: '001_1'}
+				{subject: '001', races: ['African']},
+				{subject: '001_1'}
 			])
 			create_and_login_as(login)
 			get black_demographic_counts_statics_url
@@ -168,8 +168,8 @@ class StaticsControllerTest < ActionDispatch::IntegrationTest
 
 		test "should get latina_demographic_counts with #{login} login and non-black latina ego and alter study" do
 			Study.create_with([
-				{subjectid: '001', hisplats: ['Yes']},
-				{subjectid: '001_1'}
+				{subject: '001', hisplats: ['Yes']},
+				{subject: '001_1'}
 			])
 			create_and_login_as(login)
 			get latina_demographic_counts_statics_url
@@ -178,8 +178,8 @@ class StaticsControllerTest < ActionDispatch::IntegrationTest
 
 		test "should get trans_demographic_counts with #{login} login and non-black, non-latina, trans ego and alter study" do
 			Study.create_with([
-				{subjectid: '001', genders: ['Transfemale']},
-				{subjectid: '001_1'}
+				{subject: '001', genders: ['Transfemale']},
+				{subject: '001_1'}
 			])
 			create_and_login_as(login)
 			get trans_demographic_counts_statics_url
@@ -189,8 +189,8 @@ class StaticsControllerTest < ActionDispatch::IntegrationTest
 		#	Shouldn't really ever happen
 		test "should get leftover_demographic_counts with #{login} login and male ego and alter study" do
 			Study.create_with([
-				{subjectid: '001', sexes: ['Male']},
-				{subjectid: '001_1'}
+				{subject: '001', sexes: ['Male']},
+				{subject: '001_1'}
 			])
 			create_and_login_as(login)
 			get leftover_demographic_counts_statics_url
