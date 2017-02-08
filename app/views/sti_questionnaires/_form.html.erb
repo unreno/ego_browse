@@ -93,7 +93,7 @@
 
 	<div class="field">
 		<%= f.label :stitest_last %>
-		<%= f.date_select :stitest_last %>
+		<%= f.text_field :stitest_last %>
 	</div>
 
 	<div class="field">
@@ -164,6 +164,11 @@
 		<%= f.radio_button_with_label(:stitest_locn, "Community clinic (eg, Planned Parenthood, NN HOPES) (5)", 5) %>
 		<%= f.radio_button_with_label(:stitest_locn, "Other (specify) (20)", 20) %>
 		<%= f.radio_button_with_label(:stitest_locn, "Never Tested (0)", 0) %>
+	</div>
+
+	<div class="field">
+		<%= f.label :stitest_locn_other %>
+		<%= f.text_field :stitest_locn_other %>
 	</div>
 
 	<div class="field">

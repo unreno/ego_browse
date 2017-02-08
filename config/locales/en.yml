@@ -167,6 +167,7 @@ en:
         stitest_reason_i: Never tested
         stitest_reason_other: Other STI Test Reason
         stitest_locn: 5. If yes, where were you tested the last time you were tested?
+        stitest_locn_other: Other STI Location
         stitest_rslt: 6. If yes, of the times that you have been tested for STIs, how often have you received the results?
         notest_reason_a: Too expensive
         notest_reason_b: Lack of insurance

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201183419) do
+ActiveRecord::Schema.define(version: 20170208204021) do
 
   create_table "alterList", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "studyId",                     null: false
@@ -327,7 +327,7 @@ ActiveRecord::Schema.define(version: 20170201183419) do
     t.boolean  "stitest_i"
     t.boolean  "stitest_j"
     t.string   "stitest_other"
-    t.date     "stitest_last"
+    t.string   "stitest_last"
     t.boolean  "stitest_last_never"
     t.boolean  "stitest_reason_a"
     t.boolean  "stitest_reason_b"
@@ -356,6 +356,7 @@ ActiveRecord::Schema.define(version: 20170201183419) do
     t.integer  "stistigma"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.string   "stitest_locn_other"
   end
 
   create_table "study", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
