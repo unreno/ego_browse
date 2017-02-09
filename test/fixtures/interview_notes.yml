@@ -5,11 +5,9 @@ one:
   interview_date: 2016-11-28
   interviewer: Me
   interview_notes: MyText
-  process_notes: MyText
 
 two:
   participant_id: MyString
   interview_date: 2016-11-28
   interviewer: Me
   interview_notes: MyText
-  process_notes: MyText

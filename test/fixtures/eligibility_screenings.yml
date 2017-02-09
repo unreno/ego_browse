@@ -20,7 +20,7 @@ one:
   partner_other_partners: 1
   partner_traded_sex: 1
   partner_man_men: 1
-  eligible_q_8_15: 1
+  eligible_q_9_16: 1
   where_live: 1
   where_live_other: MyString
   willing_to_refer: 1
@@ -56,7 +56,7 @@ two:
   partner_other_partners: 1
   partner_traded_sex: 1
   partner_man_men: 1
-  eligible_q_8_15: 1
+  eligible_q_9_16: 1
   where_live: 1
   where_live_other: MyString
   willing_to_refer: 1

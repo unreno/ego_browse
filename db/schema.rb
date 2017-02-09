@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(version: 20170208221138) do
   end
 
   create_table "alter_referral_sheets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "data_entry_name"
     t.string   "ego_id"
     t.integer  "alter_referrals_count", default: 0
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.string   "data_entry_name"
   end
 
   create_table "alter_referrals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 20170208221138) do
     t.string   "first_name"
     t.string   "last_initial",            limit: 1
     t.string   "last_4_cell",             limit: 4
-    t.date     "date_of_alter_interview"
+    t.string   "date_of_alter_interview"
     t.string   "alter_id"
-    t.date     "date_ego_notified"
-    t.date     "date_ego_paid"
+    t.string   "date_ego_notified"
+    t.string   "date_ego_paid"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.index ["alter_referral_sheet_id"], name: "index_alter_referrals_on_alter_referral_sheet_id", using: :btree
@@ -80,11 +80,12 @@ ActiveRecord::Schema.define(version: 20170208221138) do
   end
 
   create_table "contact_informations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "data_entry_name"
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
     t.string   "alternate_names"
-    t.date     "dob"
+    t.string   "dob"
     t.string   "primary_phone_number"
     t.string   "primary_phone_type",              limit: 5
     t.string   "primary_phone_message",           limit: 1
@@ -120,14 +121,15 @@ ActiveRecord::Schema.define(version: 20170208221138) do
     t.string   "other_identifying_marks"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
-    t.string   "data_entry_name"
   end
 
   create_table "eligibility_screenings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "data_entry_name"
     t.string   "how_learned",                limit: 20
     t.string   "how_learned_other"
     t.integer  "age"
     t.integer  "gender"
+    t.integer  "gender_at_birth"
     t.integer  "race"
     t.string   "race_other"
     t.integer  "children"
@@ -143,7 +145,7 @@ ActiveRecord::Schema.define(version: 20170208221138) do
     t.integer  "partner_other_partners"
     t.integer  "partner_traded_sex"
     t.integer  "partner_man_men"
-    t.integer  "eligible_q_8_15"
+    t.integer  "eligible_q_9_16"
     t.integer  "where_live"
     t.string   "where_live_other"
     t.integer  "willing_to_refer"
@@ -151,16 +153,15 @@ ActiveRecord::Schema.define(version: 20170208221138) do
     t.integer  "eligible"
     t.string   "name_of_screener"
     t.string   "location_of_screening"
-    t.date     "date_of_screening"
-    t.time     "time_of_screening"
+    t.string   "date_of_screening"
+    t.string   "time_of_screening"
     t.integer  "referred_for_interview"
-    t.date     "referred_appointment_date"
-    t.time     "referred_appointment_time"
+    t.string   "referred_appointment_date"
+    t.string   "referred_appointment_time"
     t.integer  "reason_for_refusal"
     t.string   "reason_for_refusal_other"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
-    t.string   "data_entry_name"
   end
 
   create_table "expression", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -190,14 +191,13 @@ ActiveRecord::Schema.define(version: 20170208221138) do
   end
 
   create_table "interview_notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "data_entry_name"
     t.string   "participant_id"
-    t.date     "interview_date"
+    t.string   "interview_date"
     t.string   "interviewer"
     t.text     "interview_notes", limit: 65535
-    t.text     "process_notes",   limit: 65535
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.string   "data_entry_name"
   end
 
   create_table "interviewers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -316,7 +316,8 @@ ActiveRecord::Schema.define(version: 20170208221138) do
   end
 
   create_table "sti_questionnaires", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.date     "date_of_visit"
+    t.string   "data_entry_name"
+    t.string   "date_of_visit"
     t.string   "participant_id"
     t.string   "staff_person"
     t.integer  "stitest_ev"
@@ -344,6 +345,7 @@ ActiveRecord::Schema.define(version: 20170208221138) do
     t.boolean  "stitest_reason_i"
     t.string   "stitest_reason_other"
     t.integer  "stitest_locn"
+    t.string   "stitest_locn_other"
     t.integer  "stitest_rslt"
     t.boolean  "notest_reason_a"
     t.boolean  "notest_reason_b"
@@ -360,8 +362,6 @@ ActiveRecord::Schema.define(version: 20170208221138) do
     t.integer  "stistigma"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.string   "stitest_locn_other"
-    t.string   "data_entry_name"
   end
 
   create_table "study", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -397,7 +397,8 @@ ActiveRecord::Schema.define(version: 20170208221138) do
   end
 
   create_table "testing_facilitations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.date     "date_of_visit"
+    t.string   "data_entry_name"
+    t.string   "date_of_visit"
     t.string   "participant_id"
     t.string   "staff_person"
     t.integer  "agree_to_use_home_test_kit_at_site"
@@ -408,7 +409,7 @@ ActiveRecord::Schema.define(version: 20170208221138) do
     t.string   "agree_to_tell_result_of_home_test_kit_refusal_reason"
     t.integer  "result_of_home_test_kit"
     t.integer  "confirmatory_test_referred_location"
-    t.datetime "confirmatory_test_referred_appointment"
+    t.string   "confirmatory_test_referred_appointment"
     t.string   "confirmatory_test_referred_location_other"
     t.integer  "indeterminate_test_option"
     t.string   "indeterminate_test_result"
@@ -421,7 +422,6 @@ ActiveRecord::Schema.define(version: 20170208221138) do
     t.text     "notes",                                                limit: 65535
     t.datetime "created_at",                                                         null: false
     t.datetime "updated_at",                                                         null: false
-    t.string   "data_entry_name"
   end
 
   create_table "user", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

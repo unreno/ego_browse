@@ -35,7 +35,7 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 			params = InterviewNote.new.attributes.with_indifferent_access
 				.except(:id,:created_at,:updated_at,:alter_referrals_count)
 			assert_difference('InterviewNote.count') do
-				post interview_notes_url, params: { interview_note: params.update({ interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, process_notes: @interview_note.process_notes, interviewer: @interview_note.interviewer }) }
+				post interview_notes_url, params: { interview_note: params.update({ interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, interviewer: @interview_note.interviewer }) }
 			end
 			assert_redirected_to interview_note_url(InterviewNote.last)
 		end
@@ -44,7 +44,7 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 			create_and_login_as(login)
 			InterviewNote.any_instance.stubs(:create_or_update).returns(false)
 			assert_difference('InterviewNote.count',0) do
-				post interview_notes_url, params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, process_notes: @interview_note.process_notes, interviewer: @interview_note.interviewer } }
+				post interview_notes_url, params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, interviewer: @interview_note.interviewer } }
 			end
 			assert_response :success
 			assert_template :new
@@ -58,14 +58,14 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should update interview_note with #{login} login" do
 			create_and_login_as(login)
-			patch interview_note_url(@interview_note), params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, process_notes: @interview_note.process_notes, interviewer: @interview_note.interviewer } }
+			patch interview_note_url(@interview_note), params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, interviewer: @interview_note.interviewer } }
 			assert_redirected_to interview_note_url(@interview_note)
 		end
 	
 		test "should not update interview_note with #{login} login if save fails" do
 			create_and_login_as(login)
 			InterviewNote.any_instance.stubs(:create_or_update).returns(false)
-			patch interview_note_url(@interview_note), params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, process_notes: @interview_note.process_notes, interviewer: @interview_note.interviewer } }
+			patch interview_note_url(@interview_note), params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, interviewer: @interview_note.interviewer } }
 			assert_response :success
 			assert_template :edit
 		end
@@ -91,7 +91,7 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 		test "should not create interview_note with #{login} login" do
 			create_and_login_as(login)
 			assert_difference('InterviewNote.count', 0) do
-				post interview_notes_url, params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, process_notes: @interview_note.process_notes, interviewer: @interview_note.interviewer } }
+				post interview_notes_url, params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, interviewer: @interview_note.interviewer } }
 			end
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
@@ -106,7 +106,7 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should not update interview_note with #{login} login" do
 			create_and_login_as(login)
-			patch interview_note_url(@interview_note), params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, process_notes: @interview_note.process_notes, interviewer: @interview_note.interviewer } }
+			patch interview_note_url(@interview_note), params: { interview_note: { interview_date: @interview_note.interview_date, interview_notes: @interview_note.interview_notes, participant_id: @interview_note.participant_id, interviewer: @interview_note.interviewer } }
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
 		end

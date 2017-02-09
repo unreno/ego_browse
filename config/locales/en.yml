@@ -31,34 +31,35 @@ en:
         how_learned_other: Other ...
         age: 1) How old are you?
         gender: 2) What gender do you identify with?
-        race: 3) What race do you identify with?
+        gender_at_birth: 3) What gender were you assigned at birth?
+        race: 4) What race do you identify with?
         race_other: Other Race
-        children: 4) Do you have children?
-        seen_pcp: 5) Have you seen a primary care physician in the past 6 months?
-        marital: 6) What is your marital status?
-        tested_hiv: 7) Have you ever been tested for HIV?
+        children: 5) Do you have children?
+        seen_pcp: 6) Have you seen a primary care physician in the past 6 months?
+        marital: 7) What is your marital status?
+        tested_hiv: 8) Have you ever been tested for HIV?
         tested_hiv_result: What was the result the last time you tested?
-        partner_count: 8) How many sex partners have you had in the past 6 months? And when I say "sex," I mean vaginal or anal sex.
-        injection_drugs: 9) Have you ever used injection drugs? This includes medications not prescribed to you or not used as prescribed.
-        partner_injection_drugs: 10) Have you had a sex partner in the past 6 months who has used injection drugs in the past 6 months?
-        partner_noninjection_drugs: 11) Have you or any of your sex partners used non-injection drugs in the past 6 months (not including marijuana)?
-        partner_hiv_positive: 12) To your knowledge, are any of your sex partners HIV positive?
-        partner_other_partners: 13) To the best of your knowledge, do any of your current sex partners have any other partners besides you?
-        partner_traded_sex: 14) Have you or any of your sex partners ever traded sex for money, drugs, or other items of daily survival?
-        partner_man_men: 15) Have you ever had sex with a man who has sex with other men?
-        eligible_q_8_15: Eligible based on affirmative to at least one of Q 8-15? 
-        where_live: 16) Where do you live?
+        partner_count: 9) How many sex partners have you had in the past 6 months? And when I say "sex," I mean vaginal or anal sex.
+        injection_drugs: 10) Have you ever used injection drugs? This includes medications not prescribed to you or not used as prescribed.
+        partner_injection_drugs: 11) Have you had a sex partner in the past 6 months who has used injection drugs in the past 6 months?
+        partner_noninjection_drugs: 12) Have you or any of your sex partners used non-injection drugs in the past 6 months (not including marijuana)?
+        partner_hiv_positive: 13) To your knowledge, are any of your sex partners HIV positive?
+        partner_other_partners: 14) To the best of your knowledge, do any of your current sex partners have any other partners besides you?
+        partner_traded_sex: 15) Have you or any of your sex partners ever traded sex for money, drugs, or other items of daily survival?
+        partner_man_men: 16) Have you ever had sex with a man who has sex with other men?
+        eligible_q_9_16: Eligible based on affirmative to at least one of Q 9-16? 
+        where_live: 17) Where do you live?
         where_live_other: Other Where Live
-        willing_to_refer: 17) If you are eligible for the study and you participated, would you be willing to refer friends, family, or acquaintances to participate in the study?
-        matched_to_ego: '18) ALTERS ONLY: Matched to Ego by coupon or name?'
+        willing_to_refer: 18) If you are eligible for the study and you participated, would you be willing to refer friends, family, or acquaintances to participate in the study?
+        matched_to_ego: '19) ALTERS ONLY: Matched to Ego by coupon or name?'
         eligible: Eligible?
         name_of_screener: Name of Screener
         location_of_screening: Location of Screening
-        date_of_screening: Date of Screening
-        time_of_screening: Time of Screening
+        date_of_screening: Date of Screening (mm/dd/yyyy)
+        time_of_screening: Time of Screening (hh:mm am/pm)
         referred_for_interview: Referred to study site for interview?
-        referred_appointment_date: Referred Appointment Date
-        referred_appointment_time: Referred Appointment Time
+        referred_appointment_date: Referred Appointment Date (mm/dd/yyyy)
+        referred_appointment_time: Referred Appointment Time (hh:mm am/pm)
         reason_for_refusal: If refused, reason for refusal
         reason_for_refusal_other: Other Reason for Refusal
       contact_information:
@@ -67,7 +68,7 @@ en:
         middle_name: Middle Name
         last_name: Last Name
         alternate_names: Do you hae another name that you go by?
-        dob: Date of Birth (MM/DD/YYYY)
+        dob: Date of Birth (mm/dd/yyyy)
         primary_phone_number: Primary Phone Number
         primary_phone_type: Primary Phone Type
         primary_phone_message: OK to leave message on primary?
@@ -114,7 +115,7 @@ en:
         agree_to_tell_result_of_home_test_kit_refusal_reason: If now, what was the reason for not telling the result?
         result_of_home_test_kit: 3. What was the result of the home test kit?
         confirmatory_test_referred_location: If the result was preliminary positive, where was the participant referred for a confirmatory test?
-        confirmatory_test_referred_appointment: date/time of appointment
+        confirmatory_test_referred_appointment: date/time of appointment (mm/dd/yyyy hh:mm am/pm)
         confirmatory_test_referred_location_other: Referred where?
         indeterminate_test_option: If the result was indeterminate, what happened?
         indeterminate_test_result: Result of other test?
@@ -129,9 +130,9 @@ en:
         data_entry_name: Data Entry Person's Name
         interviewer: Interviewer
         participant_id: Participant ID
-        interview_date: Interview Date
+        interview_date: Interview Date (mm/dd/yyyy)
         interview_notes: Interview Notes
-        process_notes: Process Notes
+#        process_notes: Process Notes
       alter_referral_sheet:
         data_entry_name: Data Entry Person's Name
         ego_id: Ego ID
@@ -140,10 +141,10 @@ en:
         first_name: First Name
         last_initial: Last Initial
         last_4_cell: Last 4 Cell
-        date_of_alter_interview: Date of Alter Interview
+        date_of_alter_interview: Date of Alter Interview (mm/dd/yyyy)
         alter_id: Alter ID
-        date_ego_notified: Date Ego Notified
-        date_ego_paid: Date Ego Paid
+        date_ego_notified: Date Ego Notified (mm/dd/yyyy)
+        date_ego_paid: Date Ego Paid (mm/dd/yyyy)
       sti_questionnaire:
         data_entry_name: Data Entry Person's Name
         date_of_visit: Date of visit (mm/dd/yyyy)

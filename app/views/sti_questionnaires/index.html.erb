@@ -3,115 +3,115 @@
 <h1>Sti Questionnaires</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Data Entry Name</th>
-      <th>Date of visit</th>
-      <th>Participant</th>
-      <th>Staff person</th>
-      <th>Stitest ev</th>
-      <th>Stitest A</th>
-      <th>Stitest B</th>
-      <th>Stitest C</th>
-      <th>Stitest D</th>
-      <th>Stitest E</th>
-      <th>Stitest F</th>
-      <th>Stitest G</th>
-      <th>Stitest H</th>
-      <th>Stitest I</th>
-      <th>Stitest J</th>
-      <th>Stitest other</th>
-      <th>Stitest last</th>
-      <th>Stitest last never</th>
-      <th>Stitest reason a</th>
-      <th>Stitest reason b</th>
-      <th>Stitest reason c</th>
-      <th>Stitest reason d</th>
-      <th>Stitest reason e</th>
-      <th>Stitest reason f</th>
-      <th>Stitest reason g</th>
-      <th>Stitest reason h</th>
-      <th>Stitest reason i</th>
-      <th>Stitest reason other</th>
-      <th>Stitest locn</th>
-      <th>Stitest locn other</th>
-      <th>Stitest rslt</th>
-      <th>Notest reason A</th>
-      <th>Notest reason B</th>
-      <th>Notest reason C</th>
-      <th>Notest reason D</th>
-      <th>Notest reason E</th>
-      <th>Notest reason F</th>
-      <th>Notest reason G</th>
-      <th>Notest reason H</th>
-      <th>Notest reason I</th>
-      <th>Notest reason other</th>
-      <th>Stitest future</th>
-      <th>Stipercrisk</th>
-      <th>Stistigma</th>
-      <th>Show</th>
+	<thead>
+		<tr>
+			<th>Data Entry Name</th>
+			<th>Date of visit</th>
+			<th>Participant</th>
+			<th>Staff person</th>
+			<th>Stitest ev</th>
+			<th>Stitest A</th>
+			<th>Stitest B</th>
+			<th>Stitest C</th>
+			<th>Stitest D</th>
+			<th>Stitest E</th>
+			<th>Stitest F</th>
+			<th>Stitest G</th>
+			<th>Stitest H</th>
+			<th>Stitest I</th>
+			<th>Stitest J</th>
+			<th>Stitest other</th>
+			<th>Stitest last</th>
+			<th>Stitest last never</th>
+			<th>Stitest reason a</th>
+			<th>Stitest reason b</th>
+			<th>Stitest reason c</th>
+			<th>Stitest reason d</th>
+			<th>Stitest reason e</th>
+			<th>Stitest reason f</th>
+			<th>Stitest reason g</th>
+			<th>Stitest reason h</th>
+			<th>Stitest reason i</th>
+			<th>Stitest reason other</th>
+			<th>Stitest locn</th>
+			<th>Stitest locn other</th>
+			<th>Stitest rslt</th>
+			<th>Notest reason A</th>
+			<th>Notest reason B</th>
+			<th>Notest reason C</th>
+			<th>Notest reason D</th>
+			<th>Notest reason E</th>
+			<th>Notest reason F</th>
+			<th>Notest reason G</th>
+			<th>Notest reason H</th>
+			<th>Notest reason I</th>
+			<th>Notest reason other</th>
+			<th>Stitest future</th>
+			<th>Stipercrisk</th>
+			<th>Stistigma</th>
+			<th>Show</th>
 			<% if current_rails_user.present? and current_rails_user.is_admin? %>
-      <th>Edit</th>
-      <th>Destroy</th>
+			<th>Edit</th>
+			<th>Destroy</th>
 			<% end %>
-    </tr>
-  </thead>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @sti_questionnaires.each do |sti_questionnaire| %>
-      <tr>
-        <td><%= sti_questionnaire.data_entry_name %></td>
-        <td><%= sti_questionnaire.date_of_visit %></td>
-        <td><%= sti_questionnaire.participant_id %></td>
-        <td><%= sti_questionnaire.staff_person %></td>
-        <td><%= sti_questionnaire.stitest_ev %></td>
-        <td><%= sti_questionnaire.stitest_a %></td>
-        <td><%= sti_questionnaire.stitest_b %></td>
-        <td><%= sti_questionnaire.stitest_c %></td>
-        <td><%= sti_questionnaire.stitest_d %></td>
-        <td><%= sti_questionnaire.stitest_e %></td>
-        <td><%= sti_questionnaire.stitest_f %></td>
-        <td><%= sti_questionnaire.stitest_g %></td>
-        <td><%= sti_questionnaire.stitest_h %></td>
-        <td><%= sti_questionnaire.stitest_i %></td>
-        <td><%= sti_questionnaire.stitest_j %></td>
-        <td><%= sti_questionnaire.stitest_other %></td>
-        <td><%= sti_questionnaire.stitest_last %></td>
-        <td><%= sti_questionnaire.stitest_last_never %></td>
-        <td><%= sti_questionnaire.stitest_reason_a %></td>
-        <td><%= sti_questionnaire.stitest_reason_b %></td>
-        <td><%= sti_questionnaire.stitest_reason_c %></td>
-        <td><%= sti_questionnaire.stitest_reason_d %></td>
-        <td><%= sti_questionnaire.stitest_reason_e %></td>
-        <td><%= sti_questionnaire.stitest_reason_f %></td>
-        <td><%= sti_questionnaire.stitest_reason_g %></td>
-        <td><%= sti_questionnaire.stitest_reason_h %></td>
-        <td><%= sti_questionnaire.stitest_reason_i %></td>
-        <td><%= sti_questionnaire.stitest_reason_other %></td>
-        <td><%= sti_questionnaire.stitest_locn %></td>
-        <td><%= sti_questionnaire.stitest_locn_other %></td>
-        <td><%= sti_questionnaire.stitest_rslt %></td>
-        <td><%= sti_questionnaire.notest_reason_a %></td>
-        <td><%= sti_questionnaire.notest_reason_b %></td>
-        <td><%= sti_questionnaire.notest_reason_c %></td>
-        <td><%= sti_questionnaire.notest_reason_d %></td>
-        <td><%= sti_questionnaire.notest_reason_e %></td>
-        <td><%= sti_questionnaire.notest_reason_f %></td>
-        <td><%= sti_questionnaire.notest_reason_g %></td>
-        <td><%= sti_questionnaire.notest_reason_h %></td>
-        <td><%= sti_questionnaire.notest_reason_i %></td>
-        <td><%= sti_questionnaire.notest_reason_other %></td>
-        <td><%= sti_questionnaire.stitest_future %></td>
-        <td><%= sti_questionnaire.stipercrisk %></td>
-        <td><%= sti_questionnaire.stistigma %></td>
-        <td><%= link_to 'Show', sti_questionnaire %></td>
+	<tbody>
+		<% @sti_questionnaires.each do |sti_questionnaire| %>
+			<tr>
+				<td><%= sti_questionnaire.data_entry_name %></td>
+				<td><%= sti_questionnaire.date_of_visit %></td>
+				<td><%= sti_questionnaire.participant_id %></td>
+				<td><%= sti_questionnaire.staff_person %></td>
+				<td><%= sti_questionnaire.stitest_ev %></td>
+				<td><%= sti_questionnaire.stitest_a %></td>
+				<td><%= sti_questionnaire.stitest_b %></td>
+				<td><%= sti_questionnaire.stitest_c %></td>
+				<td><%= sti_questionnaire.stitest_d %></td>
+				<td><%= sti_questionnaire.stitest_e %></td>
+				<td><%= sti_questionnaire.stitest_f %></td>
+				<td><%= sti_questionnaire.stitest_g %></td>
+				<td><%= sti_questionnaire.stitest_h %></td>
+				<td><%= sti_questionnaire.stitest_i %></td>
+				<td><%= sti_questionnaire.stitest_j %></td>
+				<td><%= sti_questionnaire.stitest_other %></td>
+				<td><%= sti_questionnaire.stitest_last %></td>
+				<td><%= sti_questionnaire.stitest_last_never %></td>
+				<td><%= sti_questionnaire.stitest_reason_a %></td>
+				<td><%= sti_questionnaire.stitest_reason_b %></td>
+				<td><%= sti_questionnaire.stitest_reason_c %></td>
+				<td><%= sti_questionnaire.stitest_reason_d %></td>
+				<td><%= sti_questionnaire.stitest_reason_e %></td>
+				<td><%= sti_questionnaire.stitest_reason_f %></td>
+				<td><%= sti_questionnaire.stitest_reason_g %></td>
+				<td><%= sti_questionnaire.stitest_reason_h %></td>
+				<td><%= sti_questionnaire.stitest_reason_i %></td>
+				<td><%= sti_questionnaire.stitest_reason_other %></td>
+				<td><%= sti_questionnaire.stitest_locn %></td>
+				<td><%= sti_questionnaire.stitest_locn_other %></td>
+				<td><%= sti_questionnaire.stitest_rslt %></td>
+				<td><%= sti_questionnaire.notest_reason_a %></td>
+				<td><%= sti_questionnaire.notest_reason_b %></td>
+				<td><%= sti_questionnaire.notest_reason_c %></td>
+				<td><%= sti_questionnaire.notest_reason_d %></td>
+				<td><%= sti_questionnaire.notest_reason_e %></td>
+				<td><%= sti_questionnaire.notest_reason_f %></td>
+				<td><%= sti_questionnaire.notest_reason_g %></td>
+				<td><%= sti_questionnaire.notest_reason_h %></td>
+				<td><%= sti_questionnaire.notest_reason_i %></td>
+				<td><%= sti_questionnaire.notest_reason_other %></td>
+				<td><%= sti_questionnaire.stitest_future %></td>
+				<td><%= sti_questionnaire.stipercrisk %></td>
+				<td><%= sti_questionnaire.stistigma %></td>
+				<td><%= link_to 'Show', sti_questionnaire %></td>
 				<% if current_rails_user.present? and current_rails_user.is_admin? %>
-        <td><%= link_to 'Edit', edit_sti_questionnaire_path(sti_questionnaire) %></td>
-        <td><%= link_to 'Destroy', sti_questionnaire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= link_to 'Edit', edit_sti_questionnaire_path(sti_questionnaire) %></td>
+				<td><%= link_to 'Destroy', sti_questionnaire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				<% end %>
-      </tr>
-    <% end %>
-  </tbody>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
 
 <br>

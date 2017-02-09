@@ -38,6 +38,12 @@
 	</div>
 
 	<div class="field">
+		<%= f.label :gender_at_birth %>
+		<%= f.radio_button_with_label(:gender_at_birth, "F", 1) %>
+		<%= f.radio_button_with_label(:gender_at_birth, "M", 0) %>
+	</div>
+
+	<div class="field">
 		<%= f.label :race %>
 		<a>If not black/African/African American or Latina, then ineligible</a><br/>
 		<%= f.radio_button_with_label(:race, "B/A/AA/L", 1) %>
@@ -131,9 +137,9 @@
 	</div>
 
 	<div class="field">
-		<%= f.label :eligible_q_8_15 %>
-		<%= f.radio_button_with_label(:eligible_q_8_15, "Yes", 1) %>
-		<%= f.radio_button_with_label(:eligible_q_8_15, "No", 0) %>
+		<%= f.label :eligible_q_9_16 %>
+		<%= f.radio_button_with_label(:eligible_q_9_16, "Yes", 1) %>
+		<%= f.radio_button_with_label(:eligible_q_9_16, "No", 0) %>
 	</div>
 
 	<div class="field">
@@ -160,7 +166,7 @@
 	<div class="field">
 		<%= f.label :eligible %>
 		<%= f.radio_button_with_label(:eligible, "Yes", 1) %>You are eligible to enroll. Now I’d like to ask for a bit more information and set you up for your interview.
-		<%= f.radio_button_with_label(:eligible, "No", 0) %>Thank you for your time, but you are not eligible to participate at this time. If anything about your situation changes you’re welcome to take this screening interview again in the future, at least one month from today.  
+		<%= f.radio_button_with_label(:eligible, "No", 0) %>Thank you for your time, but you are not eligible to participate at this time. If anything about your situation changes you’re welcome to take this screening interview again in the future, at least one month from today.	
 	</div>
 
 	<p>To be completed after the screening interview:</p>
@@ -177,12 +183,12 @@
 
 	<div class="field">
 		<%= f.label :date_of_screening %>
-		<%= f.date_select :date_of_screening %>
+		<%= f.text_field :date_of_screening %>
 	</div>
 
 	<div class="field">
 		<%= f.label :time_of_screening %>
-		<%= f.time_select :time_of_screening %>
+		<%= f.text_field :time_of_screening %>
 	</div>
 
 	<div class="field">
@@ -190,9 +196,9 @@
 		<%= f.radio_button_with_label(:referred_for_interview, "Yes", 1) %>
 		<%= f.radio_button_with_label(:referred_for_interview, "No", 0) %>
 		<%= f.label :referred_appointment_date %>
-		<%= f.date_select :referred_appointment_date %>
+		<%= f.text_field :referred_appointment_date %>
 		<%= f.label :referred_appointment_time %>
-		<%= f.time_select :referred_appointment_time %>
+		<%= f.text_field :referred_appointment_time %>
 	</div>
 
 	<div class="field">

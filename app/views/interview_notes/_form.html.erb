@@ -1,47 +1,42 @@
 <%= form_for(interview_note) do |f| %>
-  <% if interview_note.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(interview_note.errors.count, "error") %> prohibited this interview_note from being saved:</h2>
+	<% if interview_note.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(interview_note.errors.count, "error") %> prohibited this interview_note from being saved:</h2>
 
-      <ul>
-      <% interview_note.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+			<% interview_note.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :data_entry_name %>
-    <%= f.text_field :data_entry_name %>
-  </div>
+	<div class="field">
+		<%= f.label :data_entry_name %>
+		<%= f.text_field :data_entry_name %>
+	</div>
 
-  <div class="field">
-    <%= f.label :participant_id %>
-    <%= f.text_field :participant_id %>
-  </div>
+	<div class="field">
+		<%= f.label :participant_id %>
+		<%= f.text_field :participant_id %>
+	</div>
 
-  <div class="field">
-    <%= f.label :interview_date %>
-    <%= f.date_select :interview_date %>
-  </div>
+	<div class="field">
+		<%= f.label :interview_date %>
+		<%= f.text_field :interview_date %>
+	</div>
 
-  <div class="field">
-    <%= f.label :interviewer %>
-    <%= f.text_field :interviewer %>
-  </div>
+	<div class="field">
+		<%= f.label :interviewer %>
+		<%= f.text_field :interviewer %>
+	</div>
 
-  <div class="field">
-    <%= f.label :interview_notes %>
-    <%= f.text_area :interview_notes %>
-  </div>
+	<div class="field">
+		<%= f.label :interview_notes %>
+		<%= f.text_area :interview_notes %>
+	</div>
 
-  <div class="field">
-    <%= f.label :process_notes %>
-    <%= f.text_area :process_notes %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 <% end %>

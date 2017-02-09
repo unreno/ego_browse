@@ -1,11 +1,12 @@
 class CreateContactInformations < ActiveRecord::Migration[5.0]
 	def change
 		create_table :contact_informations do |t|
+			t.string :data_entry_name
 			t.string :first_name
 			t.string :middle_name
 			t.string :last_name
 			t.string :alternate_names
-			t.date :dob
+			t.string :dob
 			t.string :primary_phone_number
 			t.string :primary_phone_type, limit: 5
 			t.string :primary_phone_message, limit: 1

@@ -1,7 +1,8 @@
 class CreateTestingFacilitations < ActiveRecord::Migration[5.0]
 	def change
 		create_table :testing_facilitations do |t|
-			t.date :date_of_visit
+			t.string :data_entry_name
+			t.string :date_of_visit
 			t.string :participant_id
 			t.string :staff_person
 			t.integer :agree_to_use_home_test_kit_at_site
@@ -12,7 +13,7 @@ class CreateTestingFacilitations < ActiveRecord::Migration[5.0]
 			t.string :agree_to_tell_result_of_home_test_kit_refusal_reason
 			t.integer :result_of_home_test_kit
 			t.integer :confirmatory_test_referred_location
-			t.datetime :confirmatory_test_referred_appointment
+			t.string :confirmatory_test_referred_appointment
 			t.string :confirmatory_test_referred_location_other
 			t.integer :indeterminate_test_option
 			t.string :indeterminate_test_result
