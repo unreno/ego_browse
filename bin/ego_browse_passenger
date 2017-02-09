@@ -8,12 +8,12 @@
 
 
 ### BEGIN INIT INFO 
-# Provides:          EGO Browse passenger
-# Default-Start:     2 3 4 5 
-# Default-Stop:      0 1 6 
-# Required-Start:    $remote_fs $syslog
-# Required-Stop:     $remote_fs $syslog
-# X-Interactive:     true 
+# Provides:					EGO Browse passenger
+# Default-Start:		 2 3 4 5 
+# Default-Stop:			0 1 6 
+# Required-Start:		$remote_fs $syslog
+# Required-Stop:		 $remote_fs $syslog
+# X-Interactive:		 true 
 # Short-Description: Start/stop ego_browse web site 
 ### END INIT INFO 
 
@@ -37,33 +37,34 @@ USER=ruby
 . /lib/lsb/init-functions 
 
 case "$1" in 
-  start) 
-    echo "Starting EGO Web passenger" 
-#    echo $CMD 
-#    sudo iptables --policy INPUT ACCEPT
-    iptables --policy INPUT ACCEPT
+	start) 
+		echo "Starting EGO Web passenger" 
+#		echo $CMD 
+#		sudo iptables --policy INPUT ACCEPT
+#		iptables --policy INPUT ACCEPT
+		iptables -A INPUT -p tcp --dport 3000 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 		#	Why do I need to "su - $USER"?
 #	I don't think that I do
-#    su - $USER -c "cd $APP; $PASSENGER start --port $PORT --environment $ENVIRONMENT --daemonize" 
-    cd $APP
+#		su - $USER -c "cd $APP; $PASSENGER start --port $PORT --environment $ENVIRONMENT --daemonize" 
+		cd $APP
 		echo "$PASSENGER start --port $PORT --environment $ENVIRONMENT --daemonize"
 		$PASSENGER start --port $PORT --environment $ENVIRONMENT --daemonize
-    ;; 
-  stop) 
-    echo "Stopping EGO Web passenger" 
-#    cd $APP 
-#    su - $USER -c "cd $APP; $PASSENGER stop -p $PORT"
-    cd $APP
+		;; 
+	stop) 
+		echo "Stopping EGO Web passenger" 
+#		cd $APP 
+#		su - $USER -c "cd $APP; $PASSENGER stop -p $PORT"
+		cd $APP
 		echo "$PASSENGER stop -p $PORT"
 		$PASSENGER stop -p $PORT
-    ;; 
-  status)
-     status_of_proc -p $APP/tmp/pids/passenger.$PORT.pid "" "passenger" && exit 0 || exit $?
-#    cd $APP
-#    ps -hp $(cat tmp/pids/passenger.$PORT.pid)
-    ;;
-  *) 
-    echo "Usage: $0 start|stop" >&2 
-    exit 3 
-    ;; 
+		;; 
+	status)
+		 status_of_proc -p $APP/tmp/pids/passenger.$PORT.pid "" "passenger" && exit 0 || exit $?
+#		cd $APP
+#		ps -hp $(cat tmp/pids/passenger.$PORT.pid)
+		;;
+	*) 
+		echo "Usage: $0 start|stop" >&2 
+		exit 3 
+		;; 
 esac
