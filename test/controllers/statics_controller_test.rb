@@ -59,11 +59,6 @@ class StaticsControllerTest < ActionDispatch::IntegrationTest
 			assert_response :success
 		end
 
-		test "should get screening_report_eligible with #{login} login" do
-			create_and_login_as(login)
-			get screening_report_eligible_statics_url
-			assert_response :success
-		end
 
 
 
@@ -206,13 +201,6 @@ class StaticsControllerTest < ActionDispatch::IntegrationTest
 #			Study.create_empty
 #			create_and_login_as(login)
 #			get sti_counts_statics_url
-#			assert_response :success
-#		end
-#
-#		test "should get screening_report_eligible with #{login} login and empty study" do
-#			Study.create_empty
-#			create_and_login_as(login)
-#			get screening_report_eligible_statics_url
 #			assert_response :success
 #		end
 

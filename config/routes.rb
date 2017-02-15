@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
 	resources :statics, :only => [:index] do
 		collection do
-			get :reports, :demographic_counts, :alters_per_ego, :screening_report_eligible,
+			get :reports, :demographic_counts, :alters_per_ego,
 				:black_demographic_counts, :latina_demographic_counts, :trans_demographic_counts,
 				:leftover_demographic_counts, :sti_counts
 			#	puts app.reports_statics_path

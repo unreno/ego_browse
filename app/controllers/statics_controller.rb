@@ -159,7 +159,4 @@ class StaticsController < ApplicationController
 		@studies = Study.all.collect{|s| s.demographics }.flatten
 	end
 
-	def screening_report_eligible
-	end
-
 end
