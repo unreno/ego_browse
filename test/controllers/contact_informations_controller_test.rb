@@ -14,6 +14,12 @@ class ContactInformationsControllerTest < ActionDispatch::IntegrationTest
 			assert_response :success
 		end
 	
+		test "should get index.csv with #{login} login" do
+			create_and_login_as(login)
+			get contact_informations_url( format: 'csv' )
+			assert_response :success
+		end
+	
 		test "should show contact_information with #{login} login" do
 			create_and_login_as(login)
 			get contact_information_url(@contact_information)

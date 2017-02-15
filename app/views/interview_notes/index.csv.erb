@@ -1,0 +1,5 @@
+<% require 'csv' -%>
+<%= InterviewNote.attribute_names.to_csv -%>
+<% @interview_notes.each do |interview_note| %>
+<%= InterviewNote.attribute_names.collect{|a| interview_note[a] }.to_csv.html_safe -%>
+<% end %>

@@ -14,6 +14,12 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 			assert_response :success
 		end
 	
+		test "should get index.csv with #{login} login" do
+			create_and_login_as(login)
+			get sti_questionnaires_url( format: 'csv' )
+			assert_response :success
+		end
+	
 		test "should show sti_questionnaire with #{login} login" do
 			create_and_login_as(login)
 			get sti_questionnaire_url(@sti_questionnaire)

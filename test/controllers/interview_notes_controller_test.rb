@@ -14,6 +14,12 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 			assert_response :success
 		end
 	
+		test "should get index.csv with #{login} login" do
+			create_and_login_as(login)
+			get interview_notes_url( format: 'csv' )
+			assert_response :success
+		end
+	
 		test "should show interview_note with #{login} login" do
 			create_and_login_as(login)
 			get interview_note_url(@interview_note)

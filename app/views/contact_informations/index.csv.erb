@@ -1,0 +1,5 @@
+<% require 'csv' -%>
+<%= ContactInformation.attribute_names.to_csv -%>
+<% @contact_informations.each do |contact_information| %>
+<%= ContactInformation.attribute_names.collect{|a| contact_information[a] }.to_csv.html_safe -%>
+<% end %>

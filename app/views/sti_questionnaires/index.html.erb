@@ -2,6 +2,9 @@
 
 <h1>STI Questionnaires
 <% if current_rails_user.present? and current_rails_user.is_admin? %>
+[ <%= link_to 'Download CSV', sti_questionnaires_path(format:'csv') %> ]
+<% end %>
+<% if current_rails_user.present? and current_rails_user.is_admin? %>
 [ <%= link_to 'New Sti Questionnaire', new_sti_questionnaire_path %> ]
 <% end %>
 </h1>

@@ -14,6 +14,12 @@ class TestingFacilitationsControllerTest < ActionDispatch::IntegrationTest
 			assert_response :success
 		end
 	
+		test "should get index.csv with #{login} login" do
+			create_and_login_as(login)
+			get testing_facilitations_url( format: 'csv' )
+			assert_response :success
+		end
+	
 		test "should show testing_facilitation with #{login} login" do
 			create_and_login_as(login)
 			get testing_facilitation_url(@testing_facilitation)

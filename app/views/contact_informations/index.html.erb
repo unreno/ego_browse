@@ -2,6 +2,9 @@
 
 <h1>Contact Informations
 <% if current_rails_user.present? and current_rails_user.is_admin? %>
+[ <%= link_to 'Download CSV', contact_informations_path(format:'csv') %> ]
+<% end %>
+<% if current_rails_user.present? and current_rails_user.is_admin? %>
 [ <%= link_to 'New Contact Information', new_contact_information_path %> ]
 <% end %>
 </h1>

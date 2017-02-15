@@ -1,0 +1,5 @@
+<% require 'csv' -%>
+<%= EligibilityScreening.attribute_names.to_csv -%>
+<% @eligibility_screenings.each do |eligibility_screening| %>
+<%= EligibilityScreening.attribute_names.collect{|a| eligibility_screening[a] }.to_csv.html_safe -%>
+<% end %>
