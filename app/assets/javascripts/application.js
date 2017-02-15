@@ -26,7 +26,9 @@ $(document).on('turbolinks:load', function() {
 //	$('button.add').on('click',function(){
 //	doing it this way means that the tag doesn't have to exist yet.
 //	Should still work as in the document ready block, but isn't.  Errrrr!
-	$(document).on('click', 'button.add', function(){
+//	$(document).on('click', 'button.add', function(){
+//	Previous versions were adding multiple rows to table? Not clear how or why.
+	$('button.add').unbind().click(function(){
 		i = $('table#alter_referral_sheet tr').length - 1
 		$('table').append('<tr> <td>'+(i+1)+'</td> <td><input name="alter_referral_sheet[alter_referrals_attributes]['+i+'][plan_to_refer]" type="hidden" value="0" /><input type="checkbox" value="1" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][plan_to_refer]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_plan_to_refer" /></td>' +
 			'<td><input type="text" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][first_name]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_first_name" /></td>' +
