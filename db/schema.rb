@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208221138) do
+ActiveRecord::Schema.define(version: 20170215181329) do
 
   create_table "alterList", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "studyId",                     null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170208221138) do
     t.string   "date_ego_paid"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.string   "name_cell"
     t.index ["alter_referral_sheet_id"], name: "index_alter_referrals_on_alter_referral_sheet_id", using: :btree
   end
 

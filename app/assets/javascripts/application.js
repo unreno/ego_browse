@@ -31,9 +31,7 @@ $(document).on('turbolinks:load', function() {
 	$('button.add').unbind().click(function(){
 		i = $('table#alter_referral_sheet tr').length - 1
 		$('table').append('<tr> <td>'+(i+1)+'</td> <td><input name="alter_referral_sheet[alter_referrals_attributes]['+i+'][plan_to_refer]" type="hidden" value="0" /><input type="checkbox" value="1" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][plan_to_refer]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_plan_to_refer" /></td>' +
-			'<td><input type="text" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][first_name]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_first_name" /></td>' +
-			'<td><input type="text" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][last_initial]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_last_initial" /></td>' +
-			'<td><input type="text" value="" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][last_4_cell]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_last_4_cell" /></td>' +
+			'<td><input type="text" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][name_cell]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_name_cell" /></td>' +
 			'<td><input type="text" value="" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][date_of_alter_interview]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_date_of_alter_interview" /></td>' +
 			'<td><input type="text" value="" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][alter_id]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_alter_id" /></td>' +
 			'<td><input type="text" value="" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][date_ego_notified]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_date_ego_notified" /></td>' +
