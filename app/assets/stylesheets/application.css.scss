@@ -64,10 +64,10 @@ table.demographics tr td:first-child {
 
 
 div.field {
-	input[type=checkbox] {
+	input[type=checkbox], input[type=radio] {
 		display: inline;
 		+ label {
-		display: inline;
+			display: inline;
 		}
 	}
 }
