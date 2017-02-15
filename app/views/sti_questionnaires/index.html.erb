@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sti Questionnaires</h1>
+<h1>STI Questionnaires
+<% if current_rails_user.present? and current_rails_user.is_admin? %>
+[ <%= link_to 'New Sti Questionnaire', new_sti_questionnaire_path %> ]
+<% end %>
+</h1>
+<br>
 
 <table>
 	<thead>
@@ -113,9 +118,3 @@
 		<% end %>
 	</tbody>
 </table>
-
-<br>
-
-<% if current_rails_user.present? and current_rails_user.is_admin? %>
-<%= link_to 'New Sti Questionnaire', new_sti_questionnaire_path %>
-<% end %>

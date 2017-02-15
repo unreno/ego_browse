@@ -138,6 +138,7 @@ en:
         ego_id: Ego ID
       alter_referral:
         plan_to_refer: Plan to Refer
+        name_cell: First Name, Last Initial, Last 4 Cell
         first_name: First Name
         last_initial: Last Initial
         last_4_cell: Last 4 Cell

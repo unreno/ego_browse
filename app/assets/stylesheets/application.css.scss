@@ -51,7 +51,7 @@ p.flash.error {
 	background-color: #FDD;
 }
 table input[type=text]{
-	width: 12em;
+	width: 15em;
 }
 table#alter_referral_sheet td {
 	text-align: center;
@@ -70,4 +70,10 @@ div.field {
 		display: inline;
 		}
 	}
+}
+
+/* New links in index header */
+h1 * {
+	font-size: 12pt;
+	vertical-align:middle;
 }

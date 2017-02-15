@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Testing Facilitations</h1>
+<h1>Testing Facilitations
+<% if current_rails_user.present? and current_rails_user.is_admin? %>
+[ <%= link_to 'New Testing Facilitation', new_testing_facilitation_path %> ]
+<% end %>
+</h1>
+<br>
 
 <table>
 	<thead>
@@ -71,9 +76,3 @@
 		<% end %>
 	</tbody>
 </table>
-
-<br>
-
-<% if current_rails_user.present? and current_rails_user.is_admin? %>
-<%= link_to 'New Testing Facilitation', new_testing_facilitation_path %>
-<% end %>

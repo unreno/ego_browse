@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Eligibility Screenings</h1>
+<h1>Eligibility Screenings
+<% if current_rails_user.present? and current_rails_user.is_admin? %>
+[ <%= link_to 'New Eligibility Screening', new_eligibility_screening_path %> ]
+<% end %>
+</h1>
+<br>
 
 <table>
 	<thead>
@@ -97,9 +102,3 @@
 		<% end %>
 	</tbody>
 </table>
-
-<br>
-
-<% if current_rails_user.present? and current_rails_user.is_admin? %>
-<%= link_to 'New Eligibility Screening', new_eligibility_screening_path %>
-<% end %>

@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Contact Informations</h1>
+<h1>Contact Informations
+<% if current_rails_user.present? and current_rails_user.is_admin? %>
+[ <%= link_to 'New Contact Information', new_contact_information_path %> ]
+<% end %>
+</h1>
+<br>
 
 <table>
 	<thead>
@@ -103,9 +108,3 @@
 		<% end %>
 	</tbody>
 </table>
-
-<br>
-
-<% if current_rails_user.present? and current_rails_user.is_admin? %>
-<%= link_to 'New Contact Information', new_contact_information_path %>
-<% end %>
