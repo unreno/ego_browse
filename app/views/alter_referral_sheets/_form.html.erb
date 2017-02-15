@@ -21,8 +21,6 @@
 		<%= f.text_field :ego_id %>
 	</div>
 
-<%# if @alter_referral_sheet.alter_referrals_count > 0 %>
-<%# @alter_referral_sheet.alter_referrals.new() %>
 <table id='alter_referral_sheet'>
 	<thead><tr>
 		<th>&nbsp;</th>
@@ -40,12 +38,9 @@
 	<% end	#f.fields_for :alter_referrals do |alter_referral| %>
 	</tbody>
 </table>
-<%# end %>
 
 	<div class="actions">
 		<%= f.submit %>
+		<button class='add'>Add 5 Referrals</button>
 	</div>
 <% end %>
-
-<button class='add'>Add Referral</button>
-

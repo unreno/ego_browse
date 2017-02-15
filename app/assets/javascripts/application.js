@@ -29,14 +29,17 @@ $(document).on('turbolinks:load', function() {
 //	$(document).on('click', 'button.add', function(){
 //	Previous versions were adding multiple rows to table? Not clear how or why.
 	$('button.add').unbind().click(function(){
-		i = $('table#alter_referral_sheet tr').length - 1
-		$('table').append('<tr> <td>'+(i+1)+'</td> <td><input name="alter_referral_sheet[alter_referrals_attributes]['+i+'][plan_to_refer]" type="hidden" value="0" /><input type="checkbox" value="1" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][plan_to_refer]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_plan_to_refer" /></td>' +
-			'<td><input type="text" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][name_cell]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_name_cell" /></td>' +
-			'<td><input type="text" value="" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][date_of_alter_interview]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_date_of_alter_interview" /></td>' +
-			'<td><input type="text" value="" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][alter_id]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_alter_id" /></td>' +
-			'<td><input type="text" value="" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][date_ego_notified]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_date_ego_notified" /></td>' +
-			'<td><input type="text" value="" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][date_ego_paid]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'_date_ego_paid" /></td>' +
-			'<td><input name="alter_referral_sheet[alter_referrals_attributes]['+i+'][_destroy]" type="hidden" value="0" /><input type="checkbox" value="1" name="alter_referral_sheet[alter_referrals_attributes]['+i+'][_destroy]" id="alter_referral_sheet_alter_referrals_attributes_'+i+'__destroy" /></td> </tr>')
+
+  	for (var i = 0; i < 5; i++) {
+			count = $('table#alter_referral_sheet tr').length - 1;	// current row count
+			$('table').append('<tr> <td>'+(count+1)+'</td> <td><input name="alter_referral_sheet[alter_referrals_attributes]['+count+'][plan_to_refer]" type="hidden" value="0" /><input type="checkbox" value="1" name="alter_referral_sheet[alter_referrals_attributes]['+count+'][plan_to_refer]" id="alter_referral_sheet_alter_referrals_attributes_'+count+'_plan_to_refer" /></td>' +
+				'<td><input type="text" name="alter_referral_sheet[alter_referrals_attributes]['+count+'][name_cell]" id="alter_referral_sheet_alter_referrals_attributes_'+count+'_name_cell" /></td>' +
+				'<td><input type="text" value="" name="alter_referral_sheet[alter_referrals_attributes]['+count+'][date_of_alter_interview]" id="alter_referral_sheet_alter_referrals_attributes_'+count+'_date_of_alter_interview" /></td>' +
+				'<td><input type="text" value="" name="alter_referral_sheet[alter_referrals_attributes]['+count+'][alter_id]" id="alter_referral_sheet_alter_referrals_attributes_'+count+'_alter_id" /></td>' +
+				'<td><input type="text" value="" name="alter_referral_sheet[alter_referrals_attributes]['+count+'][date_ego_notified]" id="alter_referral_sheet_alter_referrals_attributes_'+count+'_date_ego_notified" /></td>' +
+				'<td><input type="text" value="" name="alter_referral_sheet[alter_referrals_attributes]['+count+'][date_ego_paid]" id="alter_referral_sheet_alter_referrals_attributes_'+count+'_date_ego_paid" /></td>' +
+				'<td><input name="alter_referral_sheet[alter_referrals_attributes]['+count+'][_destroy]" type="hidden" value="0" /><input type="checkbox" value="1" name="alter_referral_sheet[alter_referrals_attributes]['+count+'][_destroy]" id="alter_referral_sheet_alter_referrals_attributes_'+count+'__destroy" /></td> </tr>');
+		}
 		return false;
 	});
 
