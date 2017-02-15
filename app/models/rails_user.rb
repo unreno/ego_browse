@@ -9,4 +9,12 @@ class RailsUser < ApplicationRecord
 		['admin','jake'].include?(login)
 	end
 
+	def can_create?
+		['admin','dataentry','jake'].include?(login)
+	end
+
+	def can_destroy?
+		['admin','jake'].include?(login)
+	end
+
 end

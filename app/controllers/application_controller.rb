@@ -49,6 +49,24 @@ class ApplicationController < ActionController::Base
 			end
 		end
 
+		def require_creator
+			unless current_rails_user.present? and current_rails_user.can_create?
+				store_location
+				flash[:warn] = "You must be logged in as a creator to do that."
+				redirect_to root_url
+				return false
+			end
+		end
+
+		def require_destroyer
+			unless current_rails_user.present? and current_rails_user.can_destroy?
+				store_location
+				flash[:warn] = "You must be logged in as a destroyer to do that."
+				redirect_to root_url
+				return false
+			end
+		end
+
 		def store_location
 			session[:return_to] = request.url
 		end

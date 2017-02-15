@@ -4,7 +4,7 @@
 <% if current_rails_user.present? and current_rails_user.is_admin? %>
 [ <%= link_to 'Download CSV', sti_questionnaires_path(format:'csv') %> ]
 <% end %>
-<% if current_rails_user.present? and current_rails_user.is_admin? %>
+<% if current_rails_user.present? and current_rails_user.can_create? %>
 [ <%= link_to 'New Sti Questionnaire', new_sti_questionnaire_path %> ]
 <% end %>
 </h1>
@@ -58,7 +58,7 @@
 			<th>Stipercrisk</th>
 			<th>Stistigma</th>
 			<th>Show</th>
-			<% if current_rails_user.present? and current_rails_user.is_admin? %>
+			<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 			<th>Edit</th>
 			<th>Destroy</th>
 			<% end %>
@@ -113,7 +113,7 @@
 				<td><%= sti_questionnaire.stipercrisk %></td>
 				<td><%= sti_questionnaire.stistigma %></td>
 				<td><%= link_to 'Show', sti_questionnaire %></td>
-				<% if current_rails_user.present? and current_rails_user.is_admin? %>
+				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 				<td><%= link_to 'Edit', edit_sti_questionnaire_path(sti_questionnaire) %></td>
 				<td><%= link_to 'Destroy', sti_questionnaire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				<% end %>

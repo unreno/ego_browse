@@ -4,7 +4,7 @@
 <% if current_rails_user.present? and current_rails_user.is_admin? %>
 [ <%= link_to 'Download CSV', interview_notes_path(format:'csv') %> ]
 <% end %>
-<% if current_rails_user.present? and current_rails_user.is_admin? %>
+<% if current_rails_user.present? and current_rails_user.can_create? %>
 [ <%= link_to 'New Interview Note', new_interview_note_path %> ]
 <% end %>
 </h1>
@@ -19,7 +19,7 @@
 			<th>Interviewer</th>
 			<th>Interview notes</th>
 			<th>Show</th>
-			<% if current_rails_user.present? and current_rails_user.is_admin? %>
+			<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 			<th>Edit</th>
 			<th>Destroy</th>
 			<% end %>
@@ -35,7 +35,7 @@
 				<td><%= interview_note.interviewer %></td>
 				<td><%= interview_note.interview_notes %></td>
 				<td><%= link_to 'Show', interview_note %></td>
-				<% if current_rails_user.present? and current_rails_user.is_admin? %>
+				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 					<td><%= link_to 'Edit', edit_interview_note_path(interview_note) %></td>
 					<td><%= link_to 'Destroy', interview_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				<% end %>

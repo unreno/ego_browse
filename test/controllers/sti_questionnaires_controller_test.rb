@@ -6,7 +6,7 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 		@sti_questionnaire = sti_questionnaires(:one)
 	end
 
-	%w{admin nonadmin}.each do |login|
+	%w{admin dataentry readonly}.each do |login|
 
 		test "should get index with #{login} login" do
 			create_and_login_as(login)
@@ -28,7 +28,7 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 	
 	end
 
-	%w{admin}.each do |login|
+	%w{admin dataentry}.each do |login|
 
 		test "should get new with #{login} login" do
 			create_and_login_as(login)
@@ -55,7 +55,11 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 			assert_response :success
 			assert_template :new
 		end
+
+	end
 	
+	%w{admin}.each do |login|
+
 		test "should get edit with #{login} login" do
 			create_and_login_as(login)
 			get edit_sti_questionnaire_url(@sti_questionnaire)
@@ -85,8 +89,7 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 		end
 	end
 
-
-	%w{nonadmin}.each do |login|
+	%w{readonly}.each do |login|
 
 		test "should not get new with #{login} login" do
 			create_and_login_as(login)
@@ -103,7 +106,11 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
 		end
+
+	end
 	
+	%w{dataentry readonly}.each do |login|
+
 		test "should not get edit with #{login} login" do
 			create_and_login_as(login)
 			get edit_sti_questionnaire_url(@sti_questionnaire)

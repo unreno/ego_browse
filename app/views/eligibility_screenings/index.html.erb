@@ -4,7 +4,7 @@
 <% if current_rails_user.present? and current_rails_user.is_admin? %>
 [ <%= link_to 'Download CSV', eligibility_screenings_path(format:'csv') %> ]
 <% end %>
-<% if current_rails_user.present? and current_rails_user.is_admin? %>
+<% if current_rails_user.present? and current_rails_user.can_create? %>
 [ <%= link_to 'New Eligibility Screening', new_eligibility_screening_path %> ]
 <% end %>
 </h1>
@@ -50,7 +50,7 @@
 			<th>Reason for refusal</th>
 			<th>Reason for refusal other</th>
 			<th>Show</th>
-			<% if current_rails_user.present? and current_rails_user.is_admin? %>
+			<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 			<th>Edit</th>
 			<th>Destroy</th>
 			<% end %>
@@ -97,7 +97,7 @@
 				<td><%= eligibility_screening.reason_for_refusal %></td>
 				<td><%= eligibility_screening.reason_for_refusal_other %></td>
 				<td><%= link_to 'Show', eligibility_screening %></td>
-				<% if current_rails_user.present? and current_rails_user.is_admin? %>
+				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 					<td><%= link_to 'Edit', edit_eligibility_screening_path(eligibility_screening) %></td>
 					<td><%= link_to 'Destroy', eligibility_screening, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				<% end %>

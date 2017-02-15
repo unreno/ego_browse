@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Alter Referral Sheets
-<% if current_rails_user.present? and current_rails_user.is_admin? %>
+<% if current_rails_user.present? and current_rails_user.can_create? %>
 [ <%= link_to 'New Alter Referral Sheet', new_alter_referral_sheet_path %> ]
 <% end %>
 </h1>
@@ -14,7 +14,7 @@
 			<th><%= t 'activerecord.attributes.alter_referral_sheet.ego_id' %></th>
 			<th>Referals</th>
 			<th>Show</th>
-			<% if current_rails_user.present? and current_rails_user.is_admin? %>
+			<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 			<th>Edit</th>
 			<th>Destroy</th>
 			<% end %>
@@ -28,7 +28,7 @@
 				<td><%= alter_referral_sheet.ego_id %></td>
 				<td><%= alter_referral_sheet.alter_referrals_count %></td>
 				<td><%= link_to 'Show', alter_referral_sheet %></td>
-				<% if current_rails_user.present? and current_rails_user.is_admin? %>
+				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 					<td><%= link_to 'Edit', edit_alter_referral_sheet_path(alter_referral_sheet) %></td>
 					<td><%= link_to 'Destroy', alter_referral_sheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				<% end %>

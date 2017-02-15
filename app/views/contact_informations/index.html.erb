@@ -4,7 +4,7 @@
 <% if current_rails_user.present? and current_rails_user.is_admin? %>
 [ <%= link_to 'Download CSV', contact_informations_path(format:'csv') %> ]
 <% end %>
-<% if current_rails_user.present? and current_rails_user.is_admin? %>
+<% if current_rails_user.present? and current_rails_user.can_create? %>
 [ <%= link_to 'New Contact Information', new_contact_information_path %> ]
 <% end %>
 </h1>
@@ -53,7 +53,7 @@
 			<th>Hair</th>
 			<th>Other identifying marks</th>
 			<th>Show</th>
-			<% if current_rails_user.present? and current_rails_user.is_admin? %>
+			<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 			<th>Edit</th>
 			<th>Destroy</th>
 			<% end %>
@@ -103,7 +103,7 @@
 				<td><%= contact_information.hair %></td>
 				<td><%= contact_information.other_identifying_marks %></td>
 				<td><%= link_to 'Show', contact_information %></td>
-				<% if current_rails_user.present? and current_rails_user.is_admin? %>
+				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 					<td><%= link_to 'Edit', edit_contact_information_path(contact_information) %></td>
 					<td><%= link_to 'Destroy', contact_information, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				<% end %>

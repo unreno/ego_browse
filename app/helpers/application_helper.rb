@@ -1,12 +1,12 @@
 module ApplicationHelper
 end
 class ActionView::Helpers::FormBuilder
-	def clear_all_radio_button_with_label(method, label=nil, value = nil, options = {})
-		@template.label( @object_name, "#{method}_disconnected" ) do
-			@template.radio_button( @object_name, 
-				method, '', objectify_options(options) ) << 'clear all'
-		end
-	end
+#	def clear_all_radio_button_with_label(method, label=nil, value = nil, options = {})
+#		@template.label( @object_name, "#{method}_disconnected" ) do
+#			@template.radio_button( @object_name, 
+#				method, '', objectify_options(options) ) << 'clear all'
+#		end
+#	end
 	def radio_button_with_label(method, label, value = nil, options = {})
 		value = label if value.blank?
 		@template.content_tag( :div, class: 'field' )  do
