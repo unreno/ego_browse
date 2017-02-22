@@ -1,4 +1,5 @@
 class Expression < ApplicationRecord
+
 	self.table_name = "expression"
 
 	#	rails tries to use the column "type" for Single Table Inheritance
@@ -9,4 +10,5 @@ class Expression < ApplicationRecord
 	belongs_to :question, foreign_key: :questionId
 	has_many :notes, foreign_key: :expressionId
 	has_many :graphs, foreign_key: :expressionId
+
 end

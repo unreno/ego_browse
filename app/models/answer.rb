@@ -1,4 +1,5 @@
 class Answer < ApplicationRecord
+
 	self.table_name = "answer"
 	belongs_to :question, foreign_key: :questionId
 	belongs_to :interview, foreign_key: :interviewId
