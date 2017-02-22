@@ -155,6 +155,18 @@
 	</div>
 
 	<div class="field">
+		<%= f.label :hopes_data %>
+		<%= f.radio_button_with_label(:hopes_data, "Y") %>
+		<%= f.radio_button_with_label(:hopes_data, "N") %>
+	</div>
+
+	<div class="field">
+		<%= f.label :future_data %>
+		<%= f.radio_button_with_label(:future_data, "Y") %>
+		<%= f.radio_button_with_label(:future_data, "N") %>
+	</div>
+
+	<div class="field">
 		<%= f.label :ok_to_mail_negative_test_result %>
 		<%= f.radio_button_with_label(:ok_to_mail_negative_test_result, "Y") %>
 		<%= f.radio_button_with_label(:ok_to_mail_negative_test_result, "N") %>

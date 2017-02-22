@@ -89,6 +89,8 @@ en:
         secondary_city: Other City
         secondary_state: Other State
         secondary_zip: Other ZIP
+        hopes_data: OK to get data from Hopes?
+        future_data: OK for future contact?
         ok_to_mail_negative_test_result: OK to mail negative test result?
         email: Email Address
         other_person_relationship: Other Person Relationship

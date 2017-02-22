@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215195958) do
+ActiveRecord::Schema.define(version: 20170222202006) do
 
   create_table "alterList", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "studyId",                     null: false
@@ -122,6 +122,8 @@ ActiveRecord::Schema.define(version: 20170215195958) do
     t.string   "other_identifying_marks"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.string   "hopes_data",                      limit: 1
+    t.string   "future_data",                     limit: 1
   end
 
   create_table "eligibility_screenings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
