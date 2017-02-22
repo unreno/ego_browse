@@ -116,10 +116,12 @@ class StaticsController < ApplicationController
 	def sti_counts
 		studies = Study.all.collect{|s|s.nested_raw_demographics}
 		@ego_ids = {}
+		@tfs = {}
 		@ego_ids['AA'] = studies.flatten.select{|d|
 			(d[:race] & ["African", "Afro-Caribbean",
 				"Black or African-American", "Black, other"]).length > 0
 		}.collect{|d| d[:assoc] }.flatten.collect{|d| d[:subject] }.sort
+		@tfs['AA'] = TestingFacilitation.where(participant_id: @ego_ids['AA'])
 		@ego_ids['Latina'] = studies.flatten.select{|d|
 			( (d[:race] & ["African", "Afro-Caribbean",
 				"Black or African-American", "Black, other"]).length == 0 ) &&
@@ -127,6 +129,7 @@ class StaticsController < ApplicationController
 				( d[:hisplat] == ["Yes"] )
 			)
 		}.collect{|d| d[:assoc] }.flatten.collect{|d| d[:subject] }.sort
+		@tfs['Latina'] = TestingFacilitation.where(participant_id: @ego_ids['Latina'])
 		@ego_ids['Trans'] = studies.flatten.select{|d|
 			( ( (d[:race] & ["African", "Afro-Caribbean", "Black or African-American",
 				"Black, other", "Latino or Hispanic (Example: Mexican)" ]).length == 0 ) &&
@@ -135,6 +138,7 @@ class StaticsController < ApplicationController
 					( d[:sex] == ["Male"] ) )
 			)
 		}.collect{|d| d[:assoc] }.flatten.collect{|d| d[:subject] }.sort
+		@tfs['Trans'] = TestingFacilitation.where(participant_id: @ego_ids['Trans'])
 		@ego_ids['Other'] = studies.flatten.select{|d|
 			( ( (d[:race] & ["African", "Afro-Caribbean", "Black or African-American",
 				"Black, other", "Latino or Hispanic (Example: Mexican)" ]).length == 0 ) &&
@@ -143,8 +147,7 @@ class StaticsController < ApplicationController
 				( d[:sex] != ["Male"] )
 			)
 		}.collect{|d| d[:assoc] }.flatten.collect{|d| d[:subject] }.sort
-
-		@stis    = StiQuestionnaire.all
+		@tfs['Other'] = TestingFacilitation.where(participant_id: @ego_ids['Other'])
 	end
 
 	def alters_per_ego
