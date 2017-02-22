@@ -82,3 +82,28 @@ Answer.where(Answer.arel_table[:otherSpecifyText].not_eq('')).collect{|a|MCRYPT.
 
 
 
+
+
+###	Question Option other specify text not properly exported / imported
+
+Create new study, with intro, and save.
+Create new question, multiple select.
+Add a couple options with specify
+Take interview. (Oddly, text for the option not being shown for me???)
+Export with interviews
+Import
+Export with interviews
+Decrypt answer's value and otherSpecifyText.
+The value will have been updated to the appropriate question option id,
+HOWEVER, the id in the otherSpecifyText WILL NOT.
+
+#irb(main):024:0> Study.last.answers
+#=> #<ActiveRecord::Associations::CollectionProxy [#<Answer id: 88976, active: nil, questionId: 2844, interviewId: 91, alterId1: nil, alterId2: nil, value: "10751", otherSpecifyText: "10751:test", skipReason: "NONE", studyId: 14, questionType: "EGO_ID", answerType: "MULTIPLE_SELECTION">]>
+#irb(main):024:0> Study.last.answers
+#=> #<ActiveRecord::Associations::CollectionProxy [#<Answer id: 88977, active: nil, questionId: 2845, interviewId: 92, alterId1: 0, alterId2: 0, value: "10752", otherSpecifyText: "10751:test", skipReason: "NONE", studyId: 15, questionType: "EGO_ID", answerType: "MULTIPLE_SELECTION">]>
+#
+
+
+
+
+
