@@ -27,6 +27,8 @@ class CreateContactInformations < ActiveRecord::Migration[5.0]
 			t.string :secondary_city
 			t.string :secondary_state, limit: 5
 			t.string :secondary_zip, limit: 10
+			t.string :hopes_data, limit: 1
+			t.string :future_data, limit: 1
 			t.string :ok_to_mail_negative_test_result, limit: 1
 			t.string :email
 			t.string :other_person_relationship
