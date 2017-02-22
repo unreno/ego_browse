@@ -24,14 +24,16 @@
 	</thead>
 	<tbody>
 <% @ego_ids.each_pair do |k,v| %>
-		<tr><td><%= k %></td><td><%= v.join(', ') %></td><td><%= v.length %></td>
+		<tr><td><%= k %></td>
+			<td><%= v.join(', ') %></td>
+			<td><%= v.length %></td>
 			<td><%= @tfs[k].length %></td>
 			<td><%= @tfs[k].select{|tf| tf.agree_to_use_home_test_kit_at_site == 1 }.length %></td>
 			<td><%= @tfs[k].select{|tf| tf.agree_to_tell_result_of_home_test_kit == 1 }.length %></td>
-			<td><%= @tfs[k].length %></td>
 			<td><%= @tfs[k].select{|tf| tf.result_of_home_test_kit == 1 }.length %></td>
 			<td><%= @tfs[k].select{|tf| tf.result_of_home_test_kit == 0 }.length %></td>
 			<td><%= @tfs[k].select{|tf| tf.result_of_home_test_kit == 20 }.length %></td>
+			<td><%= @tfs[k].select{|tf| tf.urine_to_test == 1 }.length %></td>
 			<td><%= @tfs[k].select{|tf| tf.gonorrhea_result == 1 }.length %></td>
 			<td><%= @tfs[k].select{|tf| tf.gonorrhea_result == 0 }.length %></td>
 			<td><%= @tfs[k].select{|tf| tf.chlamydia_result == 1 }.length %></td>
