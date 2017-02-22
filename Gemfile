@@ -78,6 +78,8 @@ group :test do
 	gem "mocha"	#, :require => 'mocha/api'
 	#	mocha requires "require 'mocha/mini_test'" near the bottom of test/test_helper.rb
 
+	gem "autotest-rails", :require => 'autotest/rails'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
