@@ -1,7 +1,39 @@
 class StudyHash < Hash
 
+#	This was meant to be a specific hash, at some point
+
 end
+
+class DemoArray < Array
+
+	def select(*args)
+		DemoArray.new(super)
+	end
+
+	def collect(*args)
+		DemoArray.new(super)
+	end
+
+	def flatten(*args)
+		DemoArray.new(super)
+	end
+
+	def singularize
+		DemoArray.new(collect do |d|
+			d[:race] = ["Unknown"] if d[:race].empty?
+			d[:race] = ["More Than One"] if d[:race].length > 1
+			d[:hisplat] = ["Unknown"] if d[:hisplat].empty?
+			d[:sex] = ["Unknown"] if d[:sex].empty?
+			d[:gender] = ["Unknown"] if d[:gender].empty?
+			d[:subject] = "Unknown" if d[:subject].empty?
+			d
+		end)
+	end
+
+end
+
 class Study < ApplicationRecord
+
 	self.table_name = "study"
 	belongs_to :user, foreign_key: :userId
 	has_many :alter_lists, foreign_key: :studyId
@@ -74,11 +106,6 @@ class Study < ApplicationRecord
 		@subject_qid ||= questions.where(title: "SUBJECT").select(:id).collect(&:id).first
 	end
 
-#	> Interview.joins(Arel::Nodes::OuterJoin.new(Answer.arel_table.alias(:a),Arel::Nodes::On.new(Interview.arel_table[:id].eq(Answer.arel_table.alias(:a)[:interviewId]))))
-#  Interview Load (687.5ms)  SELECT `interview`.* FROM `interview` LEFT OUTER JOIN `answer` `a` ON `interview`.`id` = `a`.`interviewId`
-
-	#	AGNOSTIC!!!
-#	def demodemo
 	def raw_demographics
 		r = Answer.arel_table.alias(:r)
 		h = Answer.arel_table.alias(:h)
@@ -86,7 +113,7 @@ class Study < ApplicationRecord
 		s = Answer.arel_table.alias(:s)
 		a = Answer.arel_table.alias(:a)
 		i = Interview.arel_table
-		interviews
+		DemoArray.new(interviews
 			.joins(Arel::Nodes::OuterJoin.new(r,
 				Arel::Nodes::On.new(i[:id].eq(r[:interviewId]).and(r[:questionId].eq(race_qid)))))
 			.joins(Arel::Nodes::OuterJoin.new(h,
@@ -105,36 +132,24 @@ class Study < ApplicationRecord
 			.select(a[:value].as('subject'))
 			.collect{|i| 
 				race = decode(i.race).collect{|x|x[0..(x.index("/")||x.length)-1]}
-#				race = ["Unknown"] if race.empty?
-#				race = ["More Than One"] if race.length > 1
 				hisplat = decode(i.hisplat).collect{|x|x[0..(x.index("/")||x.length)-1]}
-#				hisplat = ["Unknown"] if hisplat.empty?
 				sex = decode(i.sex).collect{|x|x[0..(x.index("/")||x.length)-1]}
-#				sex = ["Unknown"] if sex.empty?
 				gender = decode(i.gender).collect{|x|x[0..(x.index("/")||x.length)-1]}
-#				gender = ["Unknown"] if gender.empty?
 				subject = MCRYPT.mydecrypt(i.subject)
-#				subject = ["Unknown"] if subject.empty?
+#				StudyHash[
 				{	id: i.id, 
 					subject: subject,
 					race: race,
 					hisplat: hisplat,
 					sex: sex,
 					gender: gender
-			}	}
+#			]	
+			} }
+		)
 	end
 
 	def demographics
-		raw_demographics.collect do |d|
-			d[:race] = ["Unknown"] if d[:race].empty?
-			d[:race] = ["More Than One"] if d[:race].length > 1
-			d[:hisplat] = ["Unknown"] if d[:hisplat].empty?
-			d[:sex] = ["Unknown"] if d[:sex].empty?
-			d[:gender] = ["Unknown"] if d[:gender].empty?
-#			d[:subject] = ["Unknown"] if d[:subject].empty?
-			d[:subject] = "Unknown" if d[:subject].empty?
-			d
-		end
+		raw_demographics.singularize
 	end
 
 	def demographics_hash
