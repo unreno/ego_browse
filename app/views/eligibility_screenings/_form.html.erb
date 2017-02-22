@@ -18,10 +18,10 @@
 
 	<div class="field">
 		<%= f.label :how_learned %>
-		<%= f.radio_button_with_label(:how_learned, "Outreach") %>
-		<%= f.radio_button_with_label(:how_learned, "Flyer") %>
-		<%= f.radio_button_with_label(:how_learned, "Church/Organization") %>
-		<%= f.radio_button_with_label(:how_learned, "Other") %>
+		<%= f.radio_button_with_label(:how_learned, "Outreach", 1) %>
+		<%= f.radio_button_with_label(:how_learned, "Flyer", 2) %>
+		<%= f.radio_button_with_label(:how_learned, "Church/Organization", 3) %>
+		<%= f.radio_button_with_label(:how_learned, "Other", 20) %>
 		<%= f.text_field :how_learned_other %>
 	</div>
 
