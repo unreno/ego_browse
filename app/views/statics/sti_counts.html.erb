@@ -7,6 +7,8 @@
 	<thead>
 		<tr>
 			<th>Funding Grant</th>
+			<th>Subject IDs</th>
+			<th>#</th>
 			<th># agreed to HIV test</th>
 			<th># agreed to tell HIV test results</th>
 			<th># HIV+</th>
@@ -20,8 +22,8 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr><td>AA</td></tr>
-		<tr><td>Latina</td></tr>
-		<tr><td>Trans</td></tr>
+<% @ego_ids.each_pair do |k,v| %>
+		<tr><td><%= k %></td><td><%= v.join(', ') %></td><td><%= v.length %></td></tr>
+<% end %>
 	</tbody>
 </table>
