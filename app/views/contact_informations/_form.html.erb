@@ -47,23 +47,15 @@
 	</div>
 
 	<div class="field">
-		<%= f.label :primary_phone_type %>
-		<%= f.radio_button_with_label(:primary_phone_type, "Cell") %>
-		<%= f.radio_button_with_label(:primary_phone_type, "Home") %>
-		<%= f.radio_button_with_label(:primary_phone_type, "Work") %>
-		<%#= f.clear_all_radio_button_with_label(:primary_phone_type) %>
+		<%= f.radio_button_group_with_labels( :primary_phone_type, [ "Cell", "Home", "Work" ] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.label :primary_phone_message %>
-		<%= f.radio_button_with_label(:primary_phone_message, "Y") %>
-		<%= f.radio_button_with_label(:primary_phone_message, "N") %>
+		<%= f.radio_button_group_with_labels( :primary_phone_message, [ "Y", "N" ]) %>
 	</div>
 
 	<div class="field">
-		<%= f.label :primary_phone_text %>
-		<%= f.radio_button_with_label(:primary_phone_text, "Y") %>
-		<%= f.radio_button_with_label(:primary_phone_text, "N") %>
+		<%= f.radio_button_group_with_labels( :primary_phone_text, [ "Y", "N" ]) %>
 	</div>
 
 	<div class="field">
@@ -72,22 +64,15 @@
 	</div>
 
 	<div class="field">
-		<%= f.label :secondary_phone_type %>
-		<%= f.radio_button_with_label(:secondary_phone_type, "Cell") %>
-		<%= f.radio_button_with_label(:secondary_phone_type, "Home") %>
-		<%= f.radio_button_with_label(:secondary_phone_type, "Work") %>
+		<%= f.radio_button_group_with_labels( :secondary_phone_type, [ "Cell", "Home", "Work" ]) %>
 	</div>
 
 	<div class="field">
-		<%= f.label :secondary_phone_message %>
-		<%= f.radio_button_with_label(:secondary_phone_message, "Y") %>
-		<%= f.radio_button_with_label(:secondary_phone_message, "N") %>
+		<%= f.radio_button_group_with_labels( :secondary_phone_message, [ "Y", "N" ]) %>
 	</div>
 
 	<div class="field">
-		<%= f.label :secondary_phone_text %>
-		<%= f.radio_button_with_label(:secondary_phone_text, "Y") %>
-		<%= f.radio_button_with_label(:secondary_phone_text, "N") %>
+		<%= f.radio_button_group_with_labels( :secondary_phone_text, [ "Y", "N" ]) %>
 	</div>
 
 	<div class="field">
@@ -96,22 +81,15 @@
 	</div>
 
 	<div class="field">
-		<%= f.label :tertiary_phone_type %>
-		<%= f.radio_button_with_label(:tertiary_phone_type, "Cell") %>
-		<%= f.radio_button_with_label(:tertiary_phone_type, "Home") %>
-		<%= f.radio_button_with_label(:tertiary_phone_type, "Work") %>
+		<%= f.radio_button_group_with_labels( :tertiary_phone_type, [ "Cell", "Home", "Work" ]) %>
 	</div>
 
 	<div class="field">
-		<%= f.label :tertiary_phone_message %>
-		<%= f.radio_button_with_label(:tertiary_phone_message, "Y") %>
-		<%= f.radio_button_with_label(:tertiary_phone_message, "N") %>
+		<%= f.radio_button_group_with_labels( :tertiary_phone_message, [ "Y", "N" ]) %>
 	</div>
 
 	<div class="field">
-		<%= f.label :tertiary_phone_text %>
-		<%= f.radio_button_with_label(:tertiary_phone_text, "Y") %>
-		<%= f.radio_button_with_label(:tertiary_phone_text, "N") %>
+		<%= f.radio_button_group_with_labels( :tertiary_phone_text, [ "Y", "N" ] ) %>
 	</div>
 
 	<div class="field">
@@ -155,21 +133,15 @@
 	</div>
 
 	<div class="field">
-		<%= f.label :hopes_data %>
-		<%= f.radio_button_with_label(:hopes_data, "Y") %>
-		<%= f.radio_button_with_label(:hopes_data, "N") %>
+		<%= f.radio_button_group_with_labels( :hopes_data, [ "Y", "N" ]) %>
 	</div>
 
 	<div class="field">
-		<%= f.label :future_data %>
-		<%= f.radio_button_with_label(:future_data, "Y") %>
-		<%= f.radio_button_with_label(:future_data, "N") %>
+		<%= f.radio_button_group_with_labels( :future_data, [ "Y", "N" ]) %>
 	</div>
 
 	<div class="field">
-		<%= f.label :ok_to_mail_negative_test_result %>
-		<%= f.radio_button_with_label(:ok_to_mail_negative_test_result, "Y") %>
-		<%= f.radio_button_with_label(:ok_to_mail_negative_test_result, "N") %>
+		<%= f.radio_button_group_with_labels( :ok_to_mail_negative_test_result, [ "Y", "N" ] ) %>
 	</div>
 
 	<div class="field">
@@ -188,9 +160,7 @@
 	</div>
 
 	<div class="field">
-		<%= f.label :other_person_ok_to_pass_message %>
-		<%= f.radio_button_with_label(:other_person_ok_to_pass_message, "Y") %>
-		<%= f.radio_button_with_label(:other_person_ok_to_pass_message, "N") %>
+		<%= f.radio_button_group_with_labels( :other_person_ok_to_pass_message, [ "Y", "N" ]) %>
 	</div>
 
 	<div class="field">

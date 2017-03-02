@@ -50,4 +50,19 @@ $(document).on('turbolinks:load', function() {
 			$(this).css({ 'background' : 'yellow' });
 	});
 
+
+	$("input[type='radio']").each(function(){ 
+		$(this).prop('previousValue', $(this).prop('checked') );
+	});
+
+	$("input[type='radio']").click(function(){
+		if( $(this).prop('previousValue') ){
+	    $(this).prop('checked', false);
+	    $(this).prop('previousValue', false);
+		} else {
+//	    $(this).prop('checked', true);
+	    $(this).prop('previousValue', true);
+		}
+  });
+
 });
