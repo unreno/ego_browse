@@ -155,6 +155,7 @@ class Study < ApplicationRecord
 	def demographics_hash
 		s = {}
 		s[:id] = self.id
+		s[:name] = self.name
 		s[:hisplats] = self.hisplats
 		s[:genders] = self.genders
 		s[:sexes] = self.sexes

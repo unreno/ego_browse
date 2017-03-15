@@ -12,6 +12,7 @@ class StaticsController < ApplicationController
 		Study.all.each do |study|
 			s = {}
 			s[:id] = study.id
+			s[:name] = study.name
 			s[:hisplats] = study.hisplats
 			s[:genders] = study.genders
 			s[:sexes] = study.sexes
@@ -33,6 +34,7 @@ class StaticsController < ApplicationController
 		Study.all.each do |study|
 			s = {}
 			s[:id] = study.id
+			s[:name] = study.name
 			s[:hisplats] = study.hisplats
 			s[:genders] = study.genders
 			s[:sexes] = study.sexes
@@ -59,6 +61,7 @@ class StaticsController < ApplicationController
 		Study.all.each do |study|
 			s = {}
 			s[:id] = study.id
+			s[:name] = study.name
 			s[:hisplats] = study.hisplats
 			s[:genders] = study.genders
 			s[:sexes] = study.sexes
@@ -88,6 +91,7 @@ class StaticsController < ApplicationController
 		Study.all.each do |study|
 			s = {}
 			s[:id] = study.id
+			s[:name] = study.name
 			s[:hisplats] = study.hisplats
 			s[:genders] = study.genders
 			s[:sexes] = study.sexes
