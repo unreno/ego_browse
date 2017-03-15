@@ -1,0 +1,66 @@
+#
+#	crontab some_crontab_text_file.txt
+#		will overwrite the entire existing crontab setup.
+#
+#	crontab -e 
+#		will open up an editor
+#
+#	crontab -l
+#		will display the crontab file
+#
+#	* * * * * Command to be executed
+#	- - - - -
+#	| | | | |
+#	| | | | +----- Day of week (0-6)
+#	| | | +------- Month (1 - 12)
+#	| | +--------- Day of month (1 - 31)
+#	| +----------- Hour (0 - 23)
+#	+------------- Min (0 - 59)
+#
+#
+# @monthly        Run once a month, "0 0 1 * *".
+# @weekly         Run once a week, "0 0 * * 0".
+# @daily          Run once a day, "0 0 * * *".
+#
+#
+#
+#
+#	changing to bash so can redirect STDERR
+#	20140924 - trying sh so can redirect error (sh is the default so not setting)
+SHELL=/bin/bash
+#	but I want BASH, NOT SH
+
+MAILTO='dotsserver@jakewendt.com'
+
+#	
+#	Add daily mysql_dump
+#	Add weekly mysql_dump
+#	Add monthly mysql_dump
+#
+# @monthly        Run once a month, "0 0 1 * *".
+# @weekly         Run once a week, "0 0 * * 0".
+# @daily          Run once a day, "0 0 * * *".
+
+
+
+
+
+
+* * * * * mysqldump root egoweb > /home/ruby/dbdumps/$(date "+\%Y\%m\%d\%H\%M\%S").egoweb.sql
+
+
+
+# * * * * * mysqldump -u root egoweb > /home/ruby/dbdumps/$(date "+\%Y\%m\%d\%H\%M\%S").egoweb.sql
+
+#@daily mysqldump -u root egoweb > /home/ruby/dbdumps/$(date "+\%Y\%m\%d\%H\%M\%S").egoweb.sql
+
+
+#	Will need to store password in the executing user's ~/.my.cnf
+#	likely this is /home/ruby/.my.cnf
+#	chmod 600 ~/.my.cnf
+#	[client]
+#user = ruby
+#password = XXXXXXXX
+#mysqldump -u ruby -p egoweb > ~/dbdumps/20170222a.egoweb.sql
+
+
