@@ -48,19 +48,15 @@ MAILTO='dotsserver@jakewendt.com'
 
 * * * * * mysqldump root egoweb > /home/ruby/dbdumps/$(date "+\%Y\%m\%d\%H\%M\%S").egoweb.sql
 
-
-
-# * * * * * mysqldump -u root egoweb > /home/ruby/dbdumps/$(date "+\%Y\%m\%d\%H\%M\%S").egoweb.sql
-
 #@daily mysqldump -u root egoweb > /home/ruby/dbdumps/$(date "+\%Y\%m\%d\%H\%M\%S").egoweb.sql
 
 
 #	Will need to store password in the executing user's ~/.my.cnf
 #	likely this is /home/ruby/.my.cnf
 #	chmod 600 ~/.my.cnf
-#	[client]
+
+#[client]
 #user = ruby
 #password = XXXXXXXX
-#mysqldump -u ruby -p egoweb > ~/dbdumps/20170222a.egoweb.sql
 
 
