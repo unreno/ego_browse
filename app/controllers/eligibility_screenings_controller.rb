@@ -6,7 +6,9 @@ class EligibilityScreeningsController < ApplicationController
   # GET /eligibility_screenings
   # GET /eligibility_screenings.json
   def index
-    @eligibility_screenings = EligibilityScreening.all
+    @eligibility_screenings = (params[:eligible_other_than_age])? 
+			EligibilityScreening.eligible_other_than_age :
+			EligibilityScreening.all
   end
 
   # GET /eligibility_screenings/1

@@ -18,6 +18,7 @@
 <li><%#= link_to "Contact Informations (#{ContactInformation.count})", contact_informations_path %></li>
 -->
 <li><%= link_to "Eligibility Screenings (#{EligibilityScreening.count})", eligibility_screenings_path %></li>
+<li><%= link_to "Eligibility Screenings (eligible_other_than_age: #{EligibilityScreening.eligible_other_than_age.count})", eligibility_screenings_path( eligible_other_than_age: true) %>( Caitlin's query )</li>
 <li><%= link_to "Testing Facilitations (#{TestingFacilitation.count})", testing_facilitations_path %></li>
 <li><%= link_to "Interview Notes (#{InterviewNote.count})", interview_notes_path %></li>
 <li><%= link_to "Alter Referral Sheets (#{AlterReferralSheet.count})", alter_referral_sheets_path %></li>

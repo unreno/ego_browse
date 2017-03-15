@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Eligibility Screenings
+<% if params[:eligible_other_than_age] %>
+( eligible other than age )
+<% end %>
 <% if current_rails_user.present? and current_rails_user.is_admin? %>
 [ <%= link_to 'Download CSV', eligibility_screenings_path(format:'csv') %> ]
 <% end %>
