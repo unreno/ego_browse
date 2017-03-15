@@ -57,12 +57,12 @@ $(document).on('turbolinks:load', function() {
 
 	$("input[type='radio']").click(function(){
 		if( $(this).prop('previousValue') ){
-	    $(this).prop('checked', false);
-	    $(this).prop('previousValue', false);
+			$(this).prop('checked', false);
+			$(this).prop('previousValue', false);
 		} else {
-//	    $(this).prop('checked', true);
-	    $(this).prop('previousValue', true);
+//			$(this).prop('checked', true);
+			$(this).prop('previousValue', true);
 		}
-  });
+	});
 
 });
