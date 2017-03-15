@@ -1,3 +1,6 @@
+
+<% e = YAML.load_file('config/answers.yml')['testing_facilitation'].with_indifferent_access %>
+
 <%= form_for(testing_facilitation) do |f| %>
 	<% if testing_facilitation.errors.any? %>
 		<div id="error_explanation">
@@ -32,9 +35,7 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :agree_to_use_home_test_kit_at_site, {
-"Yes (1)": 1,
-"No (0)": 0 }) %>
+		<%= f.radio_button_group_with_labels( :agree_to_use_home_test_kit_at_site, e[:agree_to_use_home_test_kit_at_site] ) %>
 	</div>
 
 	<div class="field">
@@ -43,10 +44,7 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :agree_to_take_test_kit_home, {
-"Yes (1)": 1,
-"No (0)": 0,
-"N/A (2)": 2 }) %>
+		<%= f.radio_button_group_with_labels( :agree_to_take_test_kit_home, e[:agree_to_take_test_kit_home] ) %>
 	</div>
 
 	<div class="field">
@@ -55,9 +53,7 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :agree_to_tell_result_of_home_test_kit, {
-"Yes (1)": 1,
-"No (0)": 0 }) %>
+		<%= f.radio_button_group_with_labels( :agree_to_tell_result_of_home_test_kit, e[:agree_to_tell_result_of_home_test_kit] ) %>
 	</div>
 
 	<div class="field">
@@ -66,19 +62,11 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :result_of_home_test_kit, {
-"Preliminary positive (1)": 1,
-"Negative (0)": 0,
-"Indeterminate (20)": 20 }) %>
+		<%= f.radio_button_group_with_labels( :result_of_home_test_kit, e[:result_of_home_test_kit] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :confirmatory_test_referred_location, {
-"HOPES ... (1)": 1,
-"Primary care provider (2)": 2,
-"WCHD (3)": 3,
-"Planned Parenthood (4)": 4,
-"Other ... (20)": 20 }) %>
+		<%= f.radio_button_group_with_labels( :confirmatory_test_referred_location, e[:confirmatory_test_referred_location] ) %>
 	</div>
 
 	<div class="field">
@@ -92,9 +80,7 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :indeterminate_test_option, {
-"Took another test (1)": 1,
-"Referred to: ... (2)": 2 }) %>
+		<%= f.radio_button_group_with_labels( :indeterminate_test_option, e[:indeterminate_test_option] ) %>
 	</div>
 
 	<div class="field">
@@ -108,17 +94,11 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :urine_to_test, {
-"Yes (1)": 1,
-"No (0)": 0 }) %>
+		<%= f.radio_button_group_with_labels( :urine_to_test, e[:urine_to_test] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :urine_to_test_refusal_reason, {
-"Experiencing symptons and referred to primary care or WCHD (1)": 1,
-"Unable to produce a sample (2)": 2,
-"Refused (3)": 3,
-"Other ... (20)": 20 }) %>
+		<%= f.radio_button_group_with_labels( :urine_to_test_refusal_reason, e[:urine_to_test_refusal_reason] ) %>
 	</div>
 
 	<div class="field">
@@ -127,19 +107,11 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :gonorrhea_result, {
-"Reactive (1)": 1,
-"Non-Reactive (0)": 0,
-"Indeterminate (20)": 20,
-"Not tested (21)": 21 }) %>
+		<%= f.radio_button_group_with_labels( :gonorrhea_result, e[:gonorrhea_result] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :chlamydia_result, {
-"Reactive (1)": 1,
-"Non-Reactive (0)": 0,
-"Indeterminate (20)": 20,
-"Not tested (21)": 21 }) %>
+		<%= f.radio_button_group_with_labels( :chlamydia_result, e[:chlamydia_result] ) %>
 	</div>
 
 	<div class="field">

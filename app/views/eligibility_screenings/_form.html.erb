@@ -1,3 +1,5 @@
+<% e = YAML.load_file('config/answers.yml')['eligibility_screening'].with_indifferent_access %>
+
 <%= form_for(eligibility_screening) do |f| %>
 	<% if eligibility_screening.errors.any? %>
 		<div id="error_explanation">
@@ -17,61 +19,40 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :how_learned, {
-			"Outreach": 1,
-			"Flyer": 2,
-			"Church/Organization": 3,
-			"Other": 20
-		}) %>
+		<%= f.radio_button_group_with_labels( :how_learned, e[:how_learned] ) %>
 		<%= f.label :how_learned_other %>
 		<%= f.text_field :how_learned_other %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :age, {
-			"18-44": 1,
-			"Other": 0
-		}) %>
+		<%= f.radio_button_group_with_labels( :age, e[:age] ) %>
 		<%= f.label :age_other %>
 		<%= f.text_field :age_other %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :gender, {
-			"F/TF": 1,
-			"M/TM": 0
-		}) %>
+		<%= f.radio_button_group_with_labels( :gender, e[:gender] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :gender_at_birth, {
-			"F": 1,
-			"M": 0
-		}) %>
+		<%= f.radio_button_group_with_labels( :gender_at_birth, e[:gender_at_birth] ) %>
 	</div>
 
 	<br/><a>If not black/African/African American or Latina, then ineligible</a><br/>
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :race, {
-			"B/A/AA/L": 1,
-			"Other": 0
-		}) %>
+		<%= f.radio_button_group_with_labels( :race, e[:race] ) %>
 		<%= f.label :race_other %>
 		<%= f.text_field :race_other %>
 	</div>
 
 	<br/><a>Does not affect eligibility</a><br/>
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :children, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :children, e[:children] ) %>
 	</div>
 
 	<br/><a>Does not affect eligibility</a><br/>
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :seen_pcp, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :seen_pcp, e[:seen_pcp] ) %>
 	</div>
 
 	<br/><a>Does not affect eligibility</a><br/>
@@ -80,99 +61,69 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :tested_hiv, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :tested_hiv, e[:tested_hiv] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :tested_hiv_result, {
-"Neg/Unknown": 1,
-"Positive": 0 }) %>
+		<%= f.radio_button_group_with_labels( :tested_hiv_result, e[:tested_hiv_result] ) %>
 	</div>
 
 	<br/><a>2 or more, then eligible</a><br/>
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :partner_count, {
-"2 or more": 1,
-"0-1": 0 }) %>
+		<%= f.radio_button_group_with_labels( :partner_count, e[:partner_count] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :injection_drugs, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :injection_drugs, e[:injection_drugs] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :partner_injection_drugs, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :partner_injection_drugs, e[:partner_injection_drugs] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :partner_noninjection_drugs, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :partner_noninjection_drugs, e[:partner_noninjection_drugs] ) %>
 	</div>
 
 	<br/><a>If yes or don’t know, then eligible</a><br/>
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :partner_hiv_positive, {
-"Yes / Don't Know": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :partner_hiv_positive, e[:partner_hiv_positive] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :partner_other_partners, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :partner_other_partners, e[:partner_other_partners] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :partner_traded_sex, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :partner_traded_sex, e[:partner_traded_sex] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :partner_man_men, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :partner_man_men, e[:partner_man_men] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :eligible_q_9_16, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :eligible_q_9_16, e[:eligible_q_9_16] ) %>
 	</div>
 
 	<br/><a>Must live in Reno, Sparks, Carson, North Valleys area</a><br/>
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :where_live, {
-"R/S/C/SV": 1,
-"Other": 0 }) %>
+		<%= f.radio_button_group_with_labels( :where_live, e[:where_live] ) %>
 		<%= f.label :where_live_other %>
 		<%= f.text_field :where_live_other %>
 	</div>
 
 	<br/><a>Must be willing</a><br/>
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :willing_to_refer, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :willing_to_refer, e[:willing_to_refer] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :matched_to_ego, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :matched_to_ego, e[:matched_to_ego] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :eligible, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :eligible, e[:eligible] ) %>
 	</div>
 
 	<p>To be completed after the screening interview:</p>
@@ -198,9 +149,7 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :referred_for_interview, {
-"Yes": 1,
-"No": 0 }) %>
+		<%= f.radio_button_group_with_labels( :referred_for_interview, e[:referred_for_interview] ) %>
 		<%= f.label :referred_appointment_date %>
 		<%= f.text_field :referred_appointment_date %>
 		<%= f.label :referred_appointment_time %>
@@ -208,11 +157,7 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :reason_for_refusal, {
-"Too busy/not enough time": 1,
-"Don’t want to travel to the site": 2,
-"Don’t want to talk about the study topics": 3,
-"Not interested for some other reason": 20 }) %>
+		<%= f.radio_button_group_with_labels( :reason_for_refusal, e[:reason_for_refusal] ) %>
 		<%= f.text_field :reason_for_refusal_other %>
 	</div>
 

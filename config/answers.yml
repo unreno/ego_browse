@@ -1,0 +1,176 @@
+
+#
+#YAML.load_file('config/answers.yml')['eligibility_screening']
+#
+#Yes, unquoted, returns true as the key????
+#No, unquoted, returns false as the key????
+#If you actually want Yes or No, you must quote them.
+#This is called boolean interpretation or something
+#y|Y|yes|Yes|YES|n|N|no|No|NO
+#|true|True|TRUE|false|False|FALSE
+#|on|On|ON|off|Off|OFF
+#They are effectively reserved words that must be quoted to get the literal value.
+#
+
+eligibility_screening:
+  how_learned:
+    Outreach: 1
+    Flyer: 2
+    Church/Organization: 3
+    Other: 20
+  age:
+    18-44: 1
+    Other: 0
+  gender:
+    F/TF: 1
+    M/TM: 0
+  gender_at_birth:
+    F: 1
+    M: 0
+  race:
+    B/A/AA/L: 1
+    Other: 0
+  children:
+    "Yes": 1
+    "No": 0
+  seen_pcp:
+    "Yes": 1
+    "No": 0
+  tested_hiv:
+    "Yes": 1
+    "No": 0
+  tested_hiv_result:
+    Neg/Unknown: 1
+    Positive: 0
+  partner_count:
+    2 or more: 1
+    0-1: 0
+  injection_drugs:
+    "Yes": 1
+    "No": 0
+  partner_injection_drugs:
+    "Yes": 1
+    "No": 0
+  partner_noninjection_drugs:
+    "Yes": 1
+    "No": 0
+  partner_hiv_positive:
+    "Yes / Don't Know": 1
+    "No": 0
+  partner_other_partners:
+    "Yes": 1
+    "No": 0
+  partner_traded_sex:
+    "Yes": 1
+    "No": 0
+  partner_man_men:
+    "Yes": 1
+    "No": 0
+  eligible_q_9_16:
+    "Yes": 1
+    "No": 0
+  where_live:
+    "R/S/C/SV": 1
+    "Other": 0
+  willing_to_refer:
+    "Yes": 1
+    "No": 0
+  matched_to_ego:
+    "Yes": 1
+    "No": 0
+  eligible:
+    "Yes": 1
+    "No": 0
+  referred_for_interview:
+    "Yes": 1
+    "No": 0
+  reason_for_refusal:
+    "Too busy/not enough time": 1
+    "Don’t want to travel to the site": 2
+    "Don’t want to talk about the study topics": 3
+    "Not interested for some other reason": 20
+
+
+
+testing_facilitation:
+  agree_to_use_home_test_kit_at_site:
+    "Yes (1)": 1
+    "No (0)": 0
+  agree_to_take_test_kit_home:
+    "Yes (1)": 1
+    "No (0)": 0
+    "N/A (2)": 2
+  agree_to_tell_result_of_home_test_kit:
+    "Yes (1)": 1
+    "No (0)": 0
+  result_of_home_test_kit:
+    "Preliminary positive (1)": 1
+    "Negative (0)": 0
+    "Indeterminate (20)": 20
+  confirmatory_test_referred_location:
+    "HOPES ... (1)": 1
+    "Primary care provider (2)": 2
+    "WCHD (3)": 3
+    "Planned Parenthood (4)": 4
+    "Other ... (20)": 20
+  indeterminate_test_option:
+    "Took another test (1)": 1
+    "Referred to: ... (2)": 2
+  urine_to_test:
+    "Yes (1)": 1
+    "No (0)": 0
+  urine_to_test_refusal_reason:
+    "Experiencing symptons and referred to primary care or WCHD (1)": 1
+    "Unable to produce a sample (2)": 2
+    "Refused (3)": 3
+    "Other ... (20)": 20
+  gonorrhea_result:
+    "Reactive (1)": 1
+    "Non-Reactive (0)": 0
+    "Indeterminate (20)": 20
+    "Not tested (21)": 21
+  chlamydia_result:
+    "Reactive (1)": 1
+    "Non-Reactive (0)": 0
+    "Indeterminate (20)": 20
+    "Not tested (21)": 21
+
+
+
+
+sti_questionnaire:
+  stitest_ev:
+    "Yes (1)": 1
+    "No (0)": 0
+  stitest_locn:
+    "Your primary care physician (1)": 1
+    "Your OBGYN (2)": 2
+    "Health district or health department (3)": 3
+    "Mobile outreach clinic or van (4)": 4
+    "Community clinic (eg, Planned Parenthood, NN HOPES) (5)": 5
+    "Other (specify) (20)": 20
+    "Never Tested (0)": 0
+  stitest_rslt:
+    "Never (0)": 0
+    "Almost never (1)": 1
+    "Sometimes (2)": 2
+    "Almost always (3)": 3
+    "Always (4)": 4
+  stitest_future:
+    "Not at all likely (1)": 1
+    "Somewhat unlikely (2)": 2
+    "Not likely nor unlikely (3)": 3
+    "Somewhat likely (4)": 4
+    "Very likely (5)": 5
+  stipercrisk:
+    "Not at all at risk (0)": 0
+    "A little at risk (1)": 1
+    "Somewhat at risk (2)": 2
+    "Very at risk (3)": 3
+    "Extremely at risk (4)": 4
+  stistigma:
+    "Very negative (5)": 5
+    "Negative (4)": 4
+    "Neither negative or positive (3)": 3
+    "Positive (2)": 2
+    "Very positive (1)": 1

@@ -1,3 +1,6 @@
+
+<% e = YAML.load_file('config/answers.yml')['sti_questionnaire'].with_indifferent_access %>
+
 <%= form_for(sti_questionnaire) do |f| %>
 	<% if sti_questionnaire.errors.any? %>
 		<div id="error_explanation">
@@ -32,10 +35,7 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :stitest_ev, {
-			"Yes (1)": 1,
-			"No (0)": 0
-		}) %>
+		<%= f.radio_button_group_with_labels( :stitest_ev, e[:stitest_ev] ) %>
 	</div>
 
 	<div class="field">
@@ -162,15 +162,7 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :stitest_locn, {
-			"Your primary care physician (1)": 1,
-			"Your OBGYN (2)": 2,
-			"Health district or health department (3)": 3,
-			"Mobile outreach clinic or van (4)": 4,
-			"Community clinic (eg, Planned Parenthood, NN HOPES) (5)": 5,
-			"Other (specify) (20)": 20,
-			"Never Tested (0)": 0
-		}) %>
+		<%= f.radio_button_group_with_labels( :stitest_locn, e[:stitest_locn] ) %>
 	</div>
 
 	<div class="field">
@@ -179,13 +171,7 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :stitest_rslt, {
-			"Never (0)": 0,
-			"Almost never (1)": 1,
-			"Sometimes (2)": 2,
-			"Almost always (3)": 3,
-			"Always (4)": 4
-		}) %>
+		<%= f.radio_button_group_with_labels( :stitest_rslt, e[:stitest_rslt] ) %>
 	</div>
 
 	<div class="field">
@@ -243,33 +229,15 @@
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :stitest_future, {
-			"Not at all likely (1)": 1,
-			"Somewhat unlikely (2)": 2,
-			"Not likely nor unlikely (3)": 3,
-			"Somewhat likely (4)": 4,
-			"Very likely (5)": 5
-		}) %>
+		<%= f.radio_button_group_with_labels( :stitest_future, e[:stitest_future] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :stipercrisk, {
-			"Not at all at risk (0)": 0,
-			"A little at risk (1)": 1,
-			"Somewhat at risk (2)": 2,
-			"Very at risk (3)": 3,
-			"Extremely at risk (4)": 4
-		}) %>
+		<%= f.radio_button_group_with_labels( :stipercrisk, e[:stipercrisk] ) %>
 	</div>
 
 	<div class="field">
-		<%= f.radio_button_group_with_labels( :stistigma, {
-			"Very negative (5)": 5,
-			"Negative (4)": 4,
-			"Neither negative or positive (3)": 3,
-			"Positive (2)": 2,
-			"Very positive (1)": 1
-		}) %>
+		<%= f.radio_button_group_with_labels( :stistigma, e[:stistigma] ) %>
 	</div>
 
 	<div class="actions">
