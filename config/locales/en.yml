@@ -30,10 +30,11 @@ en:
         how_learned: How did you learn about the study?
         how_learned_other: Other ...
         age: 1) How old are you?
+        age_other: Actual Age ...
         gender: 2) What gender do you identify with?
         gender_at_birth: 3) What gender were you assigned at birth?
         race: 4) What race do you identify with?
-        race_other: Other Race
+        race_other: Other Race ...
         children: 5) Do you have children?
         seen_pcp: 6) Have you seen a primary care physician in the past 6 months?
         marital: 7) What is your marital status?
@@ -49,7 +50,7 @@ en:
         partner_man_men: 16) Have you ever had sex with a man who has sex with other men?
         eligible_q_9_16: Eligible based on affirmative to at least one of Q 9-16? 
         where_live: 17) Where do you live?
-        where_live_other: Other Where Live
+        where_live_other: Other Where Live ...
         willing_to_refer: 18) If you are eligible for the study and you participated, would you be willing to refer friends, family, or acquaintances to participate in the study?
         matched_to_ego: '19) ALTERS ONLY: Matched to Ego by coupon or name?'
         eligible: Eligible?
@@ -61,7 +62,7 @@ en:
         referred_appointment_date: Referred Appointment Date (mm/dd/yyyy)
         referred_appointment_time: Referred Appointment Time (hh:mm am/pm)
         reason_for_refusal: If refused, reason for refusal
-        reason_for_refusal_other: Other Reason for Refusal
+        reason_for_refusal_other: Other Reason for Refusal ...
       contact_information:
         data_entry_name: Data Entry Person's Name
         first_name: First Name

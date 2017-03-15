@@ -9,7 +9,8 @@ class Mcrypt
 
 	def myencrypt(cleartext)
 		if( cleartext.present? ) then
-			self.iv = 'testing1'	#	8 characters!
+#			self.iv = 'testing1'	#	8 characters!
+			self.iv = (0...8).map { (65 + rand(26)).chr }.join
 			self.padding = :zeroes
 			Base64.encode64( self.iv + self.encrypt( cleartext ) )
 		else
