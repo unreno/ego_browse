@@ -70,8 +70,7 @@ group :test do
 #	gem 'jakewendt-html_test'
 
 
-	#	Solely to preserve alphabetical order in test running
-	gem 'minitest', '= 5.3.3'
+	gem 'minitest', '= 5.3.3' #	Solely to preserve alphabetical order in test running
 
 	gem "simplecov", :require => false	#	for coverage testing
 #	gem "mocha"	#, :require => 'mocha/setup'
