@@ -14,15 +14,28 @@
  *= require_self
  */
 
-table, th, td {
-	border: 1px solid silver;
+table {
 	border-collapse: collapse;
+	th, td {
+		border: 1px solid silver;
+	}
+	tr:nth-child(even) {
+		background: #EEE;
+	}
+	input[type=text]{
+		width: 15em;
+	}
+	&#alter_referral_sheet {
+		td {
+			text-align: center;
+		}
+	}
+	tr th,
+	&.demographics tr td:first-child {
+		background-color: #EEE;
+	}
 }
-/*
-td {
-	text-align: right;
-}
-*/
+
 textarea,
 input[type=text],
 input[type=password]{
@@ -37,29 +50,18 @@ div.field label:first-child {
 p.flash {
 	padding: 2em;
 	border: 2px solid;
-}
-p.flash.notice {
-	border-color: #8F8;
-	background-color: #DFD;
-}
-p.flash.warn {
-	border-color: #F8F;
-	background-color: #FDF;
-}
-p.flash.error {
-	border-color: #F88;
-	background-color: #FDD;
-}
-table input[type=text]{
-	width: 15em;
-}
-table#alter_referral_sheet td {
-	text-align: center;
-}
-
-table tr th,
-table.demographics tr td:first-child {
-	background-color: #EEE;
+	&.notice {
+		border-color: #8F8;
+		background-color: #DFD;
+	}
+	&.warn {
+		border-color: #F8F;
+		background-color: #FDF;
+	}
+	&.error {
+		border-color: #F88;
+		background-color: #FDD;
+	}
 }
 
 
