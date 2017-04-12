@@ -61,7 +61,7 @@ group :test do
 
 	#	For pretty printing
 	#	Doesn't raise errors in the right place in Rails 5
-#	gem "jakewendt-test_with_verbosity"
+	gem "jakewendt-test_with_verbosity"
 
 
 
