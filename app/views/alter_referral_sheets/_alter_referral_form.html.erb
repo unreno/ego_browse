@@ -1,5 +1,5 @@
 <tr>
-	<td><%= f.options[:child_index] + 1 %></td>
+	<td><%= (f.options[:child_index]||0) + 1 %></td>
 	<td><%= f.check_box :plan_to_refer %></td>
 	<td><%= f.text_field :name_cell %></td>
 	<td><%= f.text_field :date_of_alter_interview %></td>

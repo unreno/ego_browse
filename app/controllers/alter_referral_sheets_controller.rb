@@ -2,6 +2,15 @@ class AlterReferralSheetsController < ApplicationController
 	before_action :set_alter_referral_sheet, only: [:show, :edit, :update, :destroy]
 	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
+#	def row
+#		render partial: 'alter_referral_form', locals: {f: form_for(AlterReferralSheet.new)}
+#		render partial: 'alter_referral_form', locals: {
+#			f: ActionView::Helpers::FormBuilder.new('alter_referral_sheet', AlterReferralSheet.new,
+#				@template,{})
+#		}
+#	Can't really do "form_for" with ajax.  Need *_tag stuff.
+#	end
+
 	# GET /alter_referral_sheets
 	# GET /alter_referral_sheets.json
 	def index

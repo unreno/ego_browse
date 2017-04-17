@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :sti_questionnaires
-	resources :alter_referral_sheets
+	resources :alter_referral_sheets #	{ collection { get :row } }
 	resources :interview_notes
 	resources :testing_facilitations
 	resources :contact_informations
