@@ -28,10 +28,27 @@ $(document).on('turbolinks:load', function() {
 //	Should still work as in the document ready block, but isn't.  Errrrr!
 //	$(document).on('click', 'button.add', function(){
 //	Previous versions were adding multiple rows to table? Not clear how or why.
+
+
 	$('button.add').unbind().click(function(){
 
   	for (var i = 0; i < 5; i++) {
 			count = $('table#alter_referral_sheet tr').length - 1;	// current row count
+			//
+			//	These subscripts must be unique or they will overwrite
+			//	each other on submit. I'm simply incrementing them.
+			//	Others use milliseconds since Jan 1, 1970 ...
+			//		var date = new Date();
+			//		var mSec = date.getTime();
+			//		idAttributKind = "person_addresses_attributes_0_kind".replace("0", mSec);
+			//	Either way works.
+			//
+			//	I'd like to make an ajax call to get the table row html
+			//	(or perhaps just on first call), then use "replace"
+			//	to set the correct ids and keys. Perhaps something loaded
+			//	when this particular page initially loads.
+			//	For the moment, this works just fine.
+			//
 			$('table').append('<tr> <td>'+(count+1)+'</td> <td><input name="alter_referral_sheet[alter_referrals_attributes]['+count+'][plan_to_refer]" type="hidden" value="0" /><input type="checkbox" value="1" name="alter_referral_sheet[alter_referrals_attributes]['+count+'][plan_to_refer]" id="alter_referral_sheet_alter_referrals_attributes_'+count+'_plan_to_refer" /></td>' +
 				'<td><input type="text" name="alter_referral_sheet[alter_referrals_attributes]['+count+'][name_cell]" id="alter_referral_sheet_alter_referrals_attributes_'+count+'_name_cell" /></td>' +
 				'<td><input type="text" value="" name="alter_referral_sheet[alter_referrals_attributes]['+count+'][date_of_alter_interview]" id="alter_referral_sheet_alter_referrals_attributes_'+count+'_date_of_alter_interview" /></td>' +
