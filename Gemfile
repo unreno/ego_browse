@@ -70,12 +70,14 @@ group :test do
 #	gem 'jakewendt-html_test'
 
 
-	gem 'minitest', '= 5.3.3' #	Solely to preserve alphabetical order in test running
+#	gem 'minitest', '= 5.3.3' #	Solely to preserve alphabetical order in test running
 
 	gem "simplecov", :require => false	#	for coverage testing
 #	gem "mocha"	#, :require => 'mocha/setup'
 	gem "mocha"	#, :require => 'mocha/api'
 	#	mocha requires "require 'mocha/mini_test'" near the bottom of test/test_helper.rb
+
+	gem "factory_girl_rails"
 
 	gem "autotest-rails", :require => 'autotest/rails'
 
