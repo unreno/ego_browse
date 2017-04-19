@@ -3,7 +3,7 @@ require 'test_helper'
 class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
-		@sti_questionnaire = sti_questionnaires(:one)
+		@sti_questionnaire = FactoryGirl.create(:sti_questionnaire)
 	end
 
 	%w{admin dataentry readonly}.each do |login|

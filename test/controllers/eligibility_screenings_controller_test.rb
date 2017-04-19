@@ -3,7 +3,7 @@ require 'test_helper'
 class EligibilityScreeningsControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
-		@eligibility_screening = eligibility_screenings(:one)
+		@eligibility_screening = FactoryGirl.create(:eligibility_screening)
 	end
 
 	%w{admin dataentry readonly}.each do |login|

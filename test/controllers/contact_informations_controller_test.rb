@@ -3,7 +3,7 @@ require 'test_helper'
 class ContactInformationsControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
-		@contact_information = contact_informations(:one)
+		@contact_information = FactoryGirl.create(:contact_information)
 	end
 
 	%w{admin dataentry readonly}.each do |login|

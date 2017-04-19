@@ -3,7 +3,7 @@ require 'test_helper'
 class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
-		@interview_note = interview_notes(:one)
+		@interview_note = FactoryGirl.create(:interview_note)
 	end
 
 	%w{admin dataentry readonly}.each do |login|

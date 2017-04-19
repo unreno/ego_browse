@@ -3,7 +3,7 @@ require 'test_helper'
 class TestingFacilitationsControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
-		@testing_facilitation = testing_facilitations(:one)
+		@testing_facilitation = FactoryGirl.create(:testing_facilitation)
 	end
 
 	%w{admin dataentry readonly}.each do |login|

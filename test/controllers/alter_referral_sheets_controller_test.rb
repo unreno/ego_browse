@@ -3,7 +3,7 @@ require 'test_helper'
 class AlterReferralSheetsControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
-		@alter_referral_sheet = alter_referral_sheets(:one)
+		@alter_referral_sheet = FactoryGirl.create(:alter_referral_sheet)
 	end
 
 	%w{admin nonadmin}.each do |login|
