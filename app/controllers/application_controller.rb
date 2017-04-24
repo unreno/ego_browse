@@ -79,8 +79,8 @@ class ApplicationController < ActionController::Base
 #	protected
 #
 #	def handle_unverified_request
-#		# raise an exception
-#		fail ActionController::InvalidAuthenticityToken
+##		# raise an exception
+##		fail ActionController::InvalidAuthenticityToken
 #		# or destroy session, redirect
 #		if current_rails_user_session
 #			current_rails_user_session.destroy

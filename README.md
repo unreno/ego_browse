@@ -104,6 +104,9 @@ HOWEVER, the id in the otherSpecifyText WILL NOT.
 #
 
 
+mysql -u root egoweb < <(zcat ~/Downloads/20170419153302.egoweb.sql.gz)
+
+
 
 
 
