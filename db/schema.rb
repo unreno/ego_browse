@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315201858) do
+ActiveRecord::Schema.define(version: 20170425203901) do
 
   create_table "alterList", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "studyId",                     null: false
@@ -37,16 +37,13 @@ ActiveRecord::Schema.define(version: 20170315201858) do
   create_table "alter_referrals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "alter_referral_sheet_id"
     t.integer  "plan_to_refer"
-    t.string   "first_name"
-    t.string   "last_initial",            limit: 1
-    t.string   "last_4_cell",             limit: 4
+    t.string   "name_cell"
     t.string   "date_of_alter_interview"
     t.string   "alter_id"
     t.string   "date_ego_notified"
     t.string   "date_ego_paid"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.string   "name_cell"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["alter_referral_sheet_id"], name: "index_alter_referrals_on_alter_referral_sheet_id", using: :btree
   end
 
@@ -107,6 +104,8 @@ ActiveRecord::Schema.define(version: 20170315201858) do
     t.string   "secondary_city"
     t.string   "secondary_state",                 limit: 5
     t.string   "secondary_zip",                   limit: 10
+    t.string   "hopes_data",                      limit: 1
+    t.string   "future_data",                     limit: 1
     t.string   "ok_to_mail_negative_test_result", limit: 1
     t.string   "email"
     t.string   "other_person_relationship"
@@ -122,8 +121,6 @@ ActiveRecord::Schema.define(version: 20170315201858) do
     t.string   "other_identifying_marks"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
-    t.string   "hopes_data",                      limit: 1
-    t.string   "future_data",                     limit: 1
   end
 
   create_table "eligibility_screenings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -202,6 +199,7 @@ ActiveRecord::Schema.define(version: 20170315201858) do
     t.text     "interview_notes", limit: 65535
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.integer  "network_number"
   end
 
   create_table "interviewers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -223,7 +221,10 @@ ActiveRecord::Schema.define(version: 20170315201858) do
     t.integer "studyId"
     t.integer "alterId1"
     t.integer "alterId2"
-    t.string  "matchedName", null: false
+    t.string  "matchedName",  null: false
+    t.integer "interviewId1"
+    t.integer "interviewId2"
+    t.integer "userId"
   end
 
   create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -394,6 +395,7 @@ ActiveRecord::Schema.define(version: 20170315201858) do
     t.text     "style",               limit: 65535
     t.text     "javascript",          limit: 4294967295
     t.text     "footer",              limit: 4294967295
+    t.text     "header",              limit: 4294967295
   end
 
   create_table "tbl_migration", primary_key: "version", id: :string, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
