@@ -13,6 +13,11 @@
 <table>
 	<thead>
 		<tr>
+			<th>Show</th>
+			<% if current_rails_user.present? and current_rails_user.can_destroy? %>
+			<th>Edit</th>
+			<th>Destroy</th>
+			<% end %>
 			<th>Data entry name</th>
 			<th>First name</th>
 			<th>Middle name</th>
@@ -54,17 +59,17 @@
 			<th>Eye color</th>
 			<th>Hair</th>
 			<th>Other identifying marks</th>
-			<th>Show</th>
-			<% if current_rails_user.present? and current_rails_user.can_destroy? %>
-			<th>Edit</th>
-			<th>Destroy</th>
-			<% end %>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @contact_informations.each do |contact_information| %>
 			<tr>
+				<td><%= link_to 'Show', contact_information %></td>
+				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
+					<td><%= link_to 'Edit', edit_contact_information_path(contact_information) %></td>
+					<td><%= link_to 'Destroy', contact_information, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<% end %>
 				<td><%= contact_information.data_entry_name %></td>
 				<td><%= contact_information.first_name %></td>
 				<td><%= contact_information.middle_name %></td>
@@ -106,11 +111,6 @@
 				<td><%= contact_information.eye_color %></td>
 				<td><%= contact_information.hair %></td>
 				<td><%= contact_information.other_identifying_marks %></td>
-				<td><%= link_to 'Show', contact_information %></td>
-				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
-					<td><%= link_to 'Edit', edit_contact_information_path(contact_information) %></td>
-					<td><%= link_to 'Destroy', contact_information, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-				<% end %>
 			</tr>
 		<% end %>
 	</tbody>

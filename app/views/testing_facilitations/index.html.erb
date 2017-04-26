@@ -13,6 +13,11 @@
 <table>
 	<thead>
 		<tr>
+			<th>Show</th>
+			<% if current_rails_user.present? and current_rails_user.can_destroy? %>
+			<th>Edit</th>
+			<th>Destroy</th>
+			<% end %>
 			<th>Data entry name</th>
 			<th>Date of visit</th>
 			<th>Participant</th>
@@ -36,17 +41,17 @@
 			<th>Gonorrhea Result</th>
 			<th>Chlamydia Result</th>
 			<th>Notes</th>
-			<th>Show</th>
-			<% if current_rails_user.present? and current_rails_user.can_destroy? %>
-			<th>Edit</th>
-			<th>Destroy</th>
-			<% end %>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @testing_facilitations.each do |testing_facilitation| %>
 			<tr>
+				<td><%= link_to 'Show', testing_facilitation %></td>
+				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
+					<td><%= link_to 'Edit', edit_testing_facilitation_path(testing_facilitation) %></td>
+					<td><%= link_to 'Destroy', testing_facilitation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<% end %>
 				<td><%= testing_facilitation.data_entry_name %></td>
 				<td><%= testing_facilitation.date_of_visit %></td>
 				<td><%= testing_facilitation.participant_id %></td>
@@ -70,11 +75,6 @@
 				<td><%= testing_facilitation.gonorrhea_result %></td>
 				<td><%= testing_facilitation.chlamydia_result %></td>
 				<td><%= testing_facilitation.notes %></td>
-				<td><%= link_to 'Show', testing_facilitation %></td>
-				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
-					<td><%= link_to 'Edit', edit_testing_facilitation_path(testing_facilitation) %></td>
-					<td><%= link_to 'Destroy', testing_facilitation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-				<% end %>
 			</tr>
 		<% end %>
 	</tbody>

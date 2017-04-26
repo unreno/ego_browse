@@ -10,28 +10,28 @@
 <table>
 	<thead>
 		<tr>
-			<th>Data Entry Name</th>
-			<th><%= t 'activerecord.attributes.alter_referral_sheet.ego_id' %></th>
-			<th>Referals</th>
 			<th>Show</th>
 			<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 			<th>Edit</th>
 			<th>Destroy</th>
 			<% end %>
+			<th>Data Entry Name</th>
+			<th><%= t 'activerecord.attributes.alter_referral_sheet.ego_id' %></th>
+			<th>Referals</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @alter_referral_sheets.each do |alter_referral_sheet| %>
 			<tr>
-				<td><%= alter_referral_sheet.data_entry_name %></td>
-				<td><%= alter_referral_sheet.ego_id %></td>
-				<td><%= alter_referral_sheet.alter_referrals_count %></td>
 				<td><%= link_to 'Show', alter_referral_sheet %></td>
 				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 					<td><%= link_to 'Edit', edit_alter_referral_sheet_path(alter_referral_sheet) %></td>
 					<td><%= link_to 'Destroy', alter_referral_sheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				<% end %>
+				<td><%= alter_referral_sheet.data_entry_name %></td>
+				<td><%= alter_referral_sheet.ego_id %></td>
+				<td><%= alter_referral_sheet.alter_referrals_count %></td>
 			</tr>
 		<% end %>
 	</tbody>

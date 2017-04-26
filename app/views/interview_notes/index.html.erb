@@ -13,34 +13,32 @@
 <table>
 	<thead>
 		<tr>
-			<th>Data Entry Name</th>
-			<th>Participant</th>
-			<th>Network Number</th>
-			<th>Interview date</th>
-			<th>Interviewer</th>
-			<th>Interview notes</th>
 			<th>Show</th>
 			<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 			<th>Edit</th>
 			<th>Destroy</th>
 			<% end %>
+			<th>Data Entry Name</th>
+			<th>Participant</th>
+			<th>Interview date</th>
+			<th>Interviewer</th>
+			<th>Interview notes</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @interview_notes.each do |interview_note| %>
 			<tr>
-				<td><%= interview_note.data_entry_name %></td>
-				<td><%= interview_note.participant_id %></td>
-				<td><%= interview_note.network_number %></td>
-				<td><%= interview_note.interview_date %></td>
-				<td><%= interview_note.interviewer %></td>
-				<td><%= interview_note.interview_notes %></td>
 				<td><%= link_to 'Show', interview_note %></td>
 				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
 					<td><%= link_to 'Edit', edit_interview_note_path(interview_note) %></td>
 					<td><%= link_to 'Destroy', interview_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				<% end %>
+				<td><%= interview_note.data_entry_name %></td>
+				<td><%= interview_note.participant_id %></td>
+				<td><%= interview_note.interview_date %></td>
+				<td><%= interview_note.interviewer %></td>
+				<td><%= interview_note.interview_notes %></td>
 			</tr>
 		<% end %>
 	</tbody>
