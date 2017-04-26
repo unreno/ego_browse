@@ -5,24 +5,24 @@
 <table>
 	<thead>
 		<tr>
+			<th>&nbsp;</th>
 			<th>Active</th>
 			<th>Study ID</th>
 			<th>Completed</th>
 			<th>Start date</th>
 			<th>Complete date</th>
-			<th>&nbsp;</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @interviews.each do |interview| %>
 			<tr>
+				<td><%= link_to 'Show', interview %></td>
 				<td><%= interview.active %></td>
 				<td><%= link_to interview.studyId, interview.study %></td>
 				<td><%= interview.completed %></td>
 				<td><%= interview.start_date %></td>
 				<td><%= interview.complete_date %></td>
-				<td><%= link_to 'Show', interview %></td>
 			</tr>
 		<% end %>
 	</tbody>

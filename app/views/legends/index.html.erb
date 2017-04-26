@@ -5,6 +5,7 @@
 <table>
 	<thead>
 		<tr>
+			<th>&nbsp;</th>
 			<th>Study ID</th>
 			<th>Question ID</th>
 			<th>Shape</th>
@@ -12,13 +13,13 @@
 			<th>Color</th>
 			<th>Size</th>
 			<th>Ordering</th>
-			<th>&nbsp;</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @legends.each do |legend| %>
 			<tr>
+				<td><%= link_to 'Show', legend %></td>
 				<td><%= link_to legend.studyId, legend.study %></td>
 				<td><%= link_to legend.questionId, legend.question %></td>
 				<td><%= legend.shape %></td>
@@ -26,7 +27,6 @@
 				<td><%= legend.color %></td>
 				<td><%= legend.size %></td>
 				<td><%= legend.ordering %></td>
-				<td><%= link_to 'Show', legend %></td>
 			</tr>
 		<% end %>
 	</tbody>

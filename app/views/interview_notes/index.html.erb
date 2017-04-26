@@ -13,11 +13,7 @@
 <table>
 	<thead>
 		<tr>
-			<th>Show</th>
-			<% if current_rails_user.present? and current_rails_user.can_destroy? %>
-			<th>Edit</th>
-			<th>Destroy</th>
-			<% end %>
+			<th>&nbsp;</th>
 			<th>Data Entry Name</th>
 			<th>Participant ID</th>
 			<th>Participant prefix</th>
@@ -31,11 +27,12 @@
 	<tbody>
 		<% @interview_notes.each do |interview_note| %>
 			<tr>
-				<td><%= link_to 'Show', interview_note %></td>
+				<td><%= link_to 'Show', interview_note %>
 				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
-					<td><%= link_to 'Edit', edit_interview_note_path(interview_note) %></td>
-					<td><%= link_to 'Destroy', interview_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					<%= link_to 'Edit', edit_interview_note_path(interview_note) %>
+					<%= link_to 'Destroy', interview_note, method: :delete, data: { confirm: 'Are you sure?' } %>
 				<% end %>
+				</td>
 				<td><%= interview_note.data_entry_name %></td>
 				<td><%= interview_note.participant_id %></td>
 				<td><%= interview_note.participant_prefix %></td>

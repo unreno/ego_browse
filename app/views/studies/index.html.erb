@@ -5,6 +5,7 @@
 <table>
 	<thead>
 		<tr>
+			<th>&nbsp;</th>
 			<th>Active</th>
 			<th>Name</th>
 			<th>Introduction</th>
@@ -30,13 +31,13 @@
 			<th>Style</th>
 			<th>Javascript</th>
 			<th>Footer</th>
-			<th>&nbsp;</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @studies.each do |study| %>
 			<tr>
+				<td><%= link_to 'Show', study %></td>
 				<td><%= study.active %></td>
 				<td><%= study.name %></td>
 				<td><%= study.introduction %></td>
@@ -62,7 +63,6 @@
 				<td><%= study.style %></td>
 				<td><%= study.javascript %></td>
 				<td><%= study.footer %></td>
-				<td><%= link_to 'Show', study %></td>
 			</tr>
 		<% end %>
 	</tbody>

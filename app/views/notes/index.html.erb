@@ -5,22 +5,22 @@
 <table>
 	<thead>
 		<tr>
+			<th>&nbsp;</th>
 			<th>Interview ID</th>
 			<th>Expression ID</th>
 			<th>Alter ID</th>
 			<th>Notes</th>
-			<th>&nbsp;</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @notes.each do |note| %>
 			<tr>
+				<td><%= link_to 'Show', note %></td>
 				<td><%= link_to note.interviewId, note.interview %></td>
 				<td><%= link_to note.expressionId, note.expression %></td>
 				<td><%= link_to note.alterId, note.alter %></td>
 				<td><%= note.notes %></td>
-				<td><%= link_to 'Show', note %></td>
 			</tr>
 		<% end %>
 	</tbody>

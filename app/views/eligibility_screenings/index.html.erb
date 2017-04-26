@@ -16,11 +16,7 @@
 <table>
 	<thead>
 		<tr>
-			<th>Show</th>
-			<% if current_rails_user.present? and current_rails_user.can_destroy? %>
-			<th>Edit</th>
-			<th>Destroy</th>
-			<% end %>
+			<th>&nbsp;</th>
 			<th>Data Entry Name</th>
 			<th>How learned</th>
 			<th>How learned other</th>
@@ -64,11 +60,12 @@
 	<tbody>
 		<% @eligibility_screenings.each do |eligibility_screening| %>
 			<tr>
-				<td><%= link_to 'Show', eligibility_screening %></td>
+				<td><%= link_to 'Show', eligibility_screening %>
 				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
-					<td><%= link_to 'Edit', edit_eligibility_screening_path(eligibility_screening) %></td>
-					<td><%= link_to 'Destroy', eligibility_screening, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					<%= link_to 'Edit', edit_eligibility_screening_path(eligibility_screening) %>
+					<%= link_to 'Destroy', eligibility_screening, method: :delete, data: { confirm: 'Are you sure?' } %>
 				<% end %>
+				</td>
 				<td><%= eligibility_screening.data_entry_name %></td>
 				<td><%= eligibility_screening.how_learned %></td>
 				<td><%= eligibility_screening.how_learned_other %></td>

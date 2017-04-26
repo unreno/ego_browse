@@ -5,6 +5,7 @@
 <table>
 	<thead>
 		<tr>
+			<th>&nbsp;</th>
 			<th>Active</th>
 			<th>Title</th>
 			<th>Prompt</th>
@@ -48,13 +49,13 @@
 			<th>Networkesizeq ID</th>
 			<th>Usealterlistfield</th>
 			<th>Javascript</th>
-			<th>&nbsp;</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @questions.each do |question| %>
 			<tr>
+				<td><%= link_to 'Show', question %></td>
 				<td><%= question.active %></td>
 				<td><%= question.title %></td>
 				<td><%= question.prompt %></td>
@@ -98,7 +99,6 @@
 				<td><%= question.networkESizeQId %></td>
 				<td><%= question.useAlterListField %></td>
 				<td><%= question.javascript %></td>
-				<td><%= link_to 'Show', question %></td>
 			</tr>
 		<% end %>
 	</tbody>

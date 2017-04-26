@@ -5,22 +5,22 @@
 <table>
 	<thead>
 		<tr>
+			<th>&nbsp;</th>
 			<th>Interview ID</th>
 			<th>Expression ID</th>
 			<th>Nodes</th>
 			<th>Params</th>
-			<th>&nbsp;</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @graphs.each do |graph| %>
 			<tr>
+				<td><%= link_to 'Show', graph %></td>
 				<td><%= link_to graph.interviewId, graph.interview %></td>
 				<td><%= link_to graph.expressionId, graph.expression %></td>
 				<td><%= graph.nodes %></td>
 				<td><%= graph.params %></td>
-				<td><%= link_to 'Show', graph %></td>
 			</tr>
 		<% end %>
 	</tbody>

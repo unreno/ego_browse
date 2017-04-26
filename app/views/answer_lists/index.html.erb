@@ -5,22 +5,22 @@
 <table>
 	<thead>
 		<tr>
+			<th>&nbsp;</th>
 			<th>Active</th>
 			<th>Listname</th>
 			<th>Study ID</th>
 			<th>Listoptionnames</th>
-			<th>&nbsp;</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @answer_lists.each do |answer_list| %>
 			<tr>
+				<td><%= link_to 'Show', answer_list %></td>
 				<td><%= answer_list.active %></td>
 				<td><%= answer_list.listName %></td>
 				<td><%= link_to answer_list.studyId, answer_list.study %></td>
 				<td><%= answer_list.listOptionNames %></td>
-				<td><%= link_to 'Show', answer_list %></td>
 			</tr>
 		<% end %>
 	</tbody>

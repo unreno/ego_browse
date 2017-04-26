@@ -5,22 +5,22 @@
 <table>
 	<thead>
 		<tr>
+			<th>&nbsp;</th>
 			<th>Study ID</th>
 			<th>Alterid1</th>
 			<th>Alterid2</th>
 			<th>Matchedname</th>
-			<th>&nbsp;</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @matched_alters.each do |matched_alter| %>
 			<tr>
+				<td><%= link_to 'Show', matched_alter %></td>
 				<td><%= link_to matched_alter.studyId, matched_alter.study %></td>
 				<td><%= link_to matched_alter.alterId1, matched_alter.alter1 %></td>
 				<td><%= link_to matched_alter.alterId2, matched_alter.alter2 %></td>
 				<td><%= matched_alter.matchedName %></td>
-				<td><%= link_to 'Show', matched_alter %></td>
 			</tr>
 		<% end %>
 	</tbody>

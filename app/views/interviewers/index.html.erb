@@ -5,18 +5,18 @@
 <table>
 	<thead>
 		<tr>
+			<th>&nbsp;</th>
 			<th>Study ID</th>
 			<th>Interviewer ID</th>
-			<th>&nbsp;</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @interviewers.each do |interviewer| %>
 			<tr>
+				<td><%= link_to 'Show', interviewer %></td>
 				<td><%= link_to interviewer.studyId, interviewer.study %></td>
 				<td><%= interviewer.interviewerId %></td>
-				<td><%= link_to 'Show', interviewer %></td>
 			</tr>
 		<% end %>
 	</tbody>

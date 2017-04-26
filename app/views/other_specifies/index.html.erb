@@ -5,22 +5,22 @@
 <table>
 	<thead>
 		<tr>
+			<th>&nbsp;</th>
 			<th>Option ID</th>
 			<th>Interview ID</th>
 			<th>Value</th>
 			<th>Alter ID</th>
-			<th>&nbsp;</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @other_specifies.each do |other_specify| %>
 			<tr>
+				<td><%= link_to 'Show', other_specify %></td>
 				<td><%= other_specify.optionId %></td>
 				<td><%= link_to other_specify.interviewId, other_specify.interview %></td>
 				<td><%= other_specify.value %></td>
 				<td><%= link_to other_specify.alterId, other_specify.alter %></td>
-				<td><%= link_to 'Show', other_specify %></td>
 			</tr>
 		<% end %>
 	</tbody>

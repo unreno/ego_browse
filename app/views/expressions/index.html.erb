@@ -5,6 +5,7 @@
 <table>
 	<thead>
 		<tr>
+			<th>&nbsp;</th>
 			<th>Active</th>
 			<th>Name</th>
 			<th>Type</th>
@@ -13,13 +14,13 @@
 			<th>Resultforunanswered</th>
 			<th>Study ID</th>
 			<th>Question ID</th>
-			<th>&nbsp;</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @expressions.each do |expression| %>
 			<tr>
+				<td><%= link_to 'Show', expression %></td>
 				<td><%= expression.active %></td>
 				<td><%= expression.name %></td>
 				<td><%= expression.type %></td>
@@ -28,7 +29,6 @@
 				<td><%= expression.resultForUnanswered %></td>
 				<td><%= link_to expression.studyId, expression.study %></td>
 				<td><%= link_to expression.questionId, expression.question %></td>
-				<td><%= link_to 'Show', expression %></td>
 			</tr>
 		<% end %>
 	</tbody>

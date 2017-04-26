@@ -5,6 +5,7 @@
 <table>
 	<thead>
 		<tr>
+			<th>&nbsp;</th>
 			<th>Active</th>
 			<th>Study ID</th>
 			<th>Question ID</th>
@@ -12,13 +13,13 @@
 			<th>Value</th>
 			<th>Ordering</th>
 			<th>Otherspecify</th>
-			<th>&nbsp;</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @question_options.each do |question_option| %>
 			<tr>
+				<td><%= link_to 'Show', question_option %></td>
 				<td><%= question_option.active %></td>
 				<td><%= link_to question_option.studyId, question_option.study %></td>
 				<td><%= link_to question_option.questionId, question_option.question %></td>
@@ -26,7 +27,6 @@
 				<td><%= question_option.value %></td>
 				<td><%= question_option.ordering %></td>
 				<td><%= question_option.otherSpecify %></td>
-				<td><%= link_to 'Show', question_option %></td>
 			</tr>
 		<% end %>
 	</tbody>
