@@ -1,5 +1,5 @@
 <% require 'csv' -%>
 <%= StiQuestionnaire.attribute_names.to_csv -%>
 <% @sti_questionnaires.each do |sti_questionnaire| %>
-<%= StiQuestionnaire.attribute_names.collect{|a| sti_questionnaire[a] }.to_csv.html_safe -%>
+<%= StiQuestionnaire.attribute_names.collect{|a| sti_questionnaire.send(a) }.to_csv.html_safe -%>
 <% end %>

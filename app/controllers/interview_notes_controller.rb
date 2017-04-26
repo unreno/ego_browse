@@ -6,7 +6,7 @@ class InterviewNotesController < ApplicationController
   # GET /interview_notes
   # GET /interview_notes.json
   def index
-    @interview_notes = InterviewNote.all
+    @interview_notes = InterviewNote.order(:participant_id)
   end
 
   # GET /interview_notes/1

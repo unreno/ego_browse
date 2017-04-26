@@ -1,5 +1,5 @@
 <% require 'csv' -%>
 <%= TestingFacilitation.attribute_names.to_csv -%>
 <% @testing_facilitations.each do |testing_facilitation| %>
-<%= TestingFacilitation.attribute_names.collect{|a| testing_facilitation[a] }.to_csv.html_safe -%>
+<%= TestingFacilitation.attribute_names.collect{|a| testing_facilitation.send(a) }.to_csv.html_safe -%>
 <% end %>

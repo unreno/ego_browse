@@ -6,7 +6,7 @@ class StiQuestionnairesController < ApplicationController
 	# GET /sti_questionnaires
 	# GET /sti_questionnaires.json
 	def index
-		@sti_questionnaires = StiQuestionnaire.all
+		@sti_questionnaires = StiQuestionnaire.order(:participant_id)
 	end
 
 	# GET /sti_questionnaires/1

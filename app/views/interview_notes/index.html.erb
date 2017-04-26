@@ -19,7 +19,9 @@
 			<th>Destroy</th>
 			<% end %>
 			<th>Data Entry Name</th>
-			<th>Participant</th>
+			<th>Participant ID</th>
+			<th>Participant prefix</th>
+			<th>Participant suffix</th>
 			<th>Interview date</th>
 			<th>Interviewer</th>
 			<th>Interview notes</th>
@@ -36,6 +38,8 @@
 				<% end %>
 				<td><%= interview_note.data_entry_name %></td>
 				<td><%= interview_note.participant_id %></td>
+				<td><%= interview_note.participant_prefix %></td>
+				<td><%= interview_note.participant_suffix %></td>
 				<td><%= interview_note.interview_date %></td>
 				<td><%= interview_note.interviewer %></td>
 				<td><%= interview_note.interview_notes %></td>

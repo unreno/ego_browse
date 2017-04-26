@@ -6,7 +6,7 @@ class TestingFacilitationsController < ApplicationController
 	# GET /testing_facilitations
 	# GET /testing_facilitations.json
 	def index
-		@testing_facilitations = TestingFacilitation.all
+		@testing_facilitations = TestingFacilitation.order(:participant_id)
 	end
 
 	# GET /testing_facilitations/1
