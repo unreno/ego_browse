@@ -114,16 +114,11 @@ class Study < ApplicationRecord
 		a = Answer.arel_table.alias(:a)
 		i = Interview.arel_table
 		DemoArray.new(interviews
-			.joins(Arel::Nodes::OuterJoin.new(r,
-				Arel::Nodes::On.new(i[:id].eq(r[:interviewId]).and(r[:questionId].eq(race_qid)))))
-			.joins(Arel::Nodes::OuterJoin.new(h,
-				Arel::Nodes::On.new(i[:id].eq(h[:interviewId]).and(h[:questionId].eq(hisplat_qid)))))
-			.joins(Arel::Nodes::OuterJoin.new(g,
-				Arel::Nodes::On.new(i[:id].eq(g[:interviewId]).and(g[:questionId].eq(gender_qid)))))
-			.joins(Arel::Nodes::OuterJoin.new(s,
-				Arel::Nodes::On.new(i[:id].eq(s[:interviewId]).and(s[:questionId].eq(sex_qid)))))
-			.joins(Arel::Nodes::OuterJoin.new(a,
-				Arel::Nodes::On.new(i[:id].eq(a[:interviewId]).and(a[:questionId].eq(subject_qid)))))
+			.joins(outer(r, i[:id].eq(r[:interviewId]).and(r[:questionId].eq(race_qid))))
+			.joins(outer(h, i[:id].eq(h[:interviewId]).and(h[:questionId].eq(hisplat_qid))))
+			.joins(outer(g, i[:id].eq(g[:interviewId]).and(g[:questionId].eq(gender_qid))))
+			.joins(outer(s, i[:id].eq(s[:interviewId]).and(s[:questionId].eq(sex_qid))))
+			.joins(outer(a, i[:id].eq(a[:interviewId]).and(a[:questionId].eq(subject_qid))))
 			.select(i[:id])
 			.select(r[:value].as('race'))
 			.select(h[:value].as('hisplat'))
