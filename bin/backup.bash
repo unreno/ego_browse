@@ -2,7 +2,7 @@
 
 set -x
 
-mount_point="/home/ruby/box"
+mount_point="/home/$USER/box"
 dump_dir="$mount_point/DOTS Global/Data/dbdumps"
 
 mount $mount_point
