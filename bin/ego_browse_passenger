@@ -37,14 +37,16 @@ case "$1" in
 		echo "Starting EGO Web passenger" 
 		#		iptables --policy INPUT ACCEPT
 		#	Be more specific
-		iptables -A INPUT -p tcp --dport 3000 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+#	using ufw for permanent setting so this is now unnecessary
+#		iptables -A INPUT -p tcp --dport 3000 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 		cd $APP
 		echo "$PASSENGER start --port $PORT --environment $ENVIRONMENT --daemonize"
 		$PASSENGER start --port $PORT --environment $ENVIRONMENT --daemonize
 		;; 
 	stop) 
 		echo "Stopping EGO Web passenger" 
-		iptables -D INPUT -p tcp --dport 3000 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+#	using ufw for permanent setting so this is now unnecessary
+#		iptables -D INPUT -p tcp --dport 3000 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 		cd $APP
 		echo "$PASSENGER stop -p $PORT"
 		$PASSENGER stop -p $PORT
