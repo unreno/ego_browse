@@ -32,6 +32,8 @@ SHELL=/bin/bash
 
 MAILTO='dotsserver@jakewendt.com'
 
+USER=ruby
+
 #	
 #	Add daily mysql_dump
 #	Add weekly mysql_dump
@@ -48,7 +50,9 @@ MAILTO='dotsserver@jakewendt.com'
 
 #* * * * * mysqldump egoweb | gzip > /home/ruby/dbdumps/$(date "+\%Y\%m\%d\%H\%M\%S").egoweb.sql.gz
 
-@daily mysqldump egoweb | gzip > /home/ruby/dbdumps/$(date "+\%Y\%m\%d\%H\%M\%S").egoweb.sql.gz
+#	@daily mysqldump egoweb | gzip > /home/ruby/dbdumps/$(date "+\%Y\%m\%d\%H\%M\%S").egoweb.sql.gz
+
+@daily /var/www/ego_browse/bin/backup.bash
 
 
 #	Will need to store password in the executing user's ~/.my.cnf
