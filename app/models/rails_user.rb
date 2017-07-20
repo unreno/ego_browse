@@ -2,6 +2,12 @@ class RailsUser < ApplicationRecord
 
 	has_and_belongs_to_many :rails_roles,  ->{ distinct }
 
+	validates :password, format: {
+			with: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)/,
+			message: 'requires at least one lowercase and one uppercase letter, one number and one special character',
+		},
+		confirmation: true
+
 	def role_names
 		rails_roles.collect(&:name).uniq
 	end

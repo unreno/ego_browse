@@ -1,0 +1,36 @@
+
+<h2>Edit Password</h2>
+<%= form_for( current_rails_user, :url => password_path,
+	:method => :put,
+	:class => 'edit_user' ) do |f| %>
+
+	<% if current_rails_user.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(current_rails_user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+			<ul>
+				<% current_rails_user.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class='current_password field_wrapper'>
+		<label for="user_current_password">Current Password</label>
+		<input id="user_current_password" name="user[current_password]" size="30" type="password" />
+	</div><!-- class='current_password' -->
+
+	<div class='password field_wrapper'>
+		<label for="user_password">New Password</label>
+		<input id="user_password" name="user[password]" size="30" type="password" />
+	</div><!-- class='password' -->
+
+	<div class='password_confirmation field_wrapper'>
+		<label for="user_password_confirmation">New Password Confirmation</label>
+		<input id="user_password_confirmation" name="user[password_confirmation]" size="30" type="password" />
+	</div><!-- class='password_confirmation' -->
+
+<p><%= f.submit "Submit" %></p>
+<p><%#=required('*')-%>&nbsp;-&nbsp;Password requires at least one lowercase and one uppercase letter, one number and one special character </p>
+<% end %>

@@ -41,5 +41,6 @@ Rails.application.routes.draw do
 	root :to => "statics#index"
 
 	get 'logout' =>  'rails_user_sessions#destroy'
+	get 'login' =>   'rails_user_sessions#new'	#, :as => :login
 
 end
