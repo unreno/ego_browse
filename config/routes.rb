@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 	resources :eligibility_screenings
 
 	resource :rails_user_session
+	resource :password, :only => [:edit,:update]
 
 	resources :other_specifies, :only => [:show,:index]
 	resources :users, :only => [:show,:index]

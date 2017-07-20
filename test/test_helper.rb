@@ -132,6 +132,7 @@ class ActionDispatch::IntegrationTest
 			login: login,
 			password: 'Test123!'
 		} }
+		user
 	end
 	alias :create_and_login :create_and_login_as
 

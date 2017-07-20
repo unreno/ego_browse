@@ -38,10 +38,10 @@ class TestingFacilitationsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should create testing_facilitation with #{login} login" do
 			create_and_login_as(login)
-			params = TestingFacilitation.new.attributes.with_indifferent_access
-				.except(:id,:created_at,:updated_at,:alter_referrals_count)
+			params = FactoryGirl.build(:testing_facilitation).attributes
+				.except('id','created_at','updated_at')
 			assert_difference('TestingFacilitation.count') do
-				post testing_facilitations_url, params: { testing_facilitation: params.update({ agree_to_take_test_kit_home: @testing_facilitation.agree_to_take_test_kit_home, agree_to_take_test_kit_home_refusal_reason: @testing_facilitation.agree_to_take_test_kit_home_refusal_reason, agree_to_tell_result_of_home_test_kit: @testing_facilitation.agree_to_tell_result_of_home_test_kit, agree_to_tell_result_of_home_test_kit_refusal_reason: @testing_facilitation.agree_to_tell_result_of_home_test_kit_refusal_reason, agree_to_use_home_test_kit_at_site: @testing_facilitation.agree_to_use_home_test_kit_at_site, agree_to_use_home_test_kit_at_site_refusal_reason: @testing_facilitation.agree_to_use_home_test_kit_at_site_refusal_reason, confirmatory_test_referred_appointment: @testing_facilitation.confirmatory_test_referred_appointment, confirmatory_test_referred_location: @testing_facilitation.confirmatory_test_referred_location, confirmatory_test_referred_location_other: @testing_facilitation.confirmatory_test_referred_location_other, date_of_visit: @testing_facilitation.date_of_visit, indeterminate_test_option: @testing_facilitation.indeterminate_test_option, indeterminate_test_referred_to: @testing_facilitation.indeterminate_test_referred_to, indeterminate_test_result: @testing_facilitation.indeterminate_test_result, notes: @testing_facilitation.notes, participant_id: @testing_facilitation.participant_id, result_of_home_test_kit: @testing_facilitation.result_of_home_test_kit, staff_person: @testing_facilitation.staff_person, urine_to_test: @testing_facilitation.urine_to_test, urine_to_test_refusal_reason: @testing_facilitation.urine_to_test_refusal_reason, urine_to_test_refusal_reason_other: @testing_facilitation.urine_to_test_refusal_reason_other }) }
+				post testing_facilitations_url, params: { testing_facilitation: params }
 			end
 			assert_redirected_to testing_facilitation_url(TestingFacilitation.last)
 		end
@@ -49,8 +49,10 @@ class TestingFacilitationsControllerTest < ActionDispatch::IntegrationTest
 		test "should not create testing_facilitation with #{login} login if save fails" do
 			create_and_login_as(login)
 			TestingFacilitation.any_instance.stubs(:create_or_update).returns(false)
+			params = FactoryGirl.build(:testing_facilitation).attributes
+				.except('id','created_at','updated_at')
 			assert_difference('TestingFacilitation.count',0) do
-				post testing_facilitations_url, params: { testing_facilitation: { agree_to_take_test_kit_home: @testing_facilitation.agree_to_take_test_kit_home, agree_to_take_test_kit_home_refusal_reason: @testing_facilitation.agree_to_take_test_kit_home_refusal_reason, agree_to_tell_result_of_home_test_kit: @testing_facilitation.agree_to_tell_result_of_home_test_kit, agree_to_tell_result_of_home_test_kit_refusal_reason: @testing_facilitation.agree_to_tell_result_of_home_test_kit_refusal_reason, agree_to_use_home_test_kit_at_site: @testing_facilitation.agree_to_use_home_test_kit_at_site, agree_to_use_home_test_kit_at_site_refusal_reason: @testing_facilitation.agree_to_use_home_test_kit_at_site_refusal_reason, confirmatory_test_referred_appointment: @testing_facilitation.confirmatory_test_referred_appointment, confirmatory_test_referred_location: @testing_facilitation.confirmatory_test_referred_location, confirmatory_test_referred_location_other: @testing_facilitation.confirmatory_test_referred_location_other, date_of_visit: @testing_facilitation.date_of_visit, indeterminate_test_option: @testing_facilitation.indeterminate_test_option, indeterminate_test_referred_to: @testing_facilitation.indeterminate_test_referred_to, indeterminate_test_result: @testing_facilitation.indeterminate_test_result, notes: @testing_facilitation.notes, participant_id: @testing_facilitation.participant_id, result_of_home_test_kit: @testing_facilitation.result_of_home_test_kit, staff_person: @testing_facilitation.staff_person, urine_to_test: @testing_facilitation.urine_to_test, urine_to_test_refusal_reason: @testing_facilitation.urine_to_test_refusal_reason, urine_to_test_refusal_reason_other: @testing_facilitation.urine_to_test_refusal_reason_other } }
+				post testing_facilitations_url, params: { testing_facilitation: params }
 			end
 			assert_response :success
 			assert_template :new
@@ -68,14 +70,18 @@ class TestingFacilitationsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should update testing_facilitation with #{login} login" do
 			create_and_login_as(login)
-			patch testing_facilitation_url(@testing_facilitation), params: { testing_facilitation: { agree_to_take_test_kit_home: @testing_facilitation.agree_to_take_test_kit_home, agree_to_take_test_kit_home_refusal_reason: @testing_facilitation.agree_to_take_test_kit_home_refusal_reason, agree_to_tell_result_of_home_test_kit: @testing_facilitation.agree_to_tell_result_of_home_test_kit, agree_to_tell_result_of_home_test_kit_refusal_reason: @testing_facilitation.agree_to_tell_result_of_home_test_kit_refusal_reason, agree_to_use_home_test_kit_at_site: @testing_facilitation.agree_to_use_home_test_kit_at_site, agree_to_use_home_test_kit_at_site_refusal_reason: @testing_facilitation.agree_to_use_home_test_kit_at_site_refusal_reason, confirmatory_test_referred_appointment: @testing_facilitation.confirmatory_test_referred_appointment, confirmatory_test_referred_location: @testing_facilitation.confirmatory_test_referred_location, confirmatory_test_referred_location_other: @testing_facilitation.confirmatory_test_referred_location_other, date_of_visit: @testing_facilitation.date_of_visit, indeterminate_test_option: @testing_facilitation.indeterminate_test_option, indeterminate_test_referred_to: @testing_facilitation.indeterminate_test_referred_to, indeterminate_test_result: @testing_facilitation.indeterminate_test_result, notes: @testing_facilitation.notes, participant_id: @testing_facilitation.participant_id, result_of_home_test_kit: @testing_facilitation.result_of_home_test_kit, staff_person: @testing_facilitation.staff_person, urine_to_test: @testing_facilitation.urine_to_test, urine_to_test_refusal_reason: @testing_facilitation.urine_to_test_refusal_reason, urine_to_test_refusal_reason_other: @testing_facilitation.urine_to_test_refusal_reason_other } }
+			params = FactoryGirl.build(:testing_facilitation).attributes
+				.except('id','created_at','updated_at')
+			patch testing_facilitation_url(@testing_facilitation), params: { testing_facilitation: params }
 			assert_redirected_to testing_facilitation_url(@testing_facilitation)
 		end
 
 		test "should not update testing_facilitation with #{login} login if save fails" do
 			create_and_login_as(login)
 			TestingFacilitation.any_instance.stubs(:create_or_update).returns(false)
-			patch testing_facilitation_url(@testing_facilitation), params: { testing_facilitation: { agree_to_take_test_kit_home: @testing_facilitation.agree_to_take_test_kit_home, agree_to_take_test_kit_home_refusal_reason: @testing_facilitation.agree_to_take_test_kit_home_refusal_reason, agree_to_tell_result_of_home_test_kit: @testing_facilitation.agree_to_tell_result_of_home_test_kit, agree_to_tell_result_of_home_test_kit_refusal_reason: @testing_facilitation.agree_to_tell_result_of_home_test_kit_refusal_reason, agree_to_use_home_test_kit_at_site: @testing_facilitation.agree_to_use_home_test_kit_at_site, agree_to_use_home_test_kit_at_site_refusal_reason: @testing_facilitation.agree_to_use_home_test_kit_at_site_refusal_reason, confirmatory_test_referred_appointment: @testing_facilitation.confirmatory_test_referred_appointment, confirmatory_test_referred_location: @testing_facilitation.confirmatory_test_referred_location, confirmatory_test_referred_location_other: @testing_facilitation.confirmatory_test_referred_location_other, date_of_visit: @testing_facilitation.date_of_visit, indeterminate_test_option: @testing_facilitation.indeterminate_test_option, indeterminate_test_referred_to: @testing_facilitation.indeterminate_test_referred_to, indeterminate_test_result: @testing_facilitation.indeterminate_test_result, notes: @testing_facilitation.notes, participant_id: @testing_facilitation.participant_id, result_of_home_test_kit: @testing_facilitation.result_of_home_test_kit, staff_person: @testing_facilitation.staff_person, urine_to_test: @testing_facilitation.urine_to_test, urine_to_test_refusal_reason: @testing_facilitation.urine_to_test_refusal_reason, urine_to_test_refusal_reason_other: @testing_facilitation.urine_to_test_refusal_reason_other } }
+			params = FactoryGirl.build(:testing_facilitation).attributes
+				.except('id','created_at','updated_at')
+			patch testing_facilitation_url(@testing_facilitation), params: { testing_facilitation: params }
 			assert_response :success
 			assert_template :edit
 		end
@@ -101,8 +107,10 @@ class TestingFacilitationsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should not create testing_facilitation with #{login} login" do
 			create_and_login_as(login)
+			params = FactoryGirl.build(:testing_facilitation).attributes
+				.except('id','created_at','updated_at')
 			assert_difference('TestingFacilitation.count',0) do
-				post testing_facilitations_url, params: { testing_facilitation: { agree_to_take_test_kit_home: @testing_facilitation.agree_to_take_test_kit_home, agree_to_take_test_kit_home_refusal_reason: @testing_facilitation.agree_to_take_test_kit_home_refusal_reason, agree_to_tell_result_of_home_test_kit: @testing_facilitation.agree_to_tell_result_of_home_test_kit, agree_to_tell_result_of_home_test_kit_refusal_reason: @testing_facilitation.agree_to_tell_result_of_home_test_kit_refusal_reason, agree_to_use_home_test_kit_at_site: @testing_facilitation.agree_to_use_home_test_kit_at_site, agree_to_use_home_test_kit_at_site_refusal_reason: @testing_facilitation.agree_to_use_home_test_kit_at_site_refusal_reason, confirmatory_test_referred_appointment: @testing_facilitation.confirmatory_test_referred_appointment, confirmatory_test_referred_location: @testing_facilitation.confirmatory_test_referred_location, confirmatory_test_referred_location_other: @testing_facilitation.confirmatory_test_referred_location_other, date_of_visit: @testing_facilitation.date_of_visit, indeterminate_test_option: @testing_facilitation.indeterminate_test_option, indeterminate_test_referred_to: @testing_facilitation.indeterminate_test_referred_to, indeterminate_test_result: @testing_facilitation.indeterminate_test_result, notes: @testing_facilitation.notes, participant_id: @testing_facilitation.participant_id, result_of_home_test_kit: @testing_facilitation.result_of_home_test_kit, staff_person: @testing_facilitation.staff_person, urine_to_test: @testing_facilitation.urine_to_test, urine_to_test_refusal_reason: @testing_facilitation.urine_to_test_refusal_reason, urine_to_test_refusal_reason_other: @testing_facilitation.urine_to_test_refusal_reason_other } }
+				post testing_facilitations_url, params: { testing_facilitation: params }
 			end
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
@@ -121,7 +129,9 @@ class TestingFacilitationsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should not update testing_facilitation with #{login} login" do
 			create_and_login_as(login)
-			patch testing_facilitation_url(@testing_facilitation), params: { testing_facilitation: { agree_to_take_test_kit_home: @testing_facilitation.agree_to_take_test_kit_home, agree_to_take_test_kit_home_refusal_reason: @testing_facilitation.agree_to_take_test_kit_home_refusal_reason, agree_to_tell_result_of_home_test_kit: @testing_facilitation.agree_to_tell_result_of_home_test_kit, agree_to_tell_result_of_home_test_kit_refusal_reason: @testing_facilitation.agree_to_tell_result_of_home_test_kit_refusal_reason, agree_to_use_home_test_kit_at_site: @testing_facilitation.agree_to_use_home_test_kit_at_site, agree_to_use_home_test_kit_at_site_refusal_reason: @testing_facilitation.agree_to_use_home_test_kit_at_site_refusal_reason, confirmatory_test_referred_appointment: @testing_facilitation.confirmatory_test_referred_appointment, confirmatory_test_referred_location: @testing_facilitation.confirmatory_test_referred_location, confirmatory_test_referred_location_other: @testing_facilitation.confirmatory_test_referred_location_other, date_of_visit: @testing_facilitation.date_of_visit, indeterminate_test_option: @testing_facilitation.indeterminate_test_option, indeterminate_test_referred_to: @testing_facilitation.indeterminate_test_referred_to, indeterminate_test_result: @testing_facilitation.indeterminate_test_result, notes: @testing_facilitation.notes, participant_id: @testing_facilitation.participant_id, result_of_home_test_kit: @testing_facilitation.result_of_home_test_kit, staff_person: @testing_facilitation.staff_person, urine_to_test: @testing_facilitation.urine_to_test, urine_to_test_refusal_reason: @testing_facilitation.urine_to_test_refusal_reason, urine_to_test_refusal_reason_other: @testing_facilitation.urine_to_test_refusal_reason_other } }
+			params = FactoryGirl.build(:testing_facilitation).attributes
+				.except('id','created_at','updated_at')
+			patch testing_facilitation_url(@testing_facilitation), params: { testing_facilitation: params }
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
 		end
