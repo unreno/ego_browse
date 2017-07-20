@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315201858) do
+ActiveRecord::Schema.define(version: 20170720170445) do
 
   create_table "alterList", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "studyId",                     null: false
@@ -220,10 +220,7 @@ ActiveRecord::Schema.define(version: 20170315201858) do
     t.integer "studyId"
     t.integer "alterId1"
     t.integer "alterId2"
-    t.string  "matchedName",  null: false
-    t.integer "interviewId1"
-    t.integer "interviewId2"
-    t.integer "userId"
+    t.string  "matchedName", null: false
   end
 
   create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -294,6 +291,18 @@ ActiveRecord::Schema.define(version: 20170315201858) do
     t.text    "value",        limit: 65535
     t.integer "ordering"
     t.boolean "otherSpecify"
+  end
+
+  create_table "rails_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rails_roles_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "rails_user_id", null: false
+    t.integer "rails_role_id", null: false
+    t.index ["rails_role_id", "rails_user_id"], name: "index_rails_roles_users_on_rails_role_id_and_rails_user_id", unique: true, using: :btree
   end
 
   create_table "rails_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -394,7 +403,6 @@ ActiveRecord::Schema.define(version: 20170315201858) do
     t.text     "style",               limit: 65535
     t.text     "javascript",          limit: 4294967295
     t.text     "footer",              limit: 4294967295
-    t.text     "header",              limit: 4294967295
   end
 
   create_table "tbl_migration", primary_key: "version", id: :string, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

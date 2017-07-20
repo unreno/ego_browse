@@ -123,6 +123,10 @@ class ActionDispatch::IntegrationTest
 		user = RailsUser.create!({
 			login: login,
 			password: 'Test123!', password_confirmation: 'Test123!' })
+
+		role = RailsRole.find_or_create_by(name: login)
+		user.rails_roles << role
+
 #			approved: true, confirmed: true, active: true })
 		post rails_user_session_url, params: { rails_user_session: {
 			login: login,
