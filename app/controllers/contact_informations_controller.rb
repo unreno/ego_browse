@@ -1,7 +1,9 @@
 class ContactInformationsController < ApplicationController
   before_action :set_contact_information, only: [:show, :edit, :update, :destroy]
-	before_action :require_creator, only: [:new,:create]
-	before_action :require_destroyer, only: [:edit,:update,:destroy]
+#	before_action :require_creator, only: [:new,:create]
+#	before_action :require_destroyer, only: [:edit,:update,:destroy]
+
+	before_action :require_user_is_admin_if_csv, only: [:index]
 
   # GET /contact_informations
   # GET /contact_informations.json

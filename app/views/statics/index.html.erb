@@ -14,15 +14,20 @@
 <li>&nbsp;</li>
 <li>Rails Specific Resources ...</li>
 <li>&nbsp;</li>
-<li><%= link_to "STI Questionnaires (#{StiQuestionnaire.count})", sti_questionnaires_path %></li>
+<li><%= link_to "STI Questionnaires (#{StiQuestionnaire.count})", sti_questionnaires_path %>
+	<%= link_to( "(Create new)", new_sti_questionnaire_path ) if current_user.can_create? %></li>
 <!--
 <li><%#= link_to "Contact Informations (#{ContactInformation.count})", contact_informations_path %></li>
 -->
-<li><%= link_to "Eligibility Screenings (#{EligibilityScreening.count})", eligibility_screenings_path %></li>
+<li><%= link_to "Eligibility Screenings (#{EligibilityScreening.count})", eligibility_screenings_path %>
+	<%= link_to( "(Create new)", new_eligibility_screening_path ) if current_user.can_create? %></li>
 <li><%= link_to "Eligibility Screenings (eligible_other_than_age: #{EligibilityScreening.eligible_other_than_age.count})", eligibility_screenings_path( eligible_other_than_age: true) %>( Caitlin's query )</li>
-<li><%= link_to "Testing Facilitations (#{TestingFacilitation.count})", testing_facilitations_path %></li>
-<li><%= link_to "Interview Notes (#{InterviewNote.count})", interview_notes_path %></li>
-<li><%= link_to "Alter Referral Sheets (#{AlterReferralSheet.count})", alter_referral_sheets_path %></li>
+<li><%= link_to "Testing Facilitations (#{TestingFacilitation.count})", testing_facilitations_path %>
+	<%= link_to( "(Create new)", new_testing_facilitation_path ) if current_user.can_create? %></li>
+<li><%= link_to "Interview Notes (#{InterviewNote.count})", interview_notes_path %>
+	<%= link_to( "(Create new)", new_interview_note_path ) if current_user.can_create? %></li>
+<li><%= link_to "Alter Referral Sheets (#{AlterReferralSheet.count})", alter_referral_sheets_path %>
+	<%= link_to( "(Create new)", new_alter_referral_sheet_path ) if current_user.can_create? %></li>
 
 <li>&nbsp;</li>
 <li><hr/></li>

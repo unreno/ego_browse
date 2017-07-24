@@ -1,6 +1,6 @@
 class AlterReferralSheetsController < ApplicationController
 	before_action :set_alter_referral_sheet, only: [:show, :edit, :update, :destroy]
-	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
+#	before_action :require_admin, only: [:new,:create,:edit,:update,:destroy]
 
 #	def row
 #		render partial: 'alter_referral_form', locals: {f: form_for(AlterReferralSheet.new)}

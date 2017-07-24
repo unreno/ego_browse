@@ -1,7 +1,9 @@
 class TestingFacilitationsController < ApplicationController
 	before_action :set_testing_facilitation, only: [:show, :edit, :update, :destroy]
-	before_action :require_creator, only: [:new,:create]
-	before_action :require_destroyer, only: [:edit,:update,:destroy]
+#	before_action :require_creator, only: [:new,:create]
+#	before_action :require_destroyer, only: [:edit,:update,:destroy]
+
+	before_action :require_user_is_admin_if_csv, only: [:index]
 
 	# GET /testing_facilitations
 	# GET /testing_facilitations.json

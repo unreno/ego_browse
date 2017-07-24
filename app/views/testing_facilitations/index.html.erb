@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Testing Facilitations
-<% if current_rails_user.present? and current_rails_user.is_admin? %>
+<% if current_user.present? and current_user.is_admin? %>
 [ <%= link_to 'Download CSV', testing_facilitations_path(format:'csv') %> ]
 <% end %>
-<% if current_rails_user.present? and current_rails_user.can_create? %>
+<% if current_user.present? and current_user.can_create? %>
 [ <%= link_to 'New Testing Facilitation', new_testing_facilitation_path %> ]
 <% end %>
 </h1>
@@ -46,8 +46,10 @@
 		<% @testing_facilitations.each do |testing_facilitation| %>
 			<tr>
 				<td><%= link_to 'Show', testing_facilitation %>
-				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
+				<% if current_user.present? and current_user.can_update? %>
 					<%= link_to 'Edit', edit_testing_facilitation_path(testing_facilitation) %>
+				<% end %>
+				<% if current_user.present? and current_user.can_destroy? %>
 					<%= link_to 'Destroy', testing_facilitation, method: :delete, data: { confirm: 'Are you sure?' } %>
 				<% end %>
 				</td>

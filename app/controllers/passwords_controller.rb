@@ -1,4 +1,5 @@
 class PasswordsController < ApplicationController
+	skip_before_action :require_user_can_update	#, :only => [:update]
 
 #	Other than the default login_required, there seems
 #	to be no need of other filters.  This edits the
@@ -12,10 +13,10 @@ class PasswordsController < ApplicationController
 				params[:user][:password].blank? &&
 				params[:user][:password_confirmation].blank?
 			flash[:warn] = "Password was NOT provided so NOT updated."
-#			redirect_to rails_user_path(current_rails_user)
+#			redirect_to rails_user_path(current_user)
 			redirect_to root_path
 		else
-			current_rails_user.update_attributes!(rails_user_params)
+			current_user.update_attributes!(rails_user_params)
 
 			#
 			#	Changing the password resets the persistence_token, which
@@ -23,9 +24,9 @@ class PasswordsController < ApplicationController
 			#	We need to update the session to use this new token
 			#	otherwise the user will effectively be logged out here.
 			#
-			current_rails_user_session.send(:update_session)
+			current_user_session.send(:update_session)
 			flash[:notice] = "Password successfully updated."
-#			redirect_to rails_user_path(current_rails_user)
+#			redirect_to rails_user_path(current_user)
 			redirect_to root_path
 		end
 	rescue ActiveRecord::RecordInvalid
@@ -37,7 +38,7 @@ protected
 
 	def validate_current_password
 		access_denied("Old password is not valid",edit_password_path) unless
-			current_rails_user.valid_password?(params[:user].delete('current_password'))
+			current_user.valid_password?(params[:user].delete('current_password'))
 	end
 
 	def rails_user_params

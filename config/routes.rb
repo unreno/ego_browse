@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :rails_users
   resources :sti_questionnaires
 	resources :alter_referral_sheets #	{ collection { get :row } }
 	resources :interview_notes

@@ -25,12 +25,22 @@ class RailsUser < ApplicationRecord
 
 	def can_create?
 #		['admin','dataentry','jake'].include?(login)
-		(role_names & ['dataentry','admin']).present?
+		(role_names & ['create','admin']).present?
+	end
+
+	def can_read?
+#		['admin','dataentry','jake'].include?(login)
+		(role_names & ['read','admin']).present?
+	end
+
+	def can_update?
+#		['admin','dataentry','jake'].include?(login)
+		(role_names & ['update','admin']).present?
 	end
 
 	def can_destroy?
 #		['admin','jake'].include?(login)
-		(role_names & ['admin']).present?
+		(role_names & ['destroy','admin']).present?
 	end
 
 end

@@ -2,11 +2,12 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
 
-	%w{admin nonadmin}.each do |login|
+	%w{admin read}.each do |login|
 
 		test "should get index with #{login} login" do
 			create_and_login_as(login)
 			get users_url
+			assert_nil flash[:warn]
 			assert_response :success
 		end
 
@@ -14,18 +15,38 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 			create_and_login_as(login)
 			@user = users(:one)
 			get user_url(@user)
+			assert_nil flash[:warn]
 			assert_response :success
 		end
 
 	end
 
-	test "should get index without login" do
+	%w{nonadmin create update destroy}.each do |login|
+
+		test "should NOT get index with #{login} login" do
+			create_and_login_as(login)
+			get users_url
+			assert_not_nil flash[:warn]
+			assert_redirected_to root_url
+		end
+
+		test "should NOT show user with #{login} login" do
+			create_and_login_as(login)
+			@user = users(:one)
+			get user_url(@user)
+			assert_not_nil flash[:warn]
+			assert_redirected_to root_url
+		end
+
+	end
+
+	test "should NOT get index without login" do
 		get users_url
 		assert_redirected_to new_rails_user_session_url
 		assert_not_nil flash[:warn]
 	end
 
-	test "should show user without login" do
+	test "should NOT show user without login" do
 		@user = users(:one)
 		get user_url(@user)
 		assert_redirected_to new_rails_user_session_url

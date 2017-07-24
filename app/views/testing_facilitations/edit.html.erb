@@ -2,5 +2,7 @@
 
 <%= render 'form', testing_facilitation: @testing_facilitation %>
 
+<% if current_user.present? and current_user.can_read? %>
 <%= link_to 'Show', @testing_facilitation %> |
 <%= link_to 'Back', testing_facilitations_path %>
+<% end %>

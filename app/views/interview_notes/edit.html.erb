@@ -2,5 +2,7 @@
 
 <%= render 'form', interview_note: @interview_note %>
 
+<% if current_user.present? and current_user.can_read? %>
 <%= link_to 'Show', @interview_note %> |
 <%= link_to 'Back', interview_notes_path %>
+<% end %>

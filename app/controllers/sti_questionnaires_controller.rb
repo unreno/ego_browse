@@ -1,7 +1,9 @@
 class StiQuestionnairesController < ApplicationController
 	before_action :set_sti_questionnaire, only: [:show, :edit, :update, :destroy]
-	before_action :require_creator, only: [:new,:create]
-	before_action :require_destroyer, only: [:edit,:update,:destroy]
+#	before_action :require_creator, only: [:new,:create]
+#	before_action :require_destroyer, only: [:edit,:update,:destroy]
+
+	before_action :require_user_is_admin_if_csv, only: [:index]
 
 	# GET /sti_questionnaires
 	# GET /sti_questionnaires.json

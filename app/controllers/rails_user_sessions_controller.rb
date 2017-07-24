@@ -1,5 +1,7 @@
 class RailsUserSessionsController < ApplicationController
 	skip_before_action :require_user, :only => [:new, :create]
+	skip_before_action :require_user_can_create, :only => [:new, :create]
+	skip_before_action :require_user_can_destroy, :only => [:destroy]
 	before_action :require_no_user, :only => [:new, :create]
 
 	def new
@@ -17,7 +19,7 @@ class RailsUserSessionsController < ApplicationController
 	end
 
 	def destroy
-		current_rails_user_session.destroy
+		current_user_session.destroy
 		flash[:notice] = "Logout successful!"
 		redirect_back_or_default new_rails_user_session_url
 	end

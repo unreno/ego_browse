@@ -25,5 +25,7 @@
 	<%= @interview_note.interview_notes %>
 </p>
 
+<% if current_user.present? and current_user.can_update? %>
 <%= link_to 'Edit', edit_interview_note_path(@interview_note) %> |
+<% end %>
 <%= link_to 'Back', interview_notes_path %>

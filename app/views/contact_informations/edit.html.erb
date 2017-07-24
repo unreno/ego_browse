@@ -5,5 +5,7 @@
 
 <%= render 'form', contact_information: @contact_information %>
 
+<% if current_user.present? and current_user.can_read? %>
 <%= link_to 'Show', @contact_information %> |
 <%= link_to 'Back', contact_informations_path %>
+<% end %>

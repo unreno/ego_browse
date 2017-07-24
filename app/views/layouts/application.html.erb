@@ -13,9 +13,9 @@
 		<span><%= link_to "EGO Browse", root_url %></span>
 		<span>&nbsp;/&nbsp;</span>
 		<span><%= link_to "EGO Web", root_url(port: nil) %></span>
-	<% if current_rails_user %>
+	<% if current_user %>
 		<span style='float:right;'>
-			<%= link_to "Logout #{current_rails_user.login}", rails_user_session_path, method: :delete, data: { confirm: "Are you sure you want to logout?" } %>
+			<%= link_to "Logout #{current_user.login}", rails_user_session_path, method: :delete, data: { confirm: "Are you sure you want to logout?" } %>
 			<span>&nbsp;/&nbsp;</span>
 			<%= link_to "Change Password", edit_password_path %>
 		</span>

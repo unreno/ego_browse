@@ -208,5 +208,7 @@
 	<%= @contact_information.other_identifying_marks %>
 </p>
 
+<% if current_user.present? and current_user.can_update? %>
 <%= link_to 'Edit', edit_contact_information_path(@contact_information) %> |
+<% end %>
 <%= link_to 'Back', contact_informations_path %>

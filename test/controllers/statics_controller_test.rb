@@ -2,7 +2,7 @@ require 'test_helper'
 
 class StaticsControllerTest < ActionDispatch::IntegrationTest
 
-	%w{admin nonadmin}.each do |login|
+	%w{admin nonadmin create read update destroy}.each do |login|
 
 		test "should get index with #{login} login" do
 			create_and_login_as(login)

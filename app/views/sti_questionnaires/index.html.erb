@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>STI Questionnaires
-<% if current_rails_user.present? and current_rails_user.is_admin? %>
+<% if current_user.present? and current_user.is_admin? %>
 [ <%= link_to 'Download CSV', sti_questionnaires_path(format:'csv') %> ]
 <% end %>
-<% if current_rails_user.present? and current_rails_user.can_create? %>
+<% if current_user.present? and current_user.can_create? %>
 [ <%= link_to 'New Sti Questionnaire', new_sti_questionnaire_path %> ]
 <% end %>
 </h1>
@@ -67,8 +67,10 @@
 		<% @sti_questionnaires.each do |sti_questionnaire| %>
 			<tr>
 				<td><%= link_to 'Show', sti_questionnaire %>
-				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
+				<% if current_user.present? and current_user.can_update? %>
 					<%= link_to 'Edit', edit_sti_questionnaire_path(sti_questionnaire) %>
+				<% end %>
+				<% if current_user.present? and current_user.can_destroy? %>
 					<%= link_to 'Destroy', sti_questionnaire, method: :delete, data: { confirm: 'Are you sure?' } %>
 				<% end %>
 				</td>

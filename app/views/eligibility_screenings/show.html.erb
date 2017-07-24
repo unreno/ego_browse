@@ -185,5 +185,7 @@
 	<%= @eligibility_screening.reason_for_refusal_other %>
 </p>
 
+<% if current_user.present? and current_user.can_update? %>
 <%= link_to 'Edit', edit_eligibility_screening_path(@eligibility_screening) %> |
+<% end %>
 <%= link_to 'Back', eligibility_screenings_path %>

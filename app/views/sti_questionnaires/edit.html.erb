@@ -2,5 +2,7 @@
 
 <%= render 'form', sti_questionnaire: @sti_questionnaire %>
 
+<% if current_user.present? and current_user.can_read? %>
 <%= link_to 'Show', @sti_questionnaire %> |
 <%= link_to 'Back', sti_questionnaires_path %>
+<% end %>

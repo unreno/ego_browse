@@ -28,5 +28,7 @@
 <%# end %>
 
 
+<% if current_user.present? and current_user.can_update? %>
 <%= link_to 'Edit', edit_alter_referral_sheet_path(@alter_referral_sheet) %> |
+<% end %>
 <%= link_to 'Back', alter_referral_sheets_path %>

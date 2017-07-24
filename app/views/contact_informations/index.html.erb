@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Contact Informations
-<% if current_rails_user.present? and current_rails_user.is_admin? %>
+<% if current_user.present? and current_user.is_admin? %>
 [ <%= link_to 'Download CSV', contact_informations_path(format:'csv') %> ]
 <% end %>
-<% if current_rails_user.present? and current_rails_user.can_create? %>
+<% if current_user.present? and current_user.can_create? %>
 [ <%= link_to 'New Contact Information', new_contact_information_path %> ]
 <% end %>
 </h1>
@@ -62,8 +62,10 @@
 		<% @contact_informations.each do |contact_information| %>
 			<tr>
 				<td><%= link_to 'Show', contact_information %>
-				<% if current_rails_user.present? and current_rails_user.can_destroy? %>
+				<% if current_user.present? and current_user.can_update? %>
 					<%= link_to 'Edit', edit_contact_information_path(contact_information) %>
+				<% end %>
+				<% if current_user.present? and current_user.can_destroy? %>
 					<%= link_to 'Destroy', contact_information, method: :delete, data: { confirm: 'Are you sure?' } %>
 				<% end %>
 				</td>

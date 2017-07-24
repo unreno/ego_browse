@@ -1,5 +1,7 @@
 class StaticsController < ApplicationController
 
+	skip_before_action :require_user_can_read
+
 	def demographic_counts
 		@studies = Study.all.collect{|s|s.demographics_hash}
 	end
@@ -31,6 +33,7 @@ class StaticsController < ApplicationController
 	#	NOTE EGO Race in Latino OR EGO hispanicity == YES
 	def latina_demographic_counts
 		@studies = []
+
 		Study.all.each do |study|
 			s = {}
 			s[:id] = study.id

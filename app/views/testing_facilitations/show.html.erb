@@ -115,5 +115,7 @@
 	<%= @testing_facilitation.notes %>
 </p>
 
+<% if current_user.present? and current_user.can_update? %>
 <%= link_to 'Edit', edit_testing_facilitation_path(@testing_facilitation) %> |
+<% end %>
 <%= link_to 'Back', testing_facilitations_path %>
