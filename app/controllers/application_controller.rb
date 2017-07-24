@@ -85,15 +85,15 @@ class ApplicationController < ActionController::Base
 			end
 		end
 
-#		def require_admin
-#			unless current_user.present? and current_user.is_admin?
-#				store_location
-#				flash[:warn] = "You must be logged in as an admin to do that."
-#				redirect_to root_url
-#				return false
-#			end
-#		end
-#
+		def require_admin
+			unless current_user.present? and current_user.is_admin?
+				store_location
+				flash[:warn] = "You must be logged in as an admin to do that."
+				redirect_to root_url
+				return false
+			end
+		end
+
 #		def require_creator
 #			unless current_user.present? and current_user.can_create?
 #				store_location
