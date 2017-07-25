@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :rails_users
+  resources :rails_users do
+		resources :rails_roles, :only => [:update,:destroy]
+	end
+
   resources :sti_questionnaires
 	resources :alter_referral_sheets #	{ collection { get :row } }
 	resources :interview_notes

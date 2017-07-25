@@ -3,8 +3,12 @@
 <table><thead>
 <tr><th>Login</th><th>Role(s)</th></tr>
 </thead><tbody>
-<% @users.each do |user| %>
-	<tr><td><%= user.login %></td><td><%= user.rails_roles.collect(&:name).join(', ') %></td></tr>
-
+<% @rails_users.each do |rails_user| %>
+	<tr>
+		<td><%= link_to rails_user.login, rails_user %></td>
+		<td><%= rails_user.rails_roles.collect(&:name).join(', ') %></td>
+	</tr>
 <% end %>
 </tbody></table>
+
+<%= link_to "Create New User", new_rails_user_path %>

@@ -12,3 +12,5 @@ RailsRole.create(name: 'create')
 RailsRole.create(name: 'read')
 RailsRole.create(name: 'update')
 RailsRole.create(name: 'destroy')
+RailsRole.create(name: 'admin')
+

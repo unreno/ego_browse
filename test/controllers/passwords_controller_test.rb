@@ -3,61 +3,61 @@ require 'test_helper'
 class PasswordsControllerTest < ActionDispatch::IntegrationTest	#ActionController::TestCase
 
 	test "should edit password with self login" do
-		user = create_and_login_as('randomuser')
+		rails_user = create_and_login_as('randomuser')
 		get edit_password_url
 		assert_response :success
 		assert_template 'edit'
 	end
 
 	test "should update password with self login" do
-		user = create_and_login_as('randomuser')
-		put password_url, params: { user: password_attributes }
+		rails_user = create_and_login_as('randomuser')
+		put password_url, params: { rails_user: password_attributes }
 		assert_not_nil flash[:notice]
 		assert_redirected_to root_path
 	end
 
-	test "should NOT update user without current password" do
-		user = create_and_login_as('randomuser')
-		put password_url, params: { user: password_attributes(:current_password => nil) }
+	test "should NOT update rails_user without current password" do
+		rails_user = create_and_login_as('randomuser')
+		put password_url, params: { rails_user: password_attributes(:current_password => nil) }
 		assert_not_nil flash[:error]
 		assert_redirected_to edit_password_path
 	end
 
-	test "should NOT update user without valid current password" do
-		user = create_and_login_as('randomuser')
-		put password_path, params: { user: password_attributes(:current_password => 'iforgot') }
+	test "should NOT update rails_user without valid current password" do
+		rails_user = create_and_login_as('randomuser')
+		put password_path, params: { rails_user: password_attributes(:current_password => 'iforgot') }
 		assert_not_nil flash[:error]
 		assert_redirected_to edit_password_path
 	end
 
-	test "should NOT update user without password" do
-		user = create_and_login_as('randomuser')
-		put password_path, params: { user: password_attributes(:password => nil) }
+	test "should NOT update rails_user without password" do
+		rails_user = create_and_login_as('randomuser')
+		put password_path, params: { rails_user: password_attributes(:password => nil) }
 		assert_not_nil flash[:error]
 		assert_response :success
 		assert_template 'edit'
 	end
 
-	test "should NOT update user without password confirmation" do
-		user = create_and_login_as('randomuser')
-		put password_path, params: { user: password_attributes(:password_confirmation => nil) }
+	test "should NOT update rails_user without password confirmation" do
+		rails_user = create_and_login_as('randomuser')
+		put password_path, params: { rails_user: password_attributes(:password_confirmation => nil) }
 		assert_response :success
 		assert_template 'edit'
 		assert_not_nil flash[:error]
 	end
 
-	test "should NOT update user without password and password confirmation" do
-		user = create_and_login_as('randomuser')
-		put password_path, params: { user: password_attributes(
+	test "should NOT update rails_user without password and password confirmation" do
+		rails_user = create_and_login_as('randomuser')
+		put password_path, params: { rails_user: password_attributes(
 			:password => nil, 
 			:password_confirmation => nil ) }
 		assert_not_nil flash[:warn]
 		assert_redirected_to root_path
 	end
 
-	test "should NOT update user without complex password" do
-		user = create_and_login_as('randomuser')
-		put password_path, params: { user: password_attributes(
+	test "should NOT update rails_user without complex password" do
+		rails_user = create_and_login_as('randomuser')
+		put password_path, params: { rails_user: password_attributes(
 			:password              => 'mybigbadpassword',
 			:password_confirmation => 'mybigbadpassword' ) }
 		assert_response :success
@@ -65,9 +65,9 @@ class PasswordsControllerTest < ActionDispatch::IntegrationTest	#ActionControlle
 		assert_not_nil flash[:error]
 	end
 
-	test "should NOT update user without matching password and confirmation" do
-		user = create_and_login_as('randomuser')
-		put password_path, params: { user: password_attributes(
+	test "should NOT update rails_user without matching password and confirmation" do
+		rails_user = create_and_login_as('randomuser')
+		put password_path, params: { rails_user: password_attributes(
 			:password_confirmation => 'betaV@1!d' ) }
 		assert_response :success
 		assert_template 'edit'
@@ -81,7 +81,7 @@ class PasswordsControllerTest < ActionDispatch::IntegrationTest	#ActionControlle
 	end
 
 	test "should NOT update password without login" do
-		put password_path, params: { user: password_attributes }
+		put password_path, params: { rails_user: password_attributes }
 		assert_not_nil flash[:warn]
 		assert_redirected_to new_rails_user_session_path
 	end

@@ -103,7 +103,14 @@ FactoryGirl.define do
 #  interview_notes: MyText
 	end
 
+	factory :rails_role do
+		sequence(:name) { |n| "Name #{n}" }
+	end
+
 	factory :rails_user do
+		sequence(:login) { |n| "Name #{n}" }
+		password 'alphaV@1!d'
+		password_confirmation 'alphaV@1!d'
 	end
 
 	factory :sti_questionnaire do

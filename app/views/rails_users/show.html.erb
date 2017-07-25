@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<strong>Login:</strong>
+	<%= @rails_user.login %>
+</p>
+
+<p>
+	<strong>Roles:</strong>
+	<%= @rails_user.rails_roles.collect(&:name).join(', ') %>
+
+</p>
+
+<ul>
+<% RailsRole.all.each do |rails_role| %>
+	<li>
+		<% if @rails_user.role_names.include?(rails_role.name) %>
+			<%= link_to "Delete #{rails_role.name}",
+				rails_user_rails_role_path(@rails_user, rails_role),
+				data: { confirm: "Are you sure you want to delete this role?" },
+				method: :delete %>
+		<% else %>
+			<%= link_to "Add #{rails_role.name}",
+				rails_user_rails_role_path(@rails_user, rails_role),
+				method: :put %>
+		<% end %>
+	</li>
+<% end	#	RailsRole.all.each do |rails_role| %>
+
+</ul>
+
+<%= link_to 'Edit', edit_rails_user_path(@rails_user) %>&nbsp;|&nbsp;
+<%= link_to 'Delete', rails_user_path(@rails_user), method: :delete,
+	data: { confirm: "Are you sure you want to delete this user?" } %>

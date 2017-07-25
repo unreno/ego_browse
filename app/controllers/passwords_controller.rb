@@ -9,9 +9,9 @@ class PasswordsController < ApplicationController
 	before_action :validate_current_password, :only => :update
 
 	def update
-		if params[:user].present? && 
-				params[:user][:password].blank? &&
-				params[:user][:password_confirmation].blank?
+		if params[:rails_user].present? && 
+				params[:rails_user][:password].blank? &&
+				params[:rails_user][:password_confirmation].blank?
 			flash[:warn] = "Password was NOT provided so NOT updated."
 #			redirect_to rails_user_path(current_user)
 			redirect_to root_path
@@ -38,11 +38,11 @@ protected
 
 	def validate_current_password
 		access_denied("Old password is not valid",edit_password_path) unless
-			current_user.valid_password?(params[:user].delete('current_password'))
+			current_user.valid_password?(params[:rails_user].delete('current_password'))
 	end
 
 	def rails_user_params
-		params.require(:user).permit(:current_password, :password, :password_confirmation)
+		params.require(:rails_user).permit(:current_password, :password, :password_confirmation)
 	end
 
 end
