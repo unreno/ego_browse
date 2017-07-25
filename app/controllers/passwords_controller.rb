@@ -10,8 +10,8 @@ class PasswordsController < ApplicationController
 
 	def update
 		if params[:rails_user].present? && 
-				params[:rails_user][:password].blank? &&
-				params[:rails_user][:password_confirmation].blank?
+				params[:rails_user][:password].blank? #&&
+#				params[:rails_user][:password_confirmation].blank?
 			flash[:warn] = "Password was NOT provided so NOT updated."
 #			redirect_to rails_user_path(current_user)
 			redirect_to root_path

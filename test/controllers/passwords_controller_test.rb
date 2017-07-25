@@ -18,7 +18,7 @@ class PasswordsControllerTest < ActionDispatch::IntegrationTest	#ActionControlle
 
 	test "should NOT update rails_user without current password" do
 		rails_user = create_and_login_as('randomuser')
-		put password_url, params: { rails_user: password_attributes(:current_password => nil) }
+		put password_url, params: { rails_user: password_attributes(:current_password => '') }
 		assert_not_nil flash[:error]
 		assert_redirected_to edit_password_path
 	end
@@ -32,15 +32,18 @@ class PasswordsControllerTest < ActionDispatch::IntegrationTest	#ActionControlle
 
 	test "should NOT update rails_user without password" do
 		rails_user = create_and_login_as('randomuser')
-		put password_path, params: { rails_user: password_attributes(:password => nil) }
-		assert_not_nil flash[:error]
-		assert_response :success
-		assert_template 'edit'
+		put password_path, params: { rails_user: password_attributes(:password => '') }
+#		assert_not_nil flash[:error]
+#		assert_response :success
+#		assert_template 'edit'
+#	No password, no update attempt
+		assert_not_nil flash[:warn]
+		assert_redirected_to root_path
 	end
 
 	test "should NOT update rails_user without password confirmation" do
 		rails_user = create_and_login_as('randomuser')
-		put password_path, params: { rails_user: password_attributes(:password_confirmation => nil) }
+		put password_path, params: { rails_user: password_attributes(:password_confirmation => '') }
 		assert_response :success
 		assert_template 'edit'
 		assert_not_nil flash[:error]
@@ -49,8 +52,8 @@ class PasswordsControllerTest < ActionDispatch::IntegrationTest	#ActionControlle
 	test "should NOT update rails_user without password and password confirmation" do
 		rails_user = create_and_login_as('randomuser')
 		put password_path, params: { rails_user: password_attributes(
-			:password => nil, 
-			:password_confirmation => nil ) }
+			:password => '', 
+			:password_confirmation => '' ) }
 		assert_not_nil flash[:warn]
 		assert_redirected_to root_path
 	end
