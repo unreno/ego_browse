@@ -14,3 +14,6 @@ RailsRole.create(name: 'update')
 RailsRole.create(name: 'destroy')
 RailsRole.create(name: 'admin')
 
+u = RailsUser.find_by(login: 'admin')
+u.rails_roles << RailsRole.find_by(name: 'admin')
+
