@@ -15,10 +15,11 @@
 		<tr>
 			<th>&nbsp;</th>
 			<th>Data Entry Name</th>
-			<th>Date of visit</th>
 			<th>Participant ID</th>
+<% if current_user.present? and current_user.can_read? %>
 			<th>Participant prefix</th>
 			<th>Participant suffix</th>
+			<th>Date of visit</th>
 			<th>Staff person</th>
 			<th>Stitest ev</th>
 			<th>Stitest A</th>
@@ -60,13 +61,17 @@
 			<th>Stitest future</th>
 			<th>Stipercrisk</th>
 			<th>Stistigma</th>
+<% end %>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @sti_questionnaires.each do |sti_questionnaire| %>
 			<tr>
-				<td><%= link_to 'Show', sti_questionnaire %>
+				<td>
+				<% if current_user.present? and current_user.can_read? %>
+					<%= link_to 'Show', sti_questionnaire %>
+				<% end %>
 				<% if current_user.present? and current_user.can_update? %>
 					<%= link_to 'Edit', edit_sti_questionnaire_path(sti_questionnaire) %>
 				<% end %>
@@ -75,10 +80,11 @@
 				<% end %>
 				</td>
 				<td><%= sti_questionnaire.data_entry_name %></td>
-				<td><%= sti_questionnaire.date_of_visit %></td>
 				<td><%= sti_questionnaire.participant_id %></td>
+<% if current_user.present? and current_user.can_read? %>
 				<td><%= sti_questionnaire.participant_prefix %></td>
 				<td><%= sti_questionnaire.participant_suffix %></td>
+				<td><%= sti_questionnaire.date_of_visit %></td>
 				<td><%= sti_questionnaire.staff_person %></td>
 				<td><%= sti_questionnaire.stitest_ev %></td>
 				<td><%= sti_questionnaire.stitest_a %></td>
@@ -120,6 +126,7 @@
 				<td><%= sti_questionnaire.stitest_future %></td>
 				<td><%= sti_questionnaire.stipercrisk %></td>
 				<td><%= sti_questionnaire.stistigma %></td>
+<% end %>
 			</tr>
 		<% end %>
 	</tbody>

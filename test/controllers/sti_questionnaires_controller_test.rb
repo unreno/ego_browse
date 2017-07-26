@@ -30,13 +30,14 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 
 	%w{admin read}.each do |login|
 
-		test "should get index with #{login} login" do
+		test "should get FULL index with #{login} login" do
 			create_and_login_as(login)
 			get sti_questionnaires_url
 			assert_nil flash[:warn]
 			assert_response :success
+			assert_select 'th', count: 47
 		end
-	
+
 		test "should show sti_questionnaire with #{login} login" do
 			create_and_login_as(login)
 			get sti_questionnaire_url(@sti_questionnaire)
@@ -48,12 +49,20 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 
 	%w{nonadmin create update destroy}.each do |login|
 
-		test "should NOT get index with #{login} login" do
+		test "should get LIMITED index with #{login} login" do
 			create_and_login_as(login)
 			get sti_questionnaires_url
-			assert_not_nil flash[:warn]
-			assert_redirected_to root_url
+			assert_nil flash[:warn]
+			assert_response :success
+			assert_select 'th', count: 3
 		end
+
+#		test "should NOT get index with #{login} login" do
+#			create_and_login_as(login)
+#			get sti_questionnaires_url
+#			assert_not_nil flash[:warn]
+#			assert_redirected_to root_url
+#		end
 	
 		test "should NOT show sti_questionnaire with #{login} login" do
 			create_and_login_as(login)

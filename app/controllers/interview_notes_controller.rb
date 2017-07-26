@@ -1,8 +1,6 @@
 class InterviewNotesController < ApplicationController
   before_action :set_interview_note, only: [:show, :edit, :update, :destroy]
-#	before_action :require_creator, only: [:new,:create]
-#	before_action :require_destroyer, only: [:edit,:update,:destroy]
-
+	skip_before_action :require_user_can_read, only: [:index]
 	before_action :require_user_is_admin_if_csv, only: [:index]
 
   # GET /interview_notes

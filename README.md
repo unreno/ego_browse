@@ -109,4 +109,15 @@ mysql -u root egoweb < <(zcat ~/Downloads/20170419153302.egoweb.sql.gz)
 
 
 
+###	Production start / stop / etc
+
+
+```BASH
+sudo service ego_browse_passenger stop
+git pull
+gem update bundler
+bundle ins
+rake db:migrate
+sudo service ego_browse_passenger start
+```
 

@@ -16,18 +16,23 @@
 			<th>&nbsp;</th>
 			<th>Data Entry Name</th>
 			<th>Participant ID</th>
+<% if current_user.present? and current_user.can_read? %>
 			<th>Participant prefix</th>
 			<th>Participant suffix</th>
 			<th>Interview date</th>
 			<th>Interviewer</th>
 			<th>Interview notes</th>
+<% end %>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @interview_notes.each do |interview_note| %>
 			<tr>
-				<td><%= link_to 'Show', interview_note %>
+				<td>
+				<% if current_user.present? and current_user.can_read? %>
+					<%= link_to 'Show', interview_note %>
+				<% end %>
 				<% if current_user.present? and current_user.can_update? %>
 					<%= link_to 'Edit', edit_interview_note_path(interview_note) %>
 				<% end %>
@@ -37,11 +42,13 @@
 				</td>
 				<td><%= interview_note.data_entry_name %></td>
 				<td><%= interview_note.participant_id %></td>
+<% if current_user.present? and current_user.can_read? %>
 				<td><%= interview_note.participant_prefix %></td>
 				<td><%= interview_note.participant_suffix %></td>
 				<td><%= interview_note.interview_date %></td>
 				<td><%= interview_note.interviewer %></td>
 				<td><%= interview_note.interview_notes %></td>
+<% end %>
 			</tr>
 		<% end %>
 	</tbody>

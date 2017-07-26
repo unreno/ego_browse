@@ -8,13 +8,14 @@ class AlterReferralSheetsControllerTest < ActionDispatch::IntegrationTest
 
 	%w{admin read}.each do |login|
 
-		test "should get index with #{login} login" do
+		test "should get FULL index with #{login} login" do
 			create_and_login_as(login)
 			get alter_referral_sheets_url
 			assert_nil flash[:warn]
 			assert_response :success
+			assert_select 'th', count: 4
 		end
-	
+
 		test "should show alter_referral_sheet with #{login} login" do
 			create_and_login_as(login)
 			get alter_referral_sheet_url(@alter_referral_sheet)
@@ -26,12 +27,20 @@ class AlterReferralSheetsControllerTest < ActionDispatch::IntegrationTest
 
 	%w{nonadmin create update destroy}.each do |login|
 
-		test "should NOT get index with #{login} login" do
+		test "should get LIMITED index with #{login} login" do
 			create_and_login_as(login)
 			get alter_referral_sheets_url
-			assert_not_nil flash[:warn]
-			assert_redirected_to root_url
+			assert_nil flash[:warn]
+			assert_response :success
+			assert_select 'th', count: 3
 		end
+
+#		test "should NOT get index with #{login} login" do
+#			create_and_login_as(login)
+#			get alter_referral_sheets_url
+#			assert_not_nil flash[:warn]
+#			assert_redirected_to root_url
+#		end
 	
 		test "should NOT show alter_referral_sheet with #{login} login" do
 			create_and_login_as(login)

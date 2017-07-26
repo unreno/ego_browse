@@ -15,10 +15,11 @@
 		<tr>
 			<th>&nbsp;</th>
 			<th>Data entry name</th>
-			<th>Date of visit</th>
 			<th>Participant ID</th>
+<% if current_user.present? and current_user.can_read? %>
 			<th>Participant prefix</th>
 			<th>Participant suffix</th>
+			<th>Date of visit</th>
 			<th>Staff person</th>
 			<th>Agree to use home test kit at site</th>
 			<th>Agree to use home test kit at site refusal reason</th>
@@ -39,13 +40,17 @@
 			<th>Gonorrhea Result</th>
 			<th>Chlamydia Result</th>
 			<th>Notes</th>
+<% end %>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @testing_facilitations.each do |testing_facilitation| %>
 			<tr>
-				<td><%= link_to 'Show', testing_facilitation %>
+				<td>
+				<% if current_user.present? and current_user.can_read? %>
+					<%= link_to 'Show', testing_facilitation %>
+				<% end %>
 				<% if current_user.present? and current_user.can_update? %>
 					<%= link_to 'Edit', edit_testing_facilitation_path(testing_facilitation) %>
 				<% end %>
@@ -54,10 +59,11 @@
 				<% end %>
 				</td>
 				<td><%= testing_facilitation.data_entry_name %></td>
-				<td><%= testing_facilitation.date_of_visit %></td>
 				<td><%= testing_facilitation.participant_id %></td>
+<% if current_user.present? and current_user.can_read? %>
 				<td><%= testing_facilitation.participant_prefix %></td>
 				<td><%= testing_facilitation.participant_suffix %></td>
+				<td><%= testing_facilitation.date_of_visit %></td>
 				<td><%= testing_facilitation.staff_person %></td>
 				<td><%= testing_facilitation.agree_to_use_home_test_kit_at_site %></td>
 				<td><%= testing_facilitation.agree_to_use_home_test_kit_at_site_refusal_reason %></td>
@@ -78,6 +84,7 @@
 				<td><%= testing_facilitation.gonorrhea_result %></td>
 				<td><%= testing_facilitation.chlamydia_result %></td>
 				<td><%= testing_facilitation.notes %></td>
+<% end %>
 			</tr>
 		<% end %>
 	</tbody>

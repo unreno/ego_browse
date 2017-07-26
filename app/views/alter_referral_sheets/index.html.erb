@@ -13,14 +13,19 @@
 			<th>&nbsp;</th>
 			<th>Data Entry Name</th>
 			<th><%= t 'activerecord.attributes.alter_referral_sheet.ego_id' %></th>
+<% if current_user.present? and current_user.can_read? %>
 			<th>Referrals</th>
+<% end %>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @alter_referral_sheets.each do |alter_referral_sheet| %>
 			<tr>
-				<td><%= link_to 'Show', alter_referral_sheet %>
+				<td>
+				<% if current_user.present? and current_user.can_read? %>
+					<%= link_to 'Show', alter_referral_sheet %>
+				<% end %>
 				<% if current_user.present? and current_user.can_update? %>
 					<%= link_to 'Edit', edit_alter_referral_sheet_path(alter_referral_sheet) %>
 				<% end %>
@@ -30,7 +35,9 @@
 				</td>
 				<td><%= alter_referral_sheet.data_entry_name %></td>
 				<td><%= alter_referral_sheet.ego_id %></td>
+<% if current_user.present? and current_user.can_read? %>
 				<td><%= alter_referral_sheet.alter_referrals_count %></td>
+<% end %>
 			</tr>
 		<% end %>
 	</tbody>

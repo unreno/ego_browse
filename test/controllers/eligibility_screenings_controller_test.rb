@@ -36,7 +36,7 @@ class EligibilityScreeningsControllerTest < ActionDispatch::IntegrationTest
 			assert_nil flash[:warn]
 			assert_response :success
 		end
-	
+
 		test "should show eligibility_screening with #{login} login" do
 			create_and_login_as(login)
 			get eligibility_screening_url(@eligibility_screening)
