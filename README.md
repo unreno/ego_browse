@@ -121,3 +121,20 @@ rake db:migrate
 sudo service ego_browse_passenger start
 ```
 
+
+
+
+
+
+###	EGO Web CSV exports
+
+Download "Export Other Specify Data" from latest version of EgoWeb due to old app issues.
+
+Edit survey and Download "Export Ego-Alter Data".
+The answer values for several questions are the same for each answer.
+Change No value to 0 for the following 3 questions.
+SMOKED_EV, CALL911, SABUSERU18GANG
+
+
+
+
