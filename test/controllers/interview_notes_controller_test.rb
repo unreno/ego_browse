@@ -4,6 +4,9 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
 		@interview_note = FactoryGirl.create(:interview_note)
+		@params = FactoryGirl.build(:interview_note).attributes
+			.with_indifferent_access
+			.except(:id,:created_at,:updated_at,:data_entry_name)
 	end
 
 	%w{admin}.each do |login|
@@ -83,21 +86,18 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should create interview_note with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:interview_note).attributes
-				.except('id','created_at','updated_at')
 			assert_difference('InterviewNote.count') do
-				post interview_notes_url, params: { interview_note: params }
+				post interview_notes_url, params: { interview_note: @params }
 			end
-			assert_redirected_to interview_note_url(InterviewNote.last)
+			assert_equal assigns(:interview_note).data_entry_name, login
+			assert_redirected_to interview_note_url(assigns(:interview_note))
 		end
 	
 		test "should not create interview_note with #{login} login if save fails" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:interview_note).attributes
-				.except('id','created_at','updated_at')
 			InterviewNote.any_instance.stubs(:create_or_update).returns(false)
 			assert_difference('InterviewNote.count',0) do
-				post interview_notes_url, params: { interview_note: params }
+				post interview_notes_url, params: { interview_note: @params }
 			end
 			assert_response :success
 			assert_template :new
@@ -116,10 +116,8 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should NOT create interview_note with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:interview_note).attributes
-				.except('id','created_at','updated_at')
 			assert_difference('InterviewNote.count', 0) do
-				post interview_notes_url, params: { interview_note: params }
+				post interview_notes_url, params: { interview_note: @params }
 			end
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
@@ -137,18 +135,15 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should update interview_note with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:interview_note).attributes
-				.except('id','created_at','updated_at')
-			patch interview_note_url(@interview_note), params: { interview_note: params }
+			patch interview_note_url(@interview_note), params: { interview_note: @params }
+			assert_equal assigns(:interview_note).data_entry_name, ", #{login}"
 			assert_redirected_to interview_note_url(@interview_note)
 		end
 	
 		test "should not update interview_note with #{login} login if save fails" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:interview_note).attributes
-				.except('id','created_at','updated_at')
 			InterviewNote.any_instance.stubs(:create_or_update).returns(false)
-			patch interview_note_url(@interview_note), params: { interview_note: params }
+			patch interview_note_url(@interview_note), params: { interview_note: @params }
 			assert_response :success
 			assert_template :edit
 		end
@@ -166,9 +161,7 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should NOT update interview_note with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:interview_note).attributes
-				.except('id','created_at','updated_at')
-			patch interview_note_url(@interview_note), params: { interview_note: params }
+			patch interview_note_url(@interview_note), params: { interview_note: @params }
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
 		end

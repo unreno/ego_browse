@@ -18,17 +18,19 @@ class ContactInformationsController < ApplicationController
 
   # GET /contact_informations/new
   def new
-    @contact_information = ContactInformation.new
+    @contact_information = ContactInformation.new(data_entry_name: current_user.login)
   end
 
   # GET /contact_informations/1/edit
   def edit
+		@contact_information.data_entry_name += ", #{current_user.login}"
   end
 
   # POST /contact_informations
   # POST /contact_informations.json
   def create
     @contact_information = ContactInformation.new(contact_information_params)
+		@contact_information.data_entry_name = current_user.login
 
     respond_to do |format|
       if @contact_information.save
@@ -44,8 +46,10 @@ class ContactInformationsController < ApplicationController
   # PATCH/PUT /contact_informations/1
   # PATCH/PUT /contact_informations/1.json
   def update
+		p = contact_information_params
+		p[:data_entry_name] = @contact_information.data_entry_name.to_s + ", #{current_user.login}"
     respond_to do |format|
-      if @contact_information.update(contact_information_params)
+      if @contact_information.update(p)
         format.html { redirect_to @contact_information, notice: 'Contact information was successfully updated.' }
         format.json { render :show, status: :ok, location: @contact_information }
       else
@@ -73,6 +77,6 @@ class ContactInformationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_information_params
-      params.require(:contact_information).permit(:data_entry_name, :first_name, :middle_name, :last_name, :alternate_names, :dob, :primary_phone_number, :primary_phone_type, :primary_phone_message, :primary_phone_text, :secondary_phone_number, :secondary_phone_type, :secondary_phone_message, :secondary_phone_text, :tertiary_phone_number, :tertiary_phone_type, :tertiary_phone_message, :tertiary_phone_text, :primary_address, :primary_city, :primary_state, :primary_zip, :secondary_address, :secondary_city, :secondary_state, :secondary_zip, :hopes_data, :future_data, :ok_to_mail_negative_test_result, :email, :other_person_relationship, :other_person_phone, :other_person_ok_to_pass_message, :referral_source, :height, :build, :age, :race, :eye_color, :hair, :other_identifying_marks)
+      params.require(:contact_information).permit(:first_name, :middle_name, :last_name, :alternate_names, :dob, :primary_phone_number, :primary_phone_type, :primary_phone_message, :primary_phone_text, :secondary_phone_number, :secondary_phone_type, :secondary_phone_message, :secondary_phone_text, :tertiary_phone_number, :tertiary_phone_type, :tertiary_phone_message, :tertiary_phone_text, :primary_address, :primary_city, :primary_state, :primary_zip, :secondary_address, :secondary_city, :secondary_state, :secondary_zip, :hopes_data, :future_data, :ok_to_mail_negative_test_result, :email, :other_person_relationship, :other_person_phone, :other_person_ok_to_pass_message, :referral_source, :height, :build, :age, :race, :eye_color, :hair, :other_identifying_marks)
     end
 end

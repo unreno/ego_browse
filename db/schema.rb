@@ -220,7 +220,10 @@ ActiveRecord::Schema.define(version: 20170720170445) do
     t.integer "studyId"
     t.integer "alterId1"
     t.integer "alterId2"
-    t.string  "matchedName", null: false
+    t.string  "matchedName",  null: false
+    t.integer "interviewId1"
+    t.integer "interviewId2"
+    t.integer "userId"
   end
 
   create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -403,6 +406,7 @@ ActiveRecord::Schema.define(version: 20170720170445) do
     t.text     "style",               limit: 65535
     t.text     "javascript",          limit: 4294967295
     t.text     "footer",              limit: 4294967295
+    t.text     "header",              limit: 4294967295
   end
 
   create_table "tbl_migration", primary_key: "version", id: :string, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

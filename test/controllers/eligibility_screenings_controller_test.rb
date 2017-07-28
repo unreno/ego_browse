@@ -4,6 +4,9 @@ class EligibilityScreeningsControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
 		@eligibility_screening = FactoryGirl.create(:eligibility_screening)
+		@params = FactoryGirl.build(:eligibility_screening).attributes
+			.with_indifferent_access
+			.except(:id,:created_at,:updated_at,:data_entry_name)
 	end
 
 	%w{admin}.each do |login|
@@ -74,21 +77,18 @@ class EligibilityScreeningsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should create eligibility_screening with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:eligibility_screening).attributes
-				.except('id','created_at','updated_at')
 			assert_difference('EligibilityScreening.count') do
-				post eligibility_screenings_url, params: { eligibility_screening: params }
+				post eligibility_screenings_url, params: { eligibility_screening: @params }
 			end
-			assert_redirected_to eligibility_screening_url(EligibilityScreening.last)
+			assert_equal assigns(:eligibility_screening).data_entry_name, login
+			assert_redirected_to eligibility_screening_url(assigns(:eligibility_screening))
 		end
 
 		test "should NOT create eligibility_screening with #{login} login if save fails" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:eligibility_screening).attributes
-				.except('id','created_at','updated_at')
 			EligibilityScreening.any_instance.stubs(:create_or_update).returns(false)
 			assert_difference('EligibilityScreening.count',0) do
-				post eligibility_screenings_url, params: { eligibility_screening: params }
+				post eligibility_screenings_url, params: { eligibility_screening: @params }
 			end
 			assert_response :success
 			assert_template :new
@@ -107,10 +107,8 @@ class EligibilityScreeningsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should NOT create eligibility_screening with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:eligibility_screening).attributes
-				.except('id','created_at','updated_at')
 			assert_difference('EligibilityScreening.count',0) do
-				post eligibility_screenings_url, params: { eligibility_screening: params }
+				post eligibility_screenings_url, params: { eligibility_screening: @params }
 			end
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
@@ -128,18 +126,15 @@ class EligibilityScreeningsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should update eligibility_screening with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:eligibility_screening).attributes
-				.except('id','created_at','updated_at')
-			patch eligibility_screening_url(@eligibility_screening), params: { eligibility_screening: params }
+			patch eligibility_screening_url(@eligibility_screening), params: { eligibility_screening: @params }
+			assert_equal assigns(:eligibility_screening).data_entry_name, ", #{login}"
 			assert_redirected_to eligibility_screening_url(@eligibility_screening)
 		end
 	
 		test "should NOT update eligibility_screening with #{login} login if save fails" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:eligibility_screening).attributes
-				.except('id','created_at','updated_at')
 			EligibilityScreening.any_instance.stubs(:create_or_update).returns(false)
-			patch eligibility_screening_url(@eligibility_screening), params: { eligibility_screening: params }
+			patch eligibility_screening_url(@eligibility_screening), params: { eligibility_screening: @params }
 			assert_response :success
 			assert_template :edit
 		end
@@ -157,9 +152,7 @@ class EligibilityScreeningsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should NOT update eligibility_screening with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:eligibility_screening).attributes
-				.except('id','created_at','updated_at')
-			patch eligibility_screening_url(@eligibility_screening), params: { eligibility_screening: params }
+			patch eligibility_screening_url(@eligibility_screening), params: { eligibility_screening: @params }
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
 		end

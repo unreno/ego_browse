@@ -17,17 +17,19 @@ class EligibilityScreeningsController < ApplicationController
 
   # GET /eligibility_screenings/new
   def new
-    @eligibility_screening = EligibilityScreening.new
+    @eligibility_screening = EligibilityScreening.new(data_entry_name: current_user.login)
   end
 
   # GET /eligibility_screenings/1/edit
   def edit
+		@eligibility_screening.data_entry_name += ", #{current_user.login}"
   end
 
   # POST /eligibility_screenings
   # POST /eligibility_screenings.json
   def create
     @eligibility_screening = EligibilityScreening.new(eligibility_screening_params)
+		@eligibility_screening.data_entry_name = current_user.login
 
     respond_to do |format|
       if @eligibility_screening.save
@@ -43,8 +45,10 @@ class EligibilityScreeningsController < ApplicationController
   # PATCH/PUT /eligibility_screenings/1
   # PATCH/PUT /eligibility_screenings/1.json
   def update
+		p = eligibility_screening_params
+		p[:data_entry_name] = @eligibility_screening.data_entry_name.to_s + ", #{current_user.login}"
     respond_to do |format|
-      if @eligibility_screening.update(eligibility_screening_params)
+      if @eligibility_screening.update(p)
         format.html { redirect_to @eligibility_screening, notice: 'Eligibility screening was successfully updated.' }
         format.json { render :show, status: :ok, location: @eligibility_screening }
       else
@@ -72,6 +76,6 @@ class EligibilityScreeningsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def eligibility_screening_params
-      params.require(:eligibility_screening).permit(:how_learned, :how_learned_other, :age, :age_other, :sex, :race, :race_other, :children, :seen_pcp, :marital, :tested_hiv, :tested_hiv_result, :partner_count, :injection_drugs, :partner_injection_drugs, :partner_noninjection_drugs, :partner_hiv_positive, :partner_other_partners, :partner_traded_sex, :partner_man_men, :eligible_q_9_16, :where_live, :where_live_other, :willing_to_refer, :matched_to_ego, :eligible, :name_of_screener, :location_of_screening, :date_of_screening, :time_of_screening, :referred_for_interview, :referred_appointment_date, :referred_appointment_time, :reason_for_refusal, :reason_for_refusal_other, :gender, :data_entry_name, :gender_at_birth)
+      params.require(:eligibility_screening).permit(:how_learned, :how_learned_other, :age, :age_other, :sex, :race, :race_other, :children, :seen_pcp, :marital, :tested_hiv, :tested_hiv_result, :partner_count, :injection_drugs, :partner_injection_drugs, :partner_noninjection_drugs, :partner_hiv_positive, :partner_other_partners, :partner_traded_sex, :partner_man_men, :eligible_q_9_16, :where_live, :where_live_other, :willing_to_refer, :matched_to_ego, :eligible, :name_of_screener, :location_of_screening, :date_of_screening, :time_of_screening, :referred_for_interview, :referred_appointment_date, :referred_appointment_time, :reason_for_refusal, :reason_for_refusal_other, :gender, :gender_at_birth)
     end
 end

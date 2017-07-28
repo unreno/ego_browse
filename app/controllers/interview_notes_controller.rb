@@ -16,17 +16,19 @@ class InterviewNotesController < ApplicationController
 
   # GET /interview_notes/new
   def new
-    @interview_note = InterviewNote.new
+    @interview_note = InterviewNote.new(data_entry_name: current_user.login)
   end
 
   # GET /interview_notes/1/edit
   def edit
+		@interview_note.data_entry_name += ", #{current_user.login}"
   end
 
   # POST /interview_notes
   # POST /interview_notes.json
   def create
     @interview_note = InterviewNote.new(interview_note_params)
+		@interview_note.data_entry_name = current_user.login
 
     respond_to do |format|
       if @interview_note.save
@@ -42,8 +44,10 @@ class InterviewNotesController < ApplicationController
   # PATCH/PUT /interview_notes/1
   # PATCH/PUT /interview_notes/1.json
   def update
+		p = interview_note_params
+		p[:data_entry_name] = @interview_note.data_entry_name.to_s + ", #{current_user.login}"
     respond_to do |format|
-      if @interview_note.update(interview_note_params)
+      if @interview_note.update(p)
         format.html { redirect_to @interview_note, notice: 'Interview note was successfully updated.' }
         format.json { render :show, status: :ok, location: @interview_note }
       else
@@ -71,6 +75,6 @@ class InterviewNotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interview_note_params
-      params.require(:interview_note).permit(:participant_id, :interview_date, :interview_notes, :process_notes, :interviewer, :data_entry_name )
+      params.require(:interview_note).permit(:participant_id, :interview_date, :interview_notes, :process_notes, :interviewer )
     end
 end

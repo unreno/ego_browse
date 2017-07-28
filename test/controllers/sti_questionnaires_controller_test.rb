@@ -4,6 +4,9 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
 		@sti_questionnaire = FactoryGirl.create(:sti_questionnaire)
+		@params = FactoryGirl.build(:sti_questionnaire).attributes
+			.with_indifferent_access
+			.except(:id,:created_at,:updated_at,:data_entry_name)
 	end
 
 	%w{admin}.each do |login|
@@ -83,21 +86,18 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should create sti_questionnaire with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:sti_questionnaire).attributes
-				.except('id','created_at','updated_at')
 			assert_difference('StiQuestionnaire.count') do
-				post sti_questionnaires_url, params: { sti_questionnaire: params }
+				post sti_questionnaires_url, params: { sti_questionnaire: @params }
 			end
-			assert_redirected_to sti_questionnaire_url(StiQuestionnaire.last)
+			assert_equal assigns(:sti_questionnaire).data_entry_name, login
+			assert_redirected_to sti_questionnaire_url(assigns(:sti_questionnaire))
 		end
 	
 		test "should not create sti_questionnaire with #{login} login if save fails" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:sti_questionnaire).attributes
-				.except('id','created_at','updated_at')
 			StiQuestionnaire.any_instance.stubs(:create_or_update).returns(false)
 			assert_difference('StiQuestionnaire.count',0) do
-				post sti_questionnaires_url, params: { sti_questionnaire: params }
+				post sti_questionnaires_url, params: { sti_questionnaire: @params }
 			end
 			assert_response :success
 			assert_template :new
@@ -116,10 +116,8 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should NOT create sti_questionnaire with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:sti_questionnaire).attributes
-				.except('id','created_at','updated_at')
 			assert_difference('StiQuestionnaire.count',0) do
-				post sti_questionnaires_url, params: { sti_questionnaire: params }
+				post sti_questionnaires_url, params: { sti_questionnaire: @params }
 			end
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
@@ -138,18 +136,15 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should update sti_questionnaire with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:sti_questionnaire).attributes
-				.except('id','created_at','updated_at')
-			patch sti_questionnaire_url(@sti_questionnaire), params: { sti_questionnaire: params }
+			patch sti_questionnaire_url(@sti_questionnaire), params: { sti_questionnaire: @params }
+			assert_equal assigns(:sti_questionnaire).data_entry_name, ", #{login}"
 			assert_redirected_to sti_questionnaire_url(@sti_questionnaire)
 		end
 	
 		test "should not update sti_questionnaire with #{login} login if save fails" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:sti_questionnaire).attributes
-				.except('id','created_at','updated_at')
 			StiQuestionnaire.any_instance.stubs(:create_or_update).returns(false)
-			patch sti_questionnaire_url(@sti_questionnaire), params: { sti_questionnaire: params }
+			patch sti_questionnaire_url(@sti_questionnaire), params: { sti_questionnaire: @params }
 			assert_response :success
 			assert_template :edit
 		end
@@ -167,9 +162,7 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should NOT update sti_questionnaire with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:sti_questionnaire).attributes
-				.except('id','created_at','updated_at')
-			patch sti_questionnaire_url(@sti_questionnaire), params: { sti_questionnaire: params }
+			patch sti_questionnaire_url(@sti_questionnaire), params: { sti_questionnaire: @params }
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
 		end

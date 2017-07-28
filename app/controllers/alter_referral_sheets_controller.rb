@@ -24,17 +24,19 @@ class AlterReferralSheetsController < ApplicationController
 
 	# GET /alter_referral_sheets/new
 	def new
-		@alter_referral_sheet = AlterReferralSheet.new
+		@alter_referral_sheet = AlterReferralSheet.new(data_entry_name: current_user.login)
 	end
 
 	# GET /alter_referral_sheets/1/edit
 	def edit
+		@alter_referral_sheet.data_entry_name += ", #{current_user.login}"
 	end
 
 	# POST /alter_referral_sheets
 	# POST /alter_referral_sheets.json
 	def create
 		@alter_referral_sheet = AlterReferralSheet.new(alter_referral_sheet_params)
+		@alter_referral_sheet.data_entry_name = current_user.login
 
 		respond_to do |format|
 			if @alter_referral_sheet.save
@@ -50,8 +52,11 @@ class AlterReferralSheetsController < ApplicationController
 	# PATCH/PUT /alter_referral_sheets/1
 	# PATCH/PUT /alter_referral_sheets/1.json
 	def update
+		p = alter_referral_sheet_params
+		p[:data_entry_name] = @alter_referral_sheet.data_entry_name.to_s + ", #{current_user.login}"
 		respond_to do |format|
-			if @alter_referral_sheet.update(alter_referral_sheet_params)
+			if @alter_referral_sheet.update(p)
+#			if @alter_referral_sheet.update(alter_referral_sheet_params)
 				format.html { redirect_to @alter_referral_sheet, notice: 'Alter referral sheet was successfully updated.' }
 				format.json { render :show, status: :ok, location: @alter_referral_sheet }
 			else
@@ -79,7 +84,7 @@ class AlterReferralSheetsController < ApplicationController
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def alter_referral_sheet_params
-			params.require(:alter_referral_sheet).permit(:ego_id, :data_entry_name,
+			params.require(:alter_referral_sheet).permit(:ego_id,
 				:alter_referrals_attributes => [:id, :plan_to_refer, :name_cell,
 					:date_of_alter_interview, :alter_id,
 					:date_ego_notified, :date_ego_paid, :_destroy ]

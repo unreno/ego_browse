@@ -4,6 +4,9 @@ class ContactInformationsControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
 		@contact_information = FactoryGirl.create(:contact_information)
+		@params = FactoryGirl.build(:contact_information).attributes
+			.with_indifferent_access
+			.except(:id,:created_at,:updated_at,:data_entry_name)
 	end
 
 	%w{admin}.each do |login|
@@ -75,21 +78,18 @@ class ContactInformationsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should create contact_information with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:contact_information).attributes
-				.except('id','created_at','updated_at')
 			assert_difference('ContactInformation.count') do
-				post contact_informations_url, params: { contact_information: params }
+				post contact_informations_url, params: { contact_information: @params }
 			end
-			assert_redirected_to contact_information_url(ContactInformation.last)
+			assert_equal assigns(:contact_information).data_entry_name, login
+			assert_redirected_to contact_information_url(assigns(:contact_information))
 		end
 	
 		test "should not create contact_information with #{login} login if save fails" do
 			create_and_login_as(login)
 			ContactInformation.any_instance.stubs(:create_or_update).returns(false)
-			params = FactoryGirl.build(:contact_information).attributes
-				.except('id','created_at','updated_at')
 			assert_difference('ContactInformation.count',0) do
-				post contact_informations_url, params: { contact_information: params }
+				post contact_informations_url, params: { contact_information: @params }
 			end
 			assert_response :success
 			assert_template :new
@@ -108,10 +108,8 @@ class ContactInformationsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should NOT create contact_information with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:contact_information).attributes
-				.except('id','created_at','updated_at')
 			assert_difference('ContactInformation.count',0) do
-				post contact_informations_url, params: { contact_information: params }
+				post contact_informations_url, params: { contact_information: @params }
 			end
 			assert_not_nil flash[:warn]
 			assert_redirected_to root_url
@@ -129,18 +127,15 @@ class ContactInformationsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should update contact_information with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:contact_information).attributes
-				.except('id','created_at','updated_at')
-			patch contact_information_url(@contact_information), params: { contact_information: params }
+			patch contact_information_url(@contact_information), params: { contact_information: @params }
+			assert_equal assigns(:contact_information).data_entry_name, ", #{login}"
 			assert_redirected_to contact_information_url(@contact_information)
 		end
 	
 		test "should not update contact_information with #{login} login if save fails" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:contact_information).attributes
-				.except('id','created_at','updated_at')
 			ContactInformation.any_instance.stubs(:create_or_update).returns(false)
-			patch contact_information_url(@contact_information), params: { contact_information: params }
+			patch contact_information_url(@contact_information), params: { contact_information: @params }
 			assert_response :success
 			assert_template :edit
 		end
@@ -158,9 +153,7 @@ class ContactInformationsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should NOT update contact_information with #{login} login" do
 			create_and_login_as(login)
-			params = FactoryGirl.build(:contact_information).attributes
-				.except('id','created_at','updated_at')
-			patch contact_information_url(@contact_information), params: { contact_information: params }
+			patch contact_information_url(@contact_information), params: { contact_information: @params }
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
 		end

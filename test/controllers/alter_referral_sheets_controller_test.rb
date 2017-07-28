@@ -4,6 +4,9 @@ class AlterReferralSheetsControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
 		@alter_referral_sheet = FactoryGirl.create(:alter_referral_sheet)
+		@params = FactoryGirl.build(:alter_referral_sheet).attributes
+			.with_indifferent_access
+			.except(:id,:created_at,:updated_at,:alter_referrals_count,:data_entry_name)
 	end
 
 	%w{admin read}.each do |login|
@@ -61,20 +64,18 @@ class AlterReferralSheetsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should create alter_referral_sheet with #{login} login" do
 			create_and_login_as(login)
-			params = AlterReferralSheet.new.attributes.with_indifferent_access
-				.except(:id,:created_at,:updated_at,:alter_referrals_count)
 			assert_difference('AlterReferralSheet.count') do
-				post alter_referral_sheets_url, params: { alter_referral_sheet: 
-					params.update({ ego_id: @alter_referral_sheet.ego_id }) }
+				post alter_referral_sheets_url, params: { alter_referral_sheet: @params }
 			end
-			assert_redirected_to alter_referral_sheet_url(AlterReferralSheet.last)
+			assert_equal assigns(:alter_referral_sheet).data_entry_name, login
+			assert_redirected_to alter_referral_sheet_url(assigns(:alter_referral_sheet))
 		end
 	
 		test "should NOT create alter_referral_sheet with #{login} login if save fails" do
 			create_and_login_as(login)
 			AlterReferralSheet.any_instance.stubs(:create_or_update).returns(false)
 			assert_difference('AlterReferralSheet.count',0) do
-				post alter_referral_sheets_url, params: { alter_referral_sheet: { ego_id: @alter_referral_sheet.ego_id } }
+				post alter_referral_sheets_url, params: { alter_referral_sheet: @params }
 			end
 			assert_response :success
 			assert_template :new
@@ -94,7 +95,7 @@ class AlterReferralSheetsControllerTest < ActionDispatch::IntegrationTest
 		test "should NOT create alter_referral_sheet with #{login} login" do
 			create_and_login_as(login)
 			assert_difference('AlterReferralSheet.count',0) do
-				post alter_referral_sheets_url, params: { alter_referral_sheet: { ego_id: @alter_referral_sheet.ego_id } }
+				post alter_referral_sheets_url, params: { alter_referral_sheet: @params }
 			end
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
@@ -112,14 +113,15 @@ class AlterReferralSheetsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should update alter_referral_sheet with #{login} login" do
 			create_and_login_as(login)
-			patch alter_referral_sheet_url(@alter_referral_sheet), params: { alter_referral_sheet: { ego_id: @alter_referral_sheet.ego_id } }
+			patch alter_referral_sheet_url(@alter_referral_sheet), params: { alter_referral_sheet: @params }
+			assert_equal assigns(:alter_referral_sheet).data_entry_name, ", #{login}"
 			assert_redirected_to alter_referral_sheet_url(@alter_referral_sheet)
 		end
 	
 		test "should NOT update alter_referral_sheet with #{login} login if save fails" do
 			create_and_login_as(login)
 			AlterReferralSheet.any_instance.stubs(:create_or_update).returns(false)
-			patch alter_referral_sheet_url(@alter_referral_sheet), params: { alter_referral_sheet: { ego_id: @alter_referral_sheet.ego_id } }
+			patch alter_referral_sheet_url(@alter_referral_sheet), params: { alter_referral_sheet: @params }
 			assert_response :success
 			assert_template :edit
 		end
@@ -137,7 +139,7 @@ class AlterReferralSheetsControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should NOT update alter_referral_sheet with #{login} login" do
 			create_and_login_as(login)
-			patch alter_referral_sheet_url(@alter_referral_sheet), params: { alter_referral_sheet: { ego_id: @alter_referral_sheet.ego_id } }
+			patch alter_referral_sheet_url(@alter_referral_sheet), params: { alter_referral_sheet: @params }
 			assert_redirected_to root_url
 			assert_not_nil flash[:warn]
 		end
