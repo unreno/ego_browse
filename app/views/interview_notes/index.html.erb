@@ -43,7 +43,13 @@
 				<td><%= interview_note.data_entry_name %></td>
 				<td><%= interview_note.participant_id %></td>
 <% if current_user.present? and current_user.can_read? %>
-				<td><%= interview_note.participant_prefix %></td>
+				<td>
+<% if interview_note.participant_prefix.present? %>
+<%= link_to interview_note.participant_prefix, interview_notes_path(prefix: interview_note.participant_prefix)%>
+<% else %>
+&nbsp;
+<% end %>
+</td>
 				<td><%= interview_note.participant_suffix %></td>
 				<td><%= interview_note.interview_date %></td>
 				<td><%= interview_note.interviewer %></td>

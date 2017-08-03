@@ -7,6 +7,8 @@ class InterviewNotesController < ApplicationController
   # GET /interview_notes.json
   def index
     @interview_notes = InterviewNote.order(:participant_id)
+    @interview_notes = @interview_notes.where(
+			InterviewNote.arel_table[:participant_id].matches(params[:prefix] + "%") ) if params[:prefix].present?
   end
 
   # GET /interview_notes/1
