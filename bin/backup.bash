@@ -9,7 +9,11 @@ mount $mount_point
 
 mkdir -p "$dump_dir"
 
-mysqldump egoweb | gzip > "$dump_dir/$(date '+%Y%m%d%H%M%S').egoweb.sql.gz"
+dumpfile="$(date '+%Y%m%d%H%M%S').egoweb.sql.gz"
+
+mysqldump egoweb | gzip > "$dumpfile"
+
+mv "$dumpfile" "$dump_dir/"
 
 umount $mount_point
 
