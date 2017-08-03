@@ -126,6 +126,37 @@ sudo service ego_browse_passenger start
 
 
 
+###	EGO Web upgrade
+
+Prep remote server to run the latest version of EGO Web straight from their repo.
+```
+git clone https://github.com/qualintitative/egoweb github_egoweb
+cd /var/www
+sudo mv html html.old
+sudo ln -s github_egoweb html
+sudo vi protected/config/main.php	
+*	change egowebpass to actual database password
+*	change encryptionKey to match that used in db
+sudo service apache2 restart
+```
+
+Save your database credentials so you won't be prompted for them
+```
+vi ~/.my.cnf
+* add mysql credentials
+chmod 400 ~/.my.cnf
+```
+
+Download and import the latest EGO Web data dump. Update for the latest EGO Web.
+```
+mount box
+cp "$( ls -1tr box/DOTS\ Global/Data/dbdumps/*.egoweb.sql.gz | tail -n 1 )" ./
+umount box
+mysql -u egowebuser -p egoweb < <(zcat $(ls -1tr *.egoweb.sql.gz | tail -n 1 ) )
+mysql -u egowebuser egoweb < /var/www/ego_browse/egoweb_update.sql
+```
+
+
 ###	EGO Web CSV exports
 
 Download "Export Other Specify Data" from latest version of EgoWeb due to old app issues.
