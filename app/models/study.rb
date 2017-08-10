@@ -35,7 +35,7 @@ end
 class Study < ApplicationRecord
 
 	self.table_name = "study"
-	belongs_to :user, foreign_key: :userId
+	belongs_to :user, foreign_key: :userId, optional: true
 	has_many :alter_lists, foreign_key: :studyId
 	has_many :alter_prompts, foreign_key: :studyId
 	has_many :answer_lists, foreign_key: :studyId

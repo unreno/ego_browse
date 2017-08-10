@@ -1,8 +1,8 @@
 class Note < ApplicationRecord
 
-	belongs_to :interview, foreign_key: :interviewId
-	belongs_to :expression, foreign_key: :expressionId
-	belongs_to :alter, foreign_key: :alterId
+	belongs_to :interview, foreign_key: :interviewId, optional: true
+	belongs_to :expression, foreign_key: :expressionId, optional: true
+	belongs_to :alter, foreign_key: :alterId, optional: true
 
 	after_find :decrypt_encrypted_fields
 

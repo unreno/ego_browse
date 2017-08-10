@@ -108,6 +108,16 @@ mysql -u root egoweb < <(zcat ~/Downloads/20170419153302.egoweb.sql.gz)
 
 
 
+###	Testing
+
+Be advised that this app is built on the database of another.
+There are no migrations for the resources of the other app.
+Therefore, the existing app database must exist and be
+the development database so that its schema can be extracted
+and used for test.
+
+
+
 
 ###	Production start / stop / etc
 

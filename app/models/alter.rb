@@ -1,7 +1,7 @@
 class Alter < ApplicationRecord
 
-	belongs_to :alter_list, foreign_key: :alterListId
-	belongs_to :interview, foreign_key: :interviewId
+	belongs_to :alter_list, foreign_key: :alterListId, optional: true
+	belongs_to :interview, foreign_key: :interviewId, optional: true
 	has_many  :notes, foreign_key: :alterId
 	has_many  :other_specifies, foreign_key: :alterId
 

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
 	self.table_name = "user"
-	belongs_to :study, foreign_key: :userId
+	belongs_to :study, foreign_key: :userId, optional: true
 
 	after_find :decrypt_encrypted_fields
 
