@@ -97,6 +97,7 @@ Decrypt answer's value and otherSpecifyText.
 The value will have been updated to the appropriate question option id,
 HOWEVER, the id in the otherSpecifyText WILL NOT.
 
+```
 #irb(main):024:0> Study.last.answers
 #=> #<ActiveRecord::Associations::CollectionProxy [#<Answer id: 88976, active: nil, questionId: 2844, interviewId: 91, alterId1: nil, alterId2: nil, value: "10751", otherSpecifyText: "10751:test", skipReason: "NONE", studyId: 14, questionType: "EGO_ID", answerType: "MULTIPLE_SELECTION">]>
 #irb(main):024:0> Study.last.answers
@@ -105,6 +106,7 @@ HOWEVER, the id in the otherSpecifyText WILL NOT.
 
 
 mysql -u root egoweb < <(zcat ~/Downloads/20170419153302.egoweb.sql.gz)
+```
 
 
 
@@ -139,7 +141,7 @@ sudo service ego_browse_passenger start
 ###	EGO Web upgrade
 
 Prep remote server to run the latest version of EGO Web straight from their repo.
-```
+```BASH
 git clone https://github.com/qualintitative/egoweb github_egoweb
 cd /var/www
 sudo mv html html.old
@@ -151,19 +153,20 @@ sudo service apache2 restart
 ```
 
 Save your database credentials so you won't be prompted for them
-```
+```BASH
 vi ~/.my.cnf
 * add mysql credentials
 chmod 400 ~/.my.cnf
 ```
 
 Download and import the latest EGO Web data dump. Update for the latest EGO Web.
-```
+
+```BASH
 mount box
 cp "$( ls -1tr box/DOTS\ Global/Data/dbdumps/*.egoweb.sql.gz | tail -n 1 )" ./
 umount box
 mysql -u egowebuser -p egoweb < <(zcat $(ls -1tr *.egoweb.sql.gz | tail -n 1 ) )
-mysql -u egowebuser egoweb < /var/www/ego_browse/egoweb_update.sql
+mysql -u egowebuser -p egoweb < /var/www/ego_browse/egoweb_update.sql
 ```
 
 
