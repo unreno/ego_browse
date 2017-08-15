@@ -165,8 +165,8 @@ Download and import the latest EGO Web data dump. Update for the latest EGO Web.
 mount box
 cp "$( ls -1tr box/DOTS\ Global/Data/dbdumps/*.egoweb.sql.gz | tail -n 1 )" ./
 umount box
-mysql -u egowebuser -p egoweb < <(zcat $(ls -1tr *.egoweb.sql.gz | tail -n 1 ) )
-mysql -u egowebuser -p egoweb < /var/www/ego_browse/egoweb_update.sql
+mysql -u ruby egoweb < <(zcat $(ls -1tr *.egoweb.sql.gz | tail -n 1 ) )
+mysql -u ruby egoweb < /var/www/ego_browse/egoweb_update.sql
 ```
 
 
@@ -178,6 +178,7 @@ Edit survey and Download "Export Ego-Alter Data".
 The answer values for several questions are the same for each answer.
 Change No value to 0 for the following 3 questions.
 SMOKED_EV, CALL911, SABUSERU18GANG
+( this is now done in the egoweb_update.sql script. )
 
 
 
