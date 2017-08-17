@@ -1,0 +1,10 @@
+{
+	"environment": "production",
+	"port": 3000,
+	"daemonize": true,
+	"ssl": true,
+	"ssl_port": 3443,
+	"ssl_certificate": "/home/jakewendt/ego.acs.unr.edu.public.certificate.chained.pem",
+	"ssl_certificate_key": "/home/jakewendt/ego.acs.unr.edu.private.key.pem",
+	"nginx_config_template": "nginx.config.erb"
+}
