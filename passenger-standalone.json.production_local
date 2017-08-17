@@ -4,7 +4,7 @@
 	"daemonize": true,
 	"ssl": true,
 	"ssl_port": 3443,
-	"ssl_certificate": "/home/jakewendt/ego.acs.unr.edu.public.certificate.chained.pem",
-	"ssl_certificate_key": "/home/jakewendt/ego.acs.unr.edu.private.key.pem",
+	"ssl_certificate": "/var/www/dots.public.certificate",
+	"ssl_certificate_key": "/var/www/dots.private.key",
 	"nginx_config_template": "nginx.config.erb"
 }

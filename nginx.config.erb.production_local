@@ -77,7 +77,7 @@ http {
 				#	Doesn't work if I put my settings here?
 
 
-#	After running "openssl dhparam -out /home/jakewendt/dhparams.pem 2048"
+#	After running "sudo openssl dhparam -out /var/www/dhparams.pem 2048"
 
 #	to fix "Weak Diffie-Hellman and the Logjam Attack" https://weakdh.org/
 
@@ -87,7 +87,7 @@ ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA
 
 ssl_prefer_server_ciphers on;
 
-ssl_dhparam /home/jakewendt/dhparams.pem;
+ssl_dhparam /var/www/dhparams.pem;
 
 
 
@@ -113,17 +113,19 @@ ssl_dhparam /home/jakewendt/dhparams.pem;
 
 		server {
 			#	Every block seems to explicitly need a server name.
-			server_name	ego.acs.unr.edu;
+			#server_name	dots;
+			server_name 192.168.44.99;
 			listen 3000;
 			return 301 https://$server_name:3443$request_uri;
 		}
 
-		server{
-			#	Every block seems to explicitly need a server name.
-			server_name 134.197.21.73;
-			listen			 3443;
-			listen			 3000;
-			return				 301 https://ego.acs.unr.edu:3443$request_uri;
-		}
+#		server{
+#			#	Every block seems to explicitly need a server name.
+#			server_name 192.168.44.99;
+#			listen			 3443;
+#			listen			 3000;
+#			#return				 301 https://ego.acs.unr.edu:3443$request_uri;
+#			return				 301 https://192.168.44.99:3443$request_uri;
+#		}
 
 }
