@@ -1,0 +1,10 @@
+{
+	"environment": "development",
+	"port": 3000,
+	"daemonize": true,
+	"ssl": true,
+	"ssl_port": 3443,
+	"ssl_certificate": "/opt/local/apache2/conf/server.crt",
+	"ssl_certificate_key": "/opt/local/apache2/conf/server.key",
+	"nginx_config_template": "nginx.config.erb"
+}
