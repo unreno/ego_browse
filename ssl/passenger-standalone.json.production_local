@@ -4,7 +4,7 @@
 	"daemonize": true,
 	"ssl": true,
 	"ssl_port": 3443,
-	"ssl_certificate": "/var/www/dots.public.certificate",
-	"ssl_certificate_key": "/var/www/dots.private.key",
+	"ssl_certificate": "/etc/apache2/dots.public.certificate",
+	"ssl_certificate_key": "/etc/apache2/dots.private.key",
 	"nginx_config_template": "nginx.config.erb"
 }

@@ -77,7 +77,7 @@ http {
 				#	Doesn't work if I put my settings here?
 
 
-#	After running "sudo openssl dhparam -out /var/www/dhparams.pem 2048"
+#	After running "sudo openssl dhparam -out /etc/apache2/dhparams.pem 2048"
 
 #	to fix "Weak Diffie-Hellman and the Logjam Attack" https://weakdh.org/
 
@@ -87,7 +87,7 @@ ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA
 
 ssl_prefer_server_ciphers on;
 
-ssl_dhparam /var/www/dhparams.pem;
+ssl_dhparam /etc/apache2/dhparams.pem;
 
 
 
