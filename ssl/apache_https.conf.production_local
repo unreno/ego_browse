@@ -43,8 +43,8 @@
 #		SSLCertificateFile	/etc/ssl/certs/ssl-cert-snakeoil.pem
 #		SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
 
-		SSLCertificateFile	/var/www/dots.public.certificate
-		SSLCertificateKeyFile /var/www/dots.private.key
+		SSLCertificateFile	/etc/apache2/dots.public.certificate
+		SSLCertificateKeyFile /etc/apache2/dots.private.key
 
 		#   Server Certificate Chain:
 		#   Point SSLCertificateChainFile at a file containing the
