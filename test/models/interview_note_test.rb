@@ -9,4 +9,11 @@ class InterviewNoteTest < ActiveSupport::TestCase
 		assert !i.valid?
 	end
 
+	test "should limit ars number to 10" do
+		i = FactoryGirl.build( :interview_note, ars_number: "x"*10 )
+		assert i.valid?
+		i = FactoryGirl.build( :interview_note, ars_number: "x"*11 )
+		assert !i.valid?
+	end
+
 end

@@ -1,5 +1,6 @@
 class InterviewNote < ApplicationRecord
 	validates_length_of :interview_notes, maximum: 65500
+	validates_length_of :ars_number, maximum: 10
 
 	def self.attribute_names
 		['participant_prefix','participant_suffix'] + super

@@ -133,6 +133,7 @@ en:
         data_entry_name: Data Entry Person's Name
         interviewer: Interviewer
         participant_id: Participant ID
+        ars_number: ARS Number
         interview_date: Interview Date (mm/dd/yyyy)
         interview_notes: Interview Notes
 #        process_notes: Process Notes

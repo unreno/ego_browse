@@ -38,7 +38,7 @@ class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 			get interview_notes_url
 			assert_nil flash[:warn]
 			assert_response :success
-			assert_select 'th', count: 8
+			assert_select 'th', count: 9
 		end
 	
 		test "should show interview_note with #{login} login" do
