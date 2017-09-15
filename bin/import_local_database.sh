@@ -17,13 +17,13 @@ set -x
 #	chmod 400 ~/.my.cnf
 #
 
-dbdumps="~/dbdumps"
+dbdumps=~/dbdumps
 
 mkdir -p "${dbdumps}"
 mount box
 cp "$( ls -1tr box/DOTS\ Global/Data/dbdumps/*.egoweb.sql.gz | tail -n 1 )" "${dbdumps}/"
 umount box
-mysql -u ruby egoweb < <(zcat $(ls -1tr "${dbdumps}/*.egoweb.sql.gz" | tail -n 1 ) )
+mysql -u ruby egoweb < <(zcat $(ls -1tr "${dbdumps}"/*.egoweb.sql.gz | tail -n 1 ) )
 
 #	update database to match latest version of egoweb requirements
 #
