@@ -38,7 +38,7 @@ class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 			get sti_questionnaires_url
 			assert_nil flash[:warn]
 			assert_response :success
-			assert_select 'th', count: 47
+			assert_select 'th', count: 48
 		end
 
 		test "should show sti_questionnaire with #{login} login" do

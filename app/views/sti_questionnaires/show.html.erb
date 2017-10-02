@@ -220,6 +220,11 @@
 	<%= @sti_questionnaire.stistigma %>
 </p>
 
+<p>
+	<strong><%= t 'activerecord.attributes.sti_questionnaire.female_given' %>:</strong>
+	<%= @sti_questionnaire.female_given %>
+</p>
+
 <% if current_user.present? and current_user.can_update? %>
 <%= link_to 'Edit', edit_sti_questionnaire_path(@sti_questionnaire) %> |
 <% end %>

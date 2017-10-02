@@ -174,3 +174,6 @@ sti_questionnaire:
     "Neither negative or positive (3)": 3
     "Positive (2)": 2
     "Very positive (1)": 1
+  female_given:
+    "Yes (1)": 1
+    "No (0)": 0
