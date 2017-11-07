@@ -159,7 +159,9 @@ vi ~/.my.cnf
 chmod 400 ~/.my.cnf
 ```
 
-Download and import the latest EGO Web data dump. Update for the latest EGO Web.
+Download and import the latest EGO Web data dump.
+Update for the latest EGO Web.
+Correct the 3 survey question / answer values.
 
 ```BASH
 mount box
