@@ -94,3 +94,9 @@ end
 
 gem 'authlogic'
 gem 'rails-controller-testing'
+
+
+#	libv8 / therubyrace install issues
+#	port uninstall libtool
+#	port select gcc none
+#	port install libtool
