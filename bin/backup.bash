@@ -2,6 +2,8 @@
 
 set -x
 
+#{
+
 mount_point="/home/$USER/box"
 dump_dir="$mount_point/DOTS Global/Data/dbdumps"
 
@@ -16,4 +18,6 @@ mysqldump egoweb | gzip > "$dumpfile"
 mv "$dumpfile" "$dump_dir/"
 
 umount $mount_point
+
+#} 1>> $mount_point.log 2>&1 
 
