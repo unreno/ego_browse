@@ -163,11 +163,34 @@ Download and import the latest EGO Web data dump.
 Update for the latest EGO Web.
 Correct the 3 survey question / answer values.
 
+
+Install davfs2 to mount the box drive
+```BASH
+sudo apt install davfs2
+sudo echo "https://dav.box.com/dav /home/USERNAME/box davfs user,rw,noauto 0 0" >> /etc/fstab
+mkdir ~/box
+mkdir ~/.davfs2
+chmod 700 ~/.davfs2
+echo "/home/USERNAME/box boxdchs@people.unr.edu PASSWORD" >> ~/.davfs2/secrets
+chmod 600 ~/.davfs2/secrets 
+sudo gpasswd -a USERNAME davfs2
+mount ~/box
+```
+
+
+Connect to cloud server
+```BASH
+sudo ssh -L 9980:localhost:80 -L 9443:localhost:443 -L 9300:localhost:3000 -L 9344:localhost:3443  -i /Users/jakewendt/.ssh/id_rsa jakewendt@ego.acs.unr.edu
+```
+
+Import database into cloud server
+
 ```BASH
 mount box
-cp "$( ls -1tr box/DOTS\ Global/Data/dbdumps/*.egoweb.sql.gz | tail -n 1 )" ./
+cp "$( ls -1tr box/DOTS\ Global/Data/dbdumps/*.egoweb.sql.gz | tail -n 1 )" ~/dbdumps/
+chmod 400 ~/dbdumps/*
 umount box
-mysql -u ruby egoweb < <(zcat $(ls -1tr *.egoweb.sql.gz | tail -n 1 ) )
+mysql -u ruby egoweb < <(zcat $(ls -1tr ~/dbdumps/*.egoweb.sql.gz | tail -n 1 ) )
 mysql -u ruby egoweb < /var/www/ego_browse/egoweb_update.sql
 ```
 
