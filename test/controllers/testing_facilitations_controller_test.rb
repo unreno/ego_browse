@@ -3,8 +3,8 @@ require 'test_helper'
 class TestingFacilitationsControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
-		@testing_facilitation = FactoryGirl.create(:testing_facilitation)
-		@params = FactoryGirl.build(:testing_facilitation).attributes
+		@testing_facilitation = FactoryBot.create(:testing_facilitation)
+		@params = FactoryBot.build(:testing_facilitation).attributes
 			.with_indifferent_access
 			.except(:id,:created_at,:updated_at,:data_entry_name)
 	end

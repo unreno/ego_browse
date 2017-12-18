@@ -3,8 +3,8 @@ require 'test_helper'
 class ContactInformationsControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
-		@contact_information = FactoryGirl.create(:contact_information)
-		@params = FactoryGirl.build(:contact_information).attributes
+		@contact_information = FactoryBot.create(:contact_information)
+		@params = FactoryBot.build(:contact_information).attributes
 			.with_indifferent_access
 			.except(:id,:created_at,:updated_at,:data_entry_name)
 	end

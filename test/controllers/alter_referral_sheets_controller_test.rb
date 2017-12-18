@@ -3,8 +3,8 @@ require 'test_helper'
 class AlterReferralSheetsControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
-		@alter_referral_sheet = FactoryGirl.create(:alter_referral_sheet)
-		@params = FactoryGirl.build(:alter_referral_sheet).attributes
+		@alter_referral_sheet = FactoryBot.create(:alter_referral_sheet)
+		@params = FactoryBot.build(:alter_referral_sheet).attributes
 			.with_indifferent_access
 			.except(:id,:created_at,:updated_at,:alter_referrals_count,:data_entry_name)
 	end

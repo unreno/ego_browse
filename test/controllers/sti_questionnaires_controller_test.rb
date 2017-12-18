@@ -3,8 +3,8 @@ require 'test_helper'
 class StiQuestionnairesControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
-		@sti_questionnaire = FactoryGirl.create(:sti_questionnaire)
-		@params = FactoryGirl.build(:sti_questionnaire).attributes
+		@sti_questionnaire = FactoryBot.create(:sti_questionnaire)
+		@params = FactoryBot.build(:sti_questionnaire).attributes
 			.with_indifferent_access
 			.except(:id,:created_at,:updated_at,:data_entry_name)
 	end

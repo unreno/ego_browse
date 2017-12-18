@@ -38,21 +38,21 @@ class RailsUsersControllerTest < ActionDispatch::IntegrationTest
 
 		test "should get edit with #{login} login" do
 			create_and_login_as(login)
-			@rails_user = FactoryGirl.create(:rails_user)
+			@rails_user = FactoryBot.create(:rails_user)
 			get edit_rails_user_url(@rails_user)
 			assert_response :success
 		end
 
 		test "should update rails_user with #{login} login" do
 			create_and_login_as(login)
-			@rails_user = FactoryGirl.create(:rails_user)
+			@rails_user = FactoryBot.create(:rails_user)
 			patch rails_user_url(@rails_user), params: { rails_user: { login: 'updated_login' } }
 			assert_redirected_to rails_user_url(@rails_user)
 		end
 
 		test "should not update rails_user with #{login} login if save fails" do
 			create_and_login_as(login)
-			@rails_user = FactoryGirl.create(:rails_user)
+			@rails_user = FactoryBot.create(:rails_user)
 			RailsUser.any_instance.stubs(:create_or_update).returns(false)
 			patch rails_user_url(@rails_user), params: { rails_user: { login: 'updated_login' } }
 			assert_response :success
@@ -61,14 +61,14 @@ class RailsUsersControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should get show with #{login} login" do
 			create_and_login_as(login)
-			@rails_user = FactoryGirl.create(:rails_user)
+			@rails_user = FactoryBot.create(:rails_user)
 			get rails_user_url(@rails_user)
 			assert_response :success
 		end
 	
 		test "should destroy rails_user with #{login} login" do
 			create_and_login_as(login)
-			@rails_user = FactoryGirl.create(:rails_user)
+			@rails_user = FactoryBot.create(:rails_user)
 			assert_difference('RailsUser.count', -1) do
 				delete rails_user_url(@rails_user)
 			end
@@ -104,7 +104,7 @@ class RailsUsersControllerTest < ActionDispatch::IntegrationTest
 
 		test "should NOT get show with #{login} login" do
 			create_and_login_as(login)
-			@rails_user = FactoryGirl.create(:rails_user)
+			@rails_user = FactoryBot.create(:rails_user)
 			get rails_user_url(@rails_user)
 			assert_not_nil flash[:warn]
 			assert_redirected_to root_url
@@ -112,7 +112,7 @@ class RailsUsersControllerTest < ActionDispatch::IntegrationTest
 	
 		test "should NOT destroy rails_user with #{login} login" do
 			create_and_login_as(login)
-			@rails_user = FactoryGirl.create(:rails_user)
+			@rails_user = FactoryBot.create(:rails_user)
 			assert_difference('RailsUser.count', 0) do
 				delete rails_user_url(@rails_user)
 			end

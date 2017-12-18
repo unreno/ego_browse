@@ -3,8 +3,8 @@ require 'test_helper'
 class InterviewNotesControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
-		@interview_note = FactoryGirl.create(:interview_note)
-		@params = FactoryGirl.build(:interview_note).attributes
+		@interview_note = FactoryBot.create(:interview_note)
+		@params = FactoryBot.build(:interview_note).attributes
 			.with_indifferent_access
 			.except(:id,:created_at,:updated_at,:data_entry_name)
 	end

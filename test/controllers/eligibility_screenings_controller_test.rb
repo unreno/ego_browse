@@ -3,8 +3,8 @@ require 'test_helper'
 class EligibilityScreeningsControllerTest < ActionDispatch::IntegrationTest
 
 	setup do
-		@eligibility_screening = FactoryGirl.create(:eligibility_screening)
-		@params = FactoryGirl.build(:eligibility_screening).attributes
+		@eligibility_screening = FactoryBot.create(:eligibility_screening)
+		@params = FactoryBot.build(:eligibility_screening).attributes
 			.with_indifferent_access
 			.except(:id,:created_at,:updated_at,:data_entry_name)
 	end
