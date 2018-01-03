@@ -25,7 +25,7 @@ set -x
 #mkdir -p "${dbdumps}"
 
 mount $HOME/box
-mysql -u ruby egoweb < <(zcat "$( ls -1tr box/DOTS\ Global/Data/dbdumps/*.egoweb.sql.gz | tail -n 1 )" )
+mysql -u ruby egoweb < <(zcat "$( ls -1tr $HOME/box/DOTS\ Global/Data/dbdumps/*.egoweb.sql.gz | tail -n 1 )" )
 umount $HOME/box
 
 
