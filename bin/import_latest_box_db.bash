@@ -24,9 +24,9 @@ set -x
 
 #mkdir -p "${dbdumps}"
 
-mount box
+mount $HOME/box
 mysql -u ruby egoweb < <(zcat "$( ls -1tr box/DOTS\ Global/Data/dbdumps/*.egoweb.sql.gz | tail -n 1 )" )
-umount box
+umount $HOME/box
 
 
 #	update database to match latest version of egoweb requirements
