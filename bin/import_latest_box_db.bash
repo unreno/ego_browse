@@ -9,6 +9,9 @@
 
 set -x
 
+echo "Starting"
+date
+
 #	Save your database credentials so you won't be prompted for them
 #
 #	vi ~/.my.cnf
@@ -28,6 +31,9 @@ umount $HOME/box
 
 #	update database to match latest version of egoweb requirements
 mysql -u ruby egoweb < /var/www/ego_browse/egoweb_update.sql
+
+echo "Done"
+date
 
 } 1>> $HOME/`basename $0`.log 2>&1
 
