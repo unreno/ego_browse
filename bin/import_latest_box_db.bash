@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
+
+#	set this to run every day around 2am.
+
+{
+
 set -x
-
-
 
 #	Save your database credentials so you won't be prompted for them
 #
@@ -17,16 +20,18 @@ set -x
 #	chmod 400 ~/.my.cnf
 #
 
-dbdumps=~/dbdumps
+#dbdumps=~/dbdumps
 
-mkdir -p "${dbdumps}"
+#mkdir -p "${dbdumps}"
+
 mount box
-cp "$( ls -1tr box/DOTS\ Global/Data/dbdumps/*.egoweb.sql.gz | tail -n 1 )" "${dbdumps}/"
+mysql -u ruby egoweb < <(zcat "$( ls -1tr box/DOTS\ Global/Data/dbdumps/*.egoweb.sql.gz | tail -n 1 )" )
 umount box
-mysql -u ruby egoweb < <(zcat $(ls -1tr "${dbdumps}"/*.egoweb.sql.gz | tail -n 1 ) )
+
 
 #	update database to match latest version of egoweb requirements
 #
 #	mysql -u ruby egoweb < /var/www/ego_browse/egoweb_update.sql
 
+} 1>> $HOME/`basename $0`.log 2>&1
 
