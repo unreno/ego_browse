@@ -3,7 +3,7 @@
 
 #	set this to run every day around 2am.
 #
-# * 2 * * * /var/www/ego_browse/bin/import_latest_box_db.bash
+# 0 2 * * * /var/www/ego_browse/bin/import_latest_box_db.bash
 
 {
 
