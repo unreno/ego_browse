@@ -9,7 +9,7 @@ class RailsUserSessionsController < ApplicationController
 	end
 
 	def create
-		@rails_user_session = RailsUserSession.new(rails_user_session_params)
+		@rails_user_session = RailsUserSession.new(rails_user_session_params.to_h)
 		if @rails_user_session.save
 			flash[:notice] = "Login successful!"
 			redirect_back_or_default root_url

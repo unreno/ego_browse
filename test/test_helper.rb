@@ -161,4 +161,4 @@ class ActionDispatch::IntegrationTest
 
 end
 
-require 'mocha/mini_test'
+require 'mocha/minitest'

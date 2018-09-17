@@ -15,12 +15,12 @@ FactoryBot.define do
 	end
 
 	factory :alter_referral_sheet do
-		data_entry_name ""
+		data_entry_name { "" }
 #  ego_id: MyString
 	end
 
 	factory :contact_information do
-		data_entry_name ""
+		data_entry_name { "" }
 #  first_name: MyString
 #  middle_name: MyString
 #  last_name: MyString
@@ -62,7 +62,7 @@ FactoryBot.define do
 	end
 
 	factory :eligibility_screening do
-		data_entry_name ""
+		data_entry_name { "" }
 #  how_learned: yyyyy
 #  how_learned_other: MyString
 #  age: 1
@@ -100,7 +100,7 @@ FactoryBot.define do
 	end
 
 	factory :interview_note do
-		data_entry_name ""
+		data_entry_name { "" }
 #  participant_id: MyString
 #  interview_date: 2016-11-28
 #  interviewer: Me
@@ -113,12 +113,12 @@ FactoryBot.define do
 
 	factory :rails_user do
 		sequence(:login) { |n| "Name #{n}" }
-		password 'alphaV@1!d'
-		password_confirmation 'alphaV@1!d'
+		password { 'alphaV@1!d' }
+		password_confirmation { 'alphaV@1!d' }
 	end
 
 	factory :sti_questionnaire do
-		data_entry_name ""
+		data_entry_name { "" }
 #  date_of_visit: 2017-02-01
 #  participant_id: MyString
 #  staff_person: MyString
@@ -164,7 +164,7 @@ FactoryBot.define do
 	end
 
 	factory :testing_facilitation do
-		data_entry_name ""
+		data_entry_name { "" }
 #  date_of_visit: 2016-11-16
 #  participant_id: MyString
 #  staff_person: MyString
